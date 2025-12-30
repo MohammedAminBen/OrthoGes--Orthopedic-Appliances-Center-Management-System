@@ -1,0 +1,463 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--
+    Microsoft ResX Schema
+
+    Version 2.0
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
+    associated with the data types.
+
+    Example:
+
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+
+    There are any number of "resheader" rows that contain simple
+    name/value pairs.
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
+    mimetype set.
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
+    extensible. For a given mimetype the value must be set accordingly:
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
+    read any of the formats listed below.
+
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label3.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomLeft</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>534, 5</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 46</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>    الشؤون المالية</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1332, 61</value>
+  </data>
+  <data name="gunaChart1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1308, 498</value>
+  </data>
+  <data name="guna2Panel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1314, 507</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="label6.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>924, 5</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>394, 47</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>      معلومات المدخول الشهري</value>
+  </data>
+  <data name="label5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="label5.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>782, 253</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>547, 47</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>      رسم بياني للمداخيل الشهرية للمؤسسة</value>
+  </data>
+  <data name="button1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>237, 828</value>
+  </data>
+  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 50</value>
+  </data>
+  <data name="button1.Text" xml:space="preserve">
+    <value>       شؤون الأساتذة المالية</value>
+  </data>
+  <data name="btnfinEleve.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="btnfinEleve.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnfinEleve.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 828</value>
+  </data>
+  <data name="btnfinEleve.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 50</value>
+  </data>
+  <data name="btnfinEleve.Text" xml:space="preserve">
+    <value>      شؤون التلاميذ المالية</value>
+  </data>
+  <data name="guna2Button3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 122</value>
+  </data>
+  <data name="guna2Button3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 39</value>
+  </data>
+  <data name="guna2Button3.Text" xml:space="preserve">
+    <value>-&gt; تفقد السجل</value>
+  </data>
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 78</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 41</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>دج</value>
+  </data>
+  <data name="guna2PictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAANLSURBVGhD7ZhdSFNhHMaVFhFBgdRNUVR0URR1EUGRwbAp
+        MzenS/NjU9Oz/MI+TPIzbUNtCllGaGBFBoHRRSPQ7SZIKeqi67rIDMnyoohEEyqyf+c9e7ednf3lfOjZ
+        Bp4Hfjd7/b/P8+x8zgRNmjStAE1cToJ4gUaSJ2yjWEEjyVNwuL8rZqzMAuA1mcFrfv5vOAMIYx4bWB9c
+        Qg3URnYBNvxV8JkBo+dRZYSBEonN8veXVQB8mZlYcD7Zg+FHQonEZvn7yyxgHhUGFjLqsYcZqI28Al7T
+        HBaaz9yIBTVSi2UvMDOShRqphbwCPtMYFprPsydFYQZqiL+/zAJmqzCwkPT7DWEGaoi/v6wCROz9vwcL
+        TnANVYdtHg1kFyACb0Z24EG2MHyCO22Mg42ogdooKhBQcBjZOFrIKnC8sHRnagHjvPXQ8+Htl5mFyR9/
+        YGp2Ad5//QndQx7YXVcH6661o0aLobvthvYlnHpSCyQaCpg2Q6Hjd2qhAzJOV8Grd5NceMKb8Wkwl9YA
+        WTPYHFyR1Tc7UUM+2wZc8IJ9jyLXD7YuBUkF2GAuEo5PUW0LjH+bh4/ff0FZvStsjaAvroCtrU2Q2Bdp
+        uqHLCcaaKvjssQZvAMK/kYpogTQ7s4v95v8KAxJaewegvX8w4nM+RxzVkORu48wSWXY0NUCa3b/W0WTn
+        ws96lT/8RAuwRm5+IKUcOHceDlafjfj8Xq8d9t71F1SCaAFDgeOl0HS5SGOvlz2NS/sdIeUITAiNpbDv
+        wkVItZ1B1wj6knLY2Kn8mw8g4Qgw81gAMcjm67udcKjSf3fiQ06lNb0dEWGUIOUIRASQQtCkzw2bnc3c
+        xawvqYDtzY3cxcwPsRTUKcCeOpiZGqhSQF9cjpqpgSoFTKfyoOGYLrok66bqj65Kp7FDwgKKkXXSgpuo
+        TH2y7hONHRIWUIwcqxE1iAY0dkhYQDHyLXp082hAY4eEBRSDfXpfp+Ox1+s7OZDHlKFBF4N9+LXQ8diL
+        vC3OPbXAjSs2NCwG+/ZaScdjr8D7OgELi8Pk0vHYy/+faNO0rAL5jhQ6Hh8Cr3ET+EyP0bAIKfnMfjoa
+        X8LCYqQUV2yhI/ElLCzG4dzatXREkyZNmpQoIeE/Mwd5JGTYc1IAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="guna2PictureBox3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="guna2PictureBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 4</value>
+  </data>
+  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>191, 41</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 28</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>مدخول الاساتذة</value>
+  </data>
+  <data name="lblEnseignants.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblEnseignants.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 78</value>
+  </data>
+  <data name="lblEnseignants.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="guna2Panel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>60, 68</value>
+  </data>
+  <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 78</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 41</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label8.TabIndex" type="System.Int32, mscorlib">
+    <value>87</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>دج</value>
+  </data>
+  <data name="guna2Button2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 122</value>
+  </data>
+  <data name="guna2Button2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 39</value>
+  </data>
+  <data name="guna2Button2.Text" xml:space="preserve">
+    <value>-&gt; تفقد السجل</value>
+  </data>
+  <data name="guna2PictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAALtSURBVGhD7ZU/bxNBFMTdwjdAiggV9tGm8FegsOloaCgo
+        EUFCSODOhICQoAFMT4MQSkocB3obpPCnJhVl0gESQbJNlnunt9Z4d27ZQwrcIY/0k5Pn2fE83+VSW+h/
+        17Be/z6q1z+nr0/fJElztLR0TN+qhkaNhslDLeUWK25RS7nFilvUUm69W1k5PkyS5bTwxfTv4O2w0Tio
+        1AKVVru/0W31N+/pr9WSlG9vbRqhckvY8ue2NjKyRdKZvl1uYfn+4Lp5PbiW/lyRK+GWN4N2RiWWyCtf
+        iSV+V95SyiViy1tKtUTR8pajW6Jz2RRBCqRLFCpvkSVaugTLDpIrZg4g5U89vksLxnDy4Xq2BMsOkitm
+        DrD86E726hb7ubNmJvsfzfjHt4zJ/od0dsvzYUYhcsXMEWCp6e4LMx6PKdPd53NelhVFrpg5AltIvnks
+        3LtxxTzprM7NDuFKsKwocsXMEdhC2W0DZTvnz2bgTG6nI1tgr3fC/Am2UHbPQ1m7gDC7EgdfZ36WFYPW
+        9cXMMeQt0Lu5Cgtc1QW+lHcBuT1wAcZk7/3fWaB74fSM0EywheRRyUojhztdugDLZjNB6/pCEzvMZoIt
+        JMijkhUXpp+ezXkxg2WzmaB1faGJHWYzAUsJ8qjMbif7jyy9bfCbt2AGy2YzQev6QhM7zGaCWywWzGDZ
+        bCZoXV9oYofZTGDlYsAMls1mgtb1haYisHIxsKwYtK4vZo7BLTZ52TLba03z4FKScsZs325mM9fHsmLQ
+        ur6YOQa3mJTHyy+8Wm96PpYVg9b1hSb88NBMcIvJN49e4X56JVwfZqA3NBO0ri80scNsJrjF0Ie4PsxA
+        X2gmaF1faGKH2Uxwi6EPcX2Ygb7QTNC6vtDEDrOZ4BZDH+L6MAN9oZmgdX2hiR1mM8Ethj7E9WEG+kIz
+        Qev6QlMR3GL4wYjrY1kxaF1fzByDW4yVF1wfy4pB6/pi5hjcYqy84PpYVgxad6GFFlron6tW+wXQ1aUD
+        PlCafQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="guna2PictureBox2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="guna2PictureBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 4</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>179, 41</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 28</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>مدخول المؤسسة</value>
+  </data>
+  <data name="lblEcole.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblEcole.Location" type="System.Drawing.Point, System.Drawing">
+    <value>65, 78</value>
+  </data>
+  <data name="guna2Panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>486, 68</value>
+  </data>
+  <data name="label9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 78</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 41</value>
+  </data>
+  <data name="label9.TabIndex" type="System.Int32, mscorlib">
+    <value>86</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>دج</value>
+  </data>
+  <data name="guna2Button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 125</value>
+  </data>
+  <data name="guna2Button1.Text" xml:space="preserve">
+    <value>-&gt; تفقد السجل</value>
+  </data>
+  <data name="guna2PictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="guna2PictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="guna2PictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 4</value>
+  </data>
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>198, 41</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 28</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>المدخول الكلي</value>
+  </data>
+  <data name="lblTotal.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTotal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 78</value>
+  </data>
+  <data name="lblTotal.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="guna2Panel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>906, 68</value>
+  </data>
+  <data name="guna2Panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1332, 890</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1332, 951</value>
+  </data>
+  <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="$this.RightToLeftLayout" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+</root>

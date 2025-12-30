@@ -1,0 +1,694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--
+    Microsoft ResX Schema
+
+    Version 2.0
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
+    associated with the data types.
+
+    Example:
+
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+
+    There are any number of "resheader" rows that contain simple
+    name/value pairs.
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
+    mimetype set.
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
+    extensible. For a given mimetype the value must be set accordingly:
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
+    read any of the formats listed below.
+
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 69</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 33</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>      تصفية القائمة</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblnmbrEleves.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="lblnmbrEleves.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1212, 6</value>
+  </data>
+  <data name="guna2TileButton2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="guna2TileButton2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>615, 9</value>
+  </data>
+  <data name="label4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1007, 9</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 28</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="tbxelevesrecherche.Location" type="System.Drawing.Point, System.Drawing">
+    <value>660, 10</value>
+  </data>
+  <data name="tbxelevesrecherche.Size" type="System.Drawing.Size, System.Drawing">
+    <value>341, 36</value>
+  </data>
+  <data name="cmbxRecherche.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="cmbxRecherche.Items" xml:space="preserve">
+    <value>الاسم و اللقب</value>
+  </data>
+  <data name="cmbxRecherche.Items1" xml:space="preserve">
+    <value>رقم المعرف</value>
+  </data>
+  <data name="cmbxRecherche.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 10</value>
+  </data>
+  <data name="cmbxRecherche.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 36</value>
+  </data>
+  <data name="label5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label5.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopLeft</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>489, 13</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 28</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>    تصفية</value>
+  </data>
+  <data name="cmbxNiveau.Location" type="System.Drawing.Point, System.Drawing">
+    <value>170, 66</value>
+  </data>
+  <data name="cmbxFiliere.Location" type="System.Drawing.Point, System.Drawing">
+    <value>434, 66</value>
+  </data>
+  <data name="btnModifier.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1079, 780</value>
+  </data>
+  <data name="btnModifier.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 52</value>
+  </data>
+  <data name="btnModifier.Text" xml:space="preserve">
+    <value>     تعديل</value>
+  </data>
+  <data name="btnSupprimer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>956, 780</value>
+  </data>
+  <data name="btnSupprimer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 52</value>
+  </data>
+  <data name="btnSupprimer.Text" xml:space="preserve">
+    <value>   حذف</value>
+  </data>
+  <data name="btnDetails.Text" xml:space="preserve">
+    <value>      التفاصيل</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnAjouteraugroup.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnAjouteraugroup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>746, 780</value>
+  </data>
+  <data name="btnAjouteraugroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 52</value>
+  </data>
+  <data name="btnAjouteraugroup.Text" xml:space="preserve">
+    <value>      اضافة الى مجموعة</value>
+  </data>
+  <data name="btnAjouterEleve.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1172, 63</value>
+  </data>
+  <data name="btnAjouterEleve.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 53</value>
+  </data>
+  <data name="btnAjouterEleve.Text" xml:space="preserve">
+    <value>اضافة تلميذ</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAUFAAAAEAIADoZwAAFgAAACgAAABQAAAAoAAAAAEAIAAAAAAAAGQAACMuAAAjLgAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA764AAO+u
+        AAHvrgAR764AMu+uAF3vrgCJ764Ar++uAM3vrgDi764A8e+uAPnvrgD+764A/u+uAPrvrgDx764A4++u
+        AM7vrgCw764Aiu+uAF7vrgAz764AEu+uAAHvrgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AADvrgAA764AA++uACDvrgBW764AlO+uAMfvrgDo764A+e+uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A+u+uAOnvrgDI764Alu+uAFjvrgAh764ABO+u
+        AADvrgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAO+uAADvrgAA764AE++uAFHvrgCh764A3u+uAPvvrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A+++uAN/vrgCj764AU++uABTvrgAA764AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAO+uAADvrgAB764AHu+uAHLvrgDK764A+O+uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD5764AzO+uAHTvrgAg764AAe+u
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO+uAADvrgAA764AGu+uAHfvrgDX764A/e+u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/e+uANnvrgB6764AHO+uAADvrgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO+uAADvrgAA764AC++u
+        AF7vrgDP764A/e+uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP3vrgDR764AYu+uAAzvrgAA764AAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AADvrgAA764AAO+uADDvrgCr764A+O+uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD5764Aru+uADLvrgAB764AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAA764AAO+uAAjvrgBj764A3++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A4e+uAGfvrgAJ764AAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA764AAO+uAADvrgAW764Ak++uAPbvrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A9++u
+        AJfvrgAY764AAO+uAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO+uAADvrgAA764AJu+u
+        ALXvrgD+764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/u+uALnvrgAp764AAO+uAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AADvrgAA764AAO+uADLvrgDJ764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAMzvrgA2764AAO+u
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAA764AAO+uAADvrgA3764A0u+uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uANXvrgA6764AAO+uAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO+uAADvrgAA764AMu+uANLvrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uANXvrgA2764AAO+uAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADvrgAA764AAO+u
+        ACbvrgDI764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/77AG//CzDv/wsw7/8LMO//CzDv/wsw7/8LMO//Cz
+        Dv/wsw7/8LMO//CzDv/wsw7/8LMO//CzDv/wsgv/764B/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AMzvrgAp764AAO+uAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAO+uAADvrgAW764AtO+uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A//G2Gv/54Z///O7K//zu
+        yf/87sn//O7J//zuyf/87sn//O7J//zuyf/87sn//O7J//zuyf/87sn//O7J//ztxP/1zWH/764B/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uALjvrgAY764AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADvrgAA764AB++uAJHvrgD+764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrQD/9ctZ///+/f//////////////////////////////////////////////////////////////
+        //////////////zvzP/wsxD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAJfvrgAI764AAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA764AAO+uAADvrgBi764A9u+u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++tAP/yvjH//PHT///9+v//////////////////////////////
+        ///////////////////////////////////+/Pb/+NyQ/++wBf/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A9++uAGfvrgAA764AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO+u
+        AADvrgAA764AL++uAN3vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAf/xtx3/99V7///+
+        /P///////////////////////////////////////////////////////vrv//XLW//wsQr/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A4O+uADPvrgAA764AAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAA764AAO+uAAvvrgCp764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++tAP/xthz//PLV////////////////////////////////////////////////////
+        ///54J7/768G/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764Aru+u
+        AA3vrgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO+uAADvrgAA764AXe+uAPfvrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/32IX/////////////////////////
+        /////////////////////////ffl//K+M//vrQD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD5764AYu+uAADvrgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA764AAO+u
+        ABrvrgDM764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/760A//K+
+        Mv/++On////////////////////////////////////////////42Yn/764B/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgDQ764AHe+uAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAO+uAADvrgAA764Ade+uAP7vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrQD/760A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/768F//njpv///////////////////////////////////////fPY//G5
+        JP/vrQD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++tAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgB6764AAO+uAAAAAAAAAAAAAAAAAAAAAAAA764AAO+uAB7vrgDU764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A//K/Nf/424z/+eCd//ngnP/54Jz/+eCc//ngnP/54Jz/+eCc//ng
+        nP/54Jz/+eCc//ngnP/54Jz/+eCc//ngnP/54Jz/+eCc//ngnP/535r//O3H/////////////PLW//ni
+        pf/99+X////////////989r/+eCc//ngnP/54Jz/+eCc//ngnP/54Jz/+eCc//ngnP/54Jz/+eCc//ng
+        nP/54Jz/+eCc//ngnP/54Jz/+eCc//ngnP/54Jv/9tJx//C0FP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uANjvrgAh764AAAAAAAAAAAAAAAAAAO+uAADvrgAA764Ab++u
+        AP7vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++tAP/xuSP//PLU////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        //////////////789v/0xUn/76wA//bTc///////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////+NqK/++u
+        Af/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAHXvrgAA764AAAAA
+        AAAAAAAA764AAO+uABLvrgDH764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/760A//TJ
+        Vv///vz/////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////35//XNYv/wsw//+NqJ////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///////////////////87sj/8LMP/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764Ay++uABXvrgAAAAAAAO+uAADvrgAA764ATu+uAPfvrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/99mF//vrv//657L/+uez//rns//657P/+uez//rns//657P/+uez//rn
+        s//657P/+uez//rns//657P/+uez//rns//657P/+uez//rns//657P/+uez//rns//657T/+eGg//fX
+        gP/546j/+ue0//rns//657P/+uez//rns//657P/+uez//rns//657P/+uez//rns//657P/+uez//rn
+        s//657P/+uez//rns//657P/+uez//rns//657P/+uez//vswv/yvjH/760A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD5764AU++uAADvrgAA764AAO+uAALvrgCd764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAv/31n3/8bsn/++vA//vsAX/77AF/++w
+        Bf/vsAX/768D/++uAf/vrgH/764B/++vAv/vsAX/77AF/++wBf/vsAX/77AF/++wBP/vrwL/768C/++v
+        Av/vrwT/77AF/++wBf/vsAb/8LEI/++wBv/vsAX/768E/++vA//vrwP/768E/++wBf/vsAX/77AF/++w
+        Bf/vsAX/77AF/++vBP/vrwT/768E/++vBP/vsAX/77AF/++wBf/vsAX/77AF/++wBf/vrwL/9tFt//PB
+        O//vrQD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgCi764AA++u
+        AADvrgAA764AHu+uANvvrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/768C//fW
+        ff/xuSP/760A/++uAP/vrgD/764A/++uAP/xuCH/9tJw//fVe//31Xn/88NC/++uAf/vrgD/764A/++u
+        AP/vrgD/8LEJ//K7Jv/yvCr/8rsp//CyDv/vrgD/764A/++uAP/vrgD/764A/++uAf/wsxH/8LUX//C1
+        F//wsQr/764A/++uAP/vrgD/764A/++uAP/vrgD/77AH//CzDf/wsw3/8LAH/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++tAP/20Gv/88E7/++tAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAN/vrgAi764AAO+uAADvrgBT764A+u+uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrwL/99Z9//G5I//vrQD/764A/++uAP/vrgD/764A//jdlP//////////////
+        ///98tf/8bcc/++tAP/vrgD/764A/++uAf/31n3//vjp//756v/++ev/+eCd//CxCf/vrgD/764A/++u
+        AP/vrQD/88ND//zvy//989n//fPZ//rkqv/wtRf/764A/++uAP/vrgD/764A//C1F//54qP//O/L//zu
+        yv/65Kn/8bcd/++tAP/vrgD/764A/++uAP/vrgD/760A//bQa//zwTv/760A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/O+uAFjvrgAA764AAO+uAJDvrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++vAv/31n3/8bkj/++tAP/vrgD/764A/++u
+        AP/vrwP/+uSs//////////////////746P/yuyf/760A/++uAP/vrgD/8LEI//vqvf//////////////
+        ///989r/8bYa/++tAP/vrgD/764A/++tAP/42or//////////////////vz1//PCPv/vrQD/764A/++u
+        AP/vrQD/88I+//789f/////////////9+f/0xUj/760A/++uAP/vrgD/764A/++uAP/vrQD/9tBr//PB
+        O//vrQD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764Alu+u
+        AADvrgAQ764AxO+uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/768C//fW
+        ff/xuSP/760A/++uAP/vrgD/764A/++vA//65Kz//////////////////vjo//K7J//vrQD/764A/++u
+        AP/wsQn/++q+//////////////////302//xthr/760A/++uAP/vrgD/760A//jbjv//////////////
+        ///+/Pb/88JB/++tAP/vrgD/764A/++tAP/zwkD//vz2//////////////36//TGS//vrQD/764A/++u
+        AP/vrgD/764A/++tAP/20Gv/88E7/++tAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgDI764AEu+uAC/vrgDm764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrwL/99Z9//G5I//vrQD/764A/++uAP/vrgD/768D//rkrP//////////////
+        ///++Oj/8rsn/++tAP/vrgD/764A//CxCf/76r7//////////////////fTb//G2Gv/vrQD/764A/++u
+        AP/vrQD/+NuO//////////////////789v/zwkH/760A/++uAP/vrgD/760A//PCQP/+/Pb/////////
+        /////fr/9MZL/++tAP/vrgD/764A/++uAP/vrgD/760A//bQa//zwTv/760A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAOnvrgA0764AWO+uAPjvrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++vAv/31n3/8bkj/++tAP/vrgD/764A/++u
+        AP/vrwP/+uSs//////////////////746P/yuyf/760A/++uAP/vrgD/8LEJ//vqvv//////////////
+        ///99Nv/8bYa/++tAP/vrgD/764A/++tAP/4247//////////////////vz2//PCQf/vrQD/764A/++u
+        AP/vrQD/88JA//789v/////////////9+v/0xkv/760A/++uAP/vrgD/764A/++uAP/vrQD/9tBr//PB
+        O//vrQD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A+e+u
+        AF7vrgCD764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/768C//fW
+        ff/xuSP/760A/++uAP/vrgD/764A/++vA//65Kz//////////////////vjo//K7J//vrQD/764A/++u
+        AP/wsQn/++q+//////////////////302//xthr/760A/++uAP/vrgD/760A//jbjv//////////////
+        ///+/Pb/88JB/++tAP/vrgD/764A/++tAP/zwkD//vz2//////////////36//TGS//vrQD/764A/++u
+        AP/vrgD/764A/++tAP/20Gv/88E7/++tAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764Aiu+uAKnvrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrwL/99Z9//G5I//vrQD/764A/++uAP/vrgD/768D//rkrP//////////////
+        ///++Oj/8rsn/++tAP/vrgD/764A//CxCf/76r7//////////////////fTb//G2Gv/vrQD/764A/++u
+        AP/vrQD/+NuO//////////////////789v/zwkH/760A/++uAP/vrgD/760A//PCQP/+/Pb/////////
+        /////fr/9MZL/++tAP/vrgD/764A/++uAP/vrgD/760A//bQa//zwTv/760A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgCw764Ax++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++vAv/31n3/8bkj/++tAP/vrgD/764A/++u
+        AP/vrwP/+uSs//////////////////746P/yuyf/760A/++uAP/vrgD/8LEJ//vqvv//////////////
+        ///99Nv/8bYa/++tAP/vrgD/764A/++tAP/4247//////////////////vz2//PCQf/vrQD/764A/++u
+        AP/vrQD/88JA//789v/////////////9+v/0xkv/760A/++uAP/vrgD/764A/++uAP/vrQD/9tBr//PB
+        O//vrQD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AM7vrgDd764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/768C//fW
+        ff/xuSP/760A/++uAP/vrgD/764A/++vA//65Kz//////////////////vjo//K7J//vrQD/764A/++u
+        AP/wsQn/++q+//////////////////302//xthr/760A/++uAP/vrgD/760A//jbjv//////////////
+        ///+/Pb/88JB/++tAP/vrgD/764A/++tAP/zwkD//vz2//////////////36//TGS//vrQD/764A/++u
+        AP/vrgD/764A/++tAP/20Gv/88E7/++tAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A4++uAOzvrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrwL/99Z9//G5I//vrQD/764A/++uAP/vrgD/768D//rkrP//////////////
+        ///++Oj/8rsn/++tAP/vrgD/764A//CxCf/76r7//////////////////fTb//G2Gv/vrQD/764A/++u
+        AP/vrQD/+NuO//////////////////789v/zwkH/760A/++uAP/vrgD/760A//PCQP/+/Pb/////////
+        /////fr/9MZL/++tAP/vrgD/764A/++uAP/vrgD/760A//bQa//zwTv/760A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgDx764A9e+uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++vAv/31n3/8bkj/++tAP/vrgD/764A/++u
+        AP/vrwP/+uSs//////////////////746P/yuyf/760A/++uAP/vrgD/768D//ngnv//////////////
+        ///767//8LMP/++uAP/vrgD/764A/++tAP/4247//////////////////vz2//PCQf/vrQD/764A/++u
+        AP/vrQD/88JA//789v/////////////9+v/0xkv/760A/++uAP/vrgD/764A/++uAP/vrQD/9tBr//PB
+        O//vrQD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        APrvrgD5764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/768C//fW
+        ff/xuSP/760A/++uAP/vrgD/764A/++vA//65Kz//////////////////vjo//K7J//vrQD/764A/++u
+        AP/vrgD/8bcd//XKWP/1zGD/9ctc//K7Kf/vrgD/764A/++uAP/vrgD/760A//jbjv//////////////
+        ///+/Pb/88JB/++tAP/vrgD/764A/++tAP/zwkD//vz2//////////////36//TGS//vrQD/764A/++u
+        AP/vrgD/764A/++tAP/20Gv/88E7/++tAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/u+uAPnvrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrwL/99Z9//G5I//vrQD/764A/++uAP/vrgD/768D//rkrP//////////////
+        ///++Oj/8rsn/++tAP/vrgD/764A/++uAP/vrgL/8r82//XLWv/zwTz/764E/++uAP/vrgD/764A/++u
+        AP/vrQD/+NuN//////////////////789v/zwkD/760A/++uAP/vrgD/760A//PCQP/+/Pb/////////
+        /////fr/9MZL/++tAP/vrgD/764A/++uAP/vrgD/760A//bQa//zwTv/760A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD+764A9e+uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++vAv/31n3/8bkj/++tAP/vrgD/764A/++u
+        AP/vrwP/+uSs//////////////////746P/yuyf/760A/++uAP/vrgD/760A//K9L//1zWL/8bge//XL
+        XP/zxUb/768F/++tAP/vrQD/760A/++tAP/1zWP//vvy//789////fn//fLW//G6Jv/vrQD/764A/++u
+        AP/vrQD/88JA//789v/////////////9+v/0xkv/760A/++uAP/vrgD/764A/++uAP/vrQD/9tBr//PB
+        O//vrQD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        APrvrgDs764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/768C//fW
+        ff/xuSP/760A/++uAP/vrgD/764A/++vA//65Kz//////////////////vjo//K7J//vrQD/764A/++t
+        AP/vrQD/9c1i//PBPv/vqgD/8rwu//rmr//535n/99R4//TGS//xuSP/77AI/++wB//zxEX/9tJy//XM
+        X//yuyn/764B/++uAP/vrgD/764A/++tAP/zwkD//vz2//////////////36//TGS//vrQD/764A/++u
+        AP/vrgD/764A/++tAP/20Gv/88E7/++tAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A8e+uAN3vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrwL/99Z9//G5I//vrQD/764A/++uAP/vrgD/764B//nhov//////////////
+        ///99uL/8bki/++tAP/vrQD/8bce//fWff/546b/9tR2//PERP/20Gr/8r4z//K8LP/1yln/99iE//ng
+        nv/535v/99Z9//bRb//0yVT/9c9n//G7KP/vrQD/764A/++uAP/vrgD/760A//PCQP/+/Pb/////////
+        /////fr/9MZL/++tAP/vrgD/764A/++uAP/vrgD/760A//bQa//zwTv/760A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgDj764Ax++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++vAv/31n3/8bkj/++tAP/vrgD/764A/++u
+        AP/vrQD/88E9//nipP/65a3/+uWt//bRbf/vrwX/8LIN//XMYP/546b/9tBq//C0Ev/xthr/88E8//G4
+        H//vrgD/760A/++tAP/vrgH/8LIM//K7KP/31Hj/9MpX/++rAP/xuSP/9ctd/++tAP/vrgD/764A/++u
+        AP/vrQD/88JA//789v/////////////9+v/0xkv/760A/++uAP/vrgD/764A/++uAP/vrQD/9tBr//PB
+        O//vrQD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AM3vrgCo764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/768C//fW
+        ff/xuSP/760A/++uAP/vrgD/764A/++uAP/vrgH/88A6//bQav/zwj//768H//PDQf/54J3/99mG//G6
+        Jf/vrQD/764A/++uAP/vrQD/760A/++uAP/vrgD/764A/++uAP/vrgD/76wA//K6KP/1zWP/8LMQ//PE
+        Rf/32IT/8LEM/++uAP/vrgD/764A/++tAP/zwkD//vz2//////////////36//TGS//vrQD/764A/++u
+        AP/vrgD/764A/++tAP/20Gv/88E7/++tAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764Ar++uAILvrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrwL/99Z9//G5I//vrQD/764A/++uAP/vrgD/760A//K/N//42Yj/88VH//fY
+        hf/54aL/+d+a//PCPv/vrwT/760A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/768C//PDQf/1z2f/9cta//fYhP/42on/8LMR/++tAP/vrgD/760A//PCQP/+/Pb/////////
+        /////fr/9MZL/++tAP/vrgD/764A/++uAP/vrgD/760A//bQa//zwTz/76wA/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgCJ764AV++uAPfvrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++vAv/31n3/8bkj/++tAP/vrgD/764A/++u
+        AP/vrQD/9c1i//PESv/uqQD/88JB//jbjP/wsQv/760A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/760A/++vBP/vrgH/8LAJ//bUd//43ZT/8LUX/++t
+        AP/vrQD/88JA//789v/////////////9+v/0xkv/760A/++uAP/vrgD/764A/++uAP/vrQD/9tNz//ro
+        tf/31Hj/8bgf/++tAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A+e+u
+        AF3vrgAu764A5e+uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/768C//fW
+        ff/xuSP/760A/++uAP/vrgD/764A/++tAP/zwDr/99mG//PCQP/32IP/88JB/++tAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/768F//bQav/54J3/8bgf/++sAP/zwkD//vz2//////////////36//TGS//vrQD/764A/++u
+        AP/vrgD/764A/++tAP/21Hf///////778//zwTv/760A/++wB//wsAj/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgDo764AM++uAA/vrgDC764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrwL/99Z9//G5I//vrQD/764A/++uAP/vrgD/764A/++uAv/zwT3/9tBs//PD
+        Qf/vrwP/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764C//XLXP/54qP/8bol//PAO//++/T/////////
+        /////fj/9MVH/++tAP/vrgD/764A/++uAP/vrgD/760A//bUd////////fbj//G5JP/wsQz/+NuM//ja
+        iv/wsQr/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAMfvrgAS764AAO+uAI7vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++vAv/31n3/8bkj/++tAP/vrgD/764A/++u
+        AP/vrgD/764A/++tAP/vrQD/760A/++uAP/vrwP/8LEL//CxCv/vrwL/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764B//TH
+        T//546b/88RF//jbjv/76rz/++m6//jemP/xthj/764A/++uAP/vrgD/764A/++uAP/vrQD/9tR3////
+        /////fn/+uSq//njpv///vv///35//fXgP/vsAf/764A/++uAP/vrgD/764A/++uAP/vrgD/764AlO+u
+        AADvrgAA764AUe+uAPrvrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/768C//fW
+        ff/xuSP/760A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/760A//K+MP/76r3/+ui2//G5
+        JP/vrQD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/760A//PDQ//546b/9c5j//bQaf/1y1z/8LMS/++tAP/vrgD/764A/++u
+        AP/vrgD/764A/++tAP/20W//+eKl//zvy////v3//////////////////vfn//K/Nv/vrQD/764A/++u
+        AP/vrgD/764A/++uAPvvrgBX764AAO+uAADvrgAd764A2u+uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrwL/99Z9//G5I//vrQD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrQD/88I////89//++u7/8r0v/++tAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/760A/++t
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/760A//TGSv/32Yb/8LUX//PD
+        Qf/0yVX/764A/++uAP/vrgD/764A/++uAP/vrgD/760A//bQa//yvzv/8LUV//jelv///vv///////76
+        7v/20Wz/77AG/++uAP/vrgD/764A/++uAP/vrgD/764A3u+uACHvrgAA764AAO+uAALvrgCb764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++vAv/31n3/8bkj/++tAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++tAP/xuB7/+N2U//fYhP/wtRb/764A/++uAP/vrgD/764A/++u
+        AP/vrQD/760A//C0Ev/0xkr/88A3/++wB//vrQD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrQD/8rwu//TIU//vrAD/8bYb//XOZP/vrgH/764A/++uAP/vrgD/764A/++uAP/vrQD/9tJx//bR
+        bf/vrwX/8LIP//rmsP//////+eCd/++uA//vrQD/760A/++uAP/vrgD/764A/++uAP/vrgCh764AA++u
+        AADvrgAA764AAO+uAEzvrgD2764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/768C//fW
+        ff/xuSP/760A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++tAP/yvjT/8bYc/++t
+        AP/vrgD/764A/++uAP/vrQD/764B//G4IP/20W//++3H///9+P/++e3/+uSq//THT//wsxD/760A/++t
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/wsgz/9c5l//TJVP/2z2n/8r81/++tAP/vrgD/764A/++u
+        AP/vrgD/764A/++tAP/31Hj///34//fUef/vrQD/9MVJ///9+P/989n/99iE//fYhP/0xUn/764A/++u
+        AP/vrgD/764A+O+uAFHvrgAA764AAAAAAADvrgAA764AEe+uAMXvrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/99V5//K8Lf/vrQD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/760A//K/NP/xtxz/760A/++uAP/vrgD/77AF//K/Nf/42oz//fTc///+/f//////////////
+        //////////z3//vsxP/20Gv/8bce/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/wsQz/8r0u//G3
+        Hv/vrgH/764A/++uAP/vrgD/764A/++uAP/vrgD/76wA//fZhv///////fXh//G5I//xthr//fTd////
+        //////////////jckP/vrQD/764A/++uAP/vrgDJ764AFO+uAAAAAAAAAAAAAO+uAADvrgAA764AbO+u
+        AP7vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++tAP/0xEf/99eA//G5I//xthf/8bYY//G2
+        GP/xthj/8bYY//G2GP/xthj/8bYY//G2GP/xtRb/9MVI//O+Mf/xtRb/8bYY//G1Ff/0x07//vjo////
+        /////////////////////////////////////////////////v/76r7/8rol//G2F//xthj/8bYY//G2
+        GP/xthj/8bYY//G2F//wtRX/8LUW//G2GP/xtRf/8LQU//C1Fv/xthj/8bUX//C0FP/zw0L//fPY////
+        ///++/P/88A4//C0E//98tf/////////////////+NyQ/++tAP/vrgD/764A/++uAHLvrgAA764AAAAA
+        AAAAAAAAAAAAAO+uAADvrgAc764A0++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++v
+        BP/0xkz/99eB//fXgv/314L/99eC//fXgv/314L/99eC//fXgv/314L/99eC//fXgf/535z/+NyQ//fX
+        gf/314L/99aA//njp////v3///////////////////////////////////////////////////////74
+        6f/42oz/99eB//fXgv/314L/99eC//fXgv/314L/99eC//fXgv/314L/99eB//nfnP/88dP/+uez//fW
+        gP/54Jz//PLV//767v////////////zy1f/xthn/8r0v//756/////7//vz2//79+v/32ov/760A/++u
+        AP/vrgDW764AIO+uAAAAAAAAAAAAAAAAAAAAAAAA764AAO+uAADvrgBy764A/u+uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++tAP/vrwT/77AG/++wBv/vsAb/77AG/++wBv/vsAb/77AG/++w
+        Bv/vsAb/768E//LBOf/xuSH/768E/++wBv/vrwL/9MdP///9+v//////////////////////////////
+        /////////////////////////PHT//C2GP/vsAX/77AG/++wBv/vsAb/77AG/++wBv/vsAb/77AG/++w
+        Bv/vrgH/9MZM///9+f/88M7/8bcc//G4Hv/657T///76/////v/99uL/9cpZ/++tAP/314H///////rn
+        tP/zwkD/88JA//G5I//vrgD/764A/u+uAHfvrgAA764AAAAAAAAAAAAAAAAAAAAAAAAAAAAA764AAO+u
+        ABnvrgDK764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrQD/8r80//G3HP/vrQD/760A/++tAP/1y1v///77////
+        ///////////////////////////////////////////////////989r/8bgh/++tAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/760A//K9Mf/768H//////////v/43ZP/8LEN//CyDv/0xUj/9cpY//G6
+        J//vrQL/9MdQ//746f//////9c1k/++rAP/vrQD/760A/++uAP/vrgDO764AHO+uAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAADvrgAA764AAO+uAFrvrgD3764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++tAP/yvzT/8bcc/++t
+        AP/xuCH/99Z///313//////////////////////////////////////////////////////////////+
+        /P/77MP/9cpZ//CyDv/vrQD/764A/++uAP/vrgD/764A/++tAP/yvjP//fLX///////////////////+
+        +//65a7/88RE//C1F//wsxH/8rws//fXgP/++On////////////768D/8bkj/++uAP/vrgD/764A+O+u
+        AF/vrgAA764AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADvrgAA764ACu+uAKbvrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/760A//K/Nf/zwTv/9tR2//3z2f////7/////////////////////////////////////////
+        /////////////////////////////////////fj/++q7//TJVP/wsw7/764A/++uAP/vrgD/760A//G5
+        If/87cb////////////++u7//fPZ///+/f/+/PX//fTb//zy1f/++ev////+////////////////////
+        ///535n/768E/++uAP/vrgCr764AC++uAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO+u
+        AADvrgAA764ALe+uANvvrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/8bcd//jbjv/++/L/////////////////////////
+        /////////////////////////////////////////////////////////////////////////fPb//TG
+        Sv/vrgD/764A/++uAP/vrgD/760A//K/Nf/99Nv//fbj//XKWP/xtx7/99Z///778/////////////76
+        7//54qT/99iE//757f///////PDR//PBPf/vrgD/764A3u+uADHvrgAA764AAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAO+uAADvrgAA764AX++uAPXvrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/8LEL//TG
+        Tf/66Lb//vz2////////////////////////////////////////////////////////////////////
+        /////////vjo//jckv/yvS7/768D/++uAP/vrgD/764A/++uAP/vrgD/760A//PDQf/zwT3/760A/++t
+        AP/xuCP//fbk////////////+uWt/++wBv/vrgL/9tFu//vqvP/yvTD/760A/++uAPbvrgBk764AAO+u
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO+uAADvrgAG764Aju+u
+        AP7vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/760A//CyDP/0yVT/++q9///9+P//////////////////////////////
+        /////////////////////////vns//nfmf/yvjP/764D/++tAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/760A/++tAP/vrgD/760A//K9Lv/++ez////////////535n/764A/++uAP/vsAf/8LQS/++u
+        AP/vrgD+764Ak++uAAfvrgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAO+uAADvrgAU764AsO+uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++tAP/wsw//9ctb//vs
+        w////fr//////////////////////////////////vrv//nhof/zwDn/768E/++tAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/8LQS//XKWP/20W3/99eA//TG
+        TP/vrgD/764A/++uAP/vrgD/764A/++uALXvrgAW764AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA764AAO+uAADvrgAk764Axe+uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrQD/8LQS//XNYv/87sn///77/////////////vvy//rjqP/zwj//768G/++t
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/760A/++tAP/vrQD/760A/++uAP/vrgD/764A/++uAP/vrgDJ764AJ++uAADvrgAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA764AAO+u
+        AADvrgAv764Az++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/760A//C1Ff/20Gr//O7L//rm
+        sP/zxEb/77AI/++tAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A0u+u
+        ADPvrgAA764AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAA764AAO+uAADvrgA0764Az++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++tAP/wtBP/8LEL/++tAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uANLvrgA3764AAO+uAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA764AAO+uAADvrgAv764Axu+u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgDJ764AM++uAADvrgAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA764AAO+uAADvrgAj764Ase+uAP3vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD+764Ate+uACbvrgAA764AAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA764AAO+uAADvrgAU764Aju+uAPXvrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A9u+u
+        AJLvrgAW764AAO+uAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO+u
+        AADvrgAH764AXu+uANzvrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAN7vrgBi764AB++uAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAO+uAADvrgAA764ALO+uAKbvrgD2764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAPfvrgCq764AL++uAADvrgAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO+uAADvrgAA764ACu+u
+        AFrvrgDL764A/O+uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP3vrgDN764AXe+uAAvvrgAA764AAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAADvrgAA764AAO+uABjvrgBy764A1O+uAP3vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP3vrgDW764Ade+u
+        ABnvrgAA764AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA764AAO+uAADvrgAc764AbO+u
+        AMbvrgD3764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        APfvrgDI764Ab++uAB3vrgAA764AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAO+uAADvrgAA764AEe+uAEzvrgCb764A2++uAPrvrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A+u+uANzvrgCd764ATu+uABLvrgAA764AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA764AAO+uAAPvrgAd764AUe+u
+        AI/vrgDD764A5e+uAPjvrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++uAP/vrgD/764A/++u
+        AP/vrgD/764A/++uAPjvrgDm764AxO+uAJDvrgBT764AHu+uAAPvrgAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAADvrgAA764AAe+uAA/vrgAu764AV++uAILvrgCp764Ax++uAN3vrgDs764A9e+u
+        APnvrgD5764A9e+uAO3vrgDe764AyO+uAKnvrgCD764AWO+uAC/vrgAP764AAe+uAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////+AAAH////wAA////wAAA
+        A////wAA////AAAAAP///wAA///4AAAAAB///wAA///wAAAAAA///wAA///AAAAAAAP//wAA//+AAAAA
+        AAD//wAA//4AAAAAAAB//wAA//wAAAAAAAA//wAA//gAAAAAAAAf/wAA//AAAAAAAAAP/wAA/+AAAAAA
+        AAAH/wAA/8AAAAAAAAAD/wAA/4AAAAAAAAAB/wAA/wAAAAAAAAAA/wAA/gAAAAAAAAAAfwAA/gAAAAAA
+        AAAAfwAA/AAAAAAAAAAAPwAA+AAAAAAAAAAAHwAA+AAAAAAAAAAAHwAA8AAAAAAAAAAADwAA8AAAAAAA
+        AAAADwAA4AAAAAAAAAAABwAA4AAAAAAAAAAABwAAwAAAAAAAAAAAAwAAwAAAAAAAAAAAAwAAgAAAAAAA
+        AAAAAQAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAQAAgAAAAAAA
+        AAAAAQAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAQAAwAAAAAAAAAAAAwAAwAAAAAAAAAAAAwAA4AAAAAAA
+        AAAABwAA4AAAAAAAAAAABwAA8AAAAAAAAAAADwAA8AAAAAAAAAAADwAA+AAAAAAAAAAAHwAA+AAAAAAA
+        AAAAHwAA/AAAAAAAAAAAPwAA/gAAAAAAAAAAfwAA/gAAAAAAAAAAfwAA/wAAAAAAAAAA/wAA/4AAAAAA
+        AAAB/wAA/8AAAAAAAAAD/wAA/+AAAAAAAAAH/wAA//AAAAAAAAAP/wAA//gAAAAAAAAf/wAA//wAAAAA
+        AAA//wAA//4AAAAAAAB//wAA//+AAAAAAAH//wAA///AAAAAAAP//wAA///wAAAAAA///wAA///8AAAA
+        AD///wAA////AAAAAP///wAA////wAAAA////wAA////+AAAH////wAA
+</value>
+  </data>
+  <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="$this.RightToLeftLayout" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+</root>
