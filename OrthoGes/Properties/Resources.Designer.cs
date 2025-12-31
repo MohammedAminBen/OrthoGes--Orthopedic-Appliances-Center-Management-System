@@ -393,6 +393,16 @@ namespace OrthoGes.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_edit_property_321 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-edit-property-321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_electric_wheelchair_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-electric-wheelchair-48", resourceCulture);
@@ -533,6 +543,26 @@ namespace OrthoGes.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_save_322 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-save-322", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_save_323 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-save-323", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_search_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-search-32", resourceCulture);
@@ -553,9 +583,29 @@ namespace OrthoGes.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_signing_a_document_481 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-signing-a-document-481", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_user_menu_male_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-user-menu-male-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_user_menu_male_321 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-user-menu-male-321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -676,6 +726,16 @@ namespace OrthoGes.Properties {
         internal static System.Drawing.Bitmap stamped1 {
             get {
                 object obj = ResourceManager.GetObject("stamped1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap stamped2 {
+            get {
+                object obj = ResourceManager.GetObject("stamped2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

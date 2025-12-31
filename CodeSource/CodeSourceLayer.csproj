@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accord.cs" />
     <Compile Include="Assurée.cs" />
     <Compile Include="Bon_Livraison.cs" />
     <Compile Include="Devis.cs" />

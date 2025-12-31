@@ -2,7 +2,7 @@
 
 namespace OrthoGes
 {
-    partial class FormCreationFacture
+    partial class FormFactureDetails
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,7 @@ namespace OrthoGes
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreationFacture));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFactureDetails));
             this.lblInscription = new System.Windows.Forms.Label();
             this.gbxAssure = new Guna.UI2.WinForms.Guna2GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,8 +45,6 @@ namespace OrthoGes
             this.label13 = new System.Windows.Forms.Label();
             this.tbxNomAssure = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbxPrenomAssure = new Guna.UI2.WinForms.Guna2TextBox();
-            this.dgvDesignation = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dgvProduits = new Guna.UI2.WinForms.Guna2DataGridView();
             this.gbxpatient = new Guna.UI2.WinForms.Guna2GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbxCentrePayeurPatient = new Guna.UI2.WinForms.Guna2TextBox();
@@ -102,8 +94,6 @@ namespace OrthoGes
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.gbxAssure.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDesignation)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduits)).BeginInit();
             this.gbxpatient.SuspendLayout();
             this.gbxContact.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
@@ -121,11 +111,11 @@ namespace OrthoGes
             this.lblInscription.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInscription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(94)))));
             this.lblInscription.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.lblInscription.Location = new System.Drawing.Point(11, 5);
+            this.lblInscription.Location = new System.Drawing.Point(12, 7);
             this.lblInscription.Name = "lblInscription";
-            this.lblInscription.Size = new System.Drawing.Size(113, 38);
+            this.lblInscription.Size = new System.Drawing.Size(178, 38);
             this.lblInscription.TabIndex = 20;
-            this.lblInscription.Text = "Facture";
+            this.lblInscription.Text = "Facture N° : ";
             // 
             // gbxAssure
             // 
@@ -148,7 +138,7 @@ namespace OrthoGes
             this.gbxAssure.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
             this.gbxAssure.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxAssure.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(94)))));
-            this.gbxAssure.Location = new System.Drawing.Point(11, 412);
+            this.gbxAssure.Location = new System.Drawing.Point(12, 414);
             this.gbxAssure.Name = "gbxAssure";
             this.gbxAssure.Size = new System.Drawing.Size(766, 277);
             this.gbxAssure.TabIndex = 22;
@@ -185,6 +175,7 @@ namespace OrthoGes
             this.tbxCentrePayeurAssure.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxCentrePayeurAssure.Name = "tbxCentrePayeurAssure";
             this.tbxCentrePayeurAssure.PlaceholderText = "";
+            this.tbxCentrePayeurAssure.ReadOnly = true;
             this.tbxCentrePayeurAssure.SelectedText = "";
             this.tbxCentrePayeurAssure.Size = new System.Drawing.Size(256, 37);
             this.tbxCentrePayeurAssure.TabIndex = 78;
@@ -208,6 +199,7 @@ namespace OrthoGes
             this.tbxDateNaiAssure.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxDateNaiAssure.Name = "tbxDateNaiAssure";
             this.tbxDateNaiAssure.PlaceholderText = "";
+            this.tbxDateNaiAssure.ReadOnly = true;
             this.tbxDateNaiAssure.SelectedText = "";
             this.tbxDateNaiAssure.Size = new System.Drawing.Size(256, 37);
             this.tbxDateNaiAssure.TabIndex = 76;
@@ -243,6 +235,7 @@ namespace OrthoGes
             this.tbxCaisseAssure.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxCaisseAssure.Name = "tbxCaisseAssure";
             this.tbxCaisseAssure.PlaceholderText = "";
+            this.tbxCaisseAssure.ReadOnly = true;
             this.tbxCaisseAssure.SelectedText = "";
             this.tbxCaisseAssure.Size = new System.Drawing.Size(256, 37);
             this.tbxCaisseAssure.TabIndex = 73;
@@ -278,6 +271,7 @@ namespace OrthoGes
             this.tbxNumAssAssure.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxNumAssAssure.Name = "tbxNumAssAssure";
             this.tbxNumAssAssure.PlaceholderText = "";
+            this.tbxNumAssAssure.ReadOnly = true;
             this.tbxNumAssAssure.SelectedText = "";
             this.tbxNumAssAssure.Size = new System.Drawing.Size(256, 37);
             this.tbxNumAssAssure.TabIndex = 15;
@@ -337,6 +331,7 @@ namespace OrthoGes
             this.tbxNomAssure.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxNomAssure.Name = "tbxNomAssure";
             this.tbxNomAssure.PlaceholderText = "";
+            this.tbxNomAssure.ReadOnly = true;
             this.tbxNomAssure.SelectedText = "";
             this.tbxNomAssure.Size = new System.Drawing.Size(256, 37);
             this.tbxNomAssure.TabIndex = 3;
@@ -360,129 +355,10 @@ namespace OrthoGes
             this.tbxPrenomAssure.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxPrenomAssure.Name = "tbxPrenomAssure";
             this.tbxPrenomAssure.PlaceholderText = "";
+            this.tbxPrenomAssure.ReadOnly = true;
             this.tbxPrenomAssure.SelectedText = "";
             this.tbxPrenomAssure.Size = new System.Drawing.Size(256, 37);
             this.tbxPrenomAssure.TabIndex = 4;
-            // 
-            // dgvDesignation
-            // 
-            this.dgvDesignation.AllowUserToAddRows = false;
-            this.dgvDesignation.AllowUserToDeleteRows = false;
-            this.dgvDesignation.AllowUserToOrderColumns = true;
-            this.dgvDesignation.AllowUserToResizeColumns = false;
-            this.dgvDesignation.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvDesignation.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDesignation.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvDesignation.ColumnHeadersHeight = 4;
-            this.dgvDesignation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDesignation.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvDesignation.GridColor = System.Drawing.Color.White;
-            this.dgvDesignation.Location = new System.Drawing.Point(287, 115);
-            this.dgvDesignation.Name = "dgvDesignation";
-            this.dgvDesignation.ReadOnly = true;
-            this.dgvDesignation.RowHeadersVisible = false;
-            this.dgvDesignation.RowHeadersWidth = 51;
-            this.dgvDesignation.RowTemplate.Height = 24;
-            this.dgvDesignation.Size = new System.Drawing.Size(464, 192);
-            this.dgvDesignation.TabIndex = 93;
-            this.dgvDesignation.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvDesignation.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvDesignation.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvDesignation.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvDesignation.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvDesignation.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvDesignation.ThemeStyle.GridColor = System.Drawing.Color.White;
-            this.dgvDesignation.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dgvDesignation.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvDesignation.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDesignation.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvDesignation.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvDesignation.ThemeStyle.HeaderStyle.Height = 4;
-            this.dgvDesignation.ThemeStyle.ReadOnly = true;
-            this.dgvDesignation.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvDesignation.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvDesignation.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDesignation.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(94)))));
-            this.dgvDesignation.ThemeStyle.RowsStyle.Height = 24;
-            this.dgvDesignation.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvDesignation.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvDesignation.Visible = false;
-            this.dgvDesignation.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDesignation_CellContentDoubleClick_1);
-            // 
-            // dgvProduits
-            // 
-            this.dgvProduits.AllowUserToAddRows = false;
-            this.dgvProduits.AllowUserToDeleteRows = false;
-            this.dgvProduits.AllowUserToOrderColumns = true;
-            this.dgvProduits.AllowUserToResizeColumns = false;
-            this.dgvProduits.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvProduits.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProduits.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvProduits.ColumnHeadersHeight = 4;
-            this.dgvProduits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProduits.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvProduits.GridColor = System.Drawing.Color.White;
-            this.dgvProduits.Location = new System.Drawing.Point(16, 115);
-            this.dgvProduits.Name = "dgvProduits";
-            this.dgvProduits.ReadOnly = true;
-            this.dgvProduits.RowHeadersVisible = false;
-            this.dgvProduits.RowHeadersWidth = 51;
-            this.dgvProduits.RowTemplate.Height = 24;
-            this.dgvProduits.Size = new System.Drawing.Size(256, 192);
-            this.dgvProduits.TabIndex = 92;
-            this.dgvProduits.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvProduits.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvProduits.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvProduits.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvProduits.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvProduits.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvProduits.ThemeStyle.GridColor = System.Drawing.Color.White;
-            this.dgvProduits.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dgvProduits.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvProduits.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvProduits.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvProduits.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvProduits.ThemeStyle.HeaderStyle.Height = 4;
-            this.dgvProduits.ThemeStyle.ReadOnly = true;
-            this.dgvProduits.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvProduits.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvProduits.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvProduits.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(94)))));
-            this.dgvProduits.ThemeStyle.RowsStyle.Height = 24;
-            this.dgvProduits.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvProduits.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvProduits.Visible = false;
-            this.dgvProduits.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduits_CellContentDoubleClick);
             // 
             // gbxpatient
             // 
@@ -505,9 +381,9 @@ namespace OrthoGes
             this.gbxpatient.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
             this.gbxpatient.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxpatient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(94)))));
-            this.gbxpatient.Location = new System.Drawing.Point(11, 54);
+            this.gbxpatient.Location = new System.Drawing.Point(12, 56);
             this.gbxpatient.Name = "gbxpatient";
-            this.gbxpatient.Size = new System.Drawing.Size(766, 197);
+            this.gbxpatient.Size = new System.Drawing.Size(766, 200);
             this.gbxpatient.TabIndex = 21;
             this.gbxpatient.Text = "Informations Générales";
             // 
@@ -542,6 +418,7 @@ namespace OrthoGes
             this.tbxCentrePayeurPatient.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxCentrePayeurPatient.Name = "tbxCentrePayeurPatient";
             this.tbxCentrePayeurPatient.PlaceholderText = "";
+            this.tbxCentrePayeurPatient.ReadOnly = true;
             this.tbxCentrePayeurPatient.SelectedText = "";
             this.tbxCentrePayeurPatient.Size = new System.Drawing.Size(256, 37);
             this.tbxCentrePayeurPatient.TabIndex = 76;
@@ -565,6 +442,7 @@ namespace OrthoGes
             this.tbxDateNaiPatient.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxDateNaiPatient.Name = "tbxDateNaiPatient";
             this.tbxDateNaiPatient.PlaceholderText = "";
+            this.tbxDateNaiPatient.ReadOnly = true;
             this.tbxDateNaiPatient.SelectedText = "";
             this.tbxDateNaiPatient.Size = new System.Drawing.Size(256, 37);
             this.tbxDateNaiPatient.TabIndex = 74;
@@ -600,6 +478,7 @@ namespace OrthoGes
             this.tbxCaissePatient.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxCaissePatient.Name = "tbxCaissePatient";
             this.tbxCaissePatient.PlaceholderText = "";
+            this.tbxCaissePatient.ReadOnly = true;
             this.tbxCaissePatient.SelectedText = "";
             this.tbxCaissePatient.Size = new System.Drawing.Size(256, 37);
             this.tbxCaissePatient.TabIndex = 73;
@@ -636,6 +515,7 @@ namespace OrthoGes
             this.tbxNumAssPatient.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxNumAssPatient.Name = "tbxNumAssPatient";
             this.tbxNumAssPatient.PlaceholderText = "";
+            this.tbxNumAssPatient.ReadOnly = true;
             this.tbxNumAssPatient.SelectedText = "";
             this.tbxNumAssPatient.Size = new System.Drawing.Size(256, 37);
             this.tbxNumAssPatient.TabIndex = 15;
@@ -696,6 +576,7 @@ namespace OrthoGes
             this.tbxNomPatient.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxNomPatient.Name = "tbxNomPatient";
             this.tbxNomPatient.PlaceholderText = "";
+            this.tbxNomPatient.ReadOnly = true;
             this.tbxNomPatient.SelectedText = "";
             this.tbxNomPatient.Size = new System.Drawing.Size(256, 37);
             this.tbxNomPatient.TabIndex = 3;
@@ -719,6 +600,7 @@ namespace OrthoGes
             this.tbxPrenomPatient.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxPrenomPatient.Name = "tbxPrenomPatient";
             this.tbxPrenomPatient.PlaceholderText = "";
+            this.tbxPrenomPatient.ReadOnly = true;
             this.tbxPrenomPatient.SelectedText = "";
             this.tbxPrenomPatient.Size = new System.Drawing.Size(256, 37);
             this.tbxPrenomPatient.TabIndex = 4;
@@ -738,7 +620,7 @@ namespace OrthoGes
             this.gbxContact.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
             this.gbxContact.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxContact.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(94)))));
-            this.gbxContact.Location = new System.Drawing.Point(11, 257);
+            this.gbxContact.Location = new System.Drawing.Point(12, 262);
             this.gbxContact.Name = "gbxContact";
             this.gbxContact.Size = new System.Drawing.Size(766, 149);
             this.gbxContact.TabIndex = 23;
@@ -787,6 +669,7 @@ namespace OrthoGes
             this.tbxCommune.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxCommune.Name = "tbxCommune";
             this.tbxCommune.PlaceholderText = "";
+            this.tbxCommune.ReadOnly = true;
             this.tbxCommune.SelectedText = "";
             this.tbxCommune.Size = new System.Drawing.Size(158, 44);
             this.tbxCommune.TabIndex = 16;
@@ -810,6 +693,7 @@ namespace OrthoGes
             this.tbxWilaya.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxWilaya.Name = "tbxWilaya";
             this.tbxWilaya.PlaceholderText = "";
+            this.tbxWilaya.ReadOnly = true;
             this.tbxWilaya.SelectedText = "";
             this.tbxWilaya.Size = new System.Drawing.Size(158, 44);
             this.tbxWilaya.TabIndex = 15;
@@ -833,6 +717,7 @@ namespace OrthoGes
             this.tbxadresse.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxadresse.Name = "tbxadresse";
             this.tbxadresse.PlaceholderText = "";
+            this.tbxadresse.ReadOnly = true;
             this.tbxadresse.SelectedText = "";
             this.tbxadresse.Size = new System.Drawing.Size(409, 44);
             this.tbxadresse.TabIndex = 14;
@@ -854,8 +739,6 @@ namespace OrthoGes
             this.guna2GroupBox1.BackColor = System.Drawing.Color.White;
             this.guna2GroupBox1.BorderColor = System.Drawing.Color.GhostWhite;
             this.guna2GroupBox1.BorderRadius = 7;
-            this.guna2GroupBox1.Controls.Add(this.dgvDesignation);
-            this.guna2GroupBox1.Controls.Add(this.dgvProduits);
             this.guna2GroupBox1.Controls.Add(this.label19);
             this.guna2GroupBox1.Controls.Add(this.tbxTotale);
             this.guna2GroupBox1.Controls.Add(this.label18);
@@ -878,7 +761,7 @@ namespace OrthoGes
             this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
             this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(94)))));
-            this.guna2GroupBox1.Location = new System.Drawing.Point(11, 699);
+            this.guna2GroupBox1.Location = new System.Drawing.Point(12, 701);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
             this.guna2GroupBox1.Size = new System.Drawing.Size(766, 345);
             this.guna2GroupBox1.TabIndex = 24;
@@ -915,6 +798,7 @@ namespace OrthoGes
             this.tbxTotale.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxTotale.Name = "tbxTotale";
             this.tbxTotale.PlaceholderText = "";
+            this.tbxTotale.ReadOnly = true;
             this.tbxTotale.SelectedText = "";
             this.tbxTotale.Size = new System.Drawing.Size(256, 37);
             this.tbxTotale.TabIndex = 86;
@@ -950,10 +834,10 @@ namespace OrthoGes
             this.tbxTVAMontant.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxTVAMontant.Name = "tbxTVAMontant";
             this.tbxTVAMontant.PlaceholderText = "";
+            this.tbxTVAMontant.ReadOnly = true;
             this.tbxTVAMontant.SelectedText = "";
             this.tbxTVAMontant.Size = new System.Drawing.Size(256, 37);
             this.tbxTVAMontant.TabIndex = 84;
-            this.tbxTVAMontant.TextChanged += new System.EventHandler(this.tbxTVAMontant_TextChanged);
             // 
             // label17
             // 
@@ -986,10 +870,10 @@ namespace OrthoGes
             this.tbxMontant.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxMontant.Name = "tbxMontant";
             this.tbxMontant.PlaceholderText = "";
+            this.tbxMontant.ReadOnly = true;
             this.tbxMontant.SelectedText = "";
             this.tbxMontant.Size = new System.Drawing.Size(256, 37);
             this.tbxMontant.TabIndex = 82;
-            this.tbxMontant.TextChanged += new System.EventHandler(this.tbxMontant_TextChanged);
             // 
             // label8
             // 
@@ -1022,10 +906,10 @@ namespace OrthoGes
             this.tbxTVA.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxTVA.Name = "tbxTVA";
             this.tbxTVA.PlaceholderText = "";
+            this.tbxTVA.ReadOnly = true;
             this.tbxTVA.SelectedText = "";
             this.tbxTVA.Size = new System.Drawing.Size(80, 37);
             this.tbxTVA.TabIndex = 80;
-            this.tbxTVA.TextChanged += new System.EventHandler(this.tbxTVA_TextChanged);
             // 
             // label4
             // 
@@ -1058,6 +942,7 @@ namespace OrthoGes
             this.tbxPUHT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxPUHT.Name = "tbxPUHT";
             this.tbxPUHT.PlaceholderText = "";
+            this.tbxPUHT.ReadOnly = true;
             this.tbxPUHT.SelectedText = "";
             this.tbxPUHT.Size = new System.Drawing.Size(256, 37);
             this.tbxPUHT.TabIndex = 78;
@@ -1081,10 +966,10 @@ namespace OrthoGes
             this.tbxDesignation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxDesignation.Name = "tbxDesignation";
             this.tbxDesignation.PlaceholderText = "";
+            this.tbxDesignation.ReadOnly = true;
             this.tbxDesignation.SelectedText = "";
             this.tbxDesignation.Size = new System.Drawing.Size(464, 37);
             this.tbxDesignation.TabIndex = 76;
-            this.tbxDesignation.TextChanged += new System.EventHandler(this.tbxDesignation_TextChanged);
             // 
             // label6
             // 
@@ -1117,10 +1002,10 @@ namespace OrthoGes
             this.tbxQuantity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxQuantity.Name = "tbxQuantity";
             this.tbxQuantity.PlaceholderText = "";
+            this.tbxQuantity.ReadOnly = true;
             this.tbxQuantity.SelectedText = "";
             this.tbxQuantity.Size = new System.Drawing.Size(80, 37);
             this.tbxQuantity.TabIndex = 73;
-            this.tbxQuantity.TextChanged += new System.EventHandler(this.tbxQuantity_TextChanged);
             // 
             // label9
             // 
@@ -1165,14 +1050,15 @@ namespace OrthoGes
             this.tbxReference.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxReference.Name = "tbxReference";
             this.tbxReference.PlaceholderText = "";
+            this.tbxReference.ReadOnly = true;
             this.tbxReference.SelectedText = "";
             this.tbxReference.Size = new System.Drawing.Size(256, 37);
             this.tbxReference.TabIndex = 3;
-            this.tbxReference.TextChanged += new System.EventHandler(this.tbxReference_TextChanged);
             // 
             // cbxPayement
             // 
             this.cbxPayement.AutoSize = true;
+            this.cbxPayement.Enabled = false;
             this.cbxPayement.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxPayement.ForeColor = System.Drawing.Color.Black;
             this.cbxPayement.Location = new System.Drawing.Point(20, 275);
@@ -1185,6 +1071,7 @@ namespace OrthoGes
             // cbxCheck
             // 
             this.cbxCheck.AutoSize = true;
+            this.cbxCheck.Enabled = false;
             this.cbxCheck.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCheck.ForeColor = System.Drawing.Color.Black;
             this.cbxCheck.Location = new System.Drawing.Point(20, 239);
@@ -1199,20 +1086,20 @@ namespace OrthoGes
             this.btnAnnuler.BackColor = System.Drawing.Color.White;
             this.btnAnnuler.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
             this.btnAnnuler.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnnuler.Location = new System.Drawing.Point(643, 1047);
+            this.btnAnnuler.Location = new System.Drawing.Point(644, 1049);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(133, 46);
             this.btnAnnuler.TabIndex = 26;
-            this.btnAnnuler.Text = "Annuler";
+            this.btnAnnuler.Text = "Fermer";
             this.btnAnnuler.UseVisualStyleBackColor = false;
             this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 1094);
+            this.panel1.Location = new System.Drawing.Point(0, 1095);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 10);
+            this.panel1.Size = new System.Drawing.Size(783, 10);
             this.panel1.TabIndex = 27;
             // 
             // lblD
@@ -1221,7 +1108,7 @@ namespace OrthoGes
             this.lblD.BackColor = System.Drawing.Color.Transparent;
             this.lblD.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblD.ForeColor = System.Drawing.Color.Black;
-            this.lblD.Location = new System.Drawing.Point(219, 1057);
+            this.lblD.Location = new System.Drawing.Point(217, 1058);
             this.lblD.Name = "lblD";
             this.lblD.Size = new System.Drawing.Size(60, 25);
             this.lblD.TabIndex = 91;
@@ -1242,10 +1129,11 @@ namespace OrthoGes
             this.tbxDate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbxDate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxDate.Location = new System.Drawing.Point(288, 1050);
+            this.tbxDate.Location = new System.Drawing.Point(285, 1051);
             this.tbxDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbxDate.Name = "tbxDate";
             this.tbxDate.PlaceholderText = "";
+            this.tbxDate.ReadOnly = true;
             this.tbxDate.SelectedText = "";
             this.tbxDate.Size = new System.Drawing.Size(182, 41);
             this.tbxDate.TabIndex = 90;
@@ -1257,14 +1145,13 @@ namespace OrthoGes
             this.btnEnregistrer.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnregistrer.Image = global::OrthoGes.Properties.Resources.icons8_print_48;
             this.btnEnregistrer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEnregistrer.Location = new System.Drawing.Point(477, 1048);
+            this.btnEnregistrer.Location = new System.Drawing.Point(478, 1049);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(159, 46);
-            this.btnEnregistrer.TabIndex = 25;
+            this.btnEnregistrer.TabIndex = 92;
             this.btnEnregistrer.Text = "     Imprimer";
             this.btnEnregistrer.UseCompatibleTextRendering = true;
             this.btnEnregistrer.UseVisualStyleBackColor = false;
-            this.btnEnregistrer.Click += new System.EventHandler(this.btnEnregistrer_Click);
             // 
             // pictureBox2
             // 
@@ -1310,16 +1197,16 @@ namespace OrthoGes
             this.pictureBox4.TabIndex = 11;
             this.pictureBox4.TabStop = false;
             // 
-            // FormCreationFacture
+            // FormFactureDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.GhostWhite;
-            this.ClientSize = new System.Drawing.Size(805, 924);
+            this.ClientSize = new System.Drawing.Size(804, 924);
+            this.Controls.Add(this.btnEnregistrer);
             this.Controls.Add(this.lblD);
             this.Controls.Add(this.tbxDate);
-            this.Controls.Add(this.btnEnregistrer);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.gbxContact);
@@ -1330,14 +1217,12 @@ namespace OrthoGes
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "FormCreationFacture";
+            this.Name = "FormFactureDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Creation Facture";
             this.Load += new System.EventHandler(this.FormCreationDevis_Load);
             this.gbxAssure.ResumeLayout(false);
             this.gbxAssure.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDesignation)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProduits)).EndInit();
             this.gbxpatient.ResumeLayout(false);
             this.gbxpatient.PerformLayout();
             this.gbxContact.ResumeLayout(false);
@@ -1409,14 +1294,12 @@ namespace OrthoGes
         private Guna.UI2.WinForms.Guna2TextBox tbxTVA;
         private System.Windows.Forms.Label label19;
         private Guna.UI2.WinForms.Guna2TextBox tbxTotale;
-        private System.Windows.Forms.Button btnEnregistrer;
         private System.Windows.Forms.Button btnAnnuler;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblD;
         private Guna.UI2.WinForms.Guna2TextBox tbxDate;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvDesignation;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvProduits;
         private System.Windows.Forms.CheckBox cbxCheck;
         private System.Windows.Forms.CheckBox cbxPayement;
+        private System.Windows.Forms.Button btnEnregistrer;
     }
 }

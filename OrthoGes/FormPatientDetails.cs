@@ -44,14 +44,21 @@ namespace OrthoGes
             lblC.Visible = true;
             gbxAssure.Visible = false;
             lblTitle.Location = new Point(495, 344);
-            dgvDocuments.Location= new Point(6, 390);
-            btnFermer.Location = new Point(1026, 824);
-            btnModifer.Location = new Point(877, 824);
-            btnSupprimer.Location = new Point(728, 824);
-            btnCreationDevis.Location = new Point(567, 824);
-            btnCreationFacture.Location = new Point(392, 824);
-            btnCreationBonLiv.Location = new Point(138, 824);
-            this.Size = new Size(1195, 935);
+            dgvDocuments.Location= new Point(5, 395);
+            btnFermer.Location = new Point(1021, 1215);
+            btnModifer.Location = new Point(874, 1215);
+            btnSupprimer.Location = new Point(725, 1215);
+            btnCreationDevis.Location = new Point(564, 1215);
+            btnCreationFacture.Location = new Point(389, 1215);
+            btnCreationBonLiv.Location = new Point(135, 1215);
+            this.dgvAccord.Location = new System.Drawing.Point(5, 844);
+            this.label5.Location = new System.Drawing.Point(507, 786);
+            this.btnCreerAccord.Location = new System.Drawing.Point(980, 785);
+            this.pictureBox3.Location = new System.Drawing.Point(626, 783);
+
+
+
+            this.Size = new Size(1195, 955);
         }
         private void LoadData()
         {
@@ -173,6 +180,51 @@ namespace OrthoGes
         {
             LoadData();
             FillDgvDocumentsWithData();
+            FillDgvAccordWithData();
+        }
+
+        private void FillDgvAccordWithData()
+        {
+            DataTable dt = Accord.GetAllByPatient(Numero_Patient);
+            if (dt.Rows.Count == 0) { return; }
+            DataView dv = dt.DefaultView;
+            dgvAccord.DataSource = dv;
+
+            dgvAccord.Columns[1].Visible = false;
+            dgvAccord.Columns[2].HeaderText = "Référence";
+            dgvAccord.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvAccord.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvAccord.Columns[2].Width = 130;
+
+            dgvAccord.Columns[3].HeaderText = "Désignation";
+            dgvAccord.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            //dgvAccord.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvAccord.Columns[3].Width = 230;
+
+            dgvAccord.Columns[4].HeaderText = "Quantité";
+            dgvAccord.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvAccord.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvAccord.Columns[4].Width = 100;
+
+            dgvAccord.Columns[5].HeaderText = "Mésure";
+            dgvAccord.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvAccord.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvAccord.Columns[5].Width = 130;
+
+            dgvAccord.Columns[6].HeaderText = "Date d'accord";
+            dgvAccord.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvAccord.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvAccord.Columns[6].Width = 100;
+
+            dgvAccord.Columns[7].HeaderText = "etat d'accord";
+            dgvAccord.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvAccord.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvAccord.Columns[7].Width = 130;
+
+            dgvAccord.Columns[8].HeaderText = "délai";
+            dgvAccord.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvAccord.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvAccord.Columns[8].Width = 70;
         }
 
         private void FillDgvDocumentsWithData()
@@ -239,10 +291,6 @@ namespace OrthoGes
             dgvDocuments.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvDocuments.Columns[11].Width = 100;
 
-
-
-
-
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -281,6 +329,12 @@ namespace OrthoGes
                 MessageBox.Show("Patient supprimé avec succès.");
                 this.Close();
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            FormCreationAccord frmAccord = new FormCreationAccord(Numero_Patient);
+            frmAccord.ShowDialog();
         }
 
 

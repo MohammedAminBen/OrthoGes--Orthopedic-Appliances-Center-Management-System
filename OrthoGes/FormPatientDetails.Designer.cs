@@ -31,6 +31,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPatientDetails));
             this.lblNumPatient = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -83,6 +86,13 @@
             this.lblNometPrenomAssure = new System.Windows.Forms.Label();
             this.btnFermer = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dgvDocuments = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.clmn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvAccord = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnCreerAccord = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnCreationBonLiv = new System.Windows.Forms.Button();
             this.btnCreationFacture = new System.Windows.Forms.Button();
             this.btnCreationDevis = new System.Windows.Forms.Button();
@@ -90,14 +100,14 @@
             this.btnSupprimer = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.dgvDocuments = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.clmn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxPatient.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbxAssure.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocuments)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAccord)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNumPatient
@@ -275,7 +285,7 @@
             this.gbxPatient.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
             this.gbxPatient.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxPatient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(94)))));
-            this.gbxPatient.Location = new System.Drawing.Point(26, 49);
+            this.gbxPatient.Location = new System.Drawing.Point(16, 52);
             this.gbxPatient.Name = "gbxPatient";
             this.gbxPatient.Size = new System.Drawing.Size(1132, 242);
             this.gbxPatient.TabIndex = 24;
@@ -420,7 +430,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI Black", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(94)))));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Location = new System.Drawing.Point(24, 6);
+            this.label1.Location = new System.Drawing.Point(14, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(347, 43);
             this.label1.TabIndex = 0;
@@ -458,7 +468,7 @@
             this.gbxAssure.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
             this.gbxAssure.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxAssure.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(94)))));
-            this.gbxAssure.Location = new System.Drawing.Point(25, 304);
+            this.gbxAssure.Location = new System.Drawing.Point(15, 307);
             this.gbxAssure.Name = "gbxAssure";
             this.gbxAssure.Size = new System.Drawing.Size(1133, 289);
             this.gbxAssure.TabIndex = 36;
@@ -744,7 +754,7 @@
             this.btnFermer.BackColor = System.Drawing.Color.White;
             this.btnFermer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
             this.btnFermer.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFermer.Location = new System.Drawing.Point(1026, 1072);
+            this.btnFermer.Location = new System.Drawing.Point(1021, 1467);
             this.btnFermer.Name = "btnFermer";
             this.btnFermer.Size = new System.Drawing.Size(133, 48);
             this.btnFermer.TabIndex = 41;
@@ -754,121 +764,10 @@
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 1122);
+            this.panel1.Location = new System.Drawing.Point(0, 1517);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1165, 10);
+            this.panel1.Size = new System.Drawing.Size(1157, 10);
             this.panel1.TabIndex = 42;
-            // 
-            // btnCreationBonLiv
-            // 
-            this.btnCreationBonLiv.BackColor = System.Drawing.Color.White;
-            this.btnCreationBonLiv.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
-            this.btnCreationBonLiv.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnCreationBonLiv.ForeColor = System.Drawing.Color.Black;
-            this.btnCreationBonLiv.Image = global::OrthoGes.Properties.Resources.icons8_receipt_48;
-            this.btnCreationBonLiv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreationBonLiv.Location = new System.Drawing.Point(138, 1072);
-            this.btnCreationBonLiv.Name = "btnCreationBonLiv";
-            this.btnCreationBonLiv.Size = new System.Drawing.Size(248, 50);
-            this.btnCreationBonLiv.TabIndex = 45;
-            this.btnCreationBonLiv.Text = "       Créer bon de livraison";
-            this.btnCreationBonLiv.UseCompatibleTextRendering = true;
-            this.btnCreationBonLiv.UseVisualStyleBackColor = false;
-            this.btnCreationBonLiv.Click += new System.EventHandler(this.btnCreationBonLiv_Click);
-            // 
-            // btnCreationFacture
-            // 
-            this.btnCreationFacture.BackColor = System.Drawing.Color.White;
-            this.btnCreationFacture.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
-            this.btnCreationFacture.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnCreationFacture.ForeColor = System.Drawing.Color.Black;
-            this.btnCreationFacture.Image = global::OrthoGes.Properties.Resources.icons8_create_order_48;
-            this.btnCreationFacture.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreationFacture.Location = new System.Drawing.Point(392, 1072);
-            this.btnCreationFacture.Name = "btnCreationFacture";
-            this.btnCreationFacture.Size = new System.Drawing.Size(169, 50);
-            this.btnCreationFacture.TabIndex = 44;
-            this.btnCreationFacture.Text = "        Créer facture";
-            this.btnCreationFacture.UseCompatibleTextRendering = true;
-            this.btnCreationFacture.UseVisualStyleBackColor = false;
-            this.btnCreationFacture.Click += new System.EventHandler(this.btnCreationFacture_Click);
-            // 
-            // btnCreationDevis
-            // 
-            this.btnCreationDevis.BackColor = System.Drawing.Color.White;
-            this.btnCreationDevis.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
-            this.btnCreationDevis.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnCreationDevis.ForeColor = System.Drawing.Color.Black;
-            this.btnCreationDevis.Image = global::OrthoGes.Properties.Resources.icons8_new_copy_48__1_;
-            this.btnCreationDevis.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreationDevis.Location = new System.Drawing.Point(567, 1072);
-            this.btnCreationDevis.Name = "btnCreationDevis";
-            this.btnCreationDevis.Size = new System.Drawing.Size(155, 50);
-            this.btnCreationDevis.TabIndex = 43;
-            this.btnCreationDevis.Text = "        Créer devis";
-            this.btnCreationDevis.UseCompatibleTextRendering = true;
-            this.btnCreationDevis.UseVisualStyleBackColor = false;
-            this.btnCreationDevis.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnModifer
-            // 
-            this.btnModifer.BackColor = System.Drawing.Color.White;
-            this.btnModifer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
-            this.btnModifer.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnModifer.ForeColor = System.Drawing.Color.Black;
-            this.btnModifer.Image = global::OrthoGes.Properties.Resources.icons8_registration_32;
-            this.btnModifer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModifer.Location = new System.Drawing.Point(877, 1072);
-            this.btnModifer.Name = "btnModifer";
-            this.btnModifer.Size = new System.Drawing.Size(143, 50);
-            this.btnModifer.TabIndex = 40;
-            this.btnModifer.Text = "     Modifier";
-            this.btnModifer.UseCompatibleTextRendering = true;
-            this.btnModifer.UseVisualStyleBackColor = false;
-            this.btnModifer.Click += new System.EventHandler(this.btnModifer_Click);
-            // 
-            // btnSupprimer
-            // 
-            this.btnSupprimer.BackColor = System.Drawing.Color.White;
-            this.btnSupprimer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
-            this.btnSupprimer.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnSupprimer.ForeColor = System.Drawing.Color.Black;
-            this.btnSupprimer.Image = global::OrthoGes.Properties.Resources.icons8_delete_32;
-            this.btnSupprimer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSupprimer.Location = new System.Drawing.Point(728, 1072);
-            this.btnSupprimer.Name = "btnSupprimer";
-            this.btnSupprimer.Size = new System.Drawing.Size(143, 50);
-            this.btnSupprimer.TabIndex = 39;
-            this.btnSupprimer.Text = "     Supprimer";
-            this.btnSupprimer.UseCompatibleTextRendering = true;
-            this.btnSupprimer.UseVisualStyleBackColor = false;
-            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::OrthoGes.Properties.Resources.patient;
-            this.pictureBox2.Location = new System.Drawing.Point(361, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(52, 38);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 32;
-            this.pictureBox2.TabStop = false;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.BackColor = System.Drawing.Color.GhostWhite;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Black", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(94)))));
-            this.lblTitle.Image = global::OrthoGes.Properties.Resources.icons8_documents_48;
-            this.lblTitle.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.lblTitle.Location = new System.Drawing.Point(495, 598);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(210, 43);
-            this.lblTitle.TabIndex = 11;
-            this.lblTitle.Text = "Documents      ";
-            this.lblTitle.UseCompatibleTextRendering = true;
             // 
             // dgvDocuments
             // 
@@ -896,13 +795,13 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvDocuments.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDocuments.GridColor = System.Drawing.Color.Gainsboro;
-            this.dgvDocuments.Location = new System.Drawing.Point(8, 644);
+            this.dgvDocuments.Location = new System.Drawing.Point(9, 647);
             this.dgvDocuments.Name = "dgvDocuments";
             this.dgvDocuments.ReadOnly = true;
             this.dgvDocuments.RowHeadersVisible = false;
             this.dgvDocuments.RowHeadersWidth = 51;
             this.dgvDocuments.RowTemplate.Height = 50;
-            this.dgvDocuments.Size = new System.Drawing.Size(1150, 422);
+            this.dgvDocuments.Size = new System.Drawing.Size(1145, 374);
             this.dgvDocuments.TabIndex = 46;
             this.dgvDocuments.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvDocuments.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -936,13 +835,236 @@
             this.clmn1.ReadOnly = true;
             this.clmn1.Width = 10;
             // 
+            // dgvAccord
+            // 
+            this.dgvAccord.AllowUserToAddRows = false;
+            this.dgvAccord.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvAccord.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.GhostWhite;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAccord.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvAccord.ColumnHeadersHeight = 40;
+            this.dgvAccord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvAccord.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAccord.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvAccord.GridColor = System.Drawing.Color.Gainsboro;
+            this.dgvAccord.Location = new System.Drawing.Point(9, 1096);
+            this.dgvAccord.Name = "dgvAccord";
+            this.dgvAccord.ReadOnly = true;
+            this.dgvAccord.RowHeadersVisible = false;
+            this.dgvAccord.RowHeadersWidth = 51;
+            this.dgvAccord.RowTemplate.Height = 50;
+            this.dgvAccord.Size = new System.Drawing.Size(1145, 357);
+            this.dgvAccord.TabIndex = 47;
+            this.dgvAccord.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvAccord.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvAccord.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvAccord.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvAccord.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvAccord.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvAccord.ThemeStyle.GridColor = System.Drawing.Color.Gainsboro;
+            this.dgvAccord.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.White;
+            this.dgvAccord.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvAccord.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvAccord.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
+            this.dgvAccord.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvAccord.ThemeStyle.HeaderStyle.Height = 40;
+            this.dgvAccord.ThemeStyle.ReadOnly = true;
+            this.dgvAccord.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvAccord.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvAccord.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvAccord.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvAccord.ThemeStyle.RowsStyle.Height = 50;
+            this.dgvAccord.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.LightGray;
+            this.dgvAccord.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn1.FillWeight = 26.73797F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.GhostWhite;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Black", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(94)))));
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.label5.Location = new System.Drawing.Point(511, 1038);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(119, 43);
+            this.label5.TabIndex = 48;
+            this.label5.Text = "Accords";
+            this.label5.UseCompatibleTextRendering = true;
+            // 
+            // btnCreerAccord
+            // 
+            this.btnCreerAccord.BackColor = System.Drawing.Color.White;
+            this.btnCreerAccord.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
+            this.btnCreerAccord.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnCreerAccord.ForeColor = System.Drawing.Color.Black;
+            this.btnCreerAccord.Image = global::OrthoGes.Properties.Resources.icons8_signing_a_document_481;
+            this.btnCreerAccord.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreerAccord.Location = new System.Drawing.Point(984, 1037);
+            this.btnCreerAccord.Name = "btnCreerAccord";
+            this.btnCreerAccord.Size = new System.Drawing.Size(169, 50);
+            this.btnCreerAccord.TabIndex = 50;
+            this.btnCreerAccord.Text = "        Créer accord";
+            this.btnCreerAccord.UseCompatibleTextRendering = true;
+            this.btnCreerAccord.UseVisualStyleBackColor = false;
+            this.btnCreerAccord.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
+            this.pictureBox3.Image = global::OrthoGes.Properties.Resources.stamped2;
+            this.pictureBox3.Location = new System.Drawing.Point(630, 1035);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(62, 47);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 49;
+            this.pictureBox3.TabStop = false;
+            // 
+            // btnCreationBonLiv
+            // 
+            this.btnCreationBonLiv.BackColor = System.Drawing.Color.White;
+            this.btnCreationBonLiv.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
+            this.btnCreationBonLiv.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnCreationBonLiv.ForeColor = System.Drawing.Color.Black;
+            this.btnCreationBonLiv.Image = global::OrthoGes.Properties.Resources.icons8_receipt_48;
+            this.btnCreationBonLiv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreationBonLiv.Location = new System.Drawing.Point(133, 1467);
+            this.btnCreationBonLiv.Name = "btnCreationBonLiv";
+            this.btnCreationBonLiv.Size = new System.Drawing.Size(248, 50);
+            this.btnCreationBonLiv.TabIndex = 45;
+            this.btnCreationBonLiv.Text = "       Créer bon de livraison";
+            this.btnCreationBonLiv.UseCompatibleTextRendering = true;
+            this.btnCreationBonLiv.UseVisualStyleBackColor = false;
+            this.btnCreationBonLiv.Click += new System.EventHandler(this.btnCreationBonLiv_Click);
+            // 
+            // btnCreationFacture
+            // 
+            this.btnCreationFacture.BackColor = System.Drawing.Color.White;
+            this.btnCreationFacture.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
+            this.btnCreationFacture.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnCreationFacture.ForeColor = System.Drawing.Color.Black;
+            this.btnCreationFacture.Image = global::OrthoGes.Properties.Resources.icons8_create_order_48;
+            this.btnCreationFacture.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreationFacture.Location = new System.Drawing.Point(387, 1467);
+            this.btnCreationFacture.Name = "btnCreationFacture";
+            this.btnCreationFacture.Size = new System.Drawing.Size(169, 50);
+            this.btnCreationFacture.TabIndex = 44;
+            this.btnCreationFacture.Text = "        Créer facture";
+            this.btnCreationFacture.UseCompatibleTextRendering = true;
+            this.btnCreationFacture.UseVisualStyleBackColor = false;
+            this.btnCreationFacture.Click += new System.EventHandler(this.btnCreationFacture_Click);
+            // 
+            // btnCreationDevis
+            // 
+            this.btnCreationDevis.BackColor = System.Drawing.Color.White;
+            this.btnCreationDevis.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
+            this.btnCreationDevis.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnCreationDevis.ForeColor = System.Drawing.Color.Black;
+            this.btnCreationDevis.Image = global::OrthoGes.Properties.Resources.icons8_new_copy_48__1_;
+            this.btnCreationDevis.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreationDevis.Location = new System.Drawing.Point(562, 1467);
+            this.btnCreationDevis.Name = "btnCreationDevis";
+            this.btnCreationDevis.Size = new System.Drawing.Size(155, 50);
+            this.btnCreationDevis.TabIndex = 43;
+            this.btnCreationDevis.Text = "        Créer devis";
+            this.btnCreationDevis.UseCompatibleTextRendering = true;
+            this.btnCreationDevis.UseVisualStyleBackColor = false;
+            this.btnCreationDevis.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnModifer
+            // 
+            this.btnModifer.BackColor = System.Drawing.Color.White;
+            this.btnModifer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
+            this.btnModifer.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnModifer.ForeColor = System.Drawing.Color.Black;
+            this.btnModifer.Image = global::OrthoGes.Properties.Resources.icons8_registration_32;
+            this.btnModifer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModifer.Location = new System.Drawing.Point(872, 1467);
+            this.btnModifer.Name = "btnModifer";
+            this.btnModifer.Size = new System.Drawing.Size(143, 50);
+            this.btnModifer.TabIndex = 40;
+            this.btnModifer.Text = "     Modifier";
+            this.btnModifer.UseCompatibleTextRendering = true;
+            this.btnModifer.UseVisualStyleBackColor = false;
+            this.btnModifer.Click += new System.EventHandler(this.btnModifer_Click);
+            // 
+            // btnSupprimer
+            // 
+            this.btnSupprimer.BackColor = System.Drawing.Color.White;
+            this.btnSupprimer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
+            this.btnSupprimer.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnSupprimer.ForeColor = System.Drawing.Color.Black;
+            this.btnSupprimer.Image = global::OrthoGes.Properties.Resources.icons8_delete_32;
+            this.btnSupprimer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSupprimer.Location = new System.Drawing.Point(723, 1467);
+            this.btnSupprimer.Name = "btnSupprimer";
+            this.btnSupprimer.Size = new System.Drawing.Size(143, 50);
+            this.btnSupprimer.TabIndex = 39;
+            this.btnSupprimer.Text = "     Supprimer";
+            this.btnSupprimer.UseCompatibleTextRendering = true;
+            this.btnSupprimer.UseVisualStyleBackColor = false;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::OrthoGes.Properties.Resources.patient;
+            this.pictureBox2.Location = new System.Drawing.Point(351, 8);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(52, 38);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 32;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.GhostWhite;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Black", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(94)))));
+            this.lblTitle.Image = global::OrthoGes.Properties.Resources.icons8_documents_48;
+            this.lblTitle.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.lblTitle.Location = new System.Drawing.Point(496, 601);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(210, 43);
+            this.lblTitle.TabIndex = 11;
+            this.lblTitle.Text = "Documents      ";
+            this.lblTitle.UseCompatibleTextRendering = true;
+            // 
             // FormPatientDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.GhostWhite;
-            this.ClientSize = new System.Drawing.Size(1186, 870);
+            this.ClientSize = new System.Drawing.Size(1178, 867);
+            this.Controls.Add(this.btnCreerAccord);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.dgvAccord);
             this.Controls.Add(this.dgvDocuments);
             this.Controls.Add(this.btnCreationBonLiv);
             this.Controls.Add(this.btnCreationFacture);
@@ -969,8 +1091,10 @@
             this.gbxAssure.ResumeLayout(false);
             this.gbxAssure.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocuments)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAccord)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1038,5 +1162,10 @@
         private System.Windows.Forms.Button btnCreationBonLiv;
         private Guna.UI2.WinForms.Guna2DataGridView dgvDocuments;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmn1;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvAccord;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button btnCreerAccord;
     }
 }

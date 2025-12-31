@@ -55,11 +55,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAccordDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAccordDetails.Designer.cs">
+      <DependentUpon>FormAccordDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCreationBonLiv.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormCreationBonLiv.Designer.cs">
       <DependentUpon>FormCreationBonLiv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCreationAccord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreationAccord.Designer.cs">
+      <DependentUpon>FormCreationAccord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormModifierEtatAccord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModifierEtatAccord.Designer.cs">
+      <DependentUpon>FormModifierEtatAccord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFactureDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFactureDetails.Designer.cs">
+      <DependentUpon>FormFactureDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="FormCreationFacture.cs">
       <SubType>Form</SubType>
@@ -147,8 +171,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAccordDetails.resx">
+      <DependentUpon>FormAccordDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCreationBonLiv.resx">
       <DependentUpon>FormCreationBonLiv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCreationAccord.resx">
+      <DependentUpon>FormCreationAccord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormModifierEtatAccord.resx">
+      <DependentUpon>FormModifierEtatAccord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFactureDetails.resx">
+      <DependentUpon>FormFactureDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCreationFacture.resx">
       <DependentUpon>FormCreationFacture.cs</DependentUpon>
@@ -446,6 +482,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\company1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stamped2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-signing-a-document-481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-save-322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-save-323.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-menu-male-321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-property-321.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

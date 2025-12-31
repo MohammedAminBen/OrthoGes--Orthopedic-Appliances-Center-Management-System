@@ -1092,7 +1092,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 1081);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(791, 10);
+            this.panel1.Size = new System.Drawing.Size(786, 10);
             this.panel1.TabIndex = 21;
             // 
             // FormModifierPatient
@@ -1101,7 +1101,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.GhostWhite;
-            this.ClientSize = new System.Drawing.Size(812, 1034);
+            this.ClientSize = new System.Drawing.Size(807, 1034);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbxAssure);
             this.Controls.Add(this.btnAnnuler);
