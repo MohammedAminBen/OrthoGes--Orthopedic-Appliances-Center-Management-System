@@ -260,7 +260,14 @@ namespace OrthoGes
                 tbxTVAMontant.Text = "0.00";
             }
         }
+        private DateTime GenerateDateDelai()
+        {
+            int Année = Produit.FindByReference(tbxReference.Text).Category_Delai_Année;
+            int Mois = Produit.FindByReference(tbxReference.Text).Category_Delai_Mois;
 
+            DateTime dateDelai = (DateTime.Parse(tbxDate.Text)).AddYears(Année).AddMonths(Mois);
+            return dateDelai;
+        }
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {
             bool result = false;
@@ -269,11 +276,11 @@ namespace OrthoGes
             if(cbxCheck.Checked) cheque = 1;    
             if (patient.est_Assure == 1)
             {
-                result = Facture.CreateFacture(DateTime.Parse(tbxDate.Text), Numero_Patient, tbxReference.Text,payement,cheque, Convert.ToInt32(tbxQuantity.Text), Convert.ToDecimal(tbxTVAMontant.Text), Convert.ToDecimal(tbxTotale.Text), int.Parse(tbxTVA.Text), tbxCentrePayeurPatient.Text);
+                result = Facture.CreateFacture(DateTime.Parse(tbxDate.Text), Numero_Patient, tbxReference.Text,payement,cheque, Convert.ToInt32(tbxQuantity.Text), Convert.ToDecimal(tbxTVAMontant.Text), Convert.ToDecimal(tbxTotale.Text), int.Parse(tbxTVA.Text), tbxCentrePayeurPatient.Text, GenerateDateDelai());
             }
             else
             {
-                result = Facture.CreateFacture(DateTime.Parse(tbxDate.Text), Numero_Patient, tbxReference.Text, payement, cheque, Convert.ToInt32(tbxQuantity.Text), Convert.ToDecimal(tbxTVAMontant.Text), Convert.ToDecimal(tbxTotale.Text), int.Parse(tbxTVA.Text), tbxCentrePayeurAssure.Text);
+                result = Facture.CreateFacture(DateTime.Parse(tbxDate.Text), Numero_Patient, tbxReference.Text, payement, cheque, Convert.ToInt32(tbxQuantity.Text), Convert.ToDecimal(tbxTVAMontant.Text), Convert.ToDecimal(tbxTotale.Text), int.Parse(tbxTVA.Text), tbxCentrePayeurAssure.Text, GenerateDateDelai());
             }
             if (result)
             {

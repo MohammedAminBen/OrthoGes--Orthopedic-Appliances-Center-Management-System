@@ -19,9 +19,10 @@ namespace CodeSourceLayer
 
         public int Category_ID { get; set; }
         public string Category_Nom { get; set; }
-        public int Category_Delai { get; set; }
+        public int Category_Delai_Année { get; set; }
+        public int Category_Delai_Mois { get; set; }
 
-        public Produit(string reference, string nomProduit, double prix, int tva, double prixTva, int quantite, int categoryId, string categoryNom, int categoryDelai)
+        public Produit(string reference, string nomProduit, double prix, int tva, double prixTva, int quantite, int categoryId, string categoryNom, int categoryDelaiAnnée, int categoryDelaiMois)
         {
             Reference = reference;
             Nom_Produit = nomProduit;
@@ -31,7 +32,8 @@ namespace CodeSourceLayer
             Quantite = quantite;
             Category_ID = categoryId;
             Category_Nom = categoryNom;
-            Category_Delai = categoryDelai;
+            Category_Delai_Année = categoryDelaiAnnée;
+            Category_Delai_Mois = categoryDelaiMois;
         }
 
         // 🔹 SAME PATTERN AS Assure.FindByID
@@ -44,13 +46,14 @@ namespace CodeSourceLayer
             int quantite = 0;
             int categoryID = 0;
             string categoryNom = string.Empty;
-            int delai = 0;
+            int delaiAnnée = 0;
+            int delaiMois = 0;
 
-            bool isFound = DataLayer.ProduitData.GetProduitInfoByReference(reference, ref designation, ref tarif, ref tva, ref tarifTTC, ref quantite, ref categoryID, ref categoryNom, ref delai);
+            bool isFound = DataLayer.ProduitData.GetProduitInfoByReference(reference, ref designation, ref tarif, ref tva, ref tarifTTC, ref quantite, ref categoryID, ref categoryNom, ref delaiAnnée, ref delaiMois);
 
             if (isFound)
             {
-                return new Produit(reference, designation, tarif, tva, tarifTTC, quantite, categoryID, categoryNom, delai);
+                return new Produit(reference, designation, tarif, tva, tarifTTC, quantite, categoryID, categoryNom, delaiAnnée, delaiMois);
             }
 
             return null;
@@ -58,6 +61,10 @@ namespace CodeSourceLayer
         public static DataTable GetAllProduits()
         {
             return DataLayer.ProduitData.GetAllProduits();
+        }
+        public static DataTable GetAllCategories()
+        {
+            return ProduitData.GetAllCategories();
         }
     }
 }

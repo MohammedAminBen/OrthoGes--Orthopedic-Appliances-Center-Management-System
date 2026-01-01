@@ -22,9 +22,9 @@ namespace Data
         {
             string query = @"
         INSERT INTO D_Accord
-        (Numero_Patient, Date_Accord, etat_Accord, Mesures, Reference_Produit, Delai_Accord,Quantity)
+        (Numero_Patient, Date_Accord, etat_Accord, Mesures, Reference_Produit, Delai_Accord,Quantity,est_Ajouter_Tache)
         VALUES
-        (@Numero_Patient, @Date_Accord, @etat_Accord, @Mesures, @Reference_Produit, @Delai_Accord,@quantity)";
+        (@Numero_Patient, @Date_Accord, @etat_Accord, @Mesures, @Reference_Produit, @Delai_Accord,@quantity,0)";
 
             try
             {
@@ -254,6 +254,64 @@ INNER JOIN R_Produit p ON d.Reference_Produit = p.Reference
 
                     connection.Open();
                     return command.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Database error: " + ex.Message);
+                return false;
+            }
+        }
+        public static DataTable GetAllAccordForTaches()
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @" SELECT *
+                              FROM D_Accord 
+                              WHERE etat_Accord = 'Prêt' AND est_Ajouter_Tache = 0;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@DateToday", DateTime.Today);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error Facture :" + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
+        }
+        public static bool UpdateTache_etat(int Accord, int etat)
+        {
+            string query = @"
+        UPDATE D_Accord
+        SET est_Ajouter_Tache = @Etat
+        WHERE Accord_ID = @NumeroAccord";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@NumeroAccord", Accord);
+                    command.Parameters.AddWithValue("@Etat", etat);
+                    connection.Open();
+                    int rows = command.ExecuteNonQuery();
+                    return rows > 0;
                 }
             }
             catch (Exception ex)

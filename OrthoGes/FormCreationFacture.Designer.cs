@@ -47,6 +47,7 @@ namespace OrthoGes
             this.label10 = new System.Windows.Forms.Label();
             this.tbxNumAssAssure = new Guna.UI2.WinForms.Guna2TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.tbxNomAssure = new Guna.UI2.WinForms.Guna2TextBox();
@@ -62,6 +63,7 @@ namespace OrthoGes
             this.lblnum = new System.Windows.Forms.Label();
             this.tbxNumAssPatient = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbldate = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblNom = new System.Windows.Forms.Label();
             this.lblprenom = new System.Windows.Forms.Label();
             this.tbxNomPatient = new Guna.UI2.WinForms.Guna2TextBox();
@@ -72,6 +74,7 @@ namespace OrthoGes
             this.tbxCommune = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbxWilaya = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbxadresse = new Guna.UI2.WinForms.Guna2TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -88,6 +91,7 @@ namespace OrthoGes
             this.label6 = new System.Windows.Forms.Label();
             this.tbxQuantity = new Guna.UI2.WinForms.Guna2TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label14 = new System.Windows.Forms.Label();
             this.tbxReference = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbxPayement = new System.Windows.Forms.CheckBox();
@@ -97,19 +101,15 @@ namespace OrthoGes
             this.lblD = new System.Windows.Forms.Label();
             this.tbxDate = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnEnregistrer = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.gbxAssure.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDesignation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduits)).BeginInit();
             this.gbxpatient.SuspendLayout();
-            this.gbxContact.SuspendLayout();
-            this.guna2GroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.gbxContact.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
@@ -293,6 +293,17 @@ namespace OrthoGes
             this.label11.Size = new System.Drawing.Size(175, 25);
             this.label11.TabIndex = 12;
             this.label11.Text = "Date De Naissance :";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
+            this.pictureBox3.Image = global::OrthoGes.Properties.Resources.icons8_contact_32;
+            this.pictureBox3.Location = new System.Drawing.Point(93, 6);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(48, 32);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 11;
+            this.pictureBox3.TabStop = false;
             // 
             // label12
             // 
@@ -653,6 +664,17 @@ namespace OrthoGes
             this.lbldate.TabIndex = 12;
             this.lbldate.Text = "Date De Naissance :";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
+            this.pictureBox1.Image = global::OrthoGes.Properties.Resources.icons8_address_book_32;
+            this.pictureBox1.Location = new System.Drawing.Point(244, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
             // lblNom
             // 
             this.lblNom.AutoSize = true;
@@ -836,6 +858,17 @@ namespace OrthoGes
             this.tbxadresse.SelectedText = "";
             this.tbxadresse.Size = new System.Drawing.Size(409, 44);
             this.tbxadresse.TabIndex = 14;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
+            this.pictureBox2.Image = global::OrthoGes.Properties.Resources.location;
+            this.pictureBox2.Location = new System.Drawing.Point(91, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(39, 31);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 12;
+            this.pictureBox2.TabStop = false;
             // 
             // label7
             // 
@@ -1134,6 +1167,17 @@ namespace OrthoGes
             this.label9.TabIndex = 12;
             this.label9.Text = "Designation : ";
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
+            this.pictureBox4.Image = global::OrthoGes.Properties.Resources.icons8_electric_wheelchair_48;
+            this.pictureBox4.Location = new System.Drawing.Point(89, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(39, 38);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 11;
+            this.pictureBox4.TabStop = false;
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -1266,50 +1310,6 @@ namespace OrthoGes
             this.btnEnregistrer.UseVisualStyleBackColor = false;
             this.btnEnregistrer.Click += new System.EventHandler(this.btnEnregistrer_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
-            this.pictureBox2.Image = global::OrthoGes.Properties.Resources.location;
-            this.pictureBox2.Location = new System.Drawing.Point(91, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(39, 31);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 12;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
-            this.pictureBox3.Image = global::OrthoGes.Properties.Resources.icons8_contact_32;
-            this.pictureBox3.Location = new System.Drawing.Point(93, 6);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(48, 32);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 11;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
-            this.pictureBox1.Image = global::OrthoGes.Properties.Resources.icons8_address_book_32;
-            this.pictureBox1.Location = new System.Drawing.Point(244, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 32);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
-            this.pictureBox4.Image = global::OrthoGes.Properties.Resources.icons8_electric_wheelchair_48;
-            this.pictureBox4.Location = new System.Drawing.Point(89, 0);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(39, 38);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 11;
-            this.pictureBox4.TabStop = false;
-            // 
             // FormCreationFacture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -1336,17 +1336,17 @@ namespace OrthoGes
             this.Load += new System.EventHandler(this.FormCreationDevis_Load);
             this.gbxAssure.ResumeLayout(false);
             this.gbxAssure.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDesignation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduits)).EndInit();
             this.gbxpatient.ResumeLayout(false);
             this.gbxpatient.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbxContact.ResumeLayout(false);
             this.gbxContact.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

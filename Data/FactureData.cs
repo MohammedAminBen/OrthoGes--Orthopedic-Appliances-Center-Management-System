@@ -106,16 +106,16 @@ namespace DataLayer
 
             return isFound;
         }
-        public static bool CreateFacture(DateTime dateFacture, string numeroPatient, string referenceProduit, int etatPayement, int payementCheque, int quantity, decimal montantTVA, decimal montantTTC, int tva, string centrePayeur)
+        public static bool CreateFacture(DateTime dateFacture, string numeroPatient, string referenceProduit, int etatPayement, int payementCheque, int quantity, decimal montantTVA, decimal montantTTC, int tva, string centrePayeur,DateTime datedelai)
         {
             string numeroFacture = GenerateNumeroFacture();
             string query = @"
         INSERT INTO D_Facture
         (Numero_Facture, Date_Facture, Numero_Patient, Reference_Produit, etat_Payement,
-         Payement_cheque, Quantity, Montant_TVA, Montant_TTC, TVA, Centre_Payeur)
+         Payement_cheque, Quantity, Montant_TVA, Montant_TTC, TVA, Centre_Payeur,Date_Delai,est_Ajouter_Tache)
         VALUES
         (@Numero_Facture, @Date_Facture, @Numero_Patient, @Reference_Produit, @etat_Payement,
-         @Payement_cheque, @Quantity, @Montant_TVA, @Montant_TTC, @TVA, @Centre_Payeur)";
+         @Payement_cheque, @Quantity, @Montant_TVA, @Montant_TTC, @TVA, @Centre_Payeur,@Date_Delai,0)";
 
             try
             {
@@ -133,6 +133,7 @@ namespace DataLayer
                     command.Parameters.Add("@Montant_TTC", SqlDbType.Decimal).Value = montantTTC;
                     command.Parameters.Add("@TVA", SqlDbType.Int).Value = tva;
                     command.Parameters.Add("@Centre_Payeur", SqlDbType.VarChar).Value = centrePayeur;
+                    command.Parameters.Add("@Date_Delai", SqlDbType.DateTime).Value = datedelai;
 
                     connection.Open();
                     return command.ExecuteNonQuery() > 0;
@@ -264,6 +265,8 @@ INNER JOIN R_Produit p ON d.Reference_Produit = p.Reference
 
             return dt;
         }
+
+     
         public static bool UpdatePayement(string numero_facture, int value)
         {
             string query = @"
@@ -339,6 +342,63 @@ INNER JOIN R_Produit p ON d.Reference_Produit = p.Reference
             }
 
             return rowsAffected > 0;
+        }
+        public static DataTable GetAllFacturesForTaches()
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @" SELECT *
+                              FROM D_Facture 
+                              WHERE ABS(DATEDIFF(DAY, @DateToday, Date_Delai)) < 10 AND est_Ajouter_Tache = 0;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@DateToday", DateTime.Today);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error Facture :" + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
+        }
+        public static bool UpdateTache_etat(string numero_facture)
+        {
+            string query = @"
+        UPDATE D_Facture
+        SET est_Ajouter_Tache = 1
+        WHERE Numero_Facture = @NumeroFacture";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@NumeroFacture", numero_facture);
+                    connection.Open();
+                    int rows = command.ExecuteNonQuery();
+                    return rows > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Database error: " + ex.Message);
+                return false;
+            }
         }
     }
 }

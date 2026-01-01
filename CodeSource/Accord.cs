@@ -74,5 +74,15 @@ namespace CodeSource
             {
                 return AccordData.DeleteAccord(accordID);
             }
+            public static DataTable GetAllAccordDeTaches()
+            {
+            return AccordData.GetAllAccordForTaches();
+            }
+            public static bool UpdateEtatTachesAccord(int accordID, int etat_tache)
+             {
+            return AccordData.UpdateTache_etat(accordID, etat_tache);
+              }
+        
+
         }
 }

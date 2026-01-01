@@ -20,7 +20,9 @@ namespace DataLayer
             ref int Quantity,
             ref int CategroryID,
             ref string Category_Nom,
-            ref int delai)
+            ref int Category_Delai_Année,
+            ref int Category_Delai_Mois
+            )
         {
             bool isFound = false;
 
@@ -33,7 +35,8 @@ namespace DataLayer
                p.TVA,
                p.Prix_TVA,
                p.Quantite,
-               c.Category_Delai
+               c.Category_Delai_Année,
+                c.Category_Delai_Mois
         FROM R_Produit p
         INNER JOIN R_Category_Produit c ON p.Category_ID = c.Category_ID
         WHERE p.Reference = @Reference";
@@ -60,7 +63,8 @@ namespace DataLayer
                             tva = reader["TVA"] != DBNull.Value ? Convert.ToInt32(reader["TVA"]) : 0;
                             Quantity = reader["Quantite"] != DBNull.Value ? Convert.ToInt32(reader["Quantite"]) : 0;
                             CategroryID = reader["Category_ID"] != DBNull.Value ? Convert.ToInt32(reader["Category_ID"]) : 0;
-                            delai = reader["Category_Delai"] != DBNull.Value ? Convert.ToInt32(reader["Category_Delai"]) : 0;
+                            Category_Delai_Année = reader["Category_Delai_Année"] != DBNull.Value ? Convert.ToInt32(reader["Category_Delai_Année"]) : 0;
+                            Category_Delai_Mois = reader["Category_Delai_Mois"] != DBNull.Value ? Convert.ToInt32(reader["Category_Delai_Mois"]) : 0;
                         }
                     }
                 }
@@ -90,7 +94,8 @@ namespace DataLayer
       ,[Quantite]
 	  ,c.Category_Delai
         FROM R_Produit p
-        INNER JOIN R_Category_Produit c ON p.Category_ID = c.Category_ID";
+        INNER JOIN R_Category_Produit c ON p.Category_ID = c.Category_ID
+        ORDER BY c.Category_Nom";
 
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -115,6 +120,40 @@ namespace DataLayer
             }
             return dt;
 
+      
+        }
+        public static DataTable GetAllCategories()
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"select  
+	  Category_Nom
+        FROM R_Category_Produit
+        ORDER BY Category_Nom";
+
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error Category : "+ ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
         }
 
     }

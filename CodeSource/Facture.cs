@@ -18,6 +18,7 @@ namespace CodeSourceLayer
         public int Etat_Payement { get; set; }
         public int Payement_Cheque { get; set; }
 
+        
         public Facture(string numeroFacture, string numeroPatient, string referenceProduit, int quantity, int tva, decimal montantTva, decimal montantTtc, DateTime dateFacture, string centrePayeur, int etatPayement, int payementCheque)
         {
             Numero_Facture = numeroFacture;
@@ -55,9 +56,9 @@ namespace CodeSourceLayer
             }
         }
 
-        public static bool CreateFacture(DateTime dateFacture, string numeroPatient, string referenceProduit, int etatPayement, int payementCheque, int quantity, decimal montantTva, decimal montantTtc, int tva, string centrePayeur)
+        public static bool CreateFacture(DateTime dateFacture, string numeroPatient, string referenceProduit, int etatPayement, int payementCheque, int quantity, decimal montantTva, decimal montantTtc, int tva, string centrePayeur, DateTime dateDelai)
         {
-            return FactureData.CreateFacture( dateFacture, numeroPatient, referenceProduit, etatPayement, payementCheque, quantity, montantTva, montantTtc, tva, centrePayeur);
+            return FactureData.CreateFacture(dateFacture, numeroPatient, referenceProduit, etatPayement, payementCheque, quantity, montantTva, montantTtc, tva, centrePayeur, dateDelai);
         }
 
         public static DataTable GetAll()
@@ -83,6 +84,14 @@ namespace CodeSourceLayer
         {
             return FactureData.DeleteFacture(numeroFacture);
         }  
+        public static DataTable GetAllFactureDeTaches()
+        {
+            return FactureData.GetAllFacturesForTaches();
+        }
+        public static bool UpdateTache_etat(string Numero_facture)
+        {
+            return FactureData.UpdateTache_etat(Numero_facture);
+        }
     }
 
 }

@@ -335,6 +335,7 @@ namespace OrthoGes
         {
             FormCreationAccord frmAccord = new FormCreationAccord(Numero_Patient);
             frmAccord.ShowDialog();
+            FillDgvAccordWithData();
         }
 
 

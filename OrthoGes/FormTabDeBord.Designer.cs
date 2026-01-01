@@ -43,6 +43,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnAjouteraugroup = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -240,6 +241,24 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1332, 531);
             this.flowLayoutPanel1.TabIndex = 79;
             // 
+            // btnAjouteraugroup
+            // 
+            this.btnAjouteraugroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAjouteraugroup.BackColor = System.Drawing.Color.White;
+            this.btnAjouteraugroup.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
+            this.btnAjouteraugroup.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnAjouteraugroup.ForeColor = System.Drawing.Color.Black;
+            this.btnAjouteraugroup.Image = global::OrthoGes.Properties.Resources.sticky_notes;
+            this.btnAjouteraugroup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAjouteraugroup.Location = new System.Drawing.Point(1146, 182);
+            this.btnAjouteraugroup.Name = "btnAjouteraugroup";
+            this.btnAjouteraugroup.Size = new System.Drawing.Size(196, 51);
+            this.btnAjouteraugroup.TabIndex = 71;
+            this.btnAjouteraugroup.Text = "     Ajouter une tâche";
+            this.btnAjouteraugroup.UseCompatibleTextRendering = true;
+            this.btnAjouteraugroup.UseVisualStyleBackColor = false;
+            this.btnAjouteraugroup.Click += new System.EventHandler(this.btnAjouteraugroup_Click);
+            // 
             // label15
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -305,6 +324,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(1354, 785);
+            this.Controls.Add(this.btnAjouteraugroup);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Panel5);
             this.Controls.Add(this.guna2Panel4);
@@ -315,6 +335,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormTabDeBord";
             this.Text = " ";
+            this.Load += new System.EventHandler(this.FormTabDeBord_Load);
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
             this.guna2Panel3.ResumeLayout(false);
@@ -353,5 +374,6 @@
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button btnAjouteraugroup;
     }
 }

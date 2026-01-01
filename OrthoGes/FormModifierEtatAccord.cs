@@ -37,7 +37,12 @@ namespace SMS_UI
 
             if (Accord.UpdateEtatAccord(accordID, cmbxetat.Text))
             {
-                MessageBox.Show("État de l'accord mis à jour avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if(cmbxetat.Text != "Prêt")
+                {
+                    Accord.UpdateEtatTachesAccord(accordID, 0);
+                    Tache.DeleteTacheByAccord(accordID);
+                }
+                    MessageBox.Show("État de l'accord mis à jour avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             else

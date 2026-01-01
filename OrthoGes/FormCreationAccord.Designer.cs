@@ -403,7 +403,7 @@ namespace OrthoGes
             this.dgvDesignation.RowHeadersVisible = false;
             this.dgvDesignation.RowHeadersWidth = 51;
             this.dgvDesignation.RowTemplate.Height = 24;
-            this.dgvDesignation.Size = new System.Drawing.Size(431, 95);
+            this.dgvDesignation.Size = new System.Drawing.Size(431, 98);
             this.dgvDesignation.TabIndex = 93;
             this.dgvDesignation.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvDesignation.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -463,7 +463,7 @@ namespace OrthoGes
             this.dgvProduits.RowHeadersVisible = false;
             this.dgvProduits.RowHeadersWidth = 51;
             this.dgvProduits.RowTemplate.Height = 24;
-            this.dgvProduits.Size = new System.Drawing.Size(206, 98);
+            this.dgvProduits.Size = new System.Drawing.Size(206, 95);
             this.dgvProduits.TabIndex = 92;
             this.dgvProduits.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvProduits.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -1123,7 +1123,8 @@ namespace OrthoGes
             this.cmbxEtat.Items.AddRange(new object[] {
             "En attente",
             "Semi fini",
-            "Prés"});
+            "Prés",
+            "Livré"});
             this.cmbxEtat.Location = new System.Drawing.Point(16, 156);
             this.cmbxEtat.Name = "cmbxEtat";
             this.cmbxEtat.Size = new System.Drawing.Size(236, 36);
@@ -1148,7 +1149,7 @@ namespace OrthoGes
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 974);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(799, 10);
+            this.panel1.Size = new System.Drawing.Size(786, 10);
             this.panel1.TabIndex = 27;
             // 
             // lblD
@@ -1208,7 +1209,7 @@ namespace OrthoGes
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.GhostWhite;
-            this.ClientSize = new System.Drawing.Size(820, 785);
+            this.ClientSize = new System.Drawing.Size(807, 785);
             this.Controls.Add(this.lblD);
             this.Controls.Add(this.tbxDate);
             this.Controls.Add(this.btnEnregistrer);

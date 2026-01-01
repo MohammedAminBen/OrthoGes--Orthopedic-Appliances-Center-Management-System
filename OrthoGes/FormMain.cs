@@ -143,71 +143,7 @@ namespace OrthoGes
            // fillpnlUserData();
             //CheckPrivileges();
         }
-        //private void CheckPrivileges()
-        //{
-        //    if (!Globale.utilisateurActuel.IsAdmin)
-        //    {
-        //        btnMonEcole.Visible = false;
-        //        btnUti.Visible = false;
-        //    }
-        //    if (!Globale.utilisateurActuel.PrivEnsData)
-        //    {
-        //        btnfacture.Visible = false;
-        //        btnaccord.Location = new Point(7, 282);
-        //        btnfor.Location = new Point(7, 342);
-        //        btnfin.Location = new Point(7, 402);
-        //    }
-        //    if (!Globale.utilisateurActuel.PrivFinancement)
-        //    {
-        //        btnfin.Visible = false;
-        //    }
-        //}
-        //private void InisialzeFinancement()
-        //{
-        //    bool firsttime = false;
-        //    DataTable dtcheck = Financement.GetRevenuTotaleHistorique();
-        //    if (dtcheck.Rows.Count == 0) { firsttime = true; }
-
-        //    DateTime? lastInit = Globale.ecole.date;
-        //    DateTime now = DateTime.Now;
-        //    DateTime thisMonth = new DateTime(now.Year, now.Month, 1);
-
-        //    if (!firsttime && lastInit.HasValue && lastInit.Value.Year == now.Year && lastInit.Value.Month == now.Month)
-        //        return;
-
-        //    DateTime datedebut = thisMonth;
-        //    DateTime datefin = thisMonth.AddMonths(1).AddDays(-1);
-
-        //    if (!Financement.CheckifRevenuAlreadyInserted())
-        //    {
-        //        Financement.AddNewRevenuMonsuelle(datedebut, datefin);
-        //    }
-
-        //    if (!Financement.CheckifRevenuEcoleAlreadyInserted())
-        //    {
-        //        Financement.AddNewRevenuEcoleMonsuelle(datedebut, datefin);
-        //    }
-
-        //    if (!Financement.CheckifRevenuEnseignantAlreadyInserted())
-        //    {
-        //        DataTable dt = Enseignant.GetAllEnseignantsForFinancement();
-
-        //        foreach (DataRow dr in dt.Rows)
-        //        {
-        //            bool payementparcycle = Convert.ToBoolean(dr["PayementParCycleDeSeance"]);
-        //            if (payementparcycle) continue;
-
-        //            string enseignantID = dr["EnseignantID"].ToString();
-        //            int pourcentage = Convert.ToInt32(dr["PourcentagePay"]);
-
-        //            Financement.AddNewRevenuEnseignantMonsuelle(enseignantID, pourcentage, datedebut, datefin);
-        //        }
-        //    }
-
-        //    MonEcole.UpdateLastDate(thisMonth); // <-- implement in DB
-        //}
-
-
+     
         public void btnPatientsHandling()
         {
             if (frmPatients == null)
@@ -339,7 +275,7 @@ namespace OrthoGes
             else
             {
                 frmTabDeBord.Activate();
-               // frmTabDeBord.TableauDeBoardStarting();
+               frmTabDeBord.RefreshTaches();
 
             }
         }

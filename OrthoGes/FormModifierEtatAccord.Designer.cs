@@ -41,7 +41,7 @@
             this.btnAnnuler.BackColor = System.Drawing.Color.White;
             this.btnAnnuler.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
             this.btnAnnuler.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnnuler.Location = new System.Drawing.Point(200, 90);
+            this.btnAnnuler.Location = new System.Drawing.Point(181, 90);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(113, 43);
             this.btnAnnuler.TabIndex = 33;
@@ -56,7 +56,7 @@
             this.btnEnregistrer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
             this.btnEnregistrer.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnregistrer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEnregistrer.Location = new System.Drawing.Point(90, 91);
+            this.btnEnregistrer.Location = new System.Drawing.Point(71, 91);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(104, 42);
             this.btnEnregistrer.TabIndex = 32;
@@ -83,7 +83,8 @@
             this.cmbxetat.Items.AddRange(new object[] {
             "En attente",
             "Semi fini",
-            "Prêt"});
+            "Prêt",
+            "Livré"});
             this.cmbxetat.Location = new System.Drawing.Point(72, 28);
             this.cmbxetat.Name = "cmbxetat";
             this.cmbxetat.Size = new System.Drawing.Size(195, 36);
@@ -106,7 +107,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.GhostWhite;
-            this.ClientSize = new System.Drawing.Size(325, 142);
+            this.ClientSize = new System.Drawing.Size(306, 142);
             this.Controls.Add(this.cmbxetat);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnAnnuler);

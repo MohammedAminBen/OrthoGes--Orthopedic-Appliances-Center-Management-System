@@ -28,15 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Label label2;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.Label label2;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAccord));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblnmbrEleves = new System.Windows.Forms.Label();
+            this.guna2TileButton2 = new Guna.UI2.WinForms.Guna2TileButton();
             this.label4 = new System.Windows.Forms.Label();
             this.tbxAccordsrecherche = new Guna.UI2.WinForms.Guna2TextBox();
             this.cmbxRecherche = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.dgvAccordListe = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbxDate = new Guna.UI2.WinForms.Guna2CheckBox();
@@ -53,13 +56,25 @@
             this.btnSupprimer = new System.Windows.Forms.Button();
             this.btnDetails = new System.Windows.Forms.Button();
             this.btnAjouteraugroup = new System.Windows.Forms.Button();
-            this.lblnmbrEleves = new System.Windows.Forms.Label();
-            this.guna2TileButton2 = new Guna.UI2.WinForms.Guna2TileButton();
-            this.label5 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccordListe)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = System.Drawing.Color.Transparent;
+            label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(94)))));
+            label2.Image = global::OrthoGes.Properties.Resources.icons8_filter_24__3_;
+            label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label2.Location = new System.Drawing.Point(2, 78);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(199, 33);
+            label2.TabIndex = 53;
+            label2.Text = "    Filtre D\'affichage :";
+            label2.UseCompatibleTextRendering = true;
             // 
             // panel1
             // 
@@ -77,6 +92,38 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1362, 55);
             this.panel1.TabIndex = 22;
+            // 
+            // lblnmbrEleves
+            // 
+            this.lblnmbrEleves.AutoSize = true;
+            this.lblnmbrEleves.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.lblnmbrEleves.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.lblnmbrEleves.Image = global::OrthoGes.Properties.Resources.icons8_signing_a_document_48;
+            this.lblnmbrEleves.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblnmbrEleves.Location = new System.Drawing.Point(20, 7);
+            this.lblnmbrEleves.Name = "lblnmbrEleves";
+            this.lblnmbrEleves.Size = new System.Drawing.Size(159, 42);
+            this.lblnmbrEleves.TabIndex = 25;
+            this.lblnmbrEleves.Text = "    ------       ";
+            this.lblnmbrEleves.UseCompatibleTextRendering = true;
+            // 
+            // guna2TileButton2
+            // 
+            this.guna2TileButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2TileButton2.BorderRadius = 7;
+            this.guna2TileButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2TileButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2TileButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2TileButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2TileButton2.FillColor = System.Drawing.Color.Transparent;
+            this.guna2TileButton2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2TileButton2.ForeColor = System.Drawing.Color.White;
+            this.guna2TileButton2.Image = global::OrthoGes.Properties.Resources.icons8_search_32;
+            this.guna2TileButton2.Location = new System.Drawing.Point(792, 11);
+            this.guna2TileButton2.Name = "guna2TileButton2";
+            this.guna2TileButton2.Size = new System.Drawing.Size(39, 36);
+            this.guna2TileButton2.TabIndex = 24;
+            this.guna2TileButton2.Click += new System.EventHandler(this.guna2TileButton2_Click);
             // 
             // label4
             // 
@@ -135,6 +182,20 @@
             this.cmbxRecherche.StartIndex = 0;
             this.cmbxRecherche.TabIndex = 20;
             // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Image = global::OrthoGes.Properties.Resources.icons8_filter_24__3_;
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Location = new System.Drawing.Point(853, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(90, 28);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "     Filtre :";
+            // 
             // dgvAccordListe
             // 
             this.dgvAccordListe.AllowUserToAddRows = false;
@@ -161,7 +222,7 @@
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -400,29 +461,16 @@
             this.cmbxetat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbxetat.ItemHeight = 30;
             this.cmbxetat.Items.AddRange(new object[] {
+            "Tous",
             "En attente",
             "Semi fini",
-            "Prêt"});
+            "Prêt",
+            "Livré"});
             this.cmbxetat.Location = new System.Drawing.Point(934, 75);
             this.cmbxetat.Name = "cmbxetat";
             this.cmbxetat.Size = new System.Drawing.Size(161, 36);
             this.cmbxetat.TabIndex = 63;
             this.cmbxetat.SelectedIndexChanged += new System.EventHandler(this.cmbxetat_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = System.Drawing.Color.Transparent;
-            label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(94)))));
-            label2.Image = global::OrthoGes.Properties.Resources.icons8_filter_24__3_;
-            label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            label2.Location = new System.Drawing.Point(2, 78);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(199, 33);
-            label2.TabIndex = 53;
-            label2.Text = "    Filtre D\'affichage :";
-            label2.UseCompatibleTextRendering = true;
             // 
             // btnModifier
             // 
@@ -495,52 +543,6 @@
             this.btnAjouteraugroup.UseCompatibleTextRendering = true;
             this.btnAjouteraugroup.UseVisualStyleBackColor = false;
             this.btnAjouteraugroup.Click += new System.EventHandler(this.btnAjouteraugroup_Click);
-            // 
-            // lblnmbrEleves
-            // 
-            this.lblnmbrEleves.AutoSize = true;
-            this.lblnmbrEleves.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.lblnmbrEleves.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.lblnmbrEleves.Image = global::OrthoGes.Properties.Resources.icons8_signing_a_document_48;
-            this.lblnmbrEleves.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblnmbrEleves.Location = new System.Drawing.Point(20, 7);
-            this.lblnmbrEleves.Name = "lblnmbrEleves";
-            this.lblnmbrEleves.Size = new System.Drawing.Size(159, 42);
-            this.lblnmbrEleves.TabIndex = 25;
-            this.lblnmbrEleves.Text = "    ------       ";
-            this.lblnmbrEleves.UseCompatibleTextRendering = true;
-            // 
-            // guna2TileButton2
-            // 
-            this.guna2TileButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2TileButton2.BorderRadius = 7;
-            this.guna2TileButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2TileButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2TileButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2TileButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2TileButton2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2TileButton2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2TileButton2.ForeColor = System.Drawing.Color.White;
-            this.guna2TileButton2.Image = global::OrthoGes.Properties.Resources.icons8_search_32;
-            this.guna2TileButton2.Location = new System.Drawing.Point(792, 11);
-            this.guna2TileButton2.Name = "guna2TileButton2";
-            this.guna2TileButton2.Size = new System.Drawing.Size(39, 36);
-            this.guna2TileButton2.TabIndex = 24;
-            this.guna2TileButton2.Click += new System.EventHandler(this.guna2TileButton2_Click);
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Image = global::OrthoGes.Properties.Resources.icons8_filter_24__3_;
-            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(853, 13);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 28);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "     Filtre :";
             // 
             // FormAccord
             // 
