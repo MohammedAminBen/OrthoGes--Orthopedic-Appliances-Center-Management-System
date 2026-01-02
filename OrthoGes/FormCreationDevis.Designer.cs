@@ -812,7 +812,7 @@
             this.dgvDesignation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(75)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -825,7 +825,7 @@
             this.dgvDesignation.RowHeadersVisible = false;
             this.dgvDesignation.RowHeadersWidth = 51;
             this.dgvDesignation.RowTemplate.Height = 24;
-            this.dgvDesignation.Size = new System.Drawing.Size(464, 155);
+            this.dgvDesignation.Size = new System.Drawing.Size(464, 178);
             this.dgvDesignation.TabIndex = 88;
             this.dgvDesignation.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvDesignation.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -872,7 +872,7 @@
             this.dgvProduits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -885,7 +885,7 @@
             this.dgvProduits.RowHeadersVisible = false;
             this.dgvProduits.RowHeadersWidth = 51;
             this.dgvProduits.RowTemplate.Height = 24;
-            this.dgvProduits.Size = new System.Drawing.Size(256, 155);
+            this.dgvProduits.Size = new System.Drawing.Size(256, 181);
             this.dgvProduits.TabIndex = 87;
             this.dgvProduits.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvProduits.ThemeStyle.AlternatingRowsStyle.Font = null;

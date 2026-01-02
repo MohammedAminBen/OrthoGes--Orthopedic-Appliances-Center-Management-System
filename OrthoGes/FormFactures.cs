@@ -30,7 +30,7 @@ namespace OrthoGes
         //    tbxelevesrecherche.Enter += tbxelevesrecherche_Enter;
         //    tbxelevesrecherche.Leave += tbxelevesrecherche_Leave;
         //}
-        private void ApplyFilters()
+        public void ApplyFilters()
         {
             dtFactureListe = Facture.GetAll();
 
@@ -387,6 +387,14 @@ namespace OrthoGes
         {
             FormFactureDetails frmDetails = new FormFactureDetails(dgvFactureListe.CurrentRow.Cells[1].Value.ToString());
             frmDetails.ShowDialog();
+        }
+
+        private void btnModifier_Click(object sender, EventArgs e)
+        {
+            FormPatientDetails formPatientDetails = new FormPatientDetails(
+                dgvFactureListe.CurrentRow.Cells[3].Value.ToString()
+            );
+            formPatientDetails.ShowDialog();
         }
     }
 }

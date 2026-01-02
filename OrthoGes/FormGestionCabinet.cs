@@ -1,4 +1,5 @@
-﻿using CodeSourceLayer;
+﻿using CodeSource;
+using CodeSourceLayer;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
@@ -19,218 +20,75 @@ namespace OrthoGes
         {
             InitializeComponent();
         }
+        private void FillData()
+        {
+            if (Global.centre == null) { return; }
 
-        //private void guna2Button1_Click(object sender, EventArgs e)
-        //{
-        //    using (OpenFileDialog openFileDialog = new OpenFileDialog())
-        //    {
-        //        openFileDialog.Title = "Sélectionner une image";
-        //        openFileDialog.Filter = "Fichiers image (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png|Tous les fichiers (*.*)|*.*";
+            tbxAddress.Text = Global.centre.Adresse;
+            tbxContact.Text = Global.centre.Contact;
+            tbxCentreNom.Text = Global.centre.CentreNom;
+            tbxARTNum.Text = Global.centre.NumeroART;
+            tbxNif.Text = Global.centre.NIF;
+            tbxRCNum.Text = Global.centre.NumeroRC;
+            tbxRIB.Text = Global.centre.RIB;
+            
 
-        //        if (openFileDialog.ShowDialog() == DialogResult.OK)
-        //        {
+            if (!string.IsNullOrEmpty(Global.centre.PathImage) && File.Exists(Global.centre.PathImage))
+            {
+                picbxImage.Image = Image.FromFile(Global.centre.PathImage);
+            }
+        }
 
-        //            string filePath = openFileDialog.FileName;
-        //            Globale.ecole.ImagePath = filePath; // Enregistrer le chemin de l'image dans l'objet utilisateur
+        private void btnImg_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Title = "Sélectionner une image";
+                openFileDialog.Filter = "Fichiers image (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png|Tous les fichiers (*.*)|*.*";
 
-        //            picbxImage.Image = Image.FromFile(filePath);
-        //        }
-        //    }
-        //}
-        //private void FillData()
-        //{
-        //    if (Globale.ecole == null) { return; }
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
 
-        //    tbxAddress.Text = Globale.ecole.Address;
-        //    tbxContact.Text = Globale.ecole.Contact;
-        //    tbxEcole.Text = Globale.ecole.NomEcole;
+                    string filePath = openFileDialog.FileName;
+                    Global.centre.PathImage = filePath; // Enregistrer le chemin de l'image dans l'objet utilisateur
 
-        //    if (!string.IsNullOrEmpty(Globale.ecole.ImagePath) && File.Exists(Globale.ecole.ImagePath))
-        //    {
-        //        picbxImage.Image = Image.FromFile(Globale.ecole.ImagePath);
-        //    }
-        //    FillSallesInFlowLayoutPanel();
-        //}
-        //private void button3_Click(object sender, EventArgs e)
-        //{
-        //    var controls = FLWSalles.Controls.OfType<TbxSallesUserControl>().ToList();
+                    picbxImage.Image = Image.FromFile(filePath);
+                }
+            }
+        }
 
-        //    // ✅ Update existing salles
-        //    foreach (var ctrl in controls.Where(c => !c.IsNewAdded))
-        //    {
-        //        if (!ctrl.UpdateSalle(ctrl.SalleID))
-        //            return;
-        //    }
+        private void btnEng_Click(object sender, EventArgs e)
+        {
+                Global.centre.CentreID = 1;
+                Global.centre.NIF = tbxNif.Text;
+                Global.centre.RIB = tbxRIB.Text;
+                Global.centre.NumeroRC = tbxRCNum.Text;
+                Global.centre.NumeroART = tbxARTNum.Text;
+                Global.centre.CentreNom = tbxCentreNom.Text;
+                Global.centre.Adresse = tbxAddress.Text;
+                Global.centre.Contact = tbxContact.Text;
 
-        //    // ✅ Add new salles
-        //    foreach (var ctrl in controls.Where(c => c.IsNewAdded))
-        //    {
-        //        if (!ctrl.AddSalle())
-        //            return;
-        //        ctrl.IsNewAdded = false;
-        //    }
+            if (Centre_Appareillage.Find(1) == null)
+            {
 
-        //    Globale.ecole.NomEcole = tbxEcole.Text;
-        //    Globale.ecole.Contact = tbxContact.Text;
-        //    Globale.ecole.Address = tbxAddress.Text;
-        //    if (Globale.ecole.Dimarage == 0)
-        //    {
-        //        if (Globale.ecole.insertEcoleData())
-        //        {
-        //            MessageBox.Show($"Données enregistrées avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //            this.Close();
-        //            return;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        if (Globale.ecole.UpdateEcoleData())
-        //        {
-        //            this.Close();
-        //            return;
-        //        }
-        //    }
+                Global.centre.AddNewCentre();
+                this.Close();
+            }
+            else
+            {
+                Global.centre.UpdateCentre();
+                this.Close();
+            }
+        }
 
+        private void FormGestionCabinet_Load(object sender, EventArgs e)
+        {
+            FillData();
+        }
 
-        //}
-
-        //private void FormGestionScolaire_Load(object sender, EventArgs e)
-        //{
-        //    FillData();
-        //}
-
-        //private void guna2GroupBox4_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //public void FillSallesInFlowLayoutPanel()
-        //{
-        //    FLWSalles.Controls.Clear();
-        //    DataTable SallesDT = Salle.GetAllSalles();
-
-        //    if (SallesDT.Rows.Count == 0)
-        //    {
-        //        return;
-        //    }
-        //    foreach (DataRow row in SallesDT.Rows)
-        //    {
-        //        string Nom = row["SaleNom"]?.ToString() ?? "";
-        //        int ID = (int)row["SaleID"];
-        //        TbxSallesUserControl userControl = new TbxSallesUserControl();
-        //        userControl.FillData(ID, Nom);
-        //        userControl.IsNewAdded = false;
-        //        FLWSalles.Controls.Add(userControl);
-        //    }
-        //}
-
-        //private void button5_Click_1(object sender, EventArgs e)
-        //{
-        //    TbxSallesUserControl tbxUserControl = new TbxSallesUserControl();
-        //    tbxUserControl.IsNewAdded = true;
-        //    FLWSalles.Controls.Add(tbxUserControl);
-        //}
-
-        //private void button4_Click_1(object sender, EventArgs e)
-        //{
-        //    if (FLWSalles.Controls.Count <= 1)
-        //        return;
-
-        //    bool IsThereSelected = false;
-
-
-        //    var selectedControls = FLWSalles.Controls
-        //        .OfType<TbxSallesUserControl>()
-        //        .Where(c => c.IsSelected)
-        //        .ToList();
-
-        //    int counter = 0;
-        //    foreach (var control in selectedControls)
-        //    {
-        //        counter++;
-        //        if (FLWSalles.Controls.Count == 1)
-        //        {
-        //            break;
-        //        }
-        //        if (FLWSalles.Controls.Count == 2)
-        //        {
-        //            control.DeleteSalle();
-        //            FLWSalles.Controls.Remove(control);
-        //            control.Dispose();
-        //            break;
-        //        }
-        //        control.DeleteSalle();
-        //        FLWSalles.Controls.Remove(control);
-        //        control.Dispose();
-
-        //        IsThereSelected = true;
-        //    }
-
-        //    if (!IsThereSelected && FLWSalles.Controls.Count > 1)
-        //    {
-        //        Control last = FLWSalles.Controls[FLWSalles.Controls.Count - 1];
-        //        if (last is TbxSallesUserControl uc)
-        //        {
-        //            uc.DeleteSalle();
-        //        }
-        //        FLWSalles.Controls.Remove(last);
-        //        last.Dispose();
-        //    }
-        //}
-
-        //private void btnAjouterEleve_Click(object sender, EventArgs e)
-        //{
-        //    var frm = new FormEntrerMotDePasse();
-        //    frm.ShowDialog();
-
-        //    if (frm.isHim == true)
-        //    {
-        //        DataTable dt = Groupe.GetAllGroupes();
-        //        foreach (DataRow dr in dt.Rows)
-        //        {
-        //            string groupeId = dr[0].ToString();  // or Convert.ToInt32(dr[0]) if it's numeric
-        //            Groupe.DeleteGroupe(groupeId);
-        //        }
-        //    }
-        //}
-
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    var frm = new FormEntrerMotDePasse();
-        //    frm.ShowDialog();
-
-        //    if (frm.isHim == true)
-        //    {
-        //        DataTable dt = Enseignant.GetAllEnseignants();
-        //        foreach (DataRow dr in dt.Rows)
-        //        {
-        //            string enseignantId = dr[0].ToString();// or Convert.ToInt32(dr[0]) if it's numeric
-        //            Enseignant.DeleteEnseignant(enseignantId);
-        //        }
-        //    }
-        //}
-
-        //private void button2_Click(object sender, EventArgs e)
-        //{
-        //    var frm = new FormEntrerMotDePasse();
-        //    frm.ShowDialog();
-
-        //    if (frm.isHim == true)
-        //    {
-        //        DataTable dt = Eleve.GetAllEleves();
-        //        foreach (DataRow dr in dt.Rows)
-        //        {
-        //            string eleveid = dr[0].ToString();  // or Convert.ToInt32(dr[0]) if it's numeric
-        //            Eleve.DeleteEleve(eleveid);
-        //        }
-        //    }
-        //}
-
-        //private void button6_Click(object sender, EventArgs e)
-        //{
-        //    FormUploadToGoogleDrive form = new FormUploadToGoogleDrive();
-        //    form.ShowDialog();
-
-        //}
+        private void btnFermer_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

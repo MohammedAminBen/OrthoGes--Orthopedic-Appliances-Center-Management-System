@@ -206,10 +206,10 @@ namespace OrthoGes
             dgvAccord.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvAccord.Columns[4].Width = 100;
 
-            dgvAccord.Columns[5].HeaderText = "Mésure";
+            dgvAccord.Columns[5].HeaderText = "Description";
             dgvAccord.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvAccord.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvAccord.Columns[5].Width = 130;
+            dgvAccord.Columns[5].Width = 150;
 
             dgvAccord.Columns[6].HeaderText = "Date d'accord";
             dgvAccord.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -221,6 +221,7 @@ namespace OrthoGes
             dgvAccord.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvAccord.Columns[7].Width = 130;
 
+            dgvAccord.Columns[8].Visible = false;
             dgvAccord.Columns[8].HeaderText = "délai";
             dgvAccord.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvAccord.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;

@@ -55,6 +55,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbxAnnee = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cmbxMois = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnModifier = new System.Windows.Forms.Button();
             label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFactureListe)).BeginInit();
@@ -275,7 +276,7 @@
             this.btnSupprimer.ForeColor = System.Drawing.Color.Black;
             this.btnSupprimer.Image = global::OrthoGes.Properties.Resources.icons8_delete_321;
             this.btnSupprimer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSupprimer.Location = new System.Drawing.Point(1199, 780);
+            this.btnSupprimer.Location = new System.Drawing.Point(1021, 780);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(143, 52);
             this.btnSupprimer.TabIndex = 27;
@@ -311,7 +312,7 @@
             this.btnAjouteraugroup.ForeColor = System.Drawing.Color.Black;
             this.btnAjouteraugroup.Image = global::OrthoGes.Properties.Resources.icons8_print_48;
             this.btnAjouteraugroup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAjouteraugroup.Location = new System.Drawing.Point(969, 780);
+            this.btnAjouteraugroup.Location = new System.Drawing.Point(791, 780);
             this.btnAjouteraugroup.Name = "btnAjouteraugroup";
             this.btnAjouteraugroup.Size = new System.Drawing.Size(224, 52);
             this.btnAjouteraugroup.TabIndex = 25;
@@ -523,12 +524,31 @@
             this.cmbxMois.TabIndex = 65;
             this.cmbxMois.SelectedIndexChanged += new System.EventHandler(this.cmbxMois_SelectedIndexChanged);
             // 
+            // btnModifier
+            // 
+            this.btnModifier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModifier.BackColor = System.Drawing.Color.White;
+            this.btnModifier.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(245)))));
+            this.btnModifier.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnModifier.ForeColor = System.Drawing.Color.Black;
+            this.btnModifier.Image = global::OrthoGes.Properties.Resources.icons8_user_menu_male_321;
+            this.btnModifier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModifier.Location = new System.Drawing.Point(1170, 780);
+            this.btnModifier.Name = "btnModifier";
+            this.btnModifier.Size = new System.Drawing.Size(172, 52);
+            this.btnModifier.TabIndex = 75;
+            this.btnModifier.Text = "     Patient details";
+            this.btnModifier.UseCompatibleTextRendering = true;
+            this.btnModifier.UseVisualStyleBackColor = false;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
+            // 
             // FormFactures
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(1483, 842);
+            this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.cmbxEtat);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbxDate);
@@ -584,5 +604,6 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2ComboBox cmbxAnnee;
         private Guna.UI2.WinForms.Guna2ComboBox cmbxMois;
+        private System.Windows.Forms.Button btnModifier;
     }
 }

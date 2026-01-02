@@ -77,8 +77,6 @@ namespace OrthoGes
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.gbxProduit = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.tbxDelai = new Guna.UI2.WinForms.Guna2TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.tbxMesure = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -883,8 +881,6 @@ namespace OrthoGes
             this.gbxProduit.BorderRadius = 7;
             this.gbxProduit.Controls.Add(this.dgvDesignation);
             this.gbxProduit.Controls.Add(this.dgvProduits);
-            this.gbxProduit.Controls.Add(this.label18);
-            this.gbxProduit.Controls.Add(this.tbxDelai);
             this.gbxProduit.Controls.Add(this.label17);
             this.gbxProduit.Controls.Add(this.tbxMesure);
             this.gbxProduit.Controls.Add(this.label4);
@@ -905,41 +901,6 @@ namespace OrthoGes
             this.gbxProduit.TabIndex = 24;
             this.gbxProduit.Text = "Produit";
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.White;
-            this.label18.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(539, 127);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(63, 25);
-            this.label18.TabIndex = 83;
-            this.label18.Text = "Délai :";
-            // 
-            // tbxDelai
-            // 
-            this.tbxDelai.BackColor = System.Drawing.Color.White;
-            this.tbxDelai.BorderColor = System.Drawing.Color.Black;
-            this.tbxDelai.BorderRadius = 6;
-            this.tbxDelai.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbxDelai.DefaultText = "";
-            this.tbxDelai.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbxDelai.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbxDelai.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbxDelai.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbxDelai.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxDelai.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxDelai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbxDelai.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxDelai.Location = new System.Drawing.Point(544, 156);
-            this.tbxDelai.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxDelai.Name = "tbxDelai";
-            this.tbxDelai.PlaceholderText = "";
-            this.tbxDelai.SelectedText = "";
-            this.tbxDelai.Size = new System.Drawing.Size(205, 37);
-            this.tbxDelai.TabIndex = 84;
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -948,9 +909,9 @@ namespace OrthoGes
             this.label17.ForeColor = System.Drawing.Color.Black;
             this.label17.Location = new System.Drawing.Point(272, 127);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(84, 25);
+            this.label17.Size = new System.Drawing.Size(122, 25);
             this.label17.TabIndex = 81;
-            this.label17.Text = "Mesure :";
+            this.label17.Text = "Description : ";
             // 
             // tbxMesure
             // 
@@ -972,7 +933,7 @@ namespace OrthoGes
             this.tbxMesure.Name = "tbxMesure";
             this.tbxMesure.PlaceholderText = "";
             this.tbxMesure.SelectedText = "";
-            this.tbxMesure.Size = new System.Drawing.Size(256, 37);
+            this.tbxMesure.Size = new System.Drawing.Size(472, 37);
             this.tbxMesure.TabIndex = 82;
             // 
             // label4
@@ -1293,8 +1254,6 @@ namespace OrthoGes
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label14;
         private Guna.UI2.WinForms.Guna2TextBox tbxReference;
-        private System.Windows.Forms.Label label18;
-        private Guna.UI2.WinForms.Guna2TextBox tbxDelai;
         private System.Windows.Forms.Label label17;
         private Guna.UI2.WinForms.Guna2TextBox tbxMesure;
         private System.Windows.Forms.Button btnEnregistrer;

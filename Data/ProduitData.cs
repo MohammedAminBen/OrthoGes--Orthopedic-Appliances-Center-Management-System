@@ -92,7 +92,6 @@ namespace DataLayer
       ,[TVA]
       ,[Prix_TVA]
       ,[Quantite]
-	  ,c.Category_Delai
         FROM R_Produit p
         INNER JOIN R_Category_Produit c ON p.Category_ID = c.Category_ID
         ORDER BY c.Category_Nom";
@@ -112,7 +111,7 @@ namespace DataLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error ", ex.Message);
+                Console.WriteLine("Error Produit :"+ ex.Message);
             }
             finally
             {

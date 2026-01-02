@@ -170,7 +170,6 @@ namespace OrthoGes
 
             tbxReference.Text = dgvDesignation.CurrentRow.Cells[0].Value.ToString();
             tbxDesignation.Text = dgvDesignation.CurrentRow.Cells[1].Value.ToString();
-            tbxDelai.Text = dgvDesignation.CurrentRow.Cells[6].Value.ToString();
 
             dgvDesignation.Visible = false;
 
@@ -178,7 +177,7 @@ namespace OrthoGes
         }
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {
-           if(Accord.CreateAccord(patient.NumeroPatient, DateTime.Parse(tbxDate.Text), cmbxEtat.Text, tbxMesure.Text, tbxReference.Text, int.Parse(tbxDelai.Text), int.Parse(tbxQuantity.Text)))
+           if(Accord.CreateAccord(patient.NumeroPatient, DateTime.Parse(tbxDate.Text), cmbxEtat.Text, tbxMesure.Text, tbxReference.Text, 0, int.Parse(tbxQuantity.Text)))
             {
                 
                     MessageBox.Show("Accord a été créé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);

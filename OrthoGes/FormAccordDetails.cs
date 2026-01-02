@@ -97,7 +97,6 @@ namespace OrthoGes
             produit = Produit.FindByReference(accord.Reference_Produit);
             tbxReference.Text = produit.Reference;
             tbxDesignation.Text = produit.Nom_Produit;
-            tbxDelai.Text = accord.Delai_Accord.ToString();
             tbxQuantity.Text = accord.Quantity.ToString();
             tbxMesure.Text = accord.Mesures;
             cmbxEtat.Text = accord.Etat_Accord;

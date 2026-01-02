@@ -103,7 +103,7 @@ namespace OrthoGes
             dgvProduitsListe.Columns[7].Width = 150;
 
             dgvProduitsListe.Columns[8].Visible = false;
-            dgvProduitsListe.Columns[9].Visible = false;
+            //dgvProduitsListe.Columns[9].Visible = false;
 
 
         }

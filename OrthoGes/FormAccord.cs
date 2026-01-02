@@ -22,7 +22,7 @@ namespace OrthoGes
         {
           InitializeComponent();
         }
-        private void ApplyFilters()
+        public void ApplyFilters()
         {
             DataTable dtAccordListe = Accord.GetAll();
 
@@ -133,12 +133,12 @@ namespace OrthoGes
             dgvAccordListe.Columns[5].HeaderText = "N°assurance";
             dgvAccordListe.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvAccordListe.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvAccordListe.Columns[5].Width = 110;
+            dgvAccordListe.Columns[5].Width = 120;
 
             dgvAccordListe.Columns[6].HeaderText = "Caisse";
             dgvAccordListe.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvAccordListe.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvAccordListe.Columns[6].Width = 110;
+            dgvAccordListe.Columns[6].Width = 100;
 
             dgvAccordListe.Columns[7].HeaderText = "Référence";
             dgvAccordListe.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -153,10 +153,10 @@ namespace OrthoGes
             dgvAccordListe.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvAccordListe.Columns[9].Width = 80;
 
-            dgvAccordListe.Columns[10].HeaderText = "Mésures";
+            dgvAccordListe.Columns[10].HeaderText = "Description";
             dgvAccordListe.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvAccordListe.Columns[10].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvAccordListe.Columns[10].Width = 110;
+            dgvAccordListe.Columns[10].Width = 150;
 
             dgvAccordListe.Columns[11].HeaderText = "Date";
             dgvAccordListe.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -166,7 +166,7 @@ namespace OrthoGes
             dgvAccordListe.Columns[12].HeaderText = "etat";
             dgvAccordListe.Columns[12].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvAccordListe.Columns[12].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvAccordListe.Columns[12].Width = 100;
+            dgvAccordListe.Columns[12].Width = 90;
         }
         private void FormFactures_Load(object sender, EventArgs e)
         {

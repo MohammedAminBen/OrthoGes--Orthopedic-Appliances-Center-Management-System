@@ -121,6 +121,7 @@ namespace OrthoGes
             this.btnGestionCabinet.Tag = "Cabinet";
             this.btnGestionCabinet.Text = " Gestion Cabinet";
             this.btnGestionCabinet.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnGestionCabinet.Click += new System.EventHandler(this.btnGestionCabinet_Click);
             // 
             // btnUti
             // 
@@ -142,6 +143,7 @@ namespace OrthoGes
             this.btnUti.Tag = "utilisateurs";
             this.btnUti.Text = " Les Utilisateurs";
             this.btnUti.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnUti.Click += PnlButton_Click;
             // 
             // btnfin
             // 
@@ -409,6 +411,11 @@ namespace OrthoGes
             ((System.ComponentModel.ISupportInitialize)(this.picboxUtilisateur)).EndInit();
             this.ResumeLayout(false);
 
+        }
+
+        private void BtnUti_Click(object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
 
         private void Btntab_Click(object sender, System.EventArgs e)

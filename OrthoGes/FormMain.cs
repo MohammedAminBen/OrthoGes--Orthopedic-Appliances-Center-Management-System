@@ -1,5 +1,6 @@
 ﻿//using CodeSourceLayer;
 //using DataLayer;
+using CodeSource;
 using Guna.UI2.WinForms;
 //using PDFTemplates;
 //using QuestPDF.Companion;
@@ -129,20 +130,6 @@ namespace OrthoGes
 
         [DllImport("user32.dll")]
         private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //InisialzeFinancement();
-            btntab.ImageSize = new Size(45, 45);
-            btnpatient.ImageSize = new Size(45, 45);
-            btnfacture.ImageSize = new Size(45, 45);
-            btnfin.ImageSize = new Size(45, 45);
-            btnaccord.ImageSize = new Size(45, 45);
-            btnUti.ImageSize = new Size(45, 45);
-            btnGestionCabinet.ImageSize = new Size(45, 45);
-            PnlButton_Click(btntab, EventArgs.Empty);
-           // fillpnlUserData();
-            //CheckPrivileges();
-        }
      
         public void btnPatientsHandling()
         {
@@ -216,6 +203,7 @@ namespace OrthoGes
             else
             {
                 frmFactures.Activate();
+                frmFactures.ApplyFilters();
             }
         }
         private void Factures_FormClosed(object sender, EventArgs e)
@@ -235,6 +223,7 @@ namespace OrthoGes
             else
             {
                 frmAccords.Activate();
+                frmAccords.ApplyFilters();
             }
         }
 
@@ -313,46 +302,9 @@ namespace OrthoGes
 
         }
 
-        //private void button3_Click(object sender, EventArgs e)
-        //{
-        //    Globale.utilisateurActuel = null;
-        //    frmConnection.Show();
-        //    this.Close();
-        //}
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (PnlUtilisateur.Visible == true)
-            { PnlUtilisateur.Visible = false; }
-            else PnlUtilisateur.Visible = true;
-        }
-        //private void btnMonEcole_Click(object sender, EventArgs e)
-        //{
-        //    var frm = new FormEntrerMotDePasse();
-        //    frm.ShowDialog();
-        //    if (frm.isHim)
-        //    {
-        //        var form = new FormGestionScolaire();
-        //        form.ShowDialog(); return;
-        //    }
-        //    else
-        //    {
-        //        return;
-        //    }
-        //}
-
-        private void btnactivites_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void PnlUtilisateur_Leave(object sender, EventArgs e)
         {
             PnlUtilisateur.Visible = false;
-        }
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
         }
 
         private void btntab_Click(object sender, EventArgs e)
@@ -371,6 +323,21 @@ namespace OrthoGes
             btnGestionCabinet.ImageSize = new Size(45, 45);
             btnproduits.ImageSize = new Size(45, 45);
             PnlButton_Click(btntab, EventArgs.Empty);
+            if (Centre_Appareillage.Find(1) == null)
+            {
+                FormGestionCabinet frm = new FormGestionCabinet();
+                frm.ShowDialog();
+                Global.centre = Centre_Appareillage.Find(1);
+            }
+            else
+            {
+                Global.centre = Centre_Appareillage.Find(1);
+            }
+        }
+        private void btnGestionCabinet_Click(object sender, EventArgs e)
+        {
+            FormGestionCabinet frm = new FormGestionCabinet();
+            frm.ShowDialog();
         }
     }
 

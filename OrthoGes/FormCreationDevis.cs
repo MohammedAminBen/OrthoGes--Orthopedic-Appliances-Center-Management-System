@@ -8,7 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using QuestPDF;
+using QuestPDF.Fluent;
+using QuestPDF.Infrastructure;
 namespace OrthoGes
 {
     public partial class FormCreationDevis : Form
@@ -28,7 +30,7 @@ namespace OrthoGes
 
         private void AssuredCheckedConfig()
         {
-            gbxpatient.Size = new Size(766, 278);
+            gbxpatient.Size = new System.Drawing.Size(766, 278);
             gbxAssure.Visible = false;
             gbxContact.Location = new System.Drawing.Point(11, 336);
             lblnum.Visible = true;
@@ -38,7 +40,7 @@ namespace OrthoGes
             this.btnAnnuler.Location = new System.Drawing.Point(643, 854);
             lblD.Location = new Point(218, 865);
             tbxDate.Location = new Point(285, 856);
-            this.Size = new Size(805, 960);
+            this.Size = new System.Drawing.Size(805, 960);
         }
         private void LoadData()
         {
@@ -281,12 +283,46 @@ namespace OrthoGes
             {
                 MessageBox.Show("Devis a été créé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
+
+
+
                 return;
             }
             else
             {
                 MessageBox.Show("Erreur lors de la création du devis.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
             }
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            QuestPDF.Settings.License = LicenseType.Community;
+
+            // ✅ Generate document
+            var document = 
+
+            // ✅ Set save path
+            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string folderPath = Path.Combine(documentsPath, "SysSco Document");
+
+            // Ensure the folder exists
+            Directory.CreateDirectory(folderPath);
+
+            string fileName = $"{person.NomEtPrenom}_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.pdf";
+            string filePath = Path.Combine(folderPath, fileName);
+
+            // ✅ Save the PDF correctly
+            document.GeneratePdf(filePath);
+
+            // ✅ Wait briefly to ensure file write completes (optional but helpful)
+            System.Threading.Thread.Sleep(200);
+
+            // ✅ Open the generated PDF
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+            {
+                FileName = filePath,
+                UseShellExecute = true
+            });
         }
     }
 }
