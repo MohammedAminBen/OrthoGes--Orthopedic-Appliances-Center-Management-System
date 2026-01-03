@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CodeSourceLayer
+namespace CodeSourceLayer_
 {
     public class Patient
     {
@@ -37,19 +37,19 @@ namespace CodeSourceLayer
         // Add a new patient
         public bool AddNewPatient()
         {
-            return DataLayer.PatientData.AddNewPatient(PersonID,est_Assure,AssureID);
+            return DataLayer_.PatientData.AddNewPatient(PersonID,est_Assure,AssureID);
         }
 
         // Update existing patient
         public bool UpdatePatient()
         {
-            return DataLayer.PatientData.UpdatePatient(NumeroPatient, PersonID,est_Assure,AssureID);
+            return DataLayer_.PatientData.UpdatePatient(NumeroPatient, PersonID,est_Assure,AssureID);
         }
 
         // Delete a patient
         public static bool DeletePatient(string numeroPatient)
         {
-            return DataLayer.PatientData.DeletePatient(numeroPatient);
+            return DataLayer_.PatientData.DeletePatient(numeroPatient);
         }
 
         // Find patient by NumeroPatient
@@ -59,7 +59,7 @@ namespace CodeSourceLayer
             int assureID = -1;
             int est_Assure = -1;
             DateTime date_dinscription = DateTime.MinValue;
-            bool isFound = DataLayer.PatientData.GetPatientByNumeroPatient(numeroPatient, ref personID,ref est_Assure,ref assureID,ref date_dinscription);
+            bool isFound = DataLayer_.PatientData.GetPatientByNumeroPatient(numeroPatient, ref personID,ref est_Assure,ref assureID,ref date_dinscription);
 
             if (isFound)
             {
@@ -75,7 +75,7 @@ namespace CodeSourceLayer
             int assureID = -1;
             int est_Assure = -1;
             DateTime date_dinscription = DateTime.MinValue;
-            bool isFound = DataLayer.PatientData.GetPatientByPersonID(personID, ref numeroPatient,ref assureID,ref est_Assure,ref date_dinscription);
+            bool isFound = DataLayer_.PatientData.GetPatientByPersonID(personID, ref numeroPatient,ref assureID,ref est_Assure,ref date_dinscription);
 
             if (isFound)
             {
@@ -87,13 +87,13 @@ namespace CodeSourceLayer
         // Get all patients
         public static DataTable GetAllPatients()
         {
-            return DataLayer.PatientData.GetAllPatients();
+            return DataLayer_.PatientData.GetAllPatients();
         }
 
         // Get count of patients
         public static int GetPatientsCount()
         {
-            return DataLayer.PatientData.GetPatientsCount();
+            return DataLayer_.PatientData.GetPatientsCount();
         }
     }
 }

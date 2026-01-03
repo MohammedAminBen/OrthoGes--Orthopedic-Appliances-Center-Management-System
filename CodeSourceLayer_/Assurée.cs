@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 
-namespace CodeSourceLayer
+namespace CodeSourceLayer_
 {
         public class Assure
         {
@@ -41,14 +41,14 @@ namespace CodeSourceLayer
             // Add a new assure
             public bool AddNewAssure()
             {
-                AssureID = DataLayer.AssuréeData.AddNewAssure(PersonID, NumeroAssurance, CaisseID, RelationPatient);
+                AssureID = DataLayer_.AssuréeData.AddNewAssure(PersonID, NumeroAssurance, CaisseID, RelationPatient);
                 return AssureID != -1;
             }
 
             // Update existing assure
             public bool UpdateAssure()
             {
-                return DataLayer.AssuréeData.UpdateAssure(AssureID, NumeroAssurance, CaisseID, RelationPatient);
+                return DataLayer_.AssuréeData.UpdateAssure(AssureID, NumeroAssurance, CaisseID, RelationPatient);
             }
 
             // Find assure by AssureID
@@ -60,7 +60,7 @@ namespace CodeSourceLayer
                 string caisseNom = string.Empty;
                 string relationPatient = string.Empty;
 
-                bool isFound = DataLayer.AssuréeData.GetAssureInfoByID(assureID, ref personID, ref numeroAssurance, ref caisseID, ref caisseNom, ref relationPatient);
+                bool isFound = DataLayer_.AssuréeData.GetAssureInfoByID(assureID, ref personID, ref numeroAssurance, ref caisseID, ref caisseNom, ref relationPatient);
 
                 if (isFound)
                 {
@@ -78,7 +78,7 @@ namespace CodeSourceLayer
                 string caisseNom = string.Empty;
                 string relationPatient = string.Empty;
 
-                bool isFound = DataLayer.AssuréeData.GetAssureInfoByPersonID(personID, ref assureID, ref numeroAssurance, ref caisseID, ref caisseNom, ref relationPatient);
+                bool isFound = DataLayer_.AssuréeData.GetAssureInfoByPersonID(personID, ref assureID, ref numeroAssurance, ref caisseID, ref caisseNom, ref relationPatient);
 
                 if (isFound)
                 {
@@ -90,19 +90,19 @@ namespace CodeSourceLayer
             // Get all assures
             public static DataTable GetAllAssures()
             {
-                return DataLayer.AssuréeData.GetAllAssures();
+                return DataLayer_.AssuréeData.GetAllAssures();
             }
 
             // Delete an assure
             public static bool DeleteAssure(int assureID)
             {
-                return DataLayer.AssuréeData.DeleteAssure(assureID);
+                return DataLayer_.AssuréeData.DeleteAssure(assureID);
             }
 
             // Get count of assures (or students, depending on your method)
             public static int GetAssuresCount()
             {
-                return DataLayer.AssuréeData.GetAssuresCount();
+                return DataLayer_.AssuréeData.GetAssuresCount();
             }
         }
 }

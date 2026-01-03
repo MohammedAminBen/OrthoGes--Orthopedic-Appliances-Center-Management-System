@@ -11,6 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSourceLayer", "CodeSour
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDFTemplate", "PDFTemplate\PDFTemplate.csproj", "{DBD3CC86-1B79-4439-82DE-66C77A22CEA9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrthoGes_New_Version", "..\..\OrthoGes_New_Version\OrthoGes_New_Version\OrthoGes_New_Version.csproj", "{5719E343-30C2-5157-5186-3208130ACF09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer_", "DataLayer_\DataLayer_.csproj", "{FDC236C5-E1F7-4BAC-9C19-59D20BD96499}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeSourceLayer_", "CodeSourceLayer_\CodeSourceLayer_.csproj", "{1FCE730C-6093-40C8-AD92-3DF732F358D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +39,18 @@ Global
 		{DBD3CC86-1B79-4439-82DE-66C77A22CEA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBD3CC86-1B79-4439-82DE-66C77A22CEA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBD3CC86-1B79-4439-82DE-66C77A22CEA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5719E343-30C2-5157-5186-3208130ACF09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5719E343-30C2-5157-5186-3208130ACF09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5719E343-30C2-5157-5186-3208130ACF09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5719E343-30C2-5157-5186-3208130ACF09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDC236C5-E1F7-4BAC-9C19-59D20BD96499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDC236C5-E1F7-4BAC-9C19-59D20BD96499}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDC236C5-E1F7-4BAC-9C19-59D20BD96499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDC236C5-E1F7-4BAC-9C19-59D20BD96499}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FCE730C-6093-40C8-AD92-3DF732F358D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FCE730C-6093-40C8-AD92-3DF732F358D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FCE730C-6093-40C8-AD92-3DF732F358D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FCE730C-6093-40C8-AD92-3DF732F358D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

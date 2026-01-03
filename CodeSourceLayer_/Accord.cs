@@ -1,4 +1,4 @@
-﻿using Data;
+﻿using DataLayer_;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +7,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CodeSource
+namespace CodeSourceLayer_
 {
         public class Accord
         {

@@ -485,10 +485,6 @@
       <Project>{8b030a4e-be9d-47a7-95ba-2df88b131c85}</Project>
       <Name>CodeSourceLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PDFTemplate\PDFTemplate.csproj">
-      <Project>{dbd3cc86-1b79-4439-82de-66c77a22cea9}</Project>
-      <Name>PDFTemplate</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-person-female-skin-type-7-48.png" />

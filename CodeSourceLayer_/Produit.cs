@@ -1,4 +1,4 @@
-﻿using DataLayer;
+﻿using DataLayer_;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CodeSourceLayer
+namespace CodeSourceLayer_
 {
     public class Produit
     {
@@ -49,7 +49,7 @@ namespace CodeSourceLayer
             int delaiAnnée = 0;
             int delaiMois = 0;
 
-            bool isFound = DataLayer.ProduitData.GetProduitInfoByReference(reference, ref designation, ref tarif, ref tva, ref tarifTTC, ref quantite, ref categoryID, ref categoryNom, ref delaiAnnée, ref delaiMois);
+            bool isFound = DataLayer_.ProduitData.GetProduitInfoByReference(reference, ref designation, ref tarif, ref tva, ref tarifTTC, ref quantite, ref categoryID, ref categoryNom, ref delaiAnnée, ref delaiMois);
 
             if (isFound)
             {
@@ -60,7 +60,7 @@ namespace CodeSourceLayer
         }
         public static DataTable GetAllProduits()
         {
-            return DataLayer.ProduitData.GetAllProduits();
+            return DataLayer_.ProduitData.GetAllProduits();
         }
         public static DataTable GetAllCategories()
         {

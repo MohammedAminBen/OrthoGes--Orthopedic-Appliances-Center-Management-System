@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CodeSourceLayer_\CodeSourceLayer_.csproj" />
     <ProjectReference Include="..\CodeSource\CodeSourceLayer.csproj" />
   </ItemGroup>
 

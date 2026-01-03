@@ -1,8 +1,8 @@
-﻿using DataLayer;
+﻿using DataLayer_;
 using System;
 using System.Data;
 
-namespace CodeSourceLayer
+namespace CodeSourceLayer_
 {
     public class Devis
     {
