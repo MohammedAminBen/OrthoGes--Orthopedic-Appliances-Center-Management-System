@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{69E1A0E6-3D73-4E4A-8BD4-4CA24F088D2D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>OrthoGes</RootNamespace>
+    <AssemblyName>OrthoGes</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Guna.Charts.WinForms, Version=1.1.0.0, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.Charts.WinForms.1.1.0\lib\net48\Guna.Charts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net48\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="QuestPDF, Version=2025.12.1.0, Culture=neutral, PublicKeyToken=0f3c2b2315ff52c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuestPDF.2025.12.1\lib\netstandard2.0\QuestPDF.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormAjouterTache.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAjouterTache.Designer.cs">
+      <DependentUpon>FormAjouterTache.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAccordDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAccordDetails.Designer.cs">
+      <DependentUpon>FormAccordDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCreationBonLiv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreationBonLiv.Designer.cs">
+      <DependentUpon>FormCreationBonLiv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCreationAccord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreationAccord.Designer.cs">
+      <DependentUpon>FormCreationAccord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormModifierEtatAccord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModifierEtatAccord.Designer.cs">
+      <DependentUpon>FormModifierEtatAccord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFactureDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFactureDetails.Designer.cs">
+      <DependentUpon>FormFactureDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCreationFacture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreationFacture.Designer.cs">
+      <DependentUpon>FormCreationFacture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCreationDevis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCreationDevis.Designer.cs">
+      <DependentUpon>FormCreationDevis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGestionCabinet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGestionCabinet.Designer.cs">
+      <DependentUpon>FormGestionCabinet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormModifierPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModifierPatient.Designer.cs">
+      <DependentUpon>FormModifierPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAjouterPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAjouterPatient.Designer.cs">
+      <DependentUpon>FormAjouterPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPatientDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPatientDetails.Designer.cs">
+      <DependentUpon>FormPatientDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFinancement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFinancement.Designer.cs">
+      <DependentUpon>FormFinancement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProduits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProduits.Designer.cs">
+      <DependentUpon>FormProduits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAccord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAccord.Designer.cs">
+      <DependentUpon>FormAccord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSeConnecter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSeConnecter.Designer.cs">
+      <DependentUpon>FormSeConnecter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPatients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPatients.Designer.cs">
+      <DependentUpon>FormPatients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFactures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFactures.Designer.cs">
+      <DependentUpon>FormFactures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTabDeBord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTabDeBord.Designer.cs">
+      <DependentUpon>FormTabDeBord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TacheUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TacheUserControl.Designer.cs">
+      <DependentUpon>TacheUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAjouterTache.ar.resx">
+      <DependentUpon>FormAjouterTache.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAjouterTache.resx">
+      <DependentUpon>FormAjouterTache.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAccordDetails.resx">
+      <DependentUpon>FormAccordDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCreationBonLiv.resx">
+      <DependentUpon>FormCreationBonLiv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCreationAccord.resx">
+      <DependentUpon>FormCreationAccord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormModifierEtatAccord.resx">
+      <DependentUpon>FormModifierEtatAccord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFactureDetails.resx">
+      <DependentUpon>FormFactureDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCreationFacture.resx">
+      <DependentUpon>FormCreationFacture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCreationDevis.resx">
+      <DependentUpon>FormCreationDevis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGestionCabinet.resx">
+      <DependentUpon>FormGestionCabinet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormModifierPatient.ar.resx">
+      <DependentUpon>FormModifierPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormModifierPatient.resx">
+      <DependentUpon>FormModifierPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAjouterPatient.ar.resx">
+      <DependentUpon>FormAjouterPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAjouterPatient.resx">
+      <DependentUpon>FormAjouterPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPatientDetails.ar.resx">
+      <DependentUpon>FormPatientDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPatientDetails.resx">
+      <DependentUpon>FormPatientDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFinancement.ar.resx">
+      <DependentUpon>FormFinancement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFinancement.resx">
+      <DependentUpon>FormFinancement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProduits.ar.resx">
+      <DependentUpon>FormProduits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProduits.resx">
+      <DependentUpon>FormProduits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAccord.ar.resx">
+      <DependentUpon>FormAccord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAccord.resx">
+      <DependentUpon>FormAccord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSeConnecter.ar.resx">
+      <DependentUpon>FormSeConnecter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSeConnecter.resx">
+      <DependentUpon>FormSeConnecter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPatients.ar.resx">
+      <DependentUpon>FormPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPatients.resx">
+      <DependentUpon>FormPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFactures.ar.resx">
+      <DependentUpon>FormFactures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFactures.resx">
+      <DependentUpon>FormFactures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTabDeBord.ar.resx">
+      <DependentUpon>FormTabDeBord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTabDeBord.resx">
+      <DependentUpon>FormTabDeBord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TacheUserControl.resx">
+      <DependentUpon>TacheUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-dashboard-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crowd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\medical-bill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stamped.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-profit-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-coworking-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\company.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Capture d%27écran 2025-12-24 182946.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Handicapia_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-logout-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-filter-24 %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crowd1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crowd %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-wheelchair-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-user-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crowd %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-menu-male-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-registration-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-delete-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wheelchair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\medical-bill %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-create-document-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-bill-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-view-details-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-property-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-delete-321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-print-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-signing-a-document-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-new-copy-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-electric-wheelchair-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\finance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\schedule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crowd %281%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crowd %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stamped1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\finance1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dollars.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\analysis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\budget.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-user-321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-address-book-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-phone-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-contact-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-save-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patient1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-registration-321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CodeSource\CodeSourceLayer.csproj">
+      <Project>{8b030a4e-be9d-47a7-95ba-2df88b131c85}</Project>
+      <Name>CodeSourceLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PDFTemplate\PDFTemplate.csproj">
+      <Project>{dbd3cc86-1b79-4439-82de-66c77a22cea9}</Project>
+      <Name>PDFTemplate</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-person-female-skin-type-7-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-documents-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-new-copy-48 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\location.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-create-order-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-receipt-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-save-321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\company1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stamped2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-signing-a-document-481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-save-322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-save-323.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-menu-male-321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-property-321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-task-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sticky-notes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\QuestPDF.2025.12.1\build\net4\QuestPDF.targets" Condition="Exists('..\packages\QuestPDF.2025.12.1\build\net4\QuestPDF.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\QuestPDF.2025.12.1\build\net4\QuestPDF.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\QuestPDF.2025.12.1\build\net4\QuestPDF.targets'))" />
+  </Target>
+</Project>

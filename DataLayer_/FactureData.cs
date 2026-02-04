@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using Microsoft.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace DataLayer_
 {
@@ -13,63 +15,63 @@ namespace DataLayer_
         public static string GenerateNumeroFacture()
         {
             int lastNumber = 0;
-            int lastYear = 0;
+            int currentYear = DateTime.Now.Year % 100; // 26
 
             string query = @"
-        SELECT TOP 1 Numero_Facture
-        FROM D_Facture
-        WHERE Numero_Facture IS NOT NULL
-        ORDER BY Numero_Facture DESC;";
+                             SELECT ISNULL(MAX(CAST(LEFT(Numero_Facture, CHARINDEX('/', Numero_Facture) - 1) AS INT)), 0)
+                             FROM D_Facture
+                             WHERE RIGHT(Numero_Facture, 2) = @Year;";
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@Year", currentYear.ToString("D2"));
+
                     connection.Open();
                     object result = command.ExecuteScalar();
 
-                    if (result != null)
+                    if (result != null && result != DBNull.Value)
                     {
-                        string numeroPatient = result.ToString();
-
-                        // Expected format: Number/YY
-                        string[] parts = numeroPatient.Split('/');
-
-                        if (parts.Length == 2)
-                        {
-                            int.TryParse(parts[0], out lastNumber);
-                            int.TryParse(parts[1], out lastYear);
-                        }
+                        lastNumber = Convert.ToInt32(result);
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Database error: " + ex.Message);
+                // during dev
+                throw;
             }
 
-            int currentYear = int.Parse(DateTime.Now.ToString("yy"));
+            lastNumber++; // increment safely
 
-            // 🔁 New year OR no previous records
-            if (lastYear != currentYear)
-            {
-                lastNumber = 1;
-            }
-            else
-            {
-                lastNumber++;
-            }
-
-            return $"{lastNumber}/{currentYear}";
+            return $"{lastNumber}/{currentYear:D2}";
         }
-        public static bool GetFactureByNumeroFacture(string numeroFacture, ref string Numeropatient, ref string referenceproduit, ref int etatpayement, ref DateTime date_facture,ref int payement_cheque,ref decimal Montant_tva,ref decimal Montant_ttc,ref int TVA,ref int qte,ref string centrepayeur)
+        public static bool GetFactureData(
+         string numeroFacture,
+         ref string numeroPatient,
+         ref DateTime dateFacture,
+         ref int etatPayement,
+         ref int payementCheque,
+         ref decimal montantTTC,
+         ref string centrePayeur)
         {
-            bool isFound = false;
+            numeroPatient = centrePayeur = string.Empty;
+            dateFacture = DateTime.MinValue;
+            etatPayement = payementCheque = 0;
+            montantTTC = 0;
+
             string query = @"
-            SELECT Numero_Patient, Reference_Produit, etat_Payement, Date_Facture, Payement_cheque, Montant_TVA, Montant_TTC, TVA, Quantity, Centre_Payeur
-            FROM D_Facture
-            WHERE Numero_Facture = @NumeroFacture";
+                SELECT 
+                    Numero_Patient,
+                     Date_Facture,
+                    etat_Payement,
+                    Payement_cheque,
+                    Montant_TTC,
+                    Centre_Payeur
+                FROM D_Facture
+                WHERE Numero_Facture = @NumeroFacture";
 
             try
             {
@@ -77,72 +79,140 @@ namespace DataLayer_
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@NumeroFacture", numeroFacture);
-
                     connection.Open();
+
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        if (reader.Read())
-                        {
-                            isFound = true;
-                            Numeropatient = reader["Numero_Patient"].ToString();
-                            referenceproduit = reader["Reference_Produit"].ToString();
-                            etatpayement = (int)reader["etat_Payement"];
-                            date_facture = (DateTime)reader["Date_Facture"];
-                            payement_cheque = (int)reader["Payement_cheque"];
-                            Montant_tva = (decimal)reader["Montant_TVA"];
-                            Montant_ttc = (decimal)reader["Montant_TTC"];
-                            TVA = (int)reader["TVA"];
-                            qte = (int)reader["Quantity"];
-                            centrepayeur = reader["Centre_Payeur"].ToString();
-                        }
+                        if (!reader.Read())
+                            return false;
+
+                        numeroPatient = reader["Numero_Patient"].ToString();
+                        dateFacture = (DateTime)reader["Date_Facture"];
+                        etatPayement = (int)reader["etat_Payement"];
+                        payementCheque = Convert.ToInt32(reader["Payement_cheque"]);
+                        montantTTC = (decimal)reader["Montant_TTC"];
+                        centrePayeur = reader["Centre_Payeur"].ToString();
+
+                        return true;
                     }
                 }
             }
             catch (Exception ex)
             {
-                isFound = false;
-                Console.WriteLine("Database error: " + ex.Message);
+                Console.WriteLine("GetFactureData error: " + ex.Message);
+                return false;
             }
-
-            return isFound;
         }
-        public static bool CreateFacture(DateTime dateFacture, string numeroPatient, string referenceProduit, int etatPayement, int payementCheque, int quantity, decimal montantTVA, decimal montantTTC, int tva, string centrePayeur,DateTime datedelai)
+
+        public static List<(string Reference,
+                    int Quantity,
+                    decimal MontantTVA,
+                    decimal MontantTTC,
+                    int TVA,
+                    DateTime DateDelai)> GetFactureProduits(string numeroFacture)
         {
-            string numeroFacture = GenerateNumeroFacture();
+            var produits = new List<(string, int, decimal, decimal, int, DateTime)>();
+
             string query = @"
-        INSERT INTO D_Facture
-        (Numero_Facture, Date_Facture, Numero_Patient, Reference_Produit, etat_Payement,
-         Payement_cheque, Quantity, Montant_TVA, Montant_TTC, TVA, Centre_Payeur,Date_Delai,est_Ajouter_Tache)
-        VALUES
-        (@Numero_Facture, @Date_Facture, @Numero_Patient, @Reference_Produit, @etat_Payement,
-         @Payement_cheque, @Quantity, @Montant_TVA, @Montant_TTC, @TVA, @Centre_Payeur,@Date_Delai,0)";
+SELECT 
+    fp.Reference_Produit,
+    fp.QuantityProduit,
+    fp.Montant_TVA,
+    fp.Montant_TTC,
+    fp.TVA,
+    fp.Date_Delai
+FROM D_Facture_Produits fp
+WHERE fp.Numero_Facture = @NumeroFacture";
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.Add("@Numero_Facture", SqlDbType.VarChar).Value = numeroFacture;
-                    command.Parameters.Add("@Date_Facture", SqlDbType.DateTime).Value = dateFacture;
-                    command.Parameters.Add("@Numero_Patient", SqlDbType.VarChar).Value = numeroPatient;
-                    command.Parameters.Add("@Reference_Produit", SqlDbType.VarChar).Value = referenceProduit;
-                    command.Parameters.AddWithValue("@etat_Payement",etatPayement);
-                    command.Parameters.Add("@Payement_cheque", SqlDbType.Bit).Value = payementCheque;
-                    command.Parameters.Add("@Quantity", SqlDbType.Int).Value = quantity;
-                    command.Parameters.Add("@Montant_TVA", SqlDbType.Decimal).Value = montantTVA;
-                    command.Parameters.Add("@Montant_TTC", SqlDbType.Decimal).Value = montantTTC;
-                    command.Parameters.Add("@TVA", SqlDbType.Int).Value = tva;
-                    command.Parameters.Add("@Centre_Payeur", SqlDbType.VarChar).Value = centrePayeur;
-                    command.Parameters.Add("@Date_Delai", SqlDbType.DateTime).Value = datedelai;
-
+                    command.Parameters.AddWithValue("@NumeroFacture", numeroFacture);
                     connection.Open();
-                    return command.ExecuteNonQuery() > 0;
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            produits.Add((
+                                reader["Reference_Produit"].ToString(),
+                                (int)reader["QuantityProduit"],
+                                (decimal)reader["Montant_TVA"],
+                                (decimal)reader["Montant_TTC"],
+                                (int)reader["TVA"],
+                                (DateTime)reader["Date_Delai"]
+                            ));
+                        }
+                    }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Database error: " + ex.Message);
-                return false;
+                Console.WriteLine("GetFactureProduits error: " + ex.Message);
+            }
+
+            return produits;
+        }
+
+        public static string CreateFacture(string NumFacture,DateTime dateFacture, string numeroPatient, int etatPayement, int payementCheque,decimal montantTTC, string centrePayeur, List<(string Reference, int Quantity, decimal MontantTVA, decimal MontantTTC, int TVA, DateTime datedelai)> produits)
+        {
+            string insertfacturequery = @"
+        INSERT INTO D_Facture
+        (Numero_Facture, Date_Facture, Numero_Patient, etat_Payement,
+         Payement_cheque, Montant_TTC, Centre_Payeur)
+        VALUES
+        (@Numero_Facture, @Date_Facture, @Numero_Patient, @etat_Payement,
+         @Payement_cheque, @Montant_TTC, @Centre_Payeur)";
+
+            string insertProduitQuery = @"
+        INSERT INTO D_Facture_Produits
+        (Numero_Facture, Reference_Produit, QuantityProduit, Montant_TVA, Montant_TTC, TVA,Date_Delai,est_Ajouter_Tache)
+        VALUES
+        (@Numero_Facture, @Reference_Produit, @QuantityProduit, @Montant_TVA, @Montant_TTC, @TVA,@date,0);";
+
+            using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
+            {
+                connection.Open();
+                SqlTransaction transaction = connection.BeginTransaction();
+                try
+                {
+                    using (SqlCommand command = new SqlCommand(insertfacturequery, connection,transaction))
+                    {
+                        command.Parameters.Add("@Numero_Facture", SqlDbType.VarChar).Value = NumFacture;
+                        command.Parameters.Add("@Date_Facture", SqlDbType.DateTime).Value = dateFacture;
+                        command.Parameters.Add("@Numero_Patient", SqlDbType.VarChar).Value = numeroPatient;
+                        command.Parameters.AddWithValue("@etat_Payement", etatPayement);
+                        command.Parameters.Add("@Payement_cheque", SqlDbType.Bit).Value = payementCheque;
+                        command.Parameters.Add("@Montant_TTC", SqlDbType.Decimal).Value = montantTTC;
+                        command.Parameters.Add("@Centre_Payeur", SqlDbType.VarChar).Value = centrePayeur;
+
+                         command.ExecuteNonQuery();
+                    }
+                    foreach (var p in produits)
+                    {
+                        using (SqlCommand cmd = new SqlCommand(insertProduitQuery, connection, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("@Numero_Facture", NumFacture);
+                            cmd.Parameters.AddWithValue("@Reference_Produit", p.Reference);
+                            cmd.Parameters.AddWithValue("@QuantityProduit", p.Quantity);
+                            cmd.Parameters.AddWithValue("@Montant_TVA", p.MontantTVA);
+                            cmd.Parameters.AddWithValue("@Montant_TTC", p.MontantTTC);
+                            cmd.Parameters.AddWithValue("@TVA", p.TVA);
+                            cmd.Parameters.AddWithValue("@date", p.datedelai);
+
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    transaction.Commit();
+                    return NumFacture;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Database error: " + ex.Message);
+                    return null;
+                }
             }
         }
 
@@ -151,49 +221,43 @@ namespace DataLayer_
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
-            string query = @"SELECT 
-      f.Numero_Facture,
-      pr.Nom + ' ' + pr.Prenom AS Patient,
-      pt.Numero_Patient,
-      STRING_AGG(t.Telephone, ' / ') AS Telephone,
-      a.Numero_Assurance,
-      c.Nom_Caisse,
-      f.Centre_Payeur,
-      f.Reference_Produit,
-      p.Nom_Produit,
-      p.Prix,
-      f.Quantity,
-      f.TVA,
-      f.Montant_TVA,
-      f.Montant_TTC,
-      f.Date_Facture,
-      f.etat_Payement,
-      f.Payement_cheque
+            string query = @"
+SELECT
+    f.Numero_Facture,
+    pr.Nom + ' ' + pr.Prenom AS Patient,
+    pt.Numero_Patient,
+    tel.Telephone,
+    a.Numero_Assurance,
+    c.Nom_Caisse,
+    f.Centre_Payeur,
+    prod.References_Produits,
+    f.Montant_TTC,
+    f.Date_Facture,
+    f.etat_Payement,
+    f.Payement_cheque
 FROM D_Facture f
-INNER JOIN R_Produit p ON f.Reference_Produit = p.Reference 
 LEFT JOIN D_Patient pt ON f.Numero_Patient = pt.Numero_Patient
 LEFT JOIN D_Person pr ON pt.Person_ID = pr.Person_ID
 LEFT JOIN D_Assure a ON pt.Assure_ID = a.Assure_ID
 LEFT JOIN R_Caisse c ON a.Caisse_ID = c.Caisse_ID
-LEFT JOIN D_Telephone t ON t.Person_ID = pr.Person_ID
-GROUP BY
-      f.Numero_Facture,
-      pr.Nom,
-      pr.Prenom,
-      pt.Numero_Patient,
-      a.Numero_Assurance,
-      c.Nom_Caisse,
-      f.Centre_Payeur,
-      f.Reference_Produit,
-      p.Nom_Produit,
-      p.Prix,
-      f.Quantity,
-      f.TVA,
-      f.Montant_TVA,
-      f.Montant_TTC,
-      f.Date_Facture,
-      f.etat_Payement,
-      f.Payement_cheque;";
+
+-- Aggregate telephones FIRST
+LEFT JOIN (
+    SELECT
+        Person_ID,
+        STRING_AGG(Telephone, ' / ') AS Telephone
+    FROM D_Telephone
+    GROUP BY Person_ID
+) tel ON tel.Person_ID = pr.Person_ID
+
+-- Aggregate products FIRST
+LEFT JOIN (
+    SELECT
+        Numero_Facture,
+        STRING_AGG(Reference_Produit, ' / ') AS References_Produits
+    FROM D_Facture_Produits
+    GROUP BY Numero_Facture
+) prod ON prod.Numero_Facture = f.Numero_Facture; ";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -224,22 +288,22 @@ GROUP BY
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
-            string query = @" SELECT 
+            string query = @"    SELECT 
 CAST('Facture' AS VARCHAR(20)) AS Document_Type,
-      [Numero_Facture] AS Numéro,
-      [Reference_Produit],
-      p.Nom_Produit AS Désignation,
-      p.Prix AS PUHT,	
-      [Quantity] AS Quantité,
-      d.TVA,
-      [Montant_TVA],
-      [Montant_TTC],
-      [Date_Facture] AS Date_Document,
-      [Centre_Payeur]
-      
-FROM D_Facture d
-INNER JOIN R_Produit p ON d.Reference_Produit = p.Reference
-    WHERE d.Numero_Patient = @Numero_Patient";
+      f.Numero_Facture AS Numéro,
+	  STRING_AGG(fp.Reference_Produit, ' / ') AS References_Produits,
+      f.Montant_TTC,
+	  f.Centre_Payeur,  
+      [Date_Facture] AS Date_Document
+FROM D_Facture f
+LEFT JOIN D_Facture_Produits fp 
+ON f.Numero_Facture = fp.Numero_Facture
+WHERE f.Numero_Patient = @Numero_Patient
+GROUP BY 
+    f.Numero_Facture,
+    f.Date_Facture,
+    f.Montant_TTC,
+    f.Centre_Payeur;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -322,83 +386,196 @@ INNER JOIN R_Produit p ON d.Reference_Produit = p.Reference
         }
         public static bool DeleteFacture(string numeroFacture)
         {
-            int rowsAffected = 0;
-            string query = @"Delete from D_Facture WHERE Numero_Facture = @NumeroFacture";
+            string queryProduits = @"DELETE FROM D_Facture_Produits WHERE Numero_Facture = @NumeroFacture";
+            string queryFacture = @"DELETE FROM D_Facture WHERE Numero_Facture = @NumeroFacture";
+            string queryRecouvrement = @"DELETE FROM D_Recouvrement WHERE Numero_Facture = @NumeroFacture";
 
-            try
+            using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
             {
-                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@NumeroFacture", numeroFacture);
+                connection.Open();
+                SqlTransaction transaction = connection.BeginTransaction();
 
-                    connection.Open();
-                    rowsAffected = command.ExecuteNonQuery();
+                try
+                {
+                    using (SqlCommand cmd1 = new SqlCommand(queryProduits, connection, transaction))
+                    {
+                        cmd1.Parameters.AddWithValue("@NumeroFacture", numeroFacture);
+                        cmd1.ExecuteNonQuery();
+                    }
+                    using (SqlCommand cmd3 = new SqlCommand(queryRecouvrement, connection, transaction))
+                    {
+                        cmd3.Parameters.AddWithValue("@NumeroFacture", numeroFacture);
+                        cmd3.ExecuteNonQuery();
+                    }
+                    using (SqlCommand cmd2 = new SqlCommand(queryFacture, connection, transaction))
+                    {
+                        cmd2.Parameters.AddWithValue("@NumeroFacture", numeroFacture);
+                        cmd2.ExecuteNonQuery();
+                    }
+
+                    transaction.Commit();
+                    return true;
+                }
+                catch
+                {
+                    transaction.Rollback();
+                    return false;
                 }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Database error: " + ex.Message);
-            }
-
-            return rowsAffected > 0;
         }
+
         public static DataTable GetAllFacturesForTaches()
         {
             DataTable dt = new DataTable();
+
+            string query = @"
+                SELECT *
+                FROM D_Facture_Produits
+                    WHERE ABS(DATEDIFF(DAY, @DateToday, Date_Delai)) < 10
+                    AND est_Ajouter_Tache = 0;";
+
+            using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@DateToday", DateTime.Today);
+                connection.Open();
+                dt.Load(command.ExecuteReader());
+            }
+
+            return dt;
+        }
+
+        public static bool UpdateTache_etat(string numero_facture ,string Referenceproduit)
+        {
+            string query = @"
+                UPDATE D_Facture_Produits
+                SET est_Ajouter_Tache = 1
+                WHERE Numero_Facture = @NumeroFacture AND Reference_Produit = @ref";
+
+            using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@NumeroFacture", numero_facture);
+                command.Parameters.AddWithValue("@ref", Referenceproduit);
+                connection.Open();
+                return command.ExecuteNonQuery() > 0;
+            }
+        }
+        public static int GetFacturesCount()
+        {
+            int count = 0;
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
-            string query = @" SELECT *
-                              FROM D_Facture 
-                              WHERE ABS(DATEDIFF(DAY, @DateToday, Date_Delai)) < 10 AND est_Ajouter_Tache = 0;";
-
+            string query = "SELECT count(*) as CNT FROM D_Facture";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@DateToday", DateTime.Today);
-
             try
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                if (reader.HasRows)
+
+                if (reader.Read())
                 {
-                    dt.Load(reader);
+                    count = (int)reader["CNT"];
                 }
+
                 reader.Close();
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error Facture :" + ex.Message);
+
+                Console.WriteLine("Error: " + ex.Message);
             }
             finally
             {
                 connection.Close();
             }
 
-            return dt;
+            return count;
         }
-        public static bool UpdateTache_etat(string numero_facture)
+
+        public static bool UpdateFacture(string numero, DateTime dateDevis, decimal montant, string centrePayeur,int etat,int check)
         {
             string query = @"
         UPDATE D_Facture
-        SET est_Ajouter_Tache = 1
-        WHERE Numero_Facture = @NumeroFacture";
+        SET 
+            Date_Facture = @Date_Facture,
+            Montant_TTC = @Montant_TTC,
+            Centre_Payeur = @Centre_Payeur,
+            etat_Payement = @etat,
+            Payement_cheque = @check
+            WHERE Numero_Facture = @Numero_Facture;";
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@NumeroFacture", numero_facture);
-                    connection.Open();
-                    int rows = command.ExecuteNonQuery();
-                    return rows > 0;
-                }
+                using var connection = new SqlConnection(DataAccessSettings.ConnectionString);
+                using var command = new SqlCommand(query, connection);
+
+                command.Parameters.Add("@Numero_Facture", SqlDbType.NVarChar, 50).Value = numero;
+                command.Parameters.Add("@Date_Facture", SqlDbType.DateTime).Value = dateDevis;
+                command.Parameters.Add("@Montant_TTC", SqlDbType.Decimal).Value = montant;
+                command.Parameters.Add("@Centre_Payeur", SqlDbType.NVarChar, 50).Value = centrePayeur;
+                command.Parameters.Add("@etat", SqlDbType.Int).Value = etat;
+                command.Parameters.Add("@check", SqlDbType.Int).Value = check;
+                connection.Open();
+                return command.ExecuteNonQuery() > 0;
             }
-            catch (Exception ex)
+            catch (SqlException)
             {
-                Console.WriteLine("Database error: " + ex.Message);
                 return false;
             }
         }
+
+
+        public static bool UpdateFacture_Produits(string facture, string oldReference, string reference, int quantity, decimal montantTva, decimal montantTtc, int tva)
+        {
+            string query = @"
+        IF EXISTS (
+            SELECT 1
+            FROM D_Facture_Produits
+            WHERE Numero_Facture = @Numero_Facture
+              AND Reference_Produit = @OldReference
+        )
+        BEGIN
+            UPDATE D_Facture_Produits
+            SET
+                Reference_Produit = @Reference,
+                QuantityProduit = @Quantity,
+                Montant_TVA = @Montant_TVA,
+                Montant_TTC = @Montant_TTC,
+                TVA = @TVA
+            WHERE Numero_Facture = @Numero_Facture
+              AND Reference_Produit = @OldReference;
+        END
+        ELSE
+        BEGIN
+        INSERT INTO D_Facture_Produits
+        (Numero_Facture, Reference_Produit, QuantityProduit, Montant_TVA, Montant_TTC, TVA)
+        VALUES
+        (@Numero_Facture, @Reference, @Quantity, @Montant_TVA, @Montant_TTC, @TVA);
+        END";
+
+            try
+            {
+                using var connection = new SqlConnection(DataAccessSettings.ConnectionString);
+                using var command = new SqlCommand(query, connection);
+
+                command.Parameters.AddWithValue("@Numero_Facture", facture);
+                command.Parameters.AddWithValue("@OldReference", oldReference);
+                command.Parameters.AddWithValue("@Reference", reference);
+                command.Parameters.AddWithValue("@Quantity", quantity);
+                command.Parameters.AddWithValue("@Montant_TVA", montantTva);
+                command.Parameters.AddWithValue("@Montant_TTC", montantTtc);
+                command.Parameters.AddWithValue("@TVA", tva);
+
+                connection.Open();
+                return command.ExecuteNonQuery() > 0;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
     }
 }

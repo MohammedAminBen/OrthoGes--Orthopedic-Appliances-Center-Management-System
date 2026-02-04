@@ -11,6 +11,41 @@ namespace DataLayer_
 {
     public class ProduitData
     {
+
+        public static bool AddNewProduit(string reference, string nomProduit, int categoryID, decimal prix, int tva, int quantite,decimal prixTVA)
+        {
+            using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
+            {
+                string query = @"
+        INSERT INTO R_Produit
+        (Reference, Nom_Produit, Category_ID, Prix, TVA, Prix_TVA, Quantite)
+        VALUES
+        (@Reference, @Nom_Produit, @Category_ID, @Prix, @TVA, @Prix_TVA, @Quantite);";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Reference", reference);
+                    command.Parameters.AddWithValue("@Nom_Produit", nomProduit);
+                    command.Parameters.AddWithValue("@Category_ID", categoryID);
+                    command.Parameters.AddWithValue("@Prix", prix);
+                    command.Parameters.AddWithValue("@TVA", tva);
+                    command.Parameters.AddWithValue("@Prix_TVA", prixTVA);
+                    command.Parameters.AddWithValue("@Quantite", quantite);
+
+                    try
+                    {
+                        connection.Open();
+                        return command.ExecuteNonQuery() > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Database error: " + ex.Message);
+                        return false;
+                    }
+                }
+            }
+        }
+
         public static bool GetProduitInfoByReference(
             string Reference_Produit,
             ref string Designation,
@@ -127,6 +162,7 @@ namespace DataLayer_
             SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
             string query = @"select  
+        Category_ID,
 	  Category_Nom
         FROM R_Category_Produit
         ORDER BY Category_Nom";

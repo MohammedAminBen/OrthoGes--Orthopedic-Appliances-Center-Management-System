@@ -12,47 +12,73 @@ namespace CodeSourceLayer_
     {
         public string Numero_Bon { get; set; }
         public string Numero_Patient { get; set; }
-
-        public string Reference_Produit { get; set; }
-        public string Nom_Produit { get; set; }
-        public decimal Prix { get; set; }
-
-        public int Quantity_Produit { get; set; }
-        public int TVA { get; set; }
-        public decimal Montant_TVA { get; set; }
-        public decimal Montant_TTC { get; set; }
-
-        public DateTime Date_Devis { get; set; }
+        public DateTime Date_Bon { get; set; }
         public string Centre_Payeur { get; set; }
-        public string Piece_Produit { get; set; }
+        public decimal Montant_TTC { get; set; }
+        public string PieceProduit;
+        public List<(string Reference, int Quantity, decimal MontantTVA, decimal MontantTTC, int TVA)> Produits { get; set; } = new();
 
-        public Bon_Livraison(string numeroBon, string numeroPatient, string referenceProduit, string nomProduit, decimal prix, int quantity, int tva, decimal montantTva, decimal montantTtc, DateTime dateDevis, string centrePayeur, string pieceProduit)
+        public Bon_Livraison(string numeroBon, string numeroPatient, DateTime dateBon, string centrePayeur, string pieceProduit, decimal montant, List<(string Reference, int Quantity, decimal MontantTVA, decimal MontantTTC, int TVA)> produits)
         {
             Numero_Bon = numeroBon;
             Numero_Patient = numeroPatient;
-            Reference_Produit = referenceProduit;
-            Nom_Produit = nomProduit;
-            Prix = prix;
-            Quantity_Produit = quantity;
-            TVA = tva;
-            Montant_TVA = montantTva;
-            Montant_TTC = montantTtc;
-            Date_Devis = dateDevis;
+            Date_Bon = dateBon;
             Centre_Payeur = centrePayeur;
-            Piece_Produit = pieceProduit;
+            PieceProduit = pieceProduit;
+            Produits = produits;
+            Montant_TTC = montant;
         }
-        public static bool CreateBonLiv(string numeroPatient, string referenceProduit, DateTime dateDevis, int quantity, decimal montantTva, decimal montantTtc, string centrePayeur, int tva,string piece_produit)
+
+        public static Bon_Livraison FindByNumeroBon(string numeroBon)
         {
-            return Bon_LivraisonData.CreateBonLiv(numeroPatient, referenceProduit, dateDevis, quantity, montantTva, montantTtc, centrePayeur, tva,piece_produit);
+            string numeroPatient = "", centrePayeur = "";
+            DateTime dateBon = DateTime.MinValue;
+            string piece = "";
+            decimal montant = 0;
+            bool found = Bon_LivraisonData.GetBonLivData(numeroBon, ref numeroPatient, ref dateBon, ref centrePayeur, ref piece, ref montant);
+
+            if (!found) return null;
+
+            return new Bon_Livraison(numeroBon, numeroPatient, dateBon, centrePayeur, piece, montant, Bon_LivraisonData.GetBonLivProduits(numeroBon));
+        }
+
+        public static string CreateBonLiv(string Num,DateTime dateBon, string numeroPatient, string centrePayeur, string piece, decimal Montant_TTC, List<(string Reference, int Quantity, decimal MontantTVA, decimal MontantTTC, int TVA)> produits)
+        {
+            return Bon_LivraisonData.CreateBonLiv(Num,dateBon, numeroPatient, centrePayeur, piece, Montant_TTC, produits);
         }
 
         public static DataTable GetAll()
         {
             return Bon_LivraisonData.GetAllBon();
         }
+
         public static DataTable GetAllBonDePatient(string numeroPatient)
         {
             return Bon_LivraisonData.GetAllBonDePatient(numeroPatient);
         }
+
+        public static bool DeleteBon_Livraison(string numeroBon)
+        {
+            return Bon_LivraisonData.DeleteBon_Livraison(numeroBon);
+        }
+
+        public static int GetBonsCount()
+        {
+            return Bon_LivraisonData.GetBonsCount();
+        }
+
+        public static bool UpdateBon(string numero, DateTime dateBon, decimal Montant, string CentrePayeur, string Piece)
+        {
+            return Bon_LivraisonData.UpdateBon(numero, dateBon, Montant, CentrePayeur, Piece);
+        }
+        public static bool UpdateBon_Produits(string Bon,string oldReference,string reference,int quantity, decimal Montanttva, decimal Montantttc, int tva)
+        {
+            return Bon_LivraisonData.UpdateBon_Produits(Bon, oldReference, reference, quantity, Montanttva, Montantttc, tva);
+        }
+        public static string GetLastBonNum()
+        {
+            return Bon_LivraisonData.GenerateNumeroBon();
+        }
+
     }
 }

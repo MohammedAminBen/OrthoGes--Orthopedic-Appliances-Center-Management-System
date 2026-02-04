@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataLayer_;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -35,9 +36,9 @@ namespace CodeSourceLayer_
         }
 
         // Add a new patient
-        public bool AddNewPatient()
+        public string AddNewPatient()
         {
-            return DataLayer_.PatientData.AddNewPatient(PersonID,est_Assure,AssureID);
+            return DataLayer_.PatientData.AddNewPatient(NumeroPatient,PersonID,est_Assure,AssureID);
         }
 
         // Update existing patient
@@ -95,5 +96,14 @@ namespace CodeSourceLayer_
         {
             return DataLayer_.PatientData.GetPatientsCount();
         }
+        public static DataTable GetAllCaisses()
+        {
+            return PatientData.GetAllCasisses();
+        }
+        public static string GetPatientsNum() 
+        {
+            return PatientData.GenerateNumeroPatient();
+        }
+       
     }
 }

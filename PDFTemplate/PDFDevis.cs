@@ -1,44 +1,26 @@
 ﻿using CodeSourceLayer_;
-using QuestPDF;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
+
 namespace PDFTemplates
 {
     public class PDFDevis
     {
-        public static string Num_Devis;
-        public static string PatientNom;
-        public static string PatientPrenom;
-        public static string DateNaiPatient;
-        public static string AssureNom;
-        public static string AssurePrenom;
-        public static string AssureDateNai;
-        public static string NumAss;
-        public static string Caisse;
-        public static string CentrePay;
-        public static string Adresse;
-        public static string Wilaya;
-        public static string Commune;
-        public static string Reference;
-        public static string Designation;
-        public static string Qte;
-        public static string Puht;
-        public static string Montant_TVA;
-        public static string Montant_HT;
-        public static string Tva;
-        public static string Montant_TTC;
-        public static string Date_Devis;
+        private static readonly string BrandBlue = "#1F3A63";
 
-        public static Document GenerateDocument(string Num_devis,string patientNom, string patientPrenom, string DatenaiPatient, string assureNom, string assurePrenom, string assureDateNai, string numAss, string caisse, string centrePay, string adresse,
-                                                string wilaya, string commune, string reference, string designation, string qte, string puht, string Montant_tva,string Montant_ht, string tva, string Montant_ttc,string datedevis)
+        // ===== DATA =====
+        public static string Num_Devis, Date_Devis;
+        public static string PatientNom, PatientPrenom, DateNaiPatient;
+        public static string AssureNom, AssurePrenom, AssureDateNai, NumAss;
+        public static string Adresse, Commune, Wilaya;
+        public static string Caisse, CentrePay;
+        public static List<(string Reference,string designation,string PUHT, string Quantity, string Montant_HT,string MontantTVA, string TVA)> Produits = new();
+        public static string Montant_TTC;
+
+        // ===== GENERATOR =====
+        public static Document GenerateDocument(string Num_devis, string patientNom, string patientPrenom, string DatenaiPatient, string assureNom, string assurePrenom, string assureDateNai, string numAss, string caisse, string centrePay, string adresse,
+                                                       string wilaya, string commune, List<(string Reference, string designation, string PUHT, string Quantity, string Montant_HT, string MontantTVA, string TVA)> produits, string Montant_ttc, string datedevis)
         {
             Num_Devis = Num_devis;
             PatientNom = patientNom;
@@ -53,158 +35,490 @@ namespace PDFTemplates
             Adresse = adresse;
             Wilaya = wilaya;
             Commune = commune;
-            Reference = reference;
-            Designation = designation;
-            Qte = qte;
-            Puht = puht;
-            Montant_TVA = Montant_tva;
             Montant_TTC = Montant_ttc;
-            Tva = tva;
             Date_Devis = datedevis;
-            Montant_HT = Montant_ht;
-
-
+            Produits = produits;
             return Document.Create(container =>
             {
-                    container.Page(page =>
-                    {
-                        page.PageColor(Colors.White);
-                        page.MarginTop(35);
-                        page.MarginLeft(20);
-                        page.MarginRight(20);
-                        page.MarginBottom(25);
-                        page.DefaultTextStyle(x => x.FontColor(Colors.Grey.Darken3).FontSize(10));
-                        page.Header().ShowOnce().Element(ComposeHeader);
-                        page.Content().Element(ComposeContent);
-                        page.Footer().Element(ComposeFooter);
-                    });
-                
+                container.Page(page =>
+                {
+                    page.Margin(30);
+                    page.PageColor(Colors.White);
+                    page.DefaultTextStyle(x =>
+                        x.FontFamily(Fonts.Arial)
+                         .FontSize(10)
+                         .FontColor(Colors.Black));
+
+                    page.Header().Element(ComposeHeader);
+                    page.Content().Element(ComposeContent);
+                    page.Footer().Element(ComposeFooter);
+                });
             });
         }
 
+        // ===== HEADER =====
         private static void ComposeHeader(IContainer container)
         {
-            byte[] image = File.ReadAllBytes(Global.centre.PathImage);
+            //byte[] image = File.ReadAllBytes(Global.centre.PathImage);
 
-            container.Row(row =>
+            container.Column(col =>
             {
-                row.RelativeColumn(3).Column(col =>
+                col.Item().Row(row =>
                 {
-                    col.Item().PaddingTop(10).AlignRight().Width(120).Image(image);
-                    col.Item().Text("EURL HANDICAPIA").Bold().FontSize(16).FontColor(Colors.Blue.Darken2);
-                    col.Item().Text("Centre D'appareillage Orthopédique").Bold();
-                    col.Item().Text("TEL / FAX : 036.62.65.60");
-                    col.Item().Text("Mobile : 0776.89.17.66 / 0770.05.60.80");
-                    col.Item().Text("ADRESSE : RUE MAQUAM ELCAHAID SAMO SETIF");
+                    row.RelativeItem().Column(c =>
+                    {
+                        c.Item().Text(Global.centre.CentreNom)
+                            .FontSize(24)
+                            .ExtraBold()
+                            .FontColor(BrandBlue);
+
+                        c.Item().PaddingTop(1)
+                            .Text(Global.centre.Description_Centre)
+                            .SemiBold()
+                            .FontSize(11);
+
+                        c.Item().PaddingTop(6).Text($"TEL / FAX : {Global.centre.FAX}").FontSize(12).FontFamily(Fonts.SegoeUI);
+                        c.Item().PaddingTop(4).Text($"Mobile : {Global.centre.Mobile}").FontSize(12).FontFamily(Fonts.SegoeUI);
+                        c.Item().PaddingTop(4).Text($"ADRESSE :{Global.centre.Adresse}").FontSize(12).FontFamily(Fonts.SegoeUI);
+                    });
+                   // row.RelativeItem().AlignRight().Width(130).Height(130).Image(image);
+                    row.ConstantItem(150)
+                        .AlignRight()
+                        .Text($"DATE : {Date_Devis}")
+                        .Bold().FontFamily(Fonts.SegoeUI);
                 });
 
-                row.RelativeColumn(1).AlignRight().Column(col =>
-                {
-                    col.Item().Text($"DATE : {DateTime.Now:dd/MM/yyyy}").Bold();
-                });
-            });
-
-            container.PaddingTop(15).Row(row =>
-            {
-                row.ConstantColumn(200)
-                    .Background(Colors.Blue.Darken2)
-                    .Padding(8)
-                    .Text("DEVIS N° : " + Num_Devis )
+                col.Item()
+                    .PaddingTop(20)
+                    .Background(BrandBlue)
+                    .Height(36)
+                    .AlignMiddle()
+                    .PaddingLeft(18)
+                    .Text($"DEVIS N° :   {Num_Devis}")
                     .FontColor(Colors.White)
                     .Bold()
-                    .FontSize(12);
-            });
-        }
-        private static void ComposePatient(IContainer container)
-        {
-            container.Column(col =>
-            {
-                col.Item().Text("Patient & Assuré").Bold().FontSize(12);
-                col.Item().Text($"Nom : {PatientNom}");
-                col.Item().Text($"Prénom : {PatientPrenom}");
-                col.Item().Text($"Date né le : {DateNaiPatient}");
-                col.Item().Text($"Adresse : {Adresse}");
-                col.Item().Text($"Commune : {Commune}");
-                col.Item().Text($"Wilaya : {Wilaya}");
-            });
-        }
-        private static void ComposeAssure(IContainer container)
-        {
-            container.Column(col =>
-            {
-                col.Item().Text("Assuré").Bold().FontSize(12);
-                col.Item().Text($"Nom : {AssureNom}");
-                col.Item().Text($"Prénom : {AssurePrenom}");
-                col.Item().Text($"Date né le : {AssureDateNai}");
-                col.Item().Text($"N° ass SN : {NumAss}");
-                col.Item().Text($"Caisse : {Caisse}");
-                col.Item().Text($"Centre payeur : {CentrePay}");
-            });
-        }
-        private static void ComposeTable(IContainer container)
-        {
-            container.Table(table =>
-            {
-                table.ColumnsDefinition(columns =>
-                {
-                    columns.RelativeColumn(4);
-                    columns.RelativeColumn();
-                    columns.RelativeColumn();
-                    columns.RelativeColumn();
-                });
-
-                table.Header(header =>
-                {
-                    header.Cell().Text("Description").Bold();
-                    header.Cell().AlignCenter().Text("QTE").Bold();
-                    header.Cell().AlignCenter().Text("PU HT").Bold();
-                    header.Cell().AlignCenter().Text("Montant HT").Bold();
-                });
-
-                table.Cell().Text(Designation).Bold();
-                table.Cell().AlignCenter().Text(Qte);
-                table.Cell().AlignCenter().Text(Puht);
-                table.Cell().AlignCenter().Text(Montant_HT);
-            });
-        }
-        private static void ComposeFooter(IContainer container)
-        {
-            container.PaddingTop(20).Column(col =>
-            {
-                col.Item().Text("Signature & Cachet").Bold();
-                col.Item().Height(80);
+                    .FontSize(20).FontFamily(Fonts.SegoeUI);
             });
         }
 
-
+        // ===== CONTENT =====
         private static void ComposeContent(IContainer container)
         {
-            container.PaddingTop(15).Column(column =>
+            container.PaddingTop(22).Column(col =>
             {
-                column.Item().Row(row =>
+                // -------- PATIENT / ASSURE --------
+                col.Item().Row(row =>
                 {
-                    row.RelativeColumn().Element(ComposePatient);
-                    row.RelativeColumn().Element(ComposeAssure);
+                    // Patient
+                    row.RelativeItem().Element(ComposePatient);
+
+                    // Vertical separator
+                    row.ConstantItem(20)
+                        .AlignCenter()
+                        .LineVertical(0.7f)
+                        .LineColor(Colors.Grey.Lighten2);
+
+                    // Assuré
+                    row.RelativeItem().PaddingLeft(20).Element(ComposeAssure);
                 });
 
-                column.Item().PaddingVertical(15).LineHorizontal(1);
+                col.Item().PaddingVertical(10)
+                    .LineHorizontal(0.7f)
+                    .LineColor(Colors.Grey.Lighten2);
 
-                column.Item().Text("Description").Bold().FontSize(12);
 
-                column.Item().PaddingTop(10).Element(ComposeTable);
-
-                column.Item().AlignRight().PaddingTop(10).Column(col =>
+                // -------- DESCRIPTION --------
+                col.Item().Row(row =>
                 {
-                    col.Item().Text($"TVA {Tva}% : {Montant_TVA} DZD").Bold();
-                    col.Item()
-                        .Background(Colors.Grey.Lighten3)
-                        .Padding(10)
-                        .Text($"TOTAL TTC : {Montant_TTC} DZD")
+                    row.RelativeItem(4)
+                        .Text("Description")
+                        .FontSize(20)
                         .Bold()
-                        .FontSize(14)
-                        .FontColor(Colors.Blue.Darken2);
+                        .FontColor(BrandBlue);
+
+                    row.RelativeItem()
+                        .AlignCenter()
+                        .PaddingTop(10)
+                        .Text("QTE")
+                        .FontSize(11)
+                        .FontColor(Colors.Grey.Medium);
+
+                    row.RelativeItem()
+                        .AlignCenter()
+                        .PaddingTop(10)
+                        .Text("PU HT")
+                        .FontSize(11)
+                        .FontColor(Colors.Grey.Medium);
+
+                    row.RelativeItem()
+                        .AlignCenter()
+                        .PaddingTop(10)
+                        .Text("Montant")
+                        .FontSize(11)
+                        .FontColor(Colors.Grey.Medium);
+                });
+
+
+                col.Item();
+                col.Item().PaddingVertical(10)
+                    .LineHorizontal(0.7f)
+                    .LineColor(Colors.Grey.Lighten2);
+
+
+                col.Item().PaddingTop(0).Column(mainCol =>
+                {
+                    // ===== HEADER LINE =====
+                    //mainCol.Item().Row(row =>
+                    //{
+                    //    row.RelativeItem(4); // empty (designation has no header)
+
+                    //    row.RelativeItem()
+                    //        .AlignCenter()
+                    //        .Text("QTE")
+                    //        .FontSize(11)
+                    //        .FontColor(Colors.Grey.Medium);
+
+                    //    row.RelativeItem()
+                    //        .AlignCenter()
+                    //        .Text("PU HT")
+                    //        .FontSize(11)
+                    //        .FontColor(Colors.Grey.Medium);
+
+                    //    row.RelativeItem()
+                    //        .AlignCenter()
+                    //        .Text("Montant HT")
+                    //        .FontSize(11)
+                    //        .FontColor(Colors.Grey.Medium);
+                    //});
+
+                    // ===== PRODUCT ROW =====
+
+                    // ===== PRODUCT ROWS =====
+                    for (int i = 0; i < Produits.Count; i++)
+                    {
+                        var produit = Produits[i];
+
+                        // Product row
+                        mainCol.Item().Row(row =>
+                        {
+                            // Designation
+                            row.RelativeItem(4).PaddingTop(2).Column(c =>
+                            {
+                                c.Item()
+                                    .Text(produit.Reference + "  " + produit.designation)
+                                    .SemiBold()
+                                    .FontFamily(Fonts.SegoeUI)
+                                    .FontSize(14);
+                            });
+
+                            // Quantity
+                            row.RelativeItem()
+                                .AlignCenter()
+                                .PaddingTop(4)
+                                .Text($"x{produit.Quantity}")
+                                .FontSize(13);
+
+                            // Unit price
+                            row.RelativeItem()
+                                .AlignCenter()
+                                .PaddingTop(4)
+                                .Text(produit.PUHT)
+                                .FontSize(13);
+
+                            // Amount
+                            row.RelativeItem()
+                                .AlignCenter()
+                                .PaddingTop(4)
+                                .Text(produit.Montant_HT)
+                                .FontSize(13)
+                                .Bold();
+                        });
+
+                        // TVA row (immediately under the product)
+                        mainCol.Item().PaddingTop(4).Row(row =>
+                        {
+                            // Empty designation column
+                            row.RelativeItem(4);
+
+                            // Empty QTE column
+                            row.RelativeItem();
+
+                            // TVA label
+                            row.RelativeItem()
+                                .AlignCenter()
+                                .Text($"TVA {produit.TVA}%")
+                                .FontSize(13);
+
+                            // TVA amount
+                            row.RelativeItem()
+                                .AlignCenter()
+                                .Text(produit.MontantTVA)
+                                .FontSize(13)
+                                .Bold();
+                        });
+
+                        // Separator line under the product + TVA block
+                        mainCol.Item()
+                            .PaddingTop(8)
+                            .LineHorizontal(0.6f)
+                            .LineColor(Colors.Grey.Lighten2);
+                    }
+
+
+
+
+                });
+
+
+                // -------- TOTAL --------
+                col.Item().PaddingTop(11)
+      .Row(row =>
+      {
+          // LEFT SIDE
+          row.RelativeItem() 
+              .AlignLeft().PaddingTop(25).PaddingLeft(50)
+              .Text("Signature et cachet")
+              .FontSize(12)
+              .Italic()
+              .FontFamily(Fonts.SegoeUI);
+
+          // RIGHT SIDE (TOTAL TTC box)
+          row.ConstantItem(200)
+              .AlignRight()
+              .Background(Colors.Grey.Lighten4)
+              .PaddingVertical(12)
+              .PaddingHorizontal(1)
+              .Row(r =>
+              {
+                  r.RelativeItem()
+                      .Text("     TOTAL TTC :")
+                      .SemiBold()
+                      .FontSize(14)
+                      .FontFamily(Fonts.SegoeUI);
+
+                  r.RelativeItem()
+                      .AlignRight()
+                      .Text($"{Montant_TTC} DZD")
+                      .SemiBold()
+                      .FontSize(14)
+                      .FontColor(BrandBlue)
+                      .FontFamily(Fonts.SegoeUI);
+              });
+      });
+                //col.Item().PaddingTop(50).PaddingRight(60).AlignRight()
+                //.Text("Signature & Cachet")
+                //.Bold()
+                //.FontColor(BrandBlue).FontSize(12);
+            });
+        }
+
+        // ===== PATIENT =====
+        private static void ComposePatient(IContainer c)
+        {
+            c.Column(col =>
+            {
+                // Title
+                col.Item()
+                    .Text("Patient")
+                    .SemiBold()
+                    .FontSize(21)
+                    .FontFamily(Fonts.Arial)
+                    .FontColor(BrandBlue);
+
+                col.Item().PaddingTop(16);
+
+                // Nom
+                col.Item().Row(row =>
+                {
+                    row.ConstantItem(90).Text("Nom :").FontFamily(Fonts.Arial).FontSize(14).FontColor(Colors.Grey.Darken1);
+                    row.RelativeItem().Text(PatientNom).FontFamily(Fonts.SegoeUI).FontSize(14).SemiBold();
+                });
+
+                col.Item().PaddingTop(11);
+
+                // Prénom
+                col.Item().Row(row =>
+                {
+                    row.ConstantItem(90).Text("Prénom :").FontFamily(Fonts.Arial).FontSize(14).FontColor(Colors.Grey.Darken1);
+                    row.RelativeItem().Text(PatientPrenom).FontFamily(Fonts.SegoeUI).FontSize(14).SemiBold();
+                });
+
+                col.Item().PaddingTop(11);
+
+                // Date de naissance
+                col.Item().Row(row =>
+                {
+                    row.ConstantItem(90).Text("Date né le :").FontFamily(Fonts.Arial).FontSize(14).FontColor(Colors.Grey.Darken1);
+                    row.RelativeItem().Text(DateNaiPatient).FontFamily(Fonts.SegoeUI).FontSize(14).SemiBold();
+                });
+
+                col.Item().PaddingTop(11);
+
+                // Adresse
+                col.Item().Row(row =>
+                {
+                    row.ConstantItem(90).Text("Adresse :").FontFamily(Fonts.Arial).FontSize(14).FontColor(Colors.Grey.Darken1);
+                    row.RelativeItem().Text(Adresse).FontFamily(Fonts.SegoeUI).FontSize(14).SemiBold();
+                });
+
+                col.Item().PaddingTop(11);
+
+                // Commune
+                col.Item().Row(row =>
+                {
+                    row.ConstantItem(90).Text("Commune :").FontFamily(Fonts.Arial).FontSize(14).FontColor(Colors.Grey.Darken1);
+                    row.RelativeItem().Text(Commune).FontFamily(Fonts.SegoeUI).FontSize(14).SemiBold();
+                });
+
+                col.Item().PaddingTop(11);
+
+                // Wilaya
+                col.Item().Row(row =>
+                {
+                    row.ConstantItem(90).Text("Wilaya :").FontFamily(Fonts.Arial).FontSize(14).FontColor(Colors.Grey.Darken1);
+                    row.RelativeItem().Text(Wilaya).FontFamily(Fonts.SegoeUI).FontSize(14).SemiBold();
                 });
             });
+        }
+
+
+        // ===== ASSURE =====
+        private static void ComposeAssure(IContainer c)
+        {
+            c.Column(col =>
+            {
+                // Title
+                col.Item()
+                    .Text("Assuré")
+                    .SemiBold()
+                    .FontSize(21)
+                    .FontFamily(Fonts.Arial)
+                    .FontColor(BrandBlue);
+
+                col.Item().PaddingTop(16);
+
+                // Nom
+                col.Item().Row(row =>
+                {
+                    row.ConstantItem(90)
+                        .Text("Nom :")
+                        .FontFamily(Fonts.Arial)
+                        .FontSize(14)
+                        .FontColor(Colors.Grey.Darken1);
+
+                    row.RelativeItem()
+                        .Text(AssureNom)
+                        .FontFamily(Fonts.SegoeUI)
+                        .FontSize(14)
+                        .SemiBold();
+                });
+
+                col.Item().PaddingTop(11);
+
+                // Prénom
+                col.Item().Row(row =>
+                {
+                    row.ConstantItem(90)
+                        .Text("Prénom :")
+                        .FontFamily(Fonts.Arial)
+                        .FontSize(14)
+                        .FontColor(Colors.Grey.Darken1);
+
+                    row.RelativeItem()
+                        .Text(AssurePrenom)
+                        .FontFamily(Fonts.SegoeUI)
+                        .FontSize(14)
+                        .SemiBold();
+                });
+
+                col.Item().PaddingTop(11);
+
+                // Date de naissance
+                col.Item().Row(row =>
+                {
+                    row.ConstantItem(90)
+                        .Text("Date né le :")
+                        .FontFamily(Fonts.Arial)
+                        .FontSize(14)
+                        .FontColor(Colors.Grey.Darken1);
+
+                    row.RelativeItem()
+                        .Text(AssureDateNai)
+                        .FontFamily(Fonts.SegoeUI)
+                        .FontSize(14)
+                        .SemiBold();
+                });
+
+                col.Item().PaddingTop(11);
+
+                // N° Assurance
+                col.Item().Row(row =>
+                {
+                    row.ConstantItem(90)
+                        .Text("N° ass SN :")
+                        .FontFamily(Fonts.Arial)
+                        .FontSize(14)
+                        .FontColor(Colors.Grey.Darken1);
+
+                    row.RelativeItem()
+                        .Text(NumAss)
+                        .FontFamily(Fonts.SegoeUI)
+                        .FontSize(14)
+                        .SemiBold();
+                });
+
+                col.Item().PaddingTop(11);
+
+                // Caisse
+                col.Item().Row(row =>
+                {
+                    row.ConstantItem(90)
+                        .Text("Caisse :")
+                        .FontFamily(Fonts.Arial)
+                        .FontSize(14)
+                        .FontColor(Colors.Grey.Darken1);
+
+                    row.RelativeItem()
+                        .Text(Caisse)
+                        .FontFamily(Fonts.SegoeUI)
+                        .FontSize(14)
+                        .SemiBold();
+                });
+
+                col.Item().PaddingTop(11);
+
+                // Centre payeur
+                col.Item().Row(row =>
+                {
+                    row.RelativeItem()
+                        .Text("Centre payeur :")
+                        .FontFamily(Fonts.Arial)
+                        .FontSize(14)
+                        .FontColor(Colors.Grey.Darken1);
+
+                    row.RelativeItem()
+                        .Text(CentrePay)
+                        .FontFamily(Fonts.SegoeUI)
+                        .FontSize(14)
+                        .SemiBold();
+                });
+            });
+        }
+
+
+        private static void Field(ColumnDescriptor col, string label, string value, bool bold = false)
+        {
+            col.Item().PaddingTop(6).Row(r =>
+            {
+                r.ConstantItem(80).Text(label);
+                r.RelativeItem().Text(value).Bold();
+            });
+        }
+
+        // ===== FOOTER =====
+        private static void ComposeFooter(IContainer container)
+        {
+
         }
     }
 }

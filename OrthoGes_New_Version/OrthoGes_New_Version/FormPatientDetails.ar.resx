@@ -1,0 +1,622 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--
+    Microsoft ResX Schema
+
+    Version 2.0
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
+    associated with the data types.
+
+    Example:
+
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+
+    There are any number of "resheader" rows that contain simple
+    name/value pairs.
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
+    mimetype set.
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
+    extensible. For a given mimetype the value must be set accordingly:
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
+    read any of the formats listed below.
+
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblnmbrGroupes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>259, 461</value>
+  </data>
+  <data name="button3.Text" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="btnpresencehistorique.Location" type="System.Drawing.Point, System.Drawing">
+    <value>619, 455</value>
+  </data>
+  <data name="btnpresencehistorique.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 49</value>
+  </data>
+  <data name="btnpresencehistorique.Text" xml:space="preserve">
+    <value>      سجل الحضور</value>
+  </data>
+  <data name="button5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>336, 908</value>
+  </data>
+  <data name="button5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 50</value>
+  </data>
+  <data name="button5.Text" xml:space="preserve">
+    <value>       الغاء التسجيل في الفوج</value>
+  </data>
+  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1050, 908</value>
+  </data>
+  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 50</value>
+  </data>
+  <data name="button1.Text" xml:space="preserve">
+    <value>      دفع الدين</value>
+  </data>
+  <data name="btnModifier.Text" xml:space="preserve">
+    <value>     تعديل</value>
+  </data>
+  <data name="button4.Text" xml:space="preserve">
+    <value>     حذف</value>
+  </data>
+  <data name="btnAjouteraungroup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>606, 908</value>
+  </data>
+  <data name="btnAjouteraungroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 50</value>
+  </data>
+  <data name="btnAjouteraungroup.Text" xml:space="preserve">
+    <value>       اضافة الى فوج</value>
+  </data>
+  <data name="label22.Size" type="System.Drawing.Size, System.Drawing">
+    <value>217, 43</value>
+  </data>
+  <data name="label22.Text" xml:space="preserve">
+    <value>سجل المدفوعات     </value>
+  </data>
+  <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 43</value>
+  </data>
+  <data name="label19.Text" xml:space="preserve">
+    <value>قائمة الديون     </value>
+  </data>
+  <data name="label18.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopRight</value>
+  </data>
+  <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 43</value>
+  </data>
+  <data name="label18.Text" xml:space="preserve">
+    <value>الأفواج المسجل بها     </value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>207, 43</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>معلومات التلميذ     </value>
+  </data>
+  <data name="chbxPasPayer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 27</value>
+  </data>
+  <data name="chbxPasPayer.Text" xml:space="preserve">
+    <value>غير مدفوع</value>
+  </data>
+  <data name="chbxAnticipe.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1416, 477</value>
+  </data>
+  <data name="chbxAnticipe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 27</value>
+  </data>
+  <data name="chbxAnticipe.Text" xml:space="preserve">
+    <value>دفع مسبق</value>
+  </data>
+  <data name="chbxRegulier.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1432, 16</value>
+  </data>
+  <data name="chbxRegulier.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 27</value>
+  </data>
+  <data name="chbxRegulier.Text" xml:space="preserve">
+    <value>دفع نظامي</value>
+  </data>
+  <data name="chbxAnt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 27</value>
+  </data>
+  <data name="chbxAnt.Text" xml:space="preserve">
+    <value>دفع مسبق</value>
+  </data>
+  <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>150, 908</value>
+  </data>
+  <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 50</value>
+  </data>
+  <data name="button2.Text" xml:space="preserve">
+    <value>      تغيير الفوج</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblIdentifiant.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblIdentifiant.Location" type="System.Drawing.Point, System.Drawing">
+    <value>591, 66</value>
+  </data>
+  <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 32</value>
+  </data>
+  <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="label21.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label21.Location" type="System.Drawing.Point, System.Drawing">
+    <value>663, 65</value>
+  </data>
+  <data name="label21.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 25</value>
+  </data>
+  <data name="label21.Text" xml:space="preserve">
+    <value>رقم المعرف :</value>
+  </data>
+  <data name="label16.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>255, 111</value>
+  </data>
+  <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 25</value>
+  </data>
+  <data name="label16.Text" xml:space="preserve">
+    <value>تاريخ الاشتراك :</value>
+  </data>
+  <data name="lblDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>183, 113</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>652, 111</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 25</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>الاسم واللقب :</value>
+  </data>
+  <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>623, 161</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 25</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>المستوى الدراسي :</value>
+  </data>
+  <data name="lblAddress.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblAddress.Location" type="System.Drawing.Point, System.Drawing">
+    <value>623, 305</value>
+  </data>
+  <data name="Filière.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Filière.Location" type="System.Drawing.Point, System.Drawing">
+    <value>309, 161</value>
+  </data>
+  <data name="Filière.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 25</value>
+  </data>
+  <data name="Filière.Text" xml:space="preserve">
+    <value>الشعبة :</value>
+  </data>
+  <data name="lblEmail.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblEmail.Location" type="System.Drawing.Point, System.Drawing">
+    <value>623, 257</value>
+  </data>
+  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>243, 208</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 25</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>رقم هاتف الولي :</value>
+  </data>
+  <data name="lblTelephone.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTelephone.Location" type="System.Drawing.Point, System.Drawing">
+    <value>599, 210</value>
+  </data>
+  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>671, 206</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 25</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>رقم الهاتف :</value>
+  </data>
+  <data name="lblTeleTuteur.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTeleTuteur.Location" type="System.Drawing.Point, System.Drawing">
+    <value>175, 210</value>
+  </data>
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>695, 255</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 25</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>الايميل : </value>
+  </data>
+  <data name="lblFiliere.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblFiliere.Location" type="System.Drawing.Point, System.Drawing">
+    <value>237, 163</value>
+  </data>
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>695, 303</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 25</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>العنوان :</value>
+  </data>
+  <data name="lblNiveau.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblNiveau.Location" type="System.Drawing.Point, System.Drawing">
+    <value>551, 163</value>
+  </data>
+  <data name="lblNometPrenom.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblNometPrenom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>580, 113</value>
+  </data>
+  <data name="guna2GroupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 53</value>
+  </data>
+  <data name="guna2GroupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>786, 373</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="guna2GroupBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>54</value>
+  </data>
+  <data name="guna2GroupBox3.Text" xml:space="preserve">
+    <value>                                                                                                             المعلومات العامة</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEANDQAAAEAIAAILAAAFgAAACgAAAA0AAAAaAAAAAEAIAAAAAAAQCoAACMuAAAjLgAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA7ZVkAO2VZAHtlWQW7ZVkRO2VZHrtlWSs7ZVk0e2VZOntlWT37ZVk/e2VZP3tlWT37ZVk6e2V
+        ZNHtlWSt7ZVke+2VZETtlWQX7ZVkAe2VZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAO2VZADtlWQA7ZVkDO2VZEHtlWSO7ZVkze2VZPHtlWT+7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP7tlWTx7ZVkzu2VZI/tlWRC7ZVkDO2V
+        ZADtlWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7ZVkAO2VZADtlWQO7ZVkWe2V
+        ZLrtlWTz7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk8+2VZLvtlWRa7ZVkD+2VZADtlWQAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA7ZVkAO2VZAXtlWRH7ZVkuu2VZPjtlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk+e2V
+        ZLztlWRJ7ZVkBe2VZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADtlWQA7ZVkAO2VZBntlWSO7ZVk8O2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk8O2VZJDtlWQb7ZVkAO2VZAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADtlWQA7ZVkAO2V
+        ZDbtlWTC7ZVk/u2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT+7ZVkxO2VZDjtlWQA7ZVkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAADtlWQA7ZVkAe2VZE3tlWTc7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWTe7ZVkUO2VZAHtlWQAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADtlWQA7ZVkAO2VZFXtlWTn7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZOjtlWRY7ZVkAe2VZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AADtlWQA7ZVkAO2VZE3tlWTn7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZRj/+2UYv/tlGL/7ZRi/+2UYv/tlGL/7ZRi/+2UYv/tlGL/7ZRi/+2UYv/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk6O2VZFDtlWQA7ZVkAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADtlWQA7ZVkAO2VZDbtlWTc7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZRj/++id//1x6z/9suy//bLsv/2y7L/9suy//bL
+        sv/2y7L/9suy//bMs//0vp//7plq/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWTe7ZVkOe2VZADtlWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7ZVkAO2V
+        ZBntlWTA7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2T
+        Yv/0v6H////+/////////////////////////////////////////////fXw//Cmff/tlGL/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZMPtlWQb7ZVkAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAA7ZVkAO2VZATtlWSM7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlGP/76B0//XFq//98+7/////////////////////////
+        /////////fXw//S+oP/umGn/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVkkO2VZATtlWQAAAAAAAAAAAAAAAAA7ZVkAO2VZADtlWRG7ZVk7+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2U
+        Y//tk2L/99C6//////////////////////////////////bLs//tlGL/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZPDtlWRK7ZVkAO2V
+        ZAAAAAAAAAAAAO2VZADtlWQO7ZVkuO2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZRj/+2TYv/tk2L/7ZNi/+2T
+        Yv/tk2L/7ZNi/+2TYv/tk2L/7ZNi/+2TYv/tk2L/7ZJg//GrhP/+9/P///////////////////////zs
+        5P/voHT/7ZJh/+2TYv/tk2L/7ZNi/+2TYv/tk2L/7ZNi/+2TYv/tk2L/7ZNi/+2TYv/tlGP/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVku+2VZBDtlWQAAAAAAO2VZADtlWQA7ZVkV+2VZPjtlWT/7ZVk/+2V
+        ZP/tlWT/7ZVj/++ecf/0v6H/9cas//XGrP/1xqz/9cas//XGrP/1xqz/9cas//XGrP/1xqz/9cas//XG
+        rP/2ybD//fPt///+/v/759z//fHq///////75tv/9car//XGrP/1xqz/9cas//XGrP/1xqz/9cas//XG
+        rP/1xqz/9cas//XGrP/0waT/76B0/+2UY//tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZPntlWRb7ZVkAO2V
+        ZADtlWQA7ZVkC+2VZLftlWT/7ZVk/+2VZP/tlWT/7ZVk/+2UY//2y7T/////////////////////////
+        ///////////////////////////////////////////////////99vH/8KmC//XHrf//////////////
+        //////////////////////////////////////////////////////////////fQu//tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVkuu2VZAztlWQA7ZVkAO2VZEDtlWTy7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlmX/99C6//ri1P/639D/+t/Q//rf0P/53s//+d7O//nez//639D/+t/Q//rf0P/639D/+d/Q//nf
+        0P/639D/+t3N//XCpv/3zrf/+t/R//rf0P/639D/+t/Q//rf0P/639D/+t/Q//rf0P/639D/+t/Q//rf
+        0P/639D/+t/Q//rh0//40r7/7Zdn/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZPPtlWRD7ZVkAO2V
+        ZADtlWSL7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7Zdn//O7m//um23/7Zdn/+2XZ//tmGj/8KV8//Gr
+        hf/vonf/7Zdn/+2XZ//tl2f/7Zhp/+6db//unG3/7Zdn/+2XZ//umGn/7Zho/+6YaP/ummv/7pho/+2X
+        Z//tl2f/7Zdn/+2XZv/umGj/7php/+2XZv/tl2f/7Zdn/+2XZ//ummv/87ub/+6YaP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVkj+2VZADtlWQV7ZVky+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2X
+        Z//zupr/7plq/+2VZP/tlGP/8KV8//zu5f/++vb/+uLU/+6bbf/tlWP/7ZVk//XEqP/76t//+uXZ//Gt
+        h//tlGL/7ZVj/+6cbv/30r7/+uTW//fRvP/um2z/7ZVj/+2UY//wp3//+NnH//ndzf/ytZL/7ZRj/+2V
+        ZP/tlWT/7pho//O6mv/umGj/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZM7tlWQX7ZVkQe2V
+        ZO/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tl2f/87qa/+6Zav/tlWT/7ZRi//Gshv/++vf///////zv
+        5//vn3L/7ZRj/+2WZv/53c7////////////0v6H/7ZNh/+2UYv/wpXz//fXx///////99O//76R5/+2U
+        Y//tk2H/87qa///+/v//////99G7/+2UY//tlWT/7ZVk/+6YaP/zupr/7pho/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWTx7ZVkRe2VZHftlWT+7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7Zdn//O6
+        mv/umWr/7ZVk/+2UYv/xrIb//vr3///////87+f/759y/+2UY//tlmb/+d7O////////////9L+h/+2T
+        Yf/tlGL/8KZ9//328f///////fTv//Ckev/tlGP/7ZNh//O7m/////7///////fRvP/tlGP/7ZVk/+2V
+        ZP/umGj/87qa/+6YaP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/u2VZHvtlWSo7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2XZ//zupr/7plq/+2VZP/tlGL/8ayG//769////////O/n/++f
+        cv/tlGP/7ZZm//nezv////////////S/of/tk2H/7ZRi//Cmff/99vH///////307//wpHr/7ZRj/+2T
+        Yf/zu5v////+///////30bz/7ZRj/+2VZP/tlWT/7pho//O6mv/umGj/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWSs7ZVkze2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tl2f/87qa/+6Z
+        av/tlWT/7ZRi//Gshv/++vf///////zv5//vn3L/7ZRj/+2WZv/53s7////////////0v6H/7ZNh/+2U
+        Yv/wpn3//fbx///////99O//8KR6/+2UY//tk2H/87ub/////v//////99G8/+2UY//tlWT/7ZVk/+6Y
+        aP/zupr/7pho/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk0e2VZObtlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7Zdn//O6mv/umWr/7ZVk/+2UYv/xrIb//vr3///////87+f/759y/+2U
+        Y//tlmb/+d7O////////////9L+h/+2TYf/tlGL/8KZ9//328f///////fTv//Ckev/tlGP/7ZNh//O7
+        m/////7///////fRvP/tlGP/7ZVk/+2VZP/umGj/87qa/+6YaP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZOntlWT07ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2XZ//zupr/7plq/+2V
+        ZP/tlGL/8ayG//769////////O/n/++fcv/tlGP/7ZZm//nczP////////////S+n//tk2H/7ZRi//Cm
+        ff/99vH///////307//wpHr/7ZRj/+2TYf/zu5v////+///////30bz/7ZRj/+2VZP/tlWT/7pho//O6
+        mv/umGj/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT37ZVk++2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tl2f/87qa/+6Zav/tlWT/7ZRi//Gshv/++vf///////zv5//vn3L/7ZRj/+2V
+        ZP/ys5D/+NTA//fOuP/vo3n/7ZRj/+2UYv/wpn3//fbx///////99O//8KR6/+2UY//tk2H/87ub////
+        /v//////99G8/+2UY//tlWT/7ZVk/+6YaP/zupr/7pho/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/u2VZPvtlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7Zdn//O6mv/umWr/7ZVk/+2U
+        Yv/xrIb//vr3///////87+f/759y/+2UY//tlGP/755x//Kyj//xroj/7Zdn/+2TYv/tk2H/8KR6//30
+        7////////fLs/++id//tlGP/7ZNh//O7m/////7///////fRvP/tlGP/7ZVk/+2VZP/umGj/87qa/+6Y
+        aP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP3tlWT07ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2XZ//zupr/7plq/+2VZP/tlGL/8ayG//769////////O/n/++fcv/tk2L/7ZZl//O4
+        l//vo3n/8rWT//XFqv/ztpT/8KiA/++fc//0wKP/+NXC//S8nf/tl2f/7ZVk/+2TYf/zu5v////+////
+        ///30bz/7ZRj/+2VZP/tlWT/7pho//O6mv/umGj/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT37ZVk5u2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tl2f/87qa/+6Zav/tlWT/7ZRj//Cl
+        e//76+H//fby//nf0P/ummv/76N4//TAo//0waT/8rSR//KxjP/vo3j/8a6I//O7m//1xKn/9L+i//Gr
+        hf/xrIX/7ZRj/+2VZP/tk2H/87ub/////v//////99G8/+2UY//tlWT/7ZVk/+6YaP/zupr/7pho/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk6e2VZM3tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7Zdn//O6mv/umWr/7ZVk/+2VZP/tlmX/8rOQ//XDp//xrYf/87mY//XDqP/wqH//7ZVk/+6X
+        Z//tlmX/7ZRj/+2UYv/tlGL/7ptt//K1k//wpn3/9MCj/+6bbP/tlGP/7ZNh//O7m/////7///////fR
+        vP/tlGP/7ZVk/+2VZP/umGj/87qa/+6XZ//tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZNHtlWSn7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2XZ//zupr/7plq/+2VZP/tlWP/7p1w//S8
+        nf/xrIb/9864//Kxjf/umGj/7ZRi/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/voHT/8auE//K1
+        k//1wqb/7pxu/+2SYP/zu5v////+///////30bz/7ZRj/+2VZP/tlWT/7Zdo//XDqP/xrIX/7Zho/+2U
+        Y//tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWSs7ZVkdu2VZP3tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tl2f/87qa/+6Zav/tlWT/7ZVj/+6bbf/0vZ7/87eV//KzkP/tk2L/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZRj/+2UYv/tlGL/8a6I//XEqf/unW//87mZ/////v//////99G8/+2U
+        Y//tlWT/7ZVk/+2WZv/53Mz//O7n/++fc//um23/7plp/+2VY//tlWT/7ZVk/+2VZP/tlWT+7ZVkeu2V
+        ZEDtlWTv7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7Zdn//O6mv/umWr/7ZVk/+2VZP/tlWT/755y//Cn
+        fv/umGj/7ZVk/+2UY//tlGP/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2U
+        Yv/xqYL/9cSp//S9nv/87+f//fPt//XCpv/tlGL/7ZVk/+2VZP/tlmb/+d3N//318f/0vJ3/+uDS//bN
+        tv/umWn/7ZVk/+2VZP/tlWT/7ZVk8O2VZETtlWQV7ZVkyu2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2X
+        Z//zupr/7plq/+2VZP/tlWT/7ZVk/+2VY//tlGL/7ZVk/+2VZP/vonb/76F1/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZRj/+2VY//tlWT/7ZVk/+2VZP/tlWT/7ZRi//ClfP/2yK//9MGk//O6m//unG7/7ZVj/+2V
+        ZP/tlWT/7Zdn//bKsf/639D//vr3///////99fD/8auF/+2UYv/tlWT/7ZVk/+2VZM3tlWQX7ZVkAO2V
+        ZIrtlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tl2f/87qa/+6Zav/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlGP/9ces//XEqP/tlGL/7ZVk/+2VZP/tlGL/7ZVj/++fc//unG7/7ZNi/+2UY//tlWT/7ZVk/+2V
+        ZP/tk2H/8q+K//Cpgf/xrIX/8KR6/+2UY//tlWT/7ZVk/+2YaP/0v6H/76Bz//bMs////fz/9cas/+2W
+        Zf/tlWT/7ZVk/+2VZP/tlWSO7ZVkAO2VZADtlWQ/7ZVk8e2VZP/tlWT/7ZVk/+2VZP/tlWT/7Zdn//O6
+        mv/umWn/7ZVj/+2VY//tlWP/7ZVj/+2VY//tlWP/7ZRi//Ckef/wpHr/7ZRi/+2VY//tl2f/8KqC//fN
+        t//87ub/++bb//TBpf/voXb/7ZVk/+2VY//tlWP/7ZRi/++ecv/ys5D/8rKP/+6bbf/tlWL/7ZVj/+2V
+        Y//tlmX/+drJ//fRu//vonb//O3k//rh0//2zrj/76N4/+2UY//tlWTy7ZVkQu2VZADtlWQA7ZVkC+2V
+        ZLbtlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/zuJf/8auE/++ecP/vnnH/755x/++ecf/vnnH/755x/++d
+        cP/wqH//8KiA/++db//wpHr/+NbC//738////////vr4///8+////v7//PDp//XEqf/vnnH/755x/++e
+        cf/vnnH/76J3/++hdf/vnXD/7pxv/++dcP/vnXD/8KiA//zt5f/98uz/76N5//rh0////////vr4//Gt
+        h//tlGL/7ZVkue2VZAztlWQA7ZVkAO2VZADtlWRW7ZVk+O2VZP/tlWT/7ZVk/+2VZP/tlWP/7pxv//K1
+        kv/zuJf/87iX//O4l//zuJf/87iX//O4l//zuJb/9L+i//TAov/zt5X/9MCj//738//++vj//fXw//73
+        9P/99vL//fbx///9/f/759z/87iX//O4l//zuJf/87iX//O4l//zt5X/9cGk//vl2f/1w6j/98y1//3z
+        7v//////+uDS//Ckef/87OP//fDp//rj1v/wqH//7ZRi+e2VZFntlWQA7ZVkAAAAAADtlWQA7ZVkDe2V
+        ZLbtlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VY//tlGP/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZRj/++g
+        dP/voHT/7ZJf//Cnf//87eX//vj1///9/f/////////////8+v/+9/T/+dzL/+6Zav/tk2L/7ZVk/+2V
+        ZP/tlWT/7Zho//XEqf///Pv/+NO///Ckev/1xKn/9smw//Cnfv/2x63//vj0//KwjP/umGj/7ZZm/+2V
+        ZLntlWQP7ZVkAAAAAAAAAAAA7ZVkAO2VZADtlWRF7ZVk7u2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2UY//voHT/8Kd///O5mf/75dr///38////////////////////
+        //////////////759v/42Mf/8a2I/+2YaP/tlWT/7ZRi//K1k//++ff///////78+v/53s//9Lyd//O6
+        mv/42Mb//vv5///+/v/30bv/7pho/+2VZO/tlWRI7ZVkAO2VZAAAAAAAAAAAAAAAAADtlWQA7ZVkA+2V
+        ZIrtlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlGP/755x//jT
+        v//++/j///////////////////////////////////////////////////////3z7f/zuJf/7ZVk/+2U
+        Y//unXD/+d3N//vo3v/0vJ3/+uHU/////////fz/+uTY//vl2f///v3/+NTA/+6Zav/tlGOO7ZVkBO2V
+        ZAAAAAAAAAAAAAAAAAAAAAAAAAAAAO2VZADtlWQY7ZVkvu2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/voHT/9cOo//zt5P///v7/////////////////////////
+        /////////vz6//rh1P/ztpT/7pps/+2VZP/tlWT/7ZRj/++fc//voXb/7ZFf//S/ov///////fXw//Cl
+        fP/voXb/9MCj/+6bbf/tlGPB7ZVkGu2VZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADtlWQA7ZVkAO2V
+        ZDTtlWTa7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZRj/+2U
+        Yv/voXX/9ces//zv6P////7//////////////Pv/+uTY//O5mP/ummv/7ZNi/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlGP/7ZRj/+2UY//xq4T/9sy1//bKsf/unG7/7ZRj/+2UYv/tlWPc7ZVkN+2VZADtlWQAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAO2VZADtlWQA7ZVkS+2VZOXtlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZRj/+2UY//vo3j/9sqx//zw6f/759z/9Lyc/+6b
+        bf/tk2L/7ZVj/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZRj/+2UYv/tlGP/7ZVk/+2V
+        ZP/tlWTn7ZVkTe2VZADtlWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7ZVkAO2V
+        ZADtlWRT7ZVk5e2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZRj/+2VY//vonf/7p1w/+2TYv/tlWP/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWTn7ZVkVu2VZADtlWQAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADtlWQA7ZVkAO2VZErtlWTb7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZRj/+2VY//tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWTc7ZVkTe2V
+        ZAHtlWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO2V
+        ZADtlWQA7ZVkNO2VZL/tlWT+7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP7tlWTB7ZVkNu2VZADtlWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7ZVkAO2VZADtlWQY7ZVkiu2VZO7tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZO/tlWSN7ZVkGe2VZADtlWQAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA7ZVkAO2VZATtlWRE7ZVkt+2VZPftlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk+O2V
+        ZLntlWRG7ZVkBO2VZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADtlWQA7ZVkAO2VZA3tlWRV7ZVktu2V
+        ZPLtlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWTy7ZVkuO2VZFftlWQO7ZVkAO2VZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAADtlWQA7ZVkAO2VZAvtlWQ+7ZVkiu2VZMvtlWTv7ZVk/e2VZP/tlWT/7ZVk/+2V
+        ZP/tlWT/7ZVk/+2VZP/tlWT/7ZVk/+2VZP/tlWT97ZVk8O2VZMvtlWSM7ZVkP+2VZAvtlWQA7ZVkAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7ZVkAO2V
+        ZAHtlWQU7ZVkQO2VZHbtlWSo7ZVkze2VZObtlWT07ZVk++2VZPvtlWT07ZVk5u2VZM7tlWSo7ZVkd+2V
+        ZEHtlWQV7ZVkAe2VZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAA//+AAB//8AD//gAAB//wAP/4AAAB//AA/+AAAAB/8AD/wAAAAD/wAP+A
+        AAAAH/AA/gAAAAAH8AD+AAAAAAPwAPwAAAAAA/AA+AAAAAAB8ADwAAAAAADwAOAAAAAAAHAA4AAAAAAA
+        cADAAAAAAAAwAMAAAAAAADAAgAAAAAAAEACAAAAAAAAQAIAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAQAIAA
+        AAAAABAAgAAAAAAAEADAAAAAAAAwAMAAAAAAADAA4AAAAAAAcADgAAAAAABwAPAAAAAAAPAA+AAAAAAB
+        8AD8AAAAAAPwAP4AAAAAB/AA/wAAAAAH8AD/gAAAAB/wAP/AAAAAP/AA/+AAAAB/8AD/+AAAAf/wAP/+
+        AAAH//AA//+AAB//8AA=
+</value>
+  </data>
+  <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="$this.RightToLeftLayout" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>تفاصيل التلميذ</value>
+  </data>
+</root>

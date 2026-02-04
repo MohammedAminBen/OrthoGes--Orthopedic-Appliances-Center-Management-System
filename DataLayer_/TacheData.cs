@@ -102,7 +102,7 @@ namespace DataLayer_
             est_Fini,
             est_Annuler
         FROM D_Taches
-        ORDER BY Tache_Date DESC";
+        ORDER BY Tache_ID DESC";
 
             try
             {

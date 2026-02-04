@@ -12,57 +12,40 @@ namespace DataLayer_
         public static string GenerateNumeroPatient()
         {
             int lastNumber = 0;
-            int lastYear = 0;
+            int currentYear = DateTime.Now.Year % 100; // 26
 
             string query = @"
-        SELECT TOP 1 Numero_Patient
-        FROM D_Patient
-        WHERE Numero_Patient IS NOT NULL
-        ORDER BY Numero_Patient DESC;";
+                             SELECT ISNULL(MAX(CAST(LEFT(Numero_Patient, CHARINDEX('/', Numero_Patient) - 1) AS INT)), 0)
+                             FROM D_Patient
+                             WHERE RIGHT(Numero_Patient, 2) = @Year;";
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@Year", currentYear.ToString("D2"));
+
                     connection.Open();
                     object result = command.ExecuteScalar();
 
-                    if (result != null)
+                    if (result != null && result != DBNull.Value)
                     {
-                        string numeroPatient = result.ToString();
-
-                        // Expected format: Number/YY
-                        string[] parts = numeroPatient.Split('/');
-
-                        if (parts.Length == 2)
-                        {
-                            int.TryParse(parts[0], out lastNumber);
-                            int.TryParse(parts[1], out lastYear);
-                        }
+                        lastNumber = Convert.ToInt32(result);
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Database error: " + ex.Message);
+                // during dev
+                throw;
             }
 
-            int currentYear = int.Parse(DateTime.Now.ToString("yy"));
+            lastNumber++; // increment safely
 
-            // 🔁 New year OR no previous records
-            if (lastYear != currentYear)
-            {
-                lastNumber = 1;
-            }
-            else
-            {
-                lastNumber++;
-            }
-
-            return $"{lastNumber}/{currentYear}";
+            return $"{lastNumber}/{currentYear:D2}";
         }
-        public static bool GetPatientByNumeroPatient(string numeroPatient,ref int personID,ref int est_Assure,ref int assureID,ref DateTime date_dinscription)
+        public static bool GetPatientByNumeroPatient(string numeroPatient, ref int personID, ref int est_Assure, ref int assureID, ref DateTime date_dinscription)
         {
             bool isFound = false;
             string query = @"
@@ -103,7 +86,7 @@ namespace DataLayer_
             return isFound;
         }
 
-        public static bool GetPatientByPersonID(int personID,ref string numeroPatient,ref int assureID,ref int est_Assure,ref DateTime date_dinscription)
+        public static bool GetPatientByPersonID(int personID, ref string numeroPatient, ref int assureID, ref int est_Assure, ref DateTime date_dinscription)
         {
             bool isFound = false;
             string query = @"
@@ -217,7 +200,7 @@ namespace DataLayer_
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error "+ ex.Message);
+                Console.WriteLine("Error " + ex.Message);
             }
             finally
             {
@@ -226,9 +209,9 @@ namespace DataLayer_
             return dt;
 
         }
-        public static bool AddNewPatient(int personID,int est_Assure,int? assureID = null)
+        public static string AddNewPatient(string Num,int personID, int est_Assure, int? assureID = null)
         {
-            string numeroPatient = GenerateNumeroPatient();
+            
             string query = @"
         INSERT INTO D_Patient (Numero_Patient, Person_ID, Assure_ID,est_Assure,Date_Dinscription)
         VALUES (@NumeroPatient, @PersonID, @AssureID,@est_Assure,@Date_Dinscription)";
@@ -238,7 +221,7 @@ namespace DataLayer_
                 using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@NumeroPatient", numeroPatient);
+                    command.Parameters.AddWithValue("@NumeroPatient", Num);
                     command.Parameters.AddWithValue("@PersonID", personID);
                     command.Parameters.AddWithValue("@est_Assure", est_Assure);
                     command.Parameters.AddWithValue("@AssureID", assureID.HasValue ? (object)assureID.Value : DBNull.Value);
@@ -246,22 +229,25 @@ namespace DataLayer_
 
                     connection.Open();
                     int rows = command.ExecuteNonQuery();
-                    return rows > 0;
+                    if (rows > 0)
+                        return Num;
+                    else return null;
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Database error: " + ex.Message);
-                return false;
+                return null;
             }
         }
 
 
-        public static bool UpdatePatient(string numeroPatient, int personID,int est_Assure, int? assureID = null)
+        public static bool UpdatePatient(string numeroPatient, int personID, int est_Assure, int? assureID = null)
         {
             string query = @"
         UPDATE D_Patient
-        SET Person_ID = @PersonID,
+        SET 
+            Person_ID = @PersonID,
             Assure_ID = @AssureID,
             est_Assure = @est_Assure
         WHERE Numero_Patient = @NumeroPatient";
@@ -313,5 +299,37 @@ namespace DataLayer_
 
             return rowsAffected > 0;
         }
+
+        public static DataTable GetAllCasisses()
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = "SELECT * from R_Caisse";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+
+        }
+
+
     }
 }
