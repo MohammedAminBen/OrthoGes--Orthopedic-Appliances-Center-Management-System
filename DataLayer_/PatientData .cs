@@ -279,7 +279,18 @@ namespace DataLayer_
         public static bool DeletePatient(string numeroPatient)
         {
             int rowsAffected = 0;
-            string query = @"UPDATE D_Patient SET est_Supprimer = 1 WHERE Numero_Patient = @NumeroPatient";
+            string query = @"UPDATE D_Patient SET est_Supprimer = 1 WHERE Numero_Patient = @NumeroPatient;
+                            Delete from D_Accord_Produits where Accord_ID IN (select Accord_ID from D_Accord where Numero_Patient = @NumeroPatient);
+                            Delete from D_Accord where Numero_Patient = @NumeroPatient;
+                            Delete from D_Devis_Produits where Numero_Devis IN (select Numero_Devis from D_Devis where Numero_Patient = @NumeroPatient);
+                            Delete from D_Devis where Numero_Patient = @NumeroPatient;
+                            Delete from D_Recouvrement where Numero_Facture IN (select Numero_Facture from D_Facture where Numero_Patient = @NumeroPatient)
+                            Delete from D_Facture_Produits where Numero_Facture IN (select Numero_Facture from D_Facture where Numero_Patient = @NumeroPatient)
+                            Delete from D_Facture where Numero_Patient = @NumeroPatient;
+                            Delete from D_Bon_Livraison_Produits where Numero_Bon IN (select Numero_Bon from D_Bon_Livraison where Numero_Patient = @NumeroPatient)
+                            Delete from D_Bon_Livraison where Numero_Patient = @NumeroPatient;
+                            Delete from D_Recouvrement where Numero_Patient = @NumeroPatient;
+                            Delete from D_Patient where Numero_Patient = @NumeroPatient;";
 
             try
             {

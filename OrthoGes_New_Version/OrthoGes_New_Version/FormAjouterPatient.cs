@@ -230,7 +230,7 @@ namespace OrthoGes_New_Version
                 else person.Genre = 0;
                 if (!person.AddNewPerson())
                 {
-                    MessageBox.Show("PP Erreur : les données du patient p n'ont pas été enregistrées.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("PPP Erreur : les données du patient p n'ont pas été enregistrées.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 assure.PersonID = personAssure.PersonID;
@@ -243,6 +243,7 @@ namespace OrthoGes_New_Version
                 {
                     MessageBox.Show("AA Erreur : les données de l'assuré n'ont pas été enregistrées.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
                 }
+                patient.NumeroPatient = tbxNumPatient.Text;
                 patient.est_Assure = 0;
                 patient.PersonID = person.PersonID;
                 patient.AssureID = assure.AssureID;

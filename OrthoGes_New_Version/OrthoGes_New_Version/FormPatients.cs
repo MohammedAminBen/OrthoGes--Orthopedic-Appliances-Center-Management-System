@@ -187,7 +187,7 @@ namespace OrthoGes_New_Version
             if (result == DialogResult.Yes)
             {
                 Patient.DeletePatient(dgvPatientsListe.CurrentRow.Cells[1].Value.ToString());
-                MessageBox.Show("Patient supprimé avec succès.");
+                MessageBox.Show("Patient supprimé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ApplyFilters();
             }
         }
