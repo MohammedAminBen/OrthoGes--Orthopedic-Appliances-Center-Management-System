@@ -58,11 +58,14 @@ namespace CodeSourceLayer_
 
             return null;
         }
-        public static bool AddNewProduit(string reference, string nomProduit, int categoryID, decimal prix, int tva, int quantite,decimal prixTVA) { 
-
+        public static bool AddNewProduit(string reference, string nomProduit, int categoryID, decimal prix, int tva, int quantite,decimal prixTVA) 
+        { 
             return DataLayer_.ProduitData.AddNewProduit(reference, nomProduit,categoryID,prix,tva,quantite,prixTVA);
         }
-
+        public static bool UpdateProduit(string reference, string nomProduit, int categoryID, decimal prix, int tva, int quantite, decimal prixTVA)
+        {
+            return DataLayer_.ProduitData.UpdateProduit(reference, nomProduit, categoryID, prix, tva, quantite, prixTVA);
+        }
         public static DataTable GetAllProduits()
         {
             return DataLayer_.ProduitData.GetAllProduits();

@@ -849,8 +849,11 @@ namespace OrthoGes_New_Version
 
                 if (resultProduits && resultBon)
                 {
-                    MessageBox.Show("Bon a été modifié avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, $"Modifier le bon de livraison {Numero_Bon}", "Modification"))
+                    {
+                        MessageBox.Show("Bon a été modifié avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
                 }
                 else
                 {

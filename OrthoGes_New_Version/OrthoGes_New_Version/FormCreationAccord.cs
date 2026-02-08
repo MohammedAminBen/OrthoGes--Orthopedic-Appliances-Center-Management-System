@@ -213,8 +213,11 @@ namespace OrthoGes_New_Version
 
             if (Accord.CreateAccord(patient.NumeroPatient, DateTime.Parse(tbxDate.Text), cmbxEtat.Text, 0, Produits) != -1)
             {
-                MessageBox.Show("Accord a été créé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, $"Ajouter l'accord pour le patient {patient.NumeroPatient} au système", "Ajout"))
+                {
+                    MessageBox.Show("Accord a été créé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 

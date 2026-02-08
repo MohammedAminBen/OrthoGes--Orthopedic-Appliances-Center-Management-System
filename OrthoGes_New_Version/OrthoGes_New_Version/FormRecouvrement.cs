@@ -343,5 +343,13 @@ namespace OrthoGes_New_Version
             }
         }
 
+        private void tbxfacturesrecherche_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // prevents the "ding" sound
+                ApplyFilters(); // or whatever method you want
+            }
+        }
     }
 }

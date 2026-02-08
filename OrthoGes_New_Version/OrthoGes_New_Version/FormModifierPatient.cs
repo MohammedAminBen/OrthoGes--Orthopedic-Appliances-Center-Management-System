@@ -243,8 +243,11 @@ namespace OrthoGes_New_Version
                 {
                     MessageBox.Show("Erreur : les données du patient n'ont pas été enregistrées.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
                 }
-                MessageBox.Show("Données enregistrées avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, $"Modifier le patient {Numero_Patient}", "Modification"))
+                {
+                    MessageBox.Show("Données enregistrées avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
             else
             {

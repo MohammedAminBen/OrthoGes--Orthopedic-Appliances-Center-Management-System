@@ -41,8 +41,11 @@ namespace OrthoGes_New_Version
                     Accord.UpdateEtatTachesAccord(accordID, 0);
                     Tache.DeleteTacheByAccord(accordID);
                 }
+                if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, $"Modifier l'état d'accord de patient {Accord.FindByID(accordID).Numero_Patient}", "Modification"))
+                {
                     MessageBox.Show("État de l'accord mis à jour avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                    this.Close();
+                }
             }
             else
             {

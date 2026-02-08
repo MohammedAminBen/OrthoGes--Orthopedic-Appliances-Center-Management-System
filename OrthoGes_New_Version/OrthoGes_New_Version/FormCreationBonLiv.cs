@@ -310,8 +310,11 @@ namespace OrthoGes_New_Version
             }
             if (result != null)
             {
-                MessageBox.Show("Bon a été créé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, $"Ajouter le bon de livraison {result} au système", "Ajout"))
+                {
+                    MessageBox.Show("Bon a été créé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
                 PrintBonLivraisonPDF(result);
                 return;
             }

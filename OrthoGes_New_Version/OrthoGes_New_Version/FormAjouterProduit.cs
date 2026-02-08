@@ -35,8 +35,11 @@ namespace OrthoGes_New_Version
                 decimal.Parse(tbxTVAMontant.Text)
                 ))
             {
-                MessageBox.Show("Produit ajouté avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, $"Ajouter le produit {tbxReference.Text} au système", "Ajout"))
+                {
+                    MessageBox.Show("Produit ajouté avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
             else
             {

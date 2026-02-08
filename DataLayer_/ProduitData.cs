@@ -45,7 +45,43 @@ namespace DataLayer_
                 }
             }
         }
+        public static bool UpdateProduit(string reference, string nomProduit, int categoryID, decimal prix, int tva, int quantite, decimal prixTVA)
+        {
+            using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
+            {
+                string query = @"
+		UPDATE R_Produit SET 
+		Nom_Produit = @Nom_Produit,
+		Category_ID = @Category_ID,
+		Prix = @Prix,
+		TVA = @TVA,
+		Prix_TVA = @Prix_TVA,
+		Quantite = @Quantite
+		WHERE Reference = @Reference;";
 
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Reference", reference);
+                    command.Parameters.AddWithValue("@Nom_Produit", nomProduit);
+                    command.Parameters.AddWithValue("@Category_ID", categoryID);
+                    command.Parameters.AddWithValue("@Prix", prix);
+                    command.Parameters.AddWithValue("@TVA", tva);
+                    command.Parameters.AddWithValue("@Prix_TVA", prixTVA);
+                    command.Parameters.AddWithValue("@Quantite", quantite);
+
+                    try
+                    {
+                        connection.Open();
+                        return command.ExecuteNonQuery() > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Database error: " + ex.Message);
+                        return false;
+                    }
+                }
+            }
+        }
         public static bool GetProduitInfoByReference(
             string Reference_Produit,
             ref string Designation,

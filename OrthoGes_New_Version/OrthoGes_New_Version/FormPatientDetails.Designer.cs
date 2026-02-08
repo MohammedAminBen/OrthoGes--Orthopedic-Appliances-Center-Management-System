@@ -873,7 +873,7 @@
             rightclickDocuments.RenderStyle.SelectionForeColor = Color.White;
             rightclickDocuments.RenderStyle.SeparatorColor = Color.Gainsboro;
             rightclickDocuments.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            rightclickDocuments.Size = new Size(256, 144);
+            rightclickDocuments.Size = new Size(256, 116);
             // 
             // cmsSupprimer
             // 
@@ -910,7 +910,7 @@
             // 
             devisToolStripMenuItem.BackColor = Color.GhostWhite;
             devisToolStripMenuItem.Name = "devisToolStripMenuItem";
-            devisToolStripMenuItem.Size = new Size(224, 28);
+            devisToolStripMenuItem.Size = new Size(215, 28);
             devisToolStripMenuItem.Text = "Devis";
             devisToolStripMenuItem.Click += devisToolStripMenuItem_Click;
             // 
@@ -918,7 +918,7 @@
             // 
             factureToolStripMenuItem.BackColor = Color.GhostWhite;
             factureToolStripMenuItem.Name = "factureToolStripMenuItem";
-            factureToolStripMenuItem.Size = new Size(224, 28);
+            factureToolStripMenuItem.Size = new Size(215, 28);
             factureToolStripMenuItem.Text = "Facture";
             factureToolStripMenuItem.Click += factureToolStripMenuItem_Click;
             // 
@@ -926,7 +926,7 @@
             // 
             bonDeLivraisonToolStripMenuItem.BackColor = Color.GhostWhite;
             bonDeLivraisonToolStripMenuItem.Name = "bonDeLivraisonToolStripMenuItem";
-            bonDeLivraisonToolStripMenuItem.Size = new Size(224, 28);
+            bonDeLivraisonToolStripMenuItem.Size = new Size(215, 28);
             bonDeLivraisonToolStripMenuItem.Text = "Bon de livraison";
             bonDeLivraisonToolStripMenuItem.Click += bonDeLivraisonToolStripMenuItem_Click;
             // 

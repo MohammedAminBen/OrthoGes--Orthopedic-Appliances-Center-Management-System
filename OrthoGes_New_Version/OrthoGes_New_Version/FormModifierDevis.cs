@@ -846,8 +846,11 @@ namespace OrthoGes_New_Version
 
                 if (resultProduits && resultDevis)
                 {
-                    MessageBox.Show("Devis a été modifié avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, $"Modifier le devis {Numero_Devis}", "Modification"))
+                    {
+                        MessageBox.Show("Devis a été modifié avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
                 }
                 else
                 {

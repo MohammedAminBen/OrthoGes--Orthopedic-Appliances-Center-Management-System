@@ -28,185 +28,233 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSeConnecter));
-            this.label3 = new System.Windows.Forms.Label();
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnCréercompte = new Guna.UI2.WinForms.Guna2Button();
-            this.tbxNomUtilisateur = new Guna.UI2.WinForms.Guna2TextBox();
-            this.tbxMotDpasse = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblConnecter = new System.Windows.Forms.Label();
-            this.btnSeConnecter = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            label3 = new Label();
+            guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            label4 = new Label();
+            btnCréercompte = new Guna.UI2.WinForms.Guna2Button();
+            tbxNomUtilisateur = new Guna.UI2.WinForms.Guna2TextBox();
+            tbxMotDpasse = new Guna.UI2.WinForms.Guna2TextBox();
+            lblConnecter = new Label();
+            btnSeConnecter = new Guna.UI2.WinForms.Guna2Button();
+            guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 34F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label3.Location = new System.Drawing.Point(818, 36);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(373, 76);
-            this.label3.TabIndex = 7;
-            this.label3.Text = " Bienvenue à";
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 34F, FontStyle.Bold);
+            label3.ForeColor = Color.CornflowerBlue;
+            label3.Location = new Point(818, 36);
+            label3.Name = "label3";
+            label3.Size = new Size(373, 76);
+            label3.TabIndex = 7;
+            label3.Text = " Bienvenue à";
             // 
             // guna2ControlBox1
             // 
-            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.CornflowerBlue;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(1231, 7);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
-            this.guna2ControlBox1.TabIndex = 8;
+            guna2ControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            guna2ControlBox1.CustomizableEdges = customizableEdges1;
+            guna2ControlBox1.FillColor = Color.CornflowerBlue;
+            guna2ControlBox1.IconColor = Color.White;
+            guna2ControlBox1.Location = new Point(1231, 7);
+            guna2ControlBox1.Name = "guna2ControlBox1";
+            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2ControlBox1.Size = new Size(45, 29);
+            guna2ControlBox1.TabIndex = 8;
+            guna2ControlBox1.Click += guna2ControlBox1_Click;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 34F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label4.Location = new System.Drawing.Point(868, 106);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(288, 76);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "OrthoGes";
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 34F, FontStyle.Bold);
+            label4.ForeColor = Color.CornflowerBlue;
+            label4.Location = new Point(868, 106);
+            label4.Name = "label4";
+            label4.Size = new Size(288, 76);
+            label4.TabIndex = 9;
+            label4.Text = "OrthoGes";
             // 
             // btnCréercompte
             // 
-            this.btnCréercompte.BorderRadius = 19;
-            this.btnCréercompte.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnCréercompte.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnCréercompte.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnCréercompte.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnCréercompte.FillColor = System.Drawing.Color.CornflowerBlue;
-            this.btnCréercompte.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCréercompte.ForeColor = System.Drawing.Color.White;
-            this.btnCréercompte.Location = new System.Drawing.Point(847, 336);
-            this.btnCréercompte.Name = "btnCréercompte";
-            this.btnCréercompte.Size = new System.Drawing.Size(337, 53);
-            this.btnCréercompte.TabIndex = 10;
-            this.btnCréercompte.Text = "Créer votre compte Principale";
-            this.btnCréercompte.Visible = false;
+            btnCréercompte.BorderRadius = 19;
+            btnCréercompte.CustomizableEdges = customizableEdges3;
+            btnCréercompte.DisabledState.BorderColor = Color.DarkGray;
+            btnCréercompte.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnCréercompte.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnCréercompte.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnCréercompte.FillColor = Color.CornflowerBlue;
+            btnCréercompte.Font = new Font("Segoe UI Semibold", 13.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCréercompte.ForeColor = Color.White;
+            btnCréercompte.Location = new Point(847, 336);
+            btnCréercompte.Name = "btnCréercompte";
+            btnCréercompte.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnCréercompte.Size = new Size(337, 53);
+            btnCréercompte.TabIndex = 10;
+            btnCréercompte.Text = "Créer votre compte Principale";
+            btnCréercompte.Visible = false;
+            btnCréercompte.Click += btnCréercompte_Click_1;
             // 
             // tbxNomUtilisateur
             // 
-            this.tbxNomUtilisateur.BorderRadius = 19;
-            this.tbxNomUtilisateur.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbxNomUtilisateur.DefaultText = "";
-            this.tbxNomUtilisateur.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbxNomUtilisateur.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbxNomUtilisateur.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbxNomUtilisateur.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbxNomUtilisateur.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.tbxNomUtilisateur.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxNomUtilisateur.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxNomUtilisateur.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxNomUtilisateur.Location = new System.Drawing.Point(823, 311);
-            this.tbxNomUtilisateur.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxNomUtilisateur.Name = "tbxNomUtilisateur";
-            this.tbxNomUtilisateur.PlaceholderText = "";
-            this.tbxNomUtilisateur.SelectedText = "";
-            this.tbxNomUtilisateur.Size = new System.Drawing.Size(393, 78);
-            this.tbxNomUtilisateur.TabIndex = 3;
+            tbxNomUtilisateur.BorderRadius = 19;
+            tbxNomUtilisateur.Cursor = Cursors.IBeam;
+            tbxNomUtilisateur.CustomizableEdges = customizableEdges5;
+            tbxNomUtilisateur.DefaultText = "";
+            tbxNomUtilisateur.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbxNomUtilisateur.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbxNomUtilisateur.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbxNomUtilisateur.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbxNomUtilisateur.FillColor = Color.WhiteSmoke;
+            tbxNomUtilisateur.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbxNomUtilisateur.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            tbxNomUtilisateur.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbxNomUtilisateur.IconLeft = Properties.Resources.icons8_user_32;
+            tbxNomUtilisateur.Location = new Point(823, 311);
+            tbxNomUtilisateur.Margin = new Padding(3, 4, 3, 4);
+            tbxNomUtilisateur.Name = "tbxNomUtilisateur";
+            tbxNomUtilisateur.PlaceholderText = "";
+            tbxNomUtilisateur.SelectedText = "";
+            tbxNomUtilisateur.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            tbxNomUtilisateur.Size = new Size(393, 78);
+            tbxNomUtilisateur.TabIndex = 3;
+            tbxNomUtilisateur.KeyDown += tbxNomUtilisateur_KeyDown;
             // 
             // tbxMotDpasse
             // 
-            this.tbxMotDpasse.BorderRadius = 19;
-            this.tbxMotDpasse.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbxMotDpasse.DefaultText = "";
-            this.tbxMotDpasse.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbxMotDpasse.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbxMotDpasse.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbxMotDpasse.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbxMotDpasse.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.tbxMotDpasse.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxMotDpasse.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxMotDpasse.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbxMotDpasse.Location = new System.Drawing.Point(823, 416);
-            this.tbxMotDpasse.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbxMotDpasse.Name = "tbxMotDpasse";
-            this.tbxMotDpasse.PlaceholderText = "";
-            this.tbxMotDpasse.SelectedText = "";
-            this.tbxMotDpasse.Size = new System.Drawing.Size(393, 78);
-            this.tbxMotDpasse.TabIndex = 4;
-            this.tbxMotDpasse.UseSystemPasswordChar = true;
+            tbxMotDpasse.BorderRadius = 19;
+            tbxMotDpasse.Cursor = Cursors.IBeam;
+            tbxMotDpasse.CustomizableEdges = customizableEdges7;
+            tbxMotDpasse.DefaultText = "";
+            tbxMotDpasse.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbxMotDpasse.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbxMotDpasse.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbxMotDpasse.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbxMotDpasse.FillColor = Color.WhiteSmoke;
+            tbxMotDpasse.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbxMotDpasse.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            tbxMotDpasse.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbxMotDpasse.IconLeft = Properties.Resources.icons8_password_48;
+            tbxMotDpasse.Location = new Point(823, 416);
+            tbxMotDpasse.Margin = new Padding(3, 4, 3, 4);
+            tbxMotDpasse.Name = "tbxMotDpasse";
+            tbxMotDpasse.PlaceholderText = "";
+            tbxMotDpasse.SelectedText = "";
+            tbxMotDpasse.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            tbxMotDpasse.Size = new Size(393, 78);
+            tbxMotDpasse.TabIndex = 4;
+            tbxMotDpasse.UseSystemPasswordChar = true;
+            tbxMotDpasse.KeyDown += tbxMotDpasse_KeyDown;
             // 
             // lblConnecter
             // 
-            this.lblConnecter.AutoSize = true;
-            this.lblConnecter.Font = new System.Drawing.Font("Segoe UI Semibold", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConnecter.Location = new System.Drawing.Point(872, 233);
-            this.lblConnecter.Name = "lblConnecter";
-            this.lblConnecter.Size = new System.Drawing.Size(302, 50);
-            this.lblConnecter.TabIndex = 5;
-            this.lblConnecter.Text = "Connectez-vous ";
+            lblConnecter.AutoSize = true;
+            lblConnecter.Font = new Font("Segoe UI Semibold", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblConnecter.Location = new Point(872, 233);
+            lblConnecter.Name = "lblConnecter";
+            lblConnecter.Size = new Size(302, 50);
+            lblConnecter.TabIndex = 5;
+            lblConnecter.Text = "Connectez-vous ";
             // 
             // btnSeConnecter
             // 
-            this.btnSeConnecter.BorderRadius = 19;
-            this.btnSeConnecter.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSeConnecter.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSeConnecter.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSeConnecter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSeConnecter.FillColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSeConnecter.Font = new System.Drawing.Font("Segoe UI Semibold", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeConnecter.ForeColor = System.Drawing.Color.White;
-            this.btnSeConnecter.Location = new System.Drawing.Point(930, 532);
-            this.btnSeConnecter.Name = "btnSeConnecter";
-            this.btnSeConnecter.Size = new System.Drawing.Size(180, 53);
-            this.btnSeConnecter.TabIndex = 6;
-            this.btnSeConnecter.Text = "Se Connecter";
+            btnSeConnecter.BorderRadius = 19;
+            btnSeConnecter.CustomizableEdges = customizableEdges9;
+            btnSeConnecter.DisabledState.BorderColor = Color.DarkGray;
+            btnSeConnecter.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnSeConnecter.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnSeConnecter.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnSeConnecter.FillColor = Color.CornflowerBlue;
+            btnSeConnecter.Font = new Font("Segoe UI Semibold", 13.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSeConnecter.ForeColor = Color.White;
+            btnSeConnecter.Location = new Point(930, 532);
+            btnSeConnecter.Name = "btnSeConnecter";
+            btnSeConnecter.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            btnSeConnecter.Size = new Size(180, 53);
+            btnSeConnecter.TabIndex = 6;
+            btnSeConnecter.Text = "Se Connecter";
+            btnSeConnecter.Click += btnSeConnecter_Click;
             // 
             // guna2PictureBox1
             // 
-            this.guna2PictureBox1.Image = global::OrthoGes_New_Version.Properties.Resources.Untitled_1;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(-16, -3);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(982, 772);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 1;
-            this.guna2PictureBox1.TabStop = false;
-            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
+            guna2PictureBox1.CustomizableEdges = customizableEdges11;
+            guna2PictureBox1.Image = Properties.Resources.Untitled_1;
+            guna2PictureBox1.ImageRotate = 0F;
+            guna2PictureBox1.Location = new Point(-16, -3);
+            guna2PictureBox1.Name = "guna2PictureBox1";
+            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2PictureBox1.Size = new Size(982, 772);
+            guna2PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            guna2PictureBox1.TabIndex = 1;
+            guna2PictureBox1.TabStop = false;
+            guna2PictureBox1.Click += guna2PictureBox1_Click;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.pictureBox1.Location = new System.Drawing.Point(197, -3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(264, 160);
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.BackColor = Color.CornflowerBlue;
+            pictureBox1.Image = Properties.Resources.logo;
+            pictureBox1.Location = new Point(208, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(264, 160);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 11;
+            pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.CornflowerBlue;
+            label1.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(14, 175);
+            label1.Name = "label1";
+            label1.Size = new Size(720, 32);
+            label1.TabIndex = 12;
+            label1.Text = "OrthoGes — votre assistant intelligent pour la gestion du centre.";
             // 
             // FormSeConnecter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1281, 762);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnCréercompte);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.guna2ControlBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnSeConnecter);
-            this.Controls.Add(this.lblConnecter);
-            this.Controls.Add(this.tbxMotDpasse);
-            this.Controls.Add(this.tbxNomUtilisateur);
-            this.Controls.Add(this.guna2PictureBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormSeConnecter";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormCeConnecter";
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.White;
+            ClientSize = new Size(1281, 762);
+            Controls.Add(label1);
+            Controls.Add(pictureBox1);
+            Controls.Add(btnCréercompte);
+            Controls.Add(label4);
+            Controls.Add(guna2ControlBox1);
+            Controls.Add(label3);
+            Controls.Add(btnSeConnecter);
+            Controls.Add(lblConnecter);
+            Controls.Add(tbxMotDpasse);
+            Controls.Add(tbxNomUtilisateur);
+            Controls.Add(guna2PictureBox1);
+            FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "FormSeConnecter";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "FormCeConnecter";
+            Load += FormSeConnecter_Load;
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
@@ -221,5 +269,6 @@
         private System.Windows.Forms.Label lblConnecter;
         private Guna.UI2.WinForms.Guna2Button btnSeConnecter;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private Label label1;
     }
 }

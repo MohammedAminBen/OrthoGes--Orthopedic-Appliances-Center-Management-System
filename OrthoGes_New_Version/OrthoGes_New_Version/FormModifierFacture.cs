@@ -862,8 +862,11 @@ namespace OrthoGes_New_Version
 
                 if (resultProduits && resultFacture)
                 {
-                    MessageBox.Show("Facture a été modifiée avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, $"Modifier la facture {Numero_Facture}", "Modification"))
+                    {
+                        MessageBox.Show("Facture a été modifiée avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
                 }
                 else
                 {

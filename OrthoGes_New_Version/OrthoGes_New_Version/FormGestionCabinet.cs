@@ -75,13 +75,19 @@ namespace OrthoGes_New_Version
             if (Centre_Appareillage.Find(1) == null)
             {
 
-                Global.centre.AddNewCentre();
-                this.Close();
+                if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, $"Ajouter le centre {tbxCentreNom.Text} au système", "Ajout"))
+                {
+                    Global.centre.AddNewCentre();
+                    this.Close();
+                }
             }
             else
             {
-                Global.centre.UpdateCentre();
-                this.Close();
+                if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, $"Modifier le centre {tbxCentreNom.Text}", "Modification"))
+                {
+                    Global.centre.UpdateCentre();
+                    this.Close();
+                }
             }
         }
 

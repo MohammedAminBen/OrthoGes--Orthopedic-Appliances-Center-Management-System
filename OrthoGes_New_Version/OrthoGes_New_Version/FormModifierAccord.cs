@@ -257,8 +257,11 @@ namespace OrthoGes_New_Version
 
             if (Accord.UpdateAccord(Accord_ID, DateTime.Parse(tbxDate.Text), cmbxEtat.Text, 0))
             {
-                MessageBox.Show("Accord a été modifier avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, $"Modifier l'accord de patient {patient.NumeroPatient}", "Modification"))
+                {
+                    MessageBox.Show("Accord a été modifier avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 

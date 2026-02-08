@@ -332,8 +332,11 @@ namespace OrthoGes_New_Version
             }
             if (result != null)
             {
-                MessageBox.Show("Devis a été créé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, $"Ajouter le devis {result} au système", "Ajout"))
+                {
+                    MessageBox.Show("Devis a été créé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
                 PrintDevisPDF(result);
                 return;
             }

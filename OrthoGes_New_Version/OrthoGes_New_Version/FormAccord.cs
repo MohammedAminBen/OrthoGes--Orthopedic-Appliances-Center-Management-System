@@ -20,6 +20,17 @@ namespace OrthoGes_New_Version
         {
             InitializeComponent();
         }
+        private void checkPrivileges()
+        {
+            if (!Global.utilisateurActuel.PrivManipulationAccord)
+            {
+                btnSupprimer.Enabled = false;
+                btnDetails.Enabled = false;
+                btnModifierEtat.Enabled = false;
+                btnPatientDetails.Enabled = false;
+                btnModifier.Enabled = false;
+            }
+        }
         public void ApplyFilters()
         {
             DataTable dtAccordListe = Accord.GetAll();
@@ -41,6 +52,8 @@ namespace OrthoGes_New_Version
             btnModifierEtat.Enabled = true;
             btnPatientDetails.Enabled = true;
             btnModifierEtat.Enabled = true;
+
+            checkPrivileges();
 
             List<string> filters = new List<string>();
 
@@ -259,8 +272,11 @@ namespace OrthoGes_New_Version
             if (result == DialogResult.Yes)
             {
                 Accord.DeleteAccord((int)dgvAccordListe.CurrentRow.Cells[1].Value);
-                MessageBox.Show("Accord supprimé avec succès.");
-                ApplyFilters();
+                if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, $"Supprimer l'accord {(int)dgvAccordListe.CurrentRow.Cells[1].Value} du système", "Suppression"))
+                {
+                    MessageBox.Show("Accord supprimé avec succès.");
+                    ApplyFilters();
+                }
             }
         }
 
@@ -275,6 +291,15 @@ namespace OrthoGes_New_Version
             FormModifierAccord frmModifierAccord = new FormModifierAccord((int)dgvAccordListe.CurrentRow.Cells[1].Value);
             frmModifierAccord.ShowDialog();
             ApplyFilters();
+        }
+
+        private void tbxAccordsrecherche_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // prevents the "ding" sound
+                ApplyFilters(); // or whatever method you want
+            }
         }
     }
 }

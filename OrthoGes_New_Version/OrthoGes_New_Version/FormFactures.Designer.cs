@@ -179,6 +179,7 @@
             tbxfacturesrecherche.ShadowDecoration.CustomizableEdges = customizableEdges4;
             tbxfacturesrecherche.Size = new Size(539, 36);
             tbxfacturesrecherche.TabIndex = 22;
+            tbxfacturesrecherche.KeyDown += tbxfacturesrecherche_KeyDown;
             // 
             // cmbxRecherche
             // 

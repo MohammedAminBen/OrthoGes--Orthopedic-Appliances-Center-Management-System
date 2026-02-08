@@ -248,6 +248,7 @@
             tbxRecherche.Size = new Size(359, 36);
             tbxRecherche.TabIndex = 22;
             tbxRecherche.Enter += tbxRecherche_Enter;
+            tbxRecherche.KeyDown += tbxRecherche_KeyDown;
             tbxRecherche.Leave += tbxRecherche_Leave;
             // 
             // label6

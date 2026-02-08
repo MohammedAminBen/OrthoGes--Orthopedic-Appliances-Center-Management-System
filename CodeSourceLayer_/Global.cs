@@ -8,6 +8,7 @@ namespace CodeSourceLayer_
 {
     public class Global
     {
+        public static Utilisateur utilisateurActuel;
         public static Centre_Appareillage centre = new Centre_Appareillage();
     }
 }

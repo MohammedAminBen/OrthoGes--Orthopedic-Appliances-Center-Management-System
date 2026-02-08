@@ -331,9 +331,12 @@ namespace OrthoGes_New_Version
             }
             if (result != null)
             {
-                Recouvrement.CreateRecouvrement(result, DateTime.Parse(tbxDate.Text), Numero_Patient, Rpayement, Rcheque, patient.est_Assure == 1 ? tbxCentrePayeurPatient.Text : tbxCentrePayeurAssure.Text, Convert.ToDecimal(tbxTotale.Text));
-                MessageBox.Show("Facture a été créé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, $"Ajouter la facture {result} au système", "Ajout"))
+                {
+                    Recouvrement.CreateRecouvrement(result, DateTime.Parse(tbxDate.Text), Numero_Patient, Rpayement, Rcheque, patient.est_Assure == 1 ? tbxCentrePayeurPatient.Text : tbxCentrePayeurAssure.Text, Convert.ToDecimal(tbxTotale.Text));
+                    MessageBox.Show("Facture a été créé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
                 PrintFacturePDF(result);
                 return;
             }

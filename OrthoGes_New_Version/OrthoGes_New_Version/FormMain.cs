@@ -21,7 +21,6 @@ namespace OrthoGes_New_Version
     public partial class FormMain : Form
     {
 
-        private Form activeForm = null;
         FormSeConnecter frmConnection;
         FormPatients frmPatients;
         FormFactures frmFactures;
@@ -29,13 +28,14 @@ namespace OrthoGes_New_Version
         FormProduits frmProduits;
         FormTabDeBord frmTabDeBord;
         FormFinancement frmFinancement;
+        FormUtilisateurs frmUtilisateurs;
 
 
-        public FormMain()
-        {//FormSeConnecter frm
+        public FormMain(FormSeConnecter frm)
+        {
             InitializeComponent();
             RemoveMDIBorder();
-            //frmConnection = frm;
+            frmConnection = frm;
 
 
         }
@@ -83,16 +83,9 @@ namespace OrthoGes_New_Version
                 case "financement":
                     btnFinancementHandling();
                     break;
-                    //case "utilisateurs":
-                    //    btnUtilisateursHandling();
-                    //    break;
-                    //case "activite":
-                    //    btnActiviteHandling();
-                    //    break;
-                    //case "participants":
-                    //    btnParticipantsHandling();
-                    //    break;
-                    // Add others as needed
+                case "utilisateurs":
+                    btnUtilisateursHandling();
+                    break;
             }
 
         }
@@ -124,7 +117,7 @@ namespace OrthoGes_New_Version
 
         [DllImport("user32.dll")]
         private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
-     
+
         public void btnPatientsHandling()
         {
             if (frmPatients == null)
@@ -145,25 +138,25 @@ namespace OrthoGes_New_Version
             frmPatients = null;
         }
 
-        //private void btnUtilisateursHandling()
-        //{
-        //    if (frmUtilisateurs == null)
-        //    {
-        //        frmUtilisateurs = new FormUtilisateurs();
-        //        frmUtilisateurs.FormClosed += Utilisateurs_FormClosed;
-        //        frmUtilisateurs.MdiParent = this;
-        //        frmUtilisateurs.Dock = DockStyle.Fill;
-        //        frmUtilisateurs.Show();
-        //    }
-        //    else
-        //    {
-        //        frmUtilisateurs.Activate();
-        //    }
-        //}
-        //private void Utilisateurs_FormClosed(object sender, EventArgs e)
-        //{
-        //    frmUtilisateurs = null;
-        //}
+        private void btnUtilisateursHandling()
+        {
+            if (frmUtilisateurs == null)
+            {
+                frmUtilisateurs = new FormUtilisateurs();
+                frmUtilisateurs.FormClosed += Utilisateurs_FormClosed;
+                frmUtilisateurs.MdiParent = this;
+                frmUtilisateurs.Dock = DockStyle.Fill;
+                frmUtilisateurs.Show();
+            }
+            else
+            {
+                frmUtilisateurs.Activate();
+            }
+        }
+        private void Utilisateurs_FormClosed(object sender, EventArgs e)
+        {
+            frmUtilisateurs = null;
+        }
         private void btnFinancementHandling()
         {
             if (frmFinancement == null)
@@ -223,7 +216,7 @@ namespace OrthoGes_New_Version
 
         private void Accords_FormClosed(object sender, EventArgs e)
         {
-           frmAccords = null;
+            frmAccords = null;
         }
         public void btnProduitsHandling()
         {
@@ -249,7 +242,7 @@ namespace OrthoGes_New_Version
         {
             if (frmTabDeBord == null)
             {
-                frmTabDeBord = new FormTabDeBord ();
+                frmTabDeBord = new FormTabDeBord();
                 frmTabDeBord.FormClosed += TabDeBord_FormClosed;
                 frmTabDeBord.MdiParent = this;
                 frmTabDeBord.Dock = DockStyle.Fill;
@@ -258,7 +251,7 @@ namespace OrthoGes_New_Version
             else
             {
                 frmTabDeBord.Activate();
-               frmTabDeBord.RefreshTaches();
+                frmTabDeBord.RefreshTaches();
 
             }
         }
@@ -268,22 +261,17 @@ namespace OrthoGes_New_Version
         {
             frmTabDeBord = null;
         }
-
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        private void fillpnlUserData()
         {
-
+            if (!string.IsNullOrEmpty(Global.utilisateurActuel.Path_Image) && File.Exists(Global.utilisateurActuel.Path_Image))
+            {
+                picboxUtilisateur.Image = Image.FromFile(Global.utilisateurActuel.Path_Image);
+            }
+            else
+            {
+                picboxUtilisateur.Image = Image.FromFile(Global.centre.PathImage);
+            }
         }
-        //private void fillpnlUserData()
-        //{
-        //    if (!string.IsNullOrEmpty(Globale.utilisateurActuel.PathDimage) && File.Exists(Globale.utilisateurActuel.PathDimage))
-        //    {
-        //        picboxUtilisateur.Image = Image.FromFile(Globale.utilisateurActuel.PathDimage);
-        //    }
-        //    else
-        //    {
-        //        //picboxUtilisateur.Image = Image.FromFile(Globale.ecole.ImagePath);
-        //    }
-        //}
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
@@ -308,6 +296,11 @@ namespace OrthoGes_New_Version
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            if (!Global.utilisateurActuel.PrivManipulationRecouvrement)
+            {
+                btnfin.Enabled = false;
+            }
+            fillpnlUserData();
             btntab.ImageSize = new Size(42, 45);
             btnpatient.ImageSize = new Size(45, 45);
             btnfacture.ImageSize = new Size(45, 45);
@@ -332,6 +325,35 @@ namespace OrthoGes_New_Version
         {
             FormGestionCabinet frm = new FormGestionCabinet();
             frm.ShowDialog();
+        }
+
+        private void guna2ControlBox1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            frmConnection.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(PnlUtilisateur.Visible)
+            {
+                PnlUtilisateur.Visible = false;
+            }
+            else
+            {     
+                PnlUtilisateur.Visible = true;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmConnection.Show();
+        }
+
+        private void PnlUtilisateur_MouseDown(object sender, MouseEventArgs e)
+        {
+
         }
     }
 

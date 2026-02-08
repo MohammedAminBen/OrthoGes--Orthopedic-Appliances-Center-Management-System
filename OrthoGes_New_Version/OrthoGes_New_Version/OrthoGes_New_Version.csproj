@@ -25,6 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="FormModifierProduit.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormAjouterProduit.cs">
       <SubType>Form</SubType>
     </Compile>

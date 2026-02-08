@@ -181,7 +181,6 @@ namespace OrthoGes_New_Version
             btnUti.Tag = "utilisateurs";
             btnUti.Text = " Les Utilisateurs";
             btnUti.TextAlign = HorizontalAlignment.Left;
-            btnUti.Visible = false;
             btnUti.Click += PnlButton_Click;
             // 
             // btnfin
@@ -371,7 +370,7 @@ namespace OrthoGes_New_Version
             button2.Size = new Size(44, 45);
             button2.TabIndex = 46;
             button2.UseVisualStyleBackColor = false;
-            button2.Visible = false;
+            button2.Click += button2_Click;
             // 
             // guna2ControlBox3
             // 
@@ -399,6 +398,7 @@ namespace OrthoGes_New_Version
             guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges25;
             guna2ControlBox1.Size = new Size(44, 40);
             guna2ControlBox1.TabIndex = 0;
+            guna2ControlBox1.Click += guna2ControlBox1_Click_1;
             // 
             // PnlUtilisateur
             // 
@@ -417,6 +417,7 @@ namespace OrthoGes_New_Version
             PnlUtilisateur.Size = new Size(190, 206);
             PnlUtilisateur.TabIndex = 6;
             PnlUtilisateur.Visible = false;
+            PnlUtilisateur.MouseDown += PnlUtilisateur_MouseDown;
             // 
             // button3
             // 
@@ -433,6 +434,7 @@ namespace OrthoGes_New_Version
             button3.TabIndex = 31;
             button3.Text = "        Déconnecter";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // picboxUtilisateur
             // 

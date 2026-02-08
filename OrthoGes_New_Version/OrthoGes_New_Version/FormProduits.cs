@@ -29,6 +29,14 @@ namespace OrthoGes_New_Version
                 cmbxCategory.Items.Add(dr["Category_Nom"]);
             }
         }
+        private void checkPrivileges()
+        {
+            if (!Global.utilisateurActuel.PrivManipulationProduits)
+            {
+                btnAjouterProduit.Enabled = false;
+                btnModifier.Enabled = false;
+            }
+        }
         private void ApplyFilters()
         {
             DataTable dtProduitsListe = Produit.GetAllProduits();
@@ -36,6 +44,7 @@ namespace OrthoGes_New_Version
             if (dtProduitsListe.Rows.Count == 0)
             {
                 return;
+                btnModifier.Enabled = false;
             }
 
             List<string> filters = new List<string>();
@@ -127,6 +136,27 @@ namespace OrthoGes_New_Version
         {
             FormAjouterProduit formAjouterProduit = new FormAjouterProduit();
             formAjouterProduit.ShowDialog();
+            ApplyFilters();
+        }
+
+        private void tbxProduitrecherche_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbxProduitrecherche_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // prevents the "ding" sound
+                ApplyFilters(); // or whatever method you want
+            }
+        }
+
+        private void btnModifier_Click(object sender, EventArgs e)
+        {
+            FormModifierProduit formModifierProduit = new FormModifierProduit(dgvProduitsListe.CurrentRow.Cells[1].Value.ToString());
+            formModifierProduit.ShowDialog();
             ApplyFilters();
         }
     }

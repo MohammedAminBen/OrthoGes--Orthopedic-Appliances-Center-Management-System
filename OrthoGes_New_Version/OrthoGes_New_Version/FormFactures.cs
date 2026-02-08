@@ -36,6 +36,21 @@ namespace OrthoGes_New_Version
         //    tbxelevesrecherche.Enter += tbxelevesrecherche_Enter;
         //    tbxelevesrecherche.Leave += tbxelevesrecherche_Leave;
         //}
+        private void checkPrivileges()
+        {
+            if (!Global.utilisateurActuel.PrivManipulationFacture)
+            {
+                btnDetails.Enabled = false;
+                btnSupprimer.Enabled = false;
+                btnModifier.Enabled = false;
+                btnImprimer.Enabled = false;
+
+            }
+            if (!Global.utilisateurActuel.PrivManipulationPatient)
+            {
+                btnPatientDetails.Enabled = false;
+            }
+        }
         public void ApplyFilters()
         {
             dtFactureListe = Facture.GetAll();
@@ -56,6 +71,8 @@ namespace OrthoGes_New_Version
             btnImprimer.Enabled = true;
             btnPatientDetails.Enabled = true;
             btnModifier.Enabled = true;
+
+            checkPrivileges();
 
             List<string> filters = new List<string>();
 
@@ -330,7 +347,9 @@ namespace OrthoGes_New_Version
 
         private void dgvFactureListe_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            
             if (e.RowIndex < 0) return; // skip header
+            if (!Global.utilisateurActuel.PrivManipulationFacture) { MessageBox.Show("Vous n'avez pas les privilèges nécessaires pour utiliser ce filtre.", "Accès refusé", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
 
             var row = dgvFactureListe.Rows[e.RowIndex];
 
@@ -376,8 +395,13 @@ namespace OrthoGes_New_Version
             DialogResult result = MessageBox.Show("êtes-vous sûr de vouloir supprimer cette facture ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                Facture.DeleteFacture(dgvFactureListe.CurrentRow.Cells[1].Value.ToString());
-                MessageBox.Show("Facture supprimée avec succès.");
+
+                    Facture.DeleteFacture(dgvFactureListe.CurrentRow.Cells[1].Value.ToString());
+                
+                if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, $"Supprimer la facture {dgvFactureListe.CurrentRow.Cells[1].Value.ToString()} du système", "Suppression"))
+                {
+                    MessageBox.Show("Facture supprimée avec succès.");
+                }
                 ApplyFilters();
             }
         }
@@ -471,6 +495,15 @@ namespace OrthoGes_New_Version
             );
             formModifierFacture.ShowDialog();
             ApplyFilters();
+        }
+
+        private void tbxfacturesrecherche_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // prevents the "ding" sound
+                ApplyFilters(); // or whatever method you want
+            }
         }
     }
 }

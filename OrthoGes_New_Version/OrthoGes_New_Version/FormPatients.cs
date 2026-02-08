@@ -68,6 +68,32 @@ namespace OrthoGes_New_Version
                 tbxRecherche.ForeColor = System.Drawing.Color.Gray; // Set text to gray
             }
         }
+        private void checkPrivilege()
+        {
+            if (!Global.utilisateurActuel.PrivManipulationPatient)
+            {
+                btnAjouterPatient.Enabled = false;
+                btnSupprimer.Enabled = false;
+                btnModifier.Enabled = false;
+                btnDetails.Enabled = false;
+            }
+            if (!Global.utilisateurActuel.PrivManipulationDevis)
+            {
+                btnCreationDevis.Enabled = false;
+            }
+            if (!Global.utilisateurActuel.PrivManipulationFacture)
+            {
+                btnCreationFacture.Enabled = false;
+            }
+            if (!Global.utilisateurActuel.PrivManipulationBonLivraison)
+            {
+                btnCreationBonLiv.Enabled = false;
+            }
+            if (!Global.utilisateurActuel.PrivManipulationAccord)
+            {
+                btnCreerAccord.Enabled = false;
+            }
+        }
         private void ApplyFilters()
         {
             dtPatientList = Patient.GetAllPatients();
@@ -94,6 +120,8 @@ namespace OrthoGes_New_Version
                 btnCreationFacture.Enabled = true;
 
             }
+
+            checkPrivilege();
 
             List<string> filters = new List<string>();
 
@@ -186,8 +214,12 @@ namespace OrthoGes_New_Version
             DialogResult result = MessageBox.Show("êtes-vous sûr de vouloir supprimer ce patient ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                
                 Patient.DeletePatient(dgvPatientsListe.CurrentRow.Cells[1].Value.ToString());
-                MessageBox.Show("Patient supprimé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, $"Supprimer le patient {dgvPatientsListe.CurrentRow.Cells[1].Value.ToString()} du système", "Suppression"))
+                {
+                    MessageBox.Show("Patient supprimé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 ApplyFilters();
             }
         }
@@ -196,6 +228,15 @@ namespace OrthoGes_New_Version
         {
             FormCreationAccord frmaccord = new FormCreationAccord(dgvPatientsListe.CurrentRow.Cells[1].Value.ToString());
             frmaccord.ShowDialog();
+        }
+
+        private void tbxRecherche_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // prevents the "ding" sound
+                ApplyFilters(); // or whatever method you want
+            }
         }
     }
 }

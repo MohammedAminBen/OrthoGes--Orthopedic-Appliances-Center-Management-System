@@ -62,6 +62,25 @@ namespace OrthoGes_New_Version
 
             this.Size = new System.Drawing.Size(1195, 955);
         }
+        private void checkPrivileges()
+        {
+            if (!Global.utilisateurActuel.PrivManipulationDevis)
+            {
+                btnCreationDevis.Enabled = false;
+            }
+            if (!Global.utilisateurActuel.PrivManipulationFacture)
+            {
+                btnCreationFacture.Enabled = false;
+            }
+            if (!Global.utilisateurActuel.PrivManipulationBonLivraison)
+            {
+                btnCreationBonLiv.Enabled = false;
+            }
+            if (!Global.utilisateurActuel.PrivManipulationAccord)
+            {
+                btnCreerAccord.Enabled = false;
+            }
+        }
         private void LoadData()
         {
             patient = Patient.FindByNumeroPatient(Numero_Patient);
@@ -70,6 +89,7 @@ namespace OrthoGes_New_Version
                 MessageBox.Show("Error when trying to identify the patient");
                 return;
             }
+            checkPrivileges();
             if (patient.est_Assure == 1)
             {
                 AssureCheckedConfig();
@@ -311,9 +331,13 @@ namespace OrthoGes_New_Version
             DialogResult result = MessageBox.Show("êtes-vous sûr de vouloir supprimer ce patient ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                
                 Patient.DeletePatient(Numero_Patient);
-                MessageBox.Show("Patient supprimé avec succès.");
-                this.Close();
+                if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, $"Supprimer le patient {Numero_Patient} du système", "Suppression"))
+                {
+                    MessageBox.Show("Patient supprimé avec succès", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 
@@ -520,14 +544,29 @@ namespace OrthoGes_New_Version
         {
             if (dgvDocuments.CurrentRow.Cells[1].Value.ToString() == "Devis")
             {
+                if(!Global.utilisateurActuel.PrivManipulationDevis)
+                {
+                    MessageBox.Show("Vous n'avez pas les privilèges nécessaires pour imprimer un devis.", "Accès refusé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 PrintDevisPDF(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
             }
             else if (dgvDocuments.CurrentRow.Cells[1].Value.ToString() == "Facture")
             {
+                if (!Global.utilisateurActuel.PrivManipulationFacture)
+                {
+                    MessageBox.Show("Vous n'avez pas les privilèges nécessaires pour imprimer une facture.", "Accès refusé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 PrintFacturePDF(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
             }
             else if (dgvDocuments.CurrentRow.Cells[1].Value.ToString() == "Bon de livraison")
             {
+                if (!Global.utilisateurActuel.PrivManipulationBonLivraison)
+                {
+                    MessageBox.Show("Vous n'avez pas les privilèges nécessaires pour imprimer un bon de livraison.", "Accès refusé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 PrintBon_LivraisonPDF(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
             }
         }
@@ -539,6 +578,11 @@ namespace OrthoGes_New_Version
                 var result = MessageBox.Show("Vous êtes sur le point de supprimer un devis. Cette action est irréversible.", "Confirmation de suppression", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 if (result == DialogResult.OK)
                 {
+                    if (!Global.utilisateurActuel.PrivManipulationDevis)
+                    {
+                        MessageBox.Show("Vous n'avez pas les privilèges nécessaires pour supprimer un devis.", "Accès refusé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     Devis.DeleteDevis(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
                     FillDgvDocumentsWithData();
                 }
@@ -548,6 +592,11 @@ namespace OrthoGes_New_Version
                 var result = MessageBox.Show("Vous êtes sur le point de supprimer une facture. Cette action est irréversible.", "Confirmation de suppression", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 if (result == DialogResult.OK)
                 {
+                    if (!Global.utilisateurActuel.PrivManipulationFacture)
+                    {
+                        MessageBox.Show("Vous n'avez pas les privilèges nécessaires pour supprimer une facture.", "Accès refusé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     Facture.DeleteFacture(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
                     FillDgvDocumentsWithData();
                 }
@@ -557,6 +606,11 @@ namespace OrthoGes_New_Version
                 var result = MessageBox.Show("Vous êtes sur le point de supprimer un bon de livraison. Cette action est irréversible.", "Confirmation de suppression", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 if (result == DialogResult.OK)
                 {
+                    if (!Global.utilisateurActuel.PrivManipulationBonLivraison)
+                    {
+                        MessageBox.Show("Vous n'avez pas les privilèges nécessaires pour supprimer un bon de livraison.", "Accès refusé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     Bon_Livraison.DeleteBon_Livraison(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
                     FillDgvDocumentsWithData();
                 }
@@ -567,16 +621,31 @@ namespace OrthoGes_New_Version
         {
             if (dgvDocuments.CurrentRow.Cells[1].Value.ToString() == "Devis")
             {
+                if (!Global.utilisateurActuel.PrivManipulationDevis)
+                {
+                    MessageBox.Show("Vous n'avez pas les privilèges nécessaires pour voir les détails d'un devis.", "Accès refusé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 FormDevisDetails frmdevis = new FormDevisDetails(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
                 frmdevis.ShowDialog();
             }
             else if (dgvDocuments.CurrentRow.Cells[1].Value.ToString() == "Facture")
             {
+                if (!Global.utilisateurActuel.PrivManipulationFacture)
+                {
+                    MessageBox.Show("Vous n'avez pas les privilèges nécessaires pour voir les détails d'une facture.", "Accès refusé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 FormFactureDetails frmfacture = new FormFactureDetails(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
                 frmfacture.ShowDialog();
             }
             else if (dgvDocuments.CurrentRow.Cells[1].Value.ToString() == "Bon de livraison")
             {
+                if (!Global.utilisateurActuel.PrivManipulationBonLivraison)
+                {
+                    MessageBox.Show("Vous n'avez pas les privilèges nécessaires pour voir les détails d'un bon de livraison.", "Accès refusé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 FormBonLivDetails frmbonliv = new FormBonLivDetails(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
                 frmbonliv.ShowDialog();
             }
@@ -589,6 +658,11 @@ namespace OrthoGes_New_Version
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            if (!Global.utilisateurActuel.PrivManipulationAccord)
+            {
+                MessageBox.Show("Vous n'avez pas les privilèges nécessaires pour supprimer un accord.", "Accès refusé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             var result = MessageBox.Show("Vous êtes sur le point de supprimer cet accord. Cette action est irréversible.", "Confirmation de suppression", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             if (result == DialogResult.OK)
             {
@@ -599,12 +673,22 @@ namespace OrthoGes_New_Version
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
+            if (!Global.utilisateurActuel.PrivManipulationAccord)
+            {
+                MessageBox.Show("Vous n'avez pas les privilèges nécessaires pour voir les détails d'un accord.", "Accès refusé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             FormAccordDetails frmaccord = new FormAccordDetails(Convert.ToInt32(dgvAccord.CurrentRow.Cells[1].Value));
             frmaccord.ShowDialog();
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
+            if (!Global.utilisateurActuel.PrivManipulationAccord)
+            {
+                MessageBox.Show("Vous n'avez pas les privilèges nécessaires pour modifier un accord.", "Accès refusé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             FormModifierEtatAccord frmModifierEtatAccord = new FormModifierEtatAccord(Convert.ToInt32(dgvAccord.CurrentRow.Cells[1].Value));
             frmModifierEtatAccord.ShowDialog();
             FillDgvAccordWithData();
@@ -617,6 +701,11 @@ namespace OrthoGes_New_Version
 
         private void bonDeLivraisonToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!Global.utilisateurActuel.PrivManipulationBonLivraison)
+            {
+                MessageBox.Show("Vous n'avez pas les privilèges nécessaires pour modifier un bon de livraison.", "Accès refusé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             FormModifierBonLiv modifierbon = new FormModifierBonLiv(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
             modifierbon.ShowDialog();
             FillDgvDocumentsWithData();
@@ -624,6 +713,11 @@ namespace OrthoGes_New_Version
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
         {
+            if (!Global.utilisateurActuel.PrivManipulationAccord)
+            {
+                MessageBox.Show("Vous n'avez pas les privilèges nécessaires pour modifier un accord.", "Accès refusé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             FormModifierAccord modifieraccord = new FormModifierAccord(Convert.ToInt32(dgvAccord.CurrentRow.Cells[1].Value));
             modifieraccord.ShowDialog();
             FillDgvAccordWithData();
@@ -631,6 +725,11 @@ namespace OrthoGes_New_Version
 
         private void devisToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!Global.utilisateurActuel.PrivManipulationDevis)
+            {
+                MessageBox.Show("Vous n'avez pas les privilèges nécessaires pour modifier un devis.", "Accès refusé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             FormModifierDevis modifierDevis = new FormModifierDevis(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
             modifierDevis.ShowDialog();
             FillDgvDocumentsWithData();
@@ -643,6 +742,11 @@ namespace OrthoGes_New_Version
 
         private void factureToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!Global.utilisateurActuel.PrivManipulationFacture)
+            {
+                MessageBox.Show("Vous n'avez pas les privilèges nécessaires pour modifier une facture.", "Accès refusé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             FormModifierFacture modifierFacture = new FormModifierFacture(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
             modifierFacture.ShowDialog();
             FillDgvDocumentsWithData();

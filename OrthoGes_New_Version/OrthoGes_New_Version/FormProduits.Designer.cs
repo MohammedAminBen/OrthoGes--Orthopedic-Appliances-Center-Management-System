@@ -52,6 +52,7 @@
             Column1 = new DataGridViewTextBoxColumn();
             cmbxCategory = new Guna.UI2.WinForms.Guna2ComboBox();
             btnAjouterProduit = new Button();
+            btnModifier = new Button();
             label2 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProduitsListe).BeginInit();
@@ -158,6 +159,8 @@
             tbxProduitrecherche.ShadowDecoration.CustomizableEdges = customizableEdges4;
             tbxProduitrecherche.Size = new Size(418, 36);
             tbxProduitrecherche.TabIndex = 22;
+            tbxProduitrecherche.TextChanged += tbxProduitrecherche_TextChanged;
+            tbxProduitrecherche.KeyDown += tbxProduitrecherche_KeyDown;
             // 
             // cmbxRecherche
             // 
@@ -297,10 +300,27 @@
             btnAjouterProduit.Name = "btnAjouterProduit";
             btnAjouterProduit.Size = new Size(180, 49);
             btnAjouterProduit.TabIndex = 55;
-            btnAjouterProduit.Text = " Ajouter un produit";
+            btnAjouterProduit.Text = "Ajouter un produit";
             btnAjouterProduit.UseCompatibleTextRendering = true;
             btnAjouterProduit.UseVisualStyleBackColor = false;
             btnAjouterProduit.Click += btnAjouterProduit_Click;
+            // 
+            // btnModifier
+            // 
+            btnModifier.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnModifier.BackColor = Color.White;
+            btnModifier.FlatAppearance.BorderColor = Color.FromArgb(230, 230, 245);
+            btnModifier.Font = new Font("Segoe UI", 11F);
+            btnModifier.ForeColor = Color.Black;
+            btnModifier.ImageAlign = ContentAlignment.MiddleLeft;
+            btnModifier.Location = new Point(974, 67);
+            btnModifier.Name = "btnModifier";
+            btnModifier.Size = new Size(180, 49);
+            btnModifier.TabIndex = 56;
+            btnModifier.Text = "Modifier produit";
+            btnModifier.UseCompatibleTextRendering = true;
+            btnModifier.UseVisualStyleBackColor = false;
+            btnModifier.Click += btnModifier_Click;
             // 
             // FormProduits
             // 
@@ -308,6 +328,7 @@
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.GhostWhite;
             ClientSize = new Size(1362, 842);
+            Controls.Add(btnModifier);
             Controls.Add(btnAjouterProduit);
             Controls.Add(cmbxCategory);
             Controls.Add(label2);
@@ -341,5 +362,6 @@
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2ComboBox cmbxCategory;
         private Button btnAjouterProduit;
+        private Button btnModifier;
     }
 }
