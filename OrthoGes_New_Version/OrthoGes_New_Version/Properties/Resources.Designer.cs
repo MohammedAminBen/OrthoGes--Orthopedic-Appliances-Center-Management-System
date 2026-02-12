@@ -413,16 +413,6 @@ namespace OrthoGes_New_Version.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap form {
-            get {
-                object obj = ResourceManager.GetObject("form", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         public static System.Drawing.Bitmap Handicapia_Logo {
             get {
                 object obj = ResourceManager.GetObject("Handicapia_Logo", resourceCulture);

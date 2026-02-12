@@ -69,6 +69,7 @@
             cmbxAnnee = new Guna.UI2.WinForms.Guna2ComboBox();
             cmbxMois = new Guna.UI2.WinForms.Guna2ComboBox();
             btnModifier = new Button();
+            btnEnregistrer = new Button();
             label2 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvFactureListe).BeginInit();
@@ -488,12 +489,30 @@
             btnModifier.UseVisualStyleBackColor = false;
             btnModifier.Click += btnModifier_Click;
             // 
+            // btnEnregistrer
+            // 
+            btnEnregistrer.BackColor = Color.White;
+            btnEnregistrer.FlatAppearance.BorderColor = Color.FromArgb(230, 230, 245);
+            btnEnregistrer.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnEnregistrer.ForeColor = Color.Black;
+            btnEnregistrer.Image = Properties.Resources.icons8_print_48;
+            btnEnregistrer.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEnregistrer.Location = new Point(1005, 781);
+            btnEnregistrer.Name = "btnEnregistrer";
+            btnEnregistrer.Size = new Size(159, 51);
+            btnEnregistrer.TabIndex = 76;
+            btnEnregistrer.Text = "     Imprimer";
+            btnEnregistrer.UseCompatibleTextRendering = true;
+            btnEnregistrer.UseVisualStyleBackColor = false;
+            btnEnregistrer.Click += btnEnregistrer_Click;
+            // 
             // FormRecouvrement
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.GhostWhite;
             ClientSize = new Size(1483, 842);
+            Controls.Add(btnEnregistrer);
             Controls.Add(btnModifier);
             Controls.Add(cmbxEtat);
             Controls.Add(label6);
@@ -546,5 +565,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cmbxAnnee;
         private Guna.UI2.WinForms.Guna2ComboBox cmbxMois;
         private System.Windows.Forms.Button btnModifier;
+        private Button btnEnregistrer;
     }
 }

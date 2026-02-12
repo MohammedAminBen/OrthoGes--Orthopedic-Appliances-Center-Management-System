@@ -331,7 +331,7 @@ namespace OrthoGes_New_Version
             DialogResult result = MessageBox.Show("êtes-vous sûr de vouloir supprimer ce patient ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                
+
                 Patient.DeletePatient(Numero_Patient);
                 if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, $"Supprimer le patient {Numero_Patient} du système", "Suppression"))
                 {
@@ -544,7 +544,7 @@ namespace OrthoGes_New_Version
         {
             if (dgvDocuments.CurrentRow.Cells[1].Value.ToString() == "Devis")
             {
-                if(!Global.utilisateurActuel.PrivManipulationDevis)
+                if (!Global.utilisateurActuel.PrivManipulationDevis)
                 {
                     MessageBox.Show("Vous n'avez pas les privilèges nécessaires pour imprimer un devis.", "Accès refusé", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -750,6 +750,111 @@ namespace OrthoGes_New_Version
             FormModifierFacture modifierFacture = new FormModifierFacture(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
             modifierFacture.ShowDialog();
             FillDgvDocumentsWithData();
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            QuestPDF.Settings.License = LicenseType.Community;
+
+            patient = Patient.FindByNumeroPatient(Numero_Patient);
+            assure = Assure.FindByID(patient.AssureID);
+            person = Person.Find(patient.PersonID);
+            Person personAss = Person.Find(assure.PersonID);
+
+            string Reference = null;
+            string designation = null;
+
+            if (dgvDocuments.CurrentRow.Cells[1].Value.ToString() == "Devis")
+            {
+                 Devis devis = Devis.FindByNumeroDevis(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
+                if (devis.Produits.Count >= 1)
+                {
+                    Reference = devis.Produits[0].Reference;
+                    designation = Produit.FindByReference(Reference).Nom_Produit;
+                    if (devis.Produits.Count > 1)
+                    {
+                        Reference = Reference + " / " + devis.Produits[1].Reference;
+                        designation = designation + " / " + Produit.FindByReference(devis.Produits[1].Reference).Nom_Produit;
+
+                        if (devis.Produits.Count > 2)
+                        {
+                            Reference = Reference + " / " + devis.Produits[2].Reference;
+                            designation = designation + " / " + Produit.FindByReference(devis.Produits[2].Reference).Nom_Produit;
+                        }
+                    }
+                }
+            }
+            else if (dgvDocuments.CurrentRow.Cells[1].Value.ToString() == "Facture")
+            {
+                Facture facture = Facture.FindByNumeroFacture(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
+                if (facture.Produits.Count >= 1)
+                {
+                    Reference = facture.Produits[0].Reference;
+                    designation = Produit.FindByReference(Reference).Nom_Produit;
+                    if (facture.Produits.Count > 1)
+                    {
+                        Reference = Reference + " / " +facture.Produits[1].Reference;
+                        designation = designation + " / " + Produit.FindByReference(facture.Produits[1].Reference).Nom_Produit;
+
+                        if (facture.Produits.Count > 2)
+                        {
+                            Reference = Reference + " / " + facture.Produits[2].Reference;
+                            designation = designation + " / " + Produit.FindByReference(facture.Produits[2].Reference).Nom_Produit;
+                        }
+                    }
+                }
+            }
+            else if (dgvDocuments.CurrentRow.Cells[1].Value.ToString() == "Bon de livraison")
+            {
+                Bon_Livraison bon = Bon_Livraison.FindByNumeroBon(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
+                if (bon.Produits.Count >= 1)
+                {
+                    Reference = bon.Produits[0].Reference;
+                    designation = Produit.FindByReference(Reference).Nom_Produit;
+                    if (bon.Produits.Count > 1)
+                    {
+                        Reference = Reference + " / " + bon.Produits[1].Reference;
+                        designation = designation + " / " + Produit.FindByReference(bon.Produits[1].Reference).Nom_Produit;
+
+                        if (bon.Produits.Count > 2)
+                        {
+                            Reference = Reference + " / " + bon.Produits[2].Reference;
+                            designation = designation + " / " + Produit.FindByReference(bon.Produits[2].Reference).Nom_Produit;
+                        }
+                    }
+                }
+            }
+            Document pdf;
+            if (patient.est_Assure != 1)
+            {
+                 pdf = PDFDemande.GenerateDocument(personAss.Nom, personAss.Prenom, personAss.DateNaissance.ToString("d"), Reference + "   " + designation, DateTime.Now.ToString("d"), assure.NumeroAssurance, person.Nom + " " + person.Prenom, person.DateNaissance.ToString("d"));
+            }
+            else 
+            {
+                 pdf = PDFDemande.GenerateDocument(personAss.Nom, personAss.Prenom, personAss.DateNaissance.ToString("d"),Reference + "   " + designation, DateTime.Now.ToString("d"), assure.NumeroAssurance);
+            }
+            string doc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);  
+            string folderPath = Path.Combine(doc, "OrthoGes Document\\Demande d'entante prealable");
+
+            // Ensure the folder exists
+            Directory.CreateDirectory(folderPath);
+
+
+            string fileName = $"{person.NomEtPrenom}_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.pdf";
+            string filePath = Path.Combine(folderPath, fileName);
+
+            // ✅ Save the PDF correctly
+            pdf.GeneratePdf(filePath);
+
+            // ✅ Wait briefly to ensure file write completes (optional but helpful)
+            System.Threading.Thread.Sleep(200);
+
+            // ✅ Open the generated PDF
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+            {
+                FileName = filePath,
+                UseShellExecute = true
+            });
         }
     }
 }

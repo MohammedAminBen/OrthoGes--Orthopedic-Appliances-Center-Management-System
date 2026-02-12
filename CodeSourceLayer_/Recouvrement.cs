@@ -72,6 +72,10 @@ namespace CodeSourceLayer_
         {
             return RecouvrementData.DeleteRecouvrement(recouvrementID);
         }
+        public static DataTable GetRecouvrementsCompleteListe(DateTime datedebut,DateTime datefin,string etat)
+        {
+            return RecouvrementData.GetRecouvrementsCompleteListe(datedebut, datefin, etat);
+        }
     }
 
 }

@@ -351,5 +351,11 @@ namespace OrthoGes_New_Version
                 ApplyFilters(); // or whatever method you want
             }
         }
+
+        private void btnEnregistrer_Click(object sender, EventArgs e)
+        {
+            FormImprimerRecouvrementListe formImprimerRecouvrementListe = new FormImprimerRecouvrementListe();
+            formImprimerRecouvrementListe.ShowDialog();
+        }
     }
 }

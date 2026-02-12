@@ -240,6 +240,73 @@ LEFT JOIN (
                 return false;
             }
         }
+
+
+        public static DataTable GetRecouvrementsCompleteListe(DateTime datedebut,DateTime datefin,string etat)
+        {
+            DataTable dt = new DataTable();
+
+            string query = @"SELECT 
+    r.Numero_Patient,
+    (pp.Nom + ' ' + pp.Prenom) AS Patient,
+    (pa.Nom + ' ' + pa.Prenom) AS Assure,
+    a.Numero_Assurance,
+    c.Nom_Caisse,
+    r.Numero_Facture,
+    f.Date_Facture,
+
+    STRING_AGG(fp.Reference_Produit, ' / ') AS Produits,
+    STRING_AGG(CAST(fp.QuantityProduit AS VARCHAR), ' / ') AS Quantites,
+    STRING_AGG(CAST(p.Prix AS VARCHAR), ' / ') AS Prix,
+    STRING_AGG(CAST(p.TVA AS VARCHAR), ' / ') AS TVA,
+
+    r.Montant_TTC,
+    r.etat_Payement
+
+FROM D_Recouvrement r
+INNER JOIN D_Patient pt ON pt.Numero_Patient = r.Numero_Patient
+INNER JOIN D_Person pp ON pp.Person_ID = pt.Person_ID
+INNER JOIN D_Assure a ON a.Assure_ID = pt.Assure_ID
+INNER JOIN D_Person pa ON pa.Person_ID = a.Person_ID
+LEFT JOIN R_Caisse c ON c.Caisse_ID = a.Caisse_ID
+INNER JOIN D_Facture f ON f.Numero_Facture = r.Numero_Facture
+INNER JOIN D_Facture_Produits fp ON fp.Numero_Facture = r.Numero_Facture
+INNER JOIN R_Produit p ON p.Reference = fp.Reference_Produit
+
+WHERE r.Date_Facture >= @dateDebut
+  AND r.Date_Facture <= @dateFin
+  AND r.etat_Payement = @etat
+
+GROUP BY 
+    r.Numero_Patient,
+    pp.Nom, pp.Prenom,
+    pa.Nom, pa.Prenom,
+    a.Numero_Assurance,
+    c.Nom_Caisse,
+    r.Numero_Facture,
+    f.Date_Facture,
+    r.Montant_TTC,
+    r.etat_Payement;";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@dateDebut", datedebut);
+                    command.Parameters.AddWithValue("@dateFin", datefin);
+                    command.Parameters.AddWithValue("@etat", etat);
+                    connection.Open();
+                    dt.Load(command.ExecuteReader());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("GetAllRecouvrements error: " + ex.Message);
+            }
+
+            return dt;
+        }
     }
 
 }

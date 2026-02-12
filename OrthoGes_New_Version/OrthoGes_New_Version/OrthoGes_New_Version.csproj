@@ -16,7 +16,7 @@
   <ItemGroup>
     <PackageReference Include="Guna.Charts.WinForms" Version="1.1.0" />
     <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4.7" />
-    <PackageReference Include="QuestPDF" Version="2025.12.1" />
+    <PackageReference Include="QuestPDF" Version="2025.12.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="FormImprimerRecouvrementListe.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FormModifierProduit.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -117,6 +117,7 @@
             btnSupprimer = new Button();
             pictureBox2 = new PictureBox();
             lblTitle = new Label();
+            toolStripMenuItem6 = new ToolStripMenuItem();
             gbxPatient.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             gbxAssure.SuspendLayout();
@@ -862,7 +863,7 @@
             // rightclickDocuments
             // 
             rightclickDocuments.ImageScalingSize = new Size(20, 20);
-            rightclickDocuments.Items.AddRange(new ToolStripItem[] { cmsSupprimer, cmsDetails, toolStripMenuItem5, cmsImprimer });
+            rightclickDocuments.Items.AddRange(new ToolStripItem[] { cmsSupprimer, cmsDetails, toolStripMenuItem5, cmsImprimer, toolStripMenuItem6 });
             rightclickDocuments.Name = "rightclickHistoriquePayement";
             rightclickDocuments.RenderStyle.ArrowColor = Color.FromArgb(151, 143, 255);
             rightclickDocuments.RenderStyle.BorderColor = Color.Gainsboro;
@@ -873,7 +874,7 @@
             rightclickDocuments.RenderStyle.SelectionForeColor = Color.White;
             rightclickDocuments.RenderStyle.SeparatorColor = Color.Gainsboro;
             rightclickDocuments.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            rightclickDocuments.Size = new Size(256, 116);
+            rightclickDocuments.Size = new Size(265, 172);
             // 
             // cmsSupprimer
             // 
@@ -881,7 +882,7 @@
             cmsSupprimer.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmsSupprimer.Image = Properties.Resources.cancel;
             cmsSupprimer.Name = "cmsSupprimer";
-            cmsSupprimer.Size = new Size(255, 28);
+            cmsSupprimer.Size = new Size(264, 28);
             cmsSupprimer.Text = "  Supprimer document";
             cmsSupprimer.Click += cmsSupprimer_Click;
             // 
@@ -891,7 +892,7 @@
             cmsDetails.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmsDetails.Image = Properties.Resources.icons8_view_details_32;
             cmsDetails.Name = "cmsDetails";
-            cmsDetails.Size = new Size(255, 28);
+            cmsDetails.Size = new Size(264, 28);
             cmsDetails.Text = "  Details de document";
             cmsDetails.Click += cmsDetails_Click;
             // 
@@ -902,7 +903,7 @@
             toolStripMenuItem5.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             toolStripMenuItem5.Image = Properties.Resources.icons8_edit_property_32;
             toolStripMenuItem5.Name = "toolStripMenuItem5";
-            toolStripMenuItem5.Size = new Size(255, 28);
+            toolStripMenuItem5.Size = new Size(264, 28);
             toolStripMenuItem5.Text = "  Modifier";
             toolStripMenuItem5.Click += toolStripMenuItem5_Click;
             // 
@@ -936,8 +937,8 @@
             cmsImprimer.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmsImprimer.Image = Properties.Resources.icons8_print_48;
             cmsImprimer.Name = "cmsImprimer";
-            cmsImprimer.Size = new Size(255, 28);
-            cmsImprimer.Text = "  Imprimer  document";
+            cmsImprimer.Size = new Size(264, 28);
+            cmsImprimer.Text = "  Imprimer document";
             cmsImprimer.Click += cmsImprimer_Click;
             // 
             // dgvAccord
@@ -1216,6 +1217,16 @@
             lblTitle.Text = "Documents      ";
             lblTitle.UseCompatibleTextRendering = true;
             // 
+            // toolStripMenuItem6
+            // 
+            toolStripMenuItem6.BackColor = Color.GhostWhite;
+            toolStripMenuItem6.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            toolStripMenuItem6.Image = Properties.Resources.icons8_print_48;
+            toolStripMenuItem6.Name = "toolStripMenuItem6";
+            toolStripMenuItem6.Size = new Size(264, 28);
+            toolStripMenuItem6.Text = "  Imprimer demande EP";
+            toolStripMenuItem6.Click += toolStripMenuItem6_Click;
+            // 
             // FormPatientDetails
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
@@ -1344,5 +1355,6 @@
         private ToolStripMenuItem devisToolStripMenuItem;
         private ToolStripMenuItem factureToolStripMenuItem;
         private ToolStripMenuItem bonDeLivraisonToolStripMenuItem;
+        private ToolStripMenuItem toolStripMenuItem6;
     }
 }

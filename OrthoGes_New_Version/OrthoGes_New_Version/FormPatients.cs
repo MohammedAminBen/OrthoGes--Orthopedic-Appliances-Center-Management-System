@@ -1,5 +1,7 @@
 ﻿using CodeSourceLayer_;
+using PDFTemplate;
 using PDFTemplates;
+using QuestPDF.Fluent;
 using QuestPDF.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -7,10 +9,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QuestPDF.Fluent;
 
 namespace OrthoGes_New_Version
 {
@@ -214,7 +216,7 @@ namespace OrthoGes_New_Version
             DialogResult result = MessageBox.Show("êtes-vous sûr de vouloir supprimer ce patient ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                
+
                 Patient.DeletePatient(dgvPatientsListe.CurrentRow.Cells[1].Value.ToString());
                 if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, $"Supprimer le patient {dgvPatientsListe.CurrentRow.Cells[1].Value.ToString()} du système", "Suppression"))
                 {
@@ -237,6 +239,11 @@ namespace OrthoGes_New_Version
                 e.SuppressKeyPress = true; // prevents the "ding" sound
                 ApplyFilters(); // or whatever method you want
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }
