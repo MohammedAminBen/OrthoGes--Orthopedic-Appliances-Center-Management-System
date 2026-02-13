@@ -28,71 +28,63 @@ public class PDFDemande
         DateActe = dateActe;
         Immatriculation = immatriculation;
         return Document.Create(container =>
-       container.Page(page =>
-       {
-           page.Size(PageSizes.A4);
-           page.Margin(0);
-
-           page.Content().Layers(layers =>
-           {
-
-               layers.PrimaryLayer().Image(GetEmbeddedResource("form.png")).FitArea();
-
-
-               layers.Layer().Svg(GenerateSvg());
-           });
-       }));
-    }
-
-    //public void Compose(IDocumentContainer container)
-    //{
-    //    container.Page(page =>
-    //    {
-    //        page.Size(PageSizes.A4);
-    //        page.Margin(0);
-    //        page.Content().Svg(GenerateSvg());
-    //    });
-    //}
-
-
-    private static byte[] GetEmbeddedResource(string fileName)
+    container.Page(page =>
     {
-        var assembly = typeof(PDFDemande).Assembly;
-
-        var resourceName = assembly.GetManifestResourceNames()
-            .FirstOrDefault(n => n.EndsWith(fileName, StringComparison.OrdinalIgnoreCase));
-
-        if (resourceName == null)
-            throw new Exception("Embedded image not found: " + fileName
-                + "\nAvailable resources:\n"
-                + string.Join("\n", assembly.GetManifestResourceNames()));
-
-        using var stream = assembly.GetManifestResourceStream(resourceName);
-        using var ms = new MemoryStream();
-        stream.CopyTo(ms);
-        return ms.ToArray();
+        page.Size(PageSizes.A4);
+        page.Margin(0);
+        page.Content().Svg(GenerateSvg());
+    }));
     }
-
 
     //public void Compose(IDocumentContainer container)
     //{
-    //    container.Page(page =>
-    //        {
-    //            page.Size(PageSizes.A4);
-    //            page.Margin(0);
+//    container.Page(page =>
+//        {
+//            page.Size(PageSizes.A4);
+//            page.Margin(0);
+//            page.Content().Svg(GenerateSvg());
+//});
+//}
 
-    //            page.Content().Layers(layers =>
-    //            {
-    
-    //                layers.PrimaryLayer().Image(GetEmbeddedResource("form.png")).FitArea();
 
-    
-    //                layers.Layer().Svg(GenerateSvg());
-    //            });
-    //        });
-    //}
+//private static byte[] GetEmbeddedResource(string fileName)
+//{
+//    var assembly = typeof(PDFDemande).Assembly;
 
-    private static string GenerateSvg()
+//    var resourceName = assembly.GetManifestResourceNames()
+//        .FirstOrDefault(n => n.EndsWith(fileName, StringComparison.OrdinalIgnoreCase));
+
+//    if (resourceName == null)
+//        throw new Exception("Embedded image not found: " + fileName
+//            + "\nAvailable resources:\n"
+//            + string.Join("\n", assembly.GetManifestResourceNames()));
+
+//    using var stream = assembly.GetManifestResourceStream(resourceName);
+//    using var ms = new MemoryStream();
+//    stream.CopyTo(ms);
+//    return ms.ToArray();
+//}
+
+
+//public void Compose(IDocumentContainer container)
+//{
+//    container.Page(page =>
+//        {
+//            page.Size(PageSizes.A4);
+//            page.Margin(0);
+
+//            page.Content().Layers(layers =>
+//            {
+
+//                layers.PrimaryLayer().Image(GetEmbeddedResource("form.png")).FitArea();
+
+
+//                layers.Layer().Svg(GenerateSvg());
+//            });
+//        });
+//}
+
+private static string GenerateSvg()
     {
         var sb = new StringBuilder();
 

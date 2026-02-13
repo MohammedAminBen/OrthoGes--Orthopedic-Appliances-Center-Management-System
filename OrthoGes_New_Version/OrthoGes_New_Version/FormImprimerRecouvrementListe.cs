@@ -109,6 +109,7 @@ namespace OrthoGes_New_Version
             }
             if (cmbxEtat.Text == "Non Payé") etat = "NON";
             else if (cmbxEtat.Text == "Payé") etat = "OUI";
+            else if (cmbxEtat.Text == "Tous") etat = "TOUS";
 
             dtRecouvrementList = Recouvrement.GetRecouvrementsCompleteListe(startDate, endDate, etat);
 

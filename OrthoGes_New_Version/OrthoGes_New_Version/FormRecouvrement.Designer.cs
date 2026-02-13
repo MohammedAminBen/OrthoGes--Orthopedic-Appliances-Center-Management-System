@@ -491,6 +491,7 @@
             // 
             // btnEnregistrer
             // 
+            btnEnregistrer.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnEnregistrer.BackColor = Color.White;
             btnEnregistrer.FlatAppearance.BorderColor = Color.FromArgb(230, 230, 245);
             btnEnregistrer.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);

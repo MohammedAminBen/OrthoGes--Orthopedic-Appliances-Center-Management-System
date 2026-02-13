@@ -275,7 +275,7 @@ INNER JOIN R_Produit p ON p.Reference = fp.Reference_Produit
 
 WHERE r.Date_Facture >= @dateDebut
   AND r.Date_Facture <= @dateFin
-  AND r.etat_Payement = @etat
+  AND (@etat = 'TOUS' OR r.etat_Payement = @etat)
 
 GROUP BY 
     r.Numero_Patient,
@@ -286,7 +286,8 @@ GROUP BY
     r.Numero_Facture,
     f.Date_Facture,
     r.Montant_TTC,
-    r.etat_Payement;";
+    r.etat_Payement
+ORDER BY f.Date_Facture;";
 
             try
             {

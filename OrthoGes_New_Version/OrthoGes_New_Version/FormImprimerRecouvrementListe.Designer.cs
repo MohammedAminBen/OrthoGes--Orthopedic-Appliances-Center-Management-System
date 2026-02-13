@@ -178,7 +178,7 @@
             cmbxEtat.Font = new Font("Segoe UI", 10.2F);
             cmbxEtat.ForeColor = Color.FromArgb(68, 88, 112);
             cmbxEtat.ItemHeight = 30;
-            cmbxEtat.Items.AddRange(new object[] { "Payé", "Pas payé" });
+            cmbxEtat.Items.AddRange(new object[] { "Tous", "Payé", "Pas payé" });
             cmbxEtat.Location = new Point(12, 305);
             cmbxEtat.Name = "cmbxEtat";
             cmbxEtat.ShadowDecoration.CustomizableEdges = customizableEdges4;
