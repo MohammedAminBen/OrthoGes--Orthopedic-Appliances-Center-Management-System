@@ -298,7 +298,12 @@ namespace OrthoGes_New_Version
         {
             if (!Global.utilisateurActuel.PrivManipulationRecouvrement)
             {
-                btnfin.Enabled = false;
+                btnfin.Visible = false;
+            }
+            if (!Global.utilisateurActuel.Est_Admin)
+            {
+                btnGestionCabinet.Visible = false;
+                btnUti.Visible = false;
             }
             fillpnlUserData();
             btntab.ImageSize = new Size(42, 45);
