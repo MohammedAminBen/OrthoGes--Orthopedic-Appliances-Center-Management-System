@@ -300,7 +300,7 @@ namespace OrthoGes_New_Version
             {
                 btnfin.Visible = false;
             }
-            if (!Global.utilisateurActuel.Est_Admin)
+            if (!Global.utilisateurActuel.Est_Super_Admin)
             {
                 btnGestionCabinet.Visible = false;
                 btnUti.Visible = false;

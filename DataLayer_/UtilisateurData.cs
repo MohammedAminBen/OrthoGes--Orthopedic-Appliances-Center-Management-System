@@ -6,11 +6,52 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Security.Cryptography;
 
 namespace DataLayer_
 {
     public class UtilisateurData
     {
+        private static readonly string key = "1234567890123456"; // 16 chars = 128-bit key
+
+        public static string Encrypt(string plainText)
+        {
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(key);
+                aes.IV = new byte[16];
+
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, aes.CreateEncryptor(), CryptoStreamMode.Write))
+                    using (StreamWriter sw = new StreamWriter(cs))
+                    {
+                        sw.Write(plainText);
+                    } // sw & cs disposed → flush happens here
+
+                    return Convert.ToBase64String(ms.ToArray());
+                }
+            }
+        }
+
+        public static string Decrypt(string cipherText)
+        {
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(key);
+                aes.IV = new byte[16];
+
+                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+
+                using (MemoryStream ms = new MemoryStream(Convert.FromBase64String(cipherText)))
+                using (CryptoStream cs = new CryptoStream(ms, decryptor, CryptoStreamMode.Read))
+                using (StreamReader sr = new StreamReader(cs))
+                {
+                    return sr.ReadToEnd();
+                }
+            }
+        }
+
         private static string SaveUserImage(string userId, string sourceFilePath)
         {
             string folderPath = Path.Combine(@"C:\SysSco\UtilisateursImages", userId);
@@ -24,15 +65,15 @@ namespace DataLayer_
             return destFilePath; // Return the saved image path
         }
 
-        public static bool GetUtilisateurByID(int utilisateurID, ref int personID, ref string nomUtilisateur, ref string motDePasse, ref string pathDimage, ref bool isAdmin, ref DateTime date,
+        public static bool GetUtilisateurByID(int utilisateurID, ref int personID, ref string nomUtilisateur, ref string motDePasse, ref string pathDimage, ref bool isAdmin, ref DateTime date,ref bool EstSuperAdmin,
                                         ref bool privilegePatient, ref bool privilegeDevis, ref bool privilegeFacture, ref bool privilegeBonLivraison, ref bool privilegeAccord, ref bool privilegeProduits, ref bool privilegeRecouvrement)
         {
             bool isFound = false;
-
+            
             using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
             {
                 string query = @"SELECT u.Person_ID, u.Nom_Utilisateur, u.Mot_De_Passe,
-                                u.Path_Image, u.Est_Admin, u.Date_De_Connection,
+                                u.Path_Image, u.Est_Admin, u.Date_De_Connection,u.Est_Super_Admin,
                                 p.Privilege_Manupilation_Patient,
                                 p.Privilege_Manupilation_Devis,
                                 p.Privilege_Manupilation_Facture,
@@ -59,10 +100,11 @@ namespace DataLayer_
 
                             personID = (int)reader["Person_ID"];
                             nomUtilisateur = reader["Nom_Utilisateur"].ToString();
-                            motDePasse = reader["Mot_De_Passe"].ToString();
+                            motDePasse = Decrypt(reader["Mot_De_Passe"].ToString());
                             pathDimage = reader["Path_Image"] == DBNull.Value ? null : reader["Path_Image"].ToString();
                             isAdmin = (int)reader["Est_Admin"] ==1;
                             date = (DateTime)reader["Date_De_Connection"];
+                            EstSuperAdmin = (int)reader["Est_Super_Admin"] == 1;
 
                             privilegePatient = (int)reader["Privilege_Manupilation_Patient"] == 1;
                             privilegeDevis = (int)reader["Privilege_Manupilation_Devis"] == 1;
@@ -86,7 +128,7 @@ namespace DataLayer_
 
 
 
-        public static bool GetUtilisateurByPersonID(ref int utilisateurID, int personID, ref string nomUtilisateur, ref string motDePasse, ref string pathDimage, ref bool isAdmin, ref DateTime date,
+        public static bool GetUtilisateurByPersonID(ref int utilisateurID, int personID, ref string nomUtilisateur, ref string motDePasse, ref string pathDimage, ref bool isAdmin, ref DateTime date, ref bool EstSuperAdmin,
                                             ref bool privilegePatient, ref bool privilegeDevis, ref bool privilegeFacture, ref bool privilegeBonLivraison, ref bool privilegeAccord, ref bool privilegeProduits, ref bool privilegeRecouvrement)
         {
             bool isFound = false;
@@ -94,7 +136,7 @@ namespace DataLayer_
             using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
             {
                 string query = @"SELECT u.Utilisateur_ID, u.Person_ID, u.Nom_Utilisateur, u.Mot_De_Passe,
-                                u.Path_Image, u.Est_Admin, u.Date_De_Connection,
+                                u.Path_Image, u.Est_Admin, u.Date_De_Connection, u.Est_Super_Admin,
                                 p.Privilege_Manupilation_Patient,
                                 p.Privilege_Manupilation_Devis,
                                 p.Privilege_Manupilation_Facture,
@@ -120,10 +162,11 @@ namespace DataLayer_
 
                             utilisateurID = (int)reader["Utilisateur_ID"];
                             nomUtilisateur = reader["Nom_Utilisateur"].ToString();
-                            motDePasse = reader["Mot_De_Passe"].ToString();
+                            motDePasse = Decrypt(reader["Mot_De_Passe"].ToString());
                             pathDimage = reader["Path_Image"] == DBNull.Value ? null : reader["Path_Image"].ToString();
                             isAdmin = (int)reader["Est_Admin"] == 1;
                             date = (DateTime)reader["Date_De_Connection"];
+                            EstSuperAdmin = (int)reader["Est_Super_Admin"] == 1;
 
                             privilegePatient = (int)reader["Privilege_Manupilation_Patient"] == 1;
                             privilegeDevis = (int)reader["Privilege_Manupilation_Devis"] == 1;
@@ -144,15 +187,18 @@ namespace DataLayer_
             return isFound;
         }
 
-        public static bool GetUtilisateurByNomUtilisateurEtMotDePasse(ref int utilisateurID, ref int personID, string nomUtilisateur, string motDePasse, ref string pathDimage, ref bool isAdmin, ref DateTime date,
+        public static bool GetUtilisateurByNomUtilisateurEtMotDePasse(ref int utilisateurID, ref int personID, string nomUtilisateur, string motDePasse, ref string pathDimage, ref bool isAdmin, ref DateTime date, ref bool EstSuperAdmin,
                                                               ref bool privilegePatient, ref bool privilegeDevis, ref bool privilegeFacture, ref bool privilegeBonLivraison, ref bool privilegeAccord, ref bool privilegeProduits, ref bool privilegeRecouvrement)
         {
             bool isFound = false;
+
+            motDePasse = Encrypt(motDePasse); // Encrypt the password before comparing
 
             using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
             {
                 string query = @"SELECT u.Utilisateur_ID, u.Person_ID, u.Nom_Utilisateur, u.Mot_De_Passe,
                                 u.Path_Image, u.Est_Admin, u.Date_De_Connection,
+                                u.Est_Super_Admin,
                                 p.Privilege_Manupilation_Patient,
                                 p.Privilege_Manupilation_Devis,
                                 p.Privilege_Manupilation_Facture,
@@ -184,6 +230,7 @@ namespace DataLayer_
                             pathDimage = reader["Path_Image"] == DBNull.Value ? null : reader["Path_Image"].ToString();
                             isAdmin = (int)reader["Est_Admin"] == 1;
                             date = (DateTime)reader["Date_De_Connection"];
+                            EstSuperAdmin = (int)reader["Est_Super_Admin"] == 1;
 
                             privilegePatient = (int)reader["Privilege_Manupilation_Patient"] == 1;
                             privilegeDevis = (int)reader["Privilege_Manupilation_Devis"] == 1;
@@ -231,18 +278,20 @@ namespace DataLayer_
             return dt;
         }
         public static bool AddUtilisateur(
-     int personID, string nomUtilisateur, string motDePasse, bool isAdmin, DateTime dateDeNaissance,
+     int personID, string nomUtilisateur, string motDePasse, bool isAdmin, DateTime dateDeNaissance,bool EstSuperAdmin,
      bool privilegePatient, bool privilegeDevis, bool privilegeFacture, bool privilegeBonLivraison,
      bool privilegeAccord, bool privilegeProduits, bool privilegeRecouvrement,
-     string pathImage = "")
+     string pathImage = ""  )
         {
             if (!string.IsNullOrEmpty(pathImage))
                 pathImage = SaveUserImage(nomUtilisateur, pathImage);
 
+            motDePasse = Encrypt(motDePasse); // Encrypt the password before storing
+
             string insertUserQuery = @"INSERT INTO A_Utilisateur
-        (Person_ID, Nom_Utilisateur, Mot_De_Passe, Path_Image, Est_Admin, Date_De_Connection, Est_Supprimer)
+        (Person_ID, Nom_Utilisateur, Mot_De_Passe, Path_Image, Est_Admin, Date_De_Connection, Est_Supprimer, Est_Super_Admin)
         VALUES
-        (@PersonID, @NomUtilisateur, @MotDePasse, @PathDimage, @isAdmin, @date, 0);
+        (@PersonID, @NomUtilisateur, @MotDePasse, @PathDimage, @isAdmin, @date, 0, @EstSuperAdmin);
         SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
             string insertPrivilegesQuery = @"INSERT INTO A_Privilege_Utilisateur
@@ -270,6 +319,7 @@ namespace DataLayer_
                         command.Parameters.AddWithValue("@MotDePasse", motDePasse);
                         command.Parameters.AddWithValue("@PathDimage", (object)pathImage ?? DBNull.Value);
                         command.Parameters.AddWithValue("@isAdmin", isAdmin ? 1 : 0);
+                        command.Parameters.AddWithValue("@EstSuperAdmin", EstSuperAdmin ? 1 : 0);
                         command.Parameters.AddWithValue("@date", DateTime.Now.Date);
 
                         utilisateurID = (int)command.ExecuteScalar();
@@ -307,6 +357,8 @@ namespace DataLayer_
       bool privilegePatient, bool privilegeDevis, bool privilegeFacture, bool privilegeBonLivraison,
       bool privilegeAccord, bool privilegeProduits, bool privilegeRecouvrement)
         {
+
+            motDePasse = Encrypt(motDePasse); // Encrypt the password before storing
             using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
             {
                 connection.Open();

@@ -63,7 +63,8 @@ namespace OrthoGes_New_Version
             utilisateur.PrivManipulationRecouvrement = true;
             utilisateur.PrivManipulationAccord = true;
             utilisateur.PrivManipulationDevis = true;
-
+            utilisateur.PrivManipulationBonLivraison = true;
+            utilisateur.Est_Super_Admin = true;
             if (utilisateur.AjouterUtilisateur())
             {
                     UserName = utilisateur.Nom_Utilisateur;

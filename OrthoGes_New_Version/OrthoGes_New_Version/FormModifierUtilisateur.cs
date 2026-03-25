@@ -105,6 +105,7 @@ namespace OrthoGes_New_Version
             utilisateur.PrivManipulationRecouvrement = cbxrecouv.Checked;
             utilisateur.PrivManipulationAccord = cbxaccord.Checked;
             utilisateur.PrivManipulationDevis = cbxdevis.Checked;
+            utilisateur.PrivManipulationBonLivraison = cbxbonliv.Checked;
 
             if (utilisateur.UpdateUtilisateur())
             {

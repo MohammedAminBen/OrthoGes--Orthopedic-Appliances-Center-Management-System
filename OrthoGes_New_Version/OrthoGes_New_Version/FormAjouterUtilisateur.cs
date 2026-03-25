@@ -60,6 +60,8 @@ namespace OrthoGes_New_Version
             utilisateur.PrivManipulationRecouvrement = cbxrecouv.Checked;
             utilisateur.PrivManipulationAccord = cbxaccord.Checked;
             utilisateur.PrivManipulationDevis = cbxdevis.Checked;
+            utilisateur.PrivManipulationBonLivraison = cbxbonliv.Checked;
+            utilisateur.Est_Super_Admin = false;
             if (utilisateur.AjouterUtilisateur())
             {
                 if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, "Ajout de l'utilisateur " + utilisateur.Nom_Utilisateur + " au système","Ajout"))
@@ -87,6 +89,13 @@ namespace OrthoGes_New_Version
                 cbxbonliv.Enabled = false;
                 cbxpatient.Checked = true;
                 cbxpatient.Enabled = false;
+                cbxaccord.Checked = true;
+                cbxaccord.Enabled = false;
+                cbxproduits.Checked = true;
+                cbxproduits.Enabled = false;
+                cbxrecouv.Checked = true;
+                cbxrecouv.Enabled = false;
+                
             }
             else
             {
@@ -94,6 +103,10 @@ namespace OrthoGes_New_Version
                 cbxfacture.Enabled = true;
                 cbxbonliv.Enabled = true;
                 cbxpatient.Enabled = true;
+                cbxaccord.Enabled = true;
+                cbxproduits.Enabled = true;
+                cbxrecouv.Enabled = true;
+
             }
         }
 

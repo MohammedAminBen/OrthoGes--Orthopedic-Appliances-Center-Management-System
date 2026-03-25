@@ -17,8 +17,12 @@ namespace OrthoGes_New_Version
         {
             InitializeComponent();
         }
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
 
-        private void FormCeConnecter_Load(object sender, EventArgs e)
+        }
+
+        private void FormSeConnecter_Load(object sender, EventArgs e)
         {
             if (Utilisateur.GetAllUtilisateurs().Rows.Count == 0)
             {
@@ -28,15 +32,6 @@ namespace OrthoGes_New_Version
                 tbxMotDpasse.Visible = false;
                 btnSeConnecter.Visible = false;
             }
-        }
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormSeConnecter_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCréercompte_Click_1(object sender, EventArgs e)

@@ -33,8 +33,8 @@ namespace PDFTemplates
             Caisse = caisse;
             CentrePay = centrePay;
             Adresse = adresse;
-            Wilaya = wilaya;
-            Commune = commune;
+            Wilaya = wilaya.ToUpper();
+            Commune = commune.ToUpper();
             Montant_TTC = Montant_ttc;
             Date_Devis = datedevis;
             Produits = produits;

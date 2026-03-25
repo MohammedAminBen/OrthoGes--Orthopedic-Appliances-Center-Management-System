@@ -12,6 +12,7 @@ namespace CodeSourceLayer_
         public string Mot_De_Passe { get; set; }
         public string Path_Image { get; set; }
         public bool Est_Admin { get; set; }
+        public bool Est_Super_Admin { get; set; }
         public bool PrivManipulationPatient { get; set; }
         public bool PrivManipulationDevis { get; set; }
         public bool PrivManipulationFacture { get; set; }
@@ -29,6 +30,7 @@ namespace CodeSourceLayer_
             Mot_De_Passe = string.Empty;
             Path_Image = string.Empty;
             Est_Admin = false;
+            Est_Super_Admin = false;
             PrivManipulationPatient = false;
             PrivManipulationDevis = false;
             PrivManipulationFacture = false;
@@ -41,7 +43,7 @@ namespace CodeSourceLayer_
         }
 
         public Utilisateur(int utilisateurID, int personID, string nomUtilisateur, string motDePasse, string pathDimage,
-            bool isAdmin, bool privpatient, bool privdevis, bool privFacture, bool privbonliv,bool privaccord,bool privproduits,bool privrecouvrement,DateTime date)
+            bool isAdmin,bool estsuperadmin, bool privpatient, bool privdevis, bool privFacture, bool privbonliv,bool privaccord,bool privproduits,bool privrecouvrement,DateTime date)
         {
             Utilisateur_ID = utilisateurID;
             Person_ID = personID;
@@ -49,6 +51,7 @@ namespace CodeSourceLayer_
             Mot_De_Passe = motDePasse;
             Path_Image = pathDimage;
             Est_Admin = isAdmin;
+            Est_Super_Admin = estsuperadmin;
             PrivManipulationPatient = privpatient;
             PrivManipulationDevis = privdevis;
             PrivManipulationFacture = privFacture;
@@ -63,7 +66,7 @@ namespace CodeSourceLayer_
         {
             return UtilisateurData.AddUtilisateur(
                 Person_ID, Nom_Utilisateur, Mot_De_Passe,
-                Est_Admin, Date_De_Connection, PrivManipulationPatient, PrivManipulationDevis, PrivManipulationFacture, PrivManipulationBonLivraison, PrivManipulationAccord, PrivManipulationProduits, PrivManipulationRecouvrement,Path_Image);
+                Est_Admin, Date_De_Connection, Est_Super_Admin, PrivManipulationPatient, PrivManipulationDevis, PrivManipulationFacture, PrivManipulationBonLivraison, PrivManipulationAccord, PrivManipulationProduits, PrivManipulationRecouvrement,Path_Image);
         }
 
         public bool UpdateUtilisateur()
@@ -77,13 +80,13 @@ namespace CodeSourceLayer_
         {
             int personID = -1;
             string nomUtilisateur = null, motDePasse = null, pathDimage = null;
-            bool isAdmin = false, privPatient = false, privdevis = false, privFacture = false, privbonliv = false,privaccord = false,privproduits = false,privrecouvrement = false;
+            bool isAdmin = false, privPatient = false, privdevis = false, privFacture = false, privbonliv = false,privaccord = false,privproduits = false,privrecouvrement = false,estsuperadmin = false;
             DateTime date = DateTime.MinValue;
             if (UtilisateurData.GetUtilisateurByID(utilisateurID, ref personID, ref nomUtilisateur, ref motDePasse, ref pathDimage,
-                ref isAdmin, ref date, ref privPatient, ref privdevis, ref privFacture, ref privbonliv, ref privaccord, ref privproduits, ref privrecouvrement))
+                ref isAdmin, ref date,ref estsuperadmin, ref privPatient, ref privdevis, ref privFacture, ref privbonliv, ref privaccord, ref privproduits, ref privrecouvrement))
             {
                 return new Utilisateur(utilisateurID, personID, nomUtilisateur, motDePasse, pathDimage,
-                    isAdmin, privPatient, privdevis, privFacture, privbonliv, privaccord, privproduits, privrecouvrement, date);
+                    isAdmin,estsuperadmin, privPatient, privdevis, privFacture, privbonliv, privaccord, privproduits, privrecouvrement, date);
             }
             else
             {
@@ -94,13 +97,13 @@ namespace CodeSourceLayer_
         {
             int UtilisateurID = -1,personID = -1;
             string  pathDimage = null;
-            bool isAdmin = false, privPatient = false, privdevis = false, privFacture = false, privbonliv = false, privaccord = false, privproduits = false, privrecouvrement = false;
+            bool isAdmin = false, privPatient = false, privdevis = false, privFacture = false, privbonliv = false, privaccord = false, privproduits = false, privrecouvrement = false,estsuperadmin = false;
             DateTime date = DateTime.MinValue;
             if (UtilisateurData.GetUtilisateurByNomUtilisateurEtMotDePasse(ref UtilisateurID, ref personID,  Nomutilisateur, Motdpasse, ref pathDimage,
-                ref isAdmin, ref date, ref privPatient, ref privdevis, ref privFacture, ref privbonliv, ref privaccord, ref privproduits, ref privrecouvrement))
+                ref isAdmin, ref date,ref estsuperadmin, ref privPatient, ref privdevis, ref privFacture, ref privbonliv, ref privaccord, ref privproduits, ref privrecouvrement))
             {
                 return new Utilisateur(UtilisateurID, personID, Nomutilisateur, Motdpasse, pathDimage,
-                    isAdmin, privPatient, privdevis, privFacture, privbonliv, privaccord, privproduits, privrecouvrement, date);
+                    isAdmin,estsuperadmin, privPatient, privdevis, privFacture, privbonliv, privaccord, privproduits, privrecouvrement, date);
             }
             else
             {
@@ -112,14 +115,14 @@ namespace CodeSourceLayer_
         {
             int utilisateurID = -1;
             string nomUtilisateur = null, motDePasse = null, pathDimage = null;
-            bool isAdmin = false, privPatient = false, privdevis = false, privFacture = false, privbonliv = false, privaccord = false, privproduits = false, privrecouvrement = false;
+            bool isAdmin = false, privPatient = false, privdevis = false, privFacture = false, privbonliv = false, privaccord = false, privproduits = false, privrecouvrement = false,estsuperadmin = false;
             DateTime date = DateTime.MinValue;
 
             if (UtilisateurData.GetUtilisateurByPersonID(ref utilisateurID, personID, ref nomUtilisateur, ref motDePasse, ref pathDimage,
-                ref isAdmin,ref date, ref privPatient, ref privdevis, ref privFacture, ref privbonliv, ref privaccord, ref privproduits, ref privrecouvrement))
+                ref isAdmin,ref date,ref estsuperadmin, ref privPatient, ref privdevis, ref privFacture, ref privbonliv, ref privaccord, ref privproduits, ref privrecouvrement))
             {
                 return new Utilisateur(utilisateurID, personID, nomUtilisateur, motDePasse, pathDimage,
-                    isAdmin, privPatient, privdevis, privFacture, privbonliv, privaccord, privproduits, privrecouvrement, date);
+                    isAdmin,estsuperadmin, privPatient, privdevis, privFacture, privbonliv, privaccord, privproduits, privrecouvrement, date);
             }
             else
             {

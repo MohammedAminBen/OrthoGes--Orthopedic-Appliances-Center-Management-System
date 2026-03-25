@@ -38,8 +38,8 @@ namespace PDFTemplate
             Caisse = caisse;
             CentrePay = centrePay;
             Adresse = adresse;
-            Wilaya = wilaya;
-            Commune = commune;
+            Wilaya = wilaya.ToUpper() ;
+            Commune = commune.ToUpper();
             Montant_TTC = Montant_ttc;
             Date_Facture = datefacture;
             Produits = produits;
@@ -49,7 +49,7 @@ namespace PDFTemplate
                 {
                     page.Margin(30);
                     page.PageColor(Colors.White);
-                    page.DefaultTextStyle(x =>
+                    page.DefaultTextStyle(x => 
                         x.FontFamily(Fonts.Arial)
                          .FontSize(10)
                          .FontColor(Colors.Black));
