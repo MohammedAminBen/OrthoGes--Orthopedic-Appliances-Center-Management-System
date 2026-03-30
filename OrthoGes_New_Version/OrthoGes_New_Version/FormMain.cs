@@ -269,7 +269,7 @@ namespace OrthoGes_New_Version
             }
             else
             {
-                picboxUtilisateur.Image = Image.FromFile(Global.centre.PathImage);
+                //picboxUtilisateur.Image = Image.FromFile(Global.centre.PathImage);
             }
         }
 

@@ -838,14 +838,27 @@ namespace OrthoGes_New_Version
                     );
                 }
 
-                // Update Bon (once, no useless if)
-                resultBon = Bon_Livraison.UpdateBon(
+                if (patient.est_Assure == 1)
+                {
+                    resultBon = Bon_Livraison.UpdateBon(
                     Numero_Bon,
                     DateTime.Parse(tbxDate.Text),
                     decimal.Parse(tbxTotale.Text),
                     tbxCentrePayeurPatient.Text,
                     tbxPieceProduit.Text
                 );
+                }
+                else
+                {
+                    resultBon = Bon_Livraison.UpdateBon(
+                    Numero_Bon,
+                    DateTime.Parse(tbxDate.Text),
+                    decimal.Parse(tbxTotale.Text),
+                    tbxCentrePayeurAssure.Text,
+                    tbxPieceProduit.Text
+                );
+                }
+                
 
                 if (resultProduits && resultBon)
                 {

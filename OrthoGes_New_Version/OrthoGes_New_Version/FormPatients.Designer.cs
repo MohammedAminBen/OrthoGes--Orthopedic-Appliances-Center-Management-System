@@ -247,6 +247,7 @@
             tbxRecherche.ShadowDecoration.CustomizableEdges = customizableEdges6;
             tbxRecherche.Size = new Size(359, 36);
             tbxRecherche.TabIndex = 22;
+            tbxRecherche.TextChanged += tbxRecherche_TextChanged;
             tbxRecherche.Enter += tbxRecherche_Enter;
             tbxRecherche.KeyDown += tbxRecherche_KeyDown;
             tbxRecherche.Leave += tbxRecherche_Leave;

@@ -59,7 +59,8 @@ namespace OrthoGes_New_Version
                 tbxPrenomPatient.Text = person.Prenom;
                 tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
                 tbxNumAssPatient.Text = assure.NumeroAssurance.ToString();
-                cmbxCaissePatient.Text = assure.CaisseNom;
+                cmbxCaissePatient.SelectedIndex = assure.CaisseID-1;
+                //cmbxCaissePatient.Text = assure.CaisseNom;
 
                 // FIX: Use the same string comparison as in save code
                 if (person.Genre == 0)
@@ -163,8 +164,9 @@ namespace OrthoGes_New_Version
         private void FormAjouterPatient_Load(object sender, EventArgs e)
         {
             this.Size = new System.Drawing.Size(830, 845);
-            LoadData();
             FillCmbxWithData();
+            LoadData();
+            
         }
 
         private void cbxAssure_CheckedChanged(object sender, EventArgs e)

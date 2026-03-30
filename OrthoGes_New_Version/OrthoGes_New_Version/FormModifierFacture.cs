@@ -851,14 +851,28 @@ namespace OrthoGes_New_Version
                     );
                 }
 
-                // Update Bon (once, no useless if)
-                resultFacture = Facture.UpdateFacture(
+                if(patient.est_Assure == 1)
+                {
+                    resultFacture = Facture.UpdateFacture(
                     Numero_Facture,
                     DateTime.Parse(tbxDate.Text),
                     decimal.Parse(tbxTotale.Text),
                     tbxCentrePayeurPatient.Text,
-                    cbxPayement.Checked? 1 : 0,
-                    cbxCheck.Checked? 1:0);
+                    cbxPayement.Checked ? 1 : 0,
+                    cbxCheck.Checked ? 1 : 0);
+                }
+                else
+                {
+                    resultFacture = Facture.UpdateFacture(
+                    Numero_Facture,
+                    DateTime.Parse(tbxDate.Text),
+                    decimal.Parse(tbxTotale.Text),
+                    tbxCentrePayeurAssure.Text,
+                    cbxPayement.Checked ? 1 : 0,
+                    cbxCheck.Checked ? 1 : 0);
+                }
+
+                
 
                 if (resultProduits && resultFacture)
                 {

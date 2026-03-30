@@ -62,10 +62,13 @@ namespace OrthoGes_New_Version
                 MessageBox.Show("Error when trying to identify the patient");
                 return;
             }
+            person = Person.Find(patient.PersonID);
+                tbxadresse.Text = person.Adresse;
+                tbxWilaya.Text = person.Wilaya;
+                tbxCommune.Text = person.Commune;
             if (patient.est_Assure == 1)
             {
                 AssuredCheckedConfig();
-                person = Person.Find(patient.PersonID);
                 assure = Assure.FindByID(patient.AssureID);
 
                 tbxNomPatient.Text = person.Nom;
@@ -73,14 +76,12 @@ namespace OrthoGes_New_Version
                 tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
                 tbxNumAssPatient.Text = assure.NumeroAssurance.ToString();
                 tbxCaissePatient.Text = assure.CaisseNom;
-                tbxadresse.Text = person.Adresse;
-                tbxWilaya.Text = person.Wilaya;
-                tbxCommune.Text = person.Commune;
+
 
             }
             else
             {
-                person = Person.Find(patient.PersonID);
+                //person = Person.Find(patient.PersonID);
                 assure = Assure.FindByID(patient.AssureID);
 
                 Person personassure = Person.Find(assure.PersonID);
@@ -99,9 +100,9 @@ namespace OrthoGes_New_Version
                 tbxNumAssAssure.Text = assure.NumeroAssurance.ToString();
                 tbxCaisseAssure.Text = assure.CaisseNom;
 
-                tbxadresse.Text = person.Adresse;
-                tbxWilaya.Text = person.Wilaya;
-                tbxCommune.Text = person.Commune;
+                //tbxadresse.Text = person.Adresse;
+                //tbxWilaya.Text = person.Wilaya;
+                //tbxCommune.Text = person.Commune;
             }
         }
         private void FormCreationDevis_Load(object sender, EventArgs e)

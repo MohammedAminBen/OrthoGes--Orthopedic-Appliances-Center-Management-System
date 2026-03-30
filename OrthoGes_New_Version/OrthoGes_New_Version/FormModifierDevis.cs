@@ -837,12 +837,22 @@ namespace OrthoGes_New_Version
                     );
                 }
 
-                // Update Bon (once, no useless if)
-                resultDevis = Devis.UpdateDevis(
+                if(patient.est_Assure == 1)
+                {
+                    resultDevis = Devis.UpdateDevis(
                     Numero_Devis,
                     DateTime.Parse(tbxDate.Text),
                     decimal.Parse(tbxTotale.Text),
                     tbxCentrePayeurPatient.Text);
+                }
+                else
+                {
+                    resultDevis = Devis.UpdateDevis(
+                    Numero_Devis,
+                    DateTime.Parse(tbxDate.Text),
+                    decimal.Parse(tbxTotale.Text),
+                    tbxCentrePayeurAssure.Text);
+                }
 
                 if (resultProduits && resultDevis)
                 {
