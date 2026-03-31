@@ -517,7 +517,10 @@ GROUP BY
                 command.Parameters.Add("@etat", SqlDbType.Int).Value = etat;
                 command.Parameters.Add("@check", SqlDbType.Int).Value = check;
                 connection.Open();
-                return command.ExecuteNonQuery() > 0;
+
+
+
+                return command.ExecuteNonQuery() > 0 && RecouvrementData.UpdateRecouvrement(numero, dateDevis, montant, centrePayeur, etat, check);
             }
             catch (SqlException)
             {

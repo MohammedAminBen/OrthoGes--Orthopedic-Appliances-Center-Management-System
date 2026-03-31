@@ -1943,7 +1943,7 @@ namespace OrthoGes_New_Version
             dgvDesignation.RowHeadersVisible = false;
             dgvDesignation.RowHeadersWidth = 51;
             dgvDesignation.RowTemplate.Height = 24;
-            dgvDesignation.Size = new Size(460, 167);
+            dgvDesignation.Size = new Size(460, 155);
             dgvDesignation.TabIndex = 88;
             dgvDesignation.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dgvDesignation.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -2042,7 +2042,7 @@ namespace OrthoGes_New_Version
             dgvProduits.RowHeadersVisible = false;
             dgvProduits.RowHeadersWidth = 51;
             dgvProduits.RowTemplate.Height = 24;
-            dgvProduits.Size = new Size(256, 171);
+            dgvProduits.Size = new Size(256, 155);
             dgvProduits.TabIndex = 87;
             dgvProduits.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dgvProduits.ThemeStyle.AlternatingRowsStyle.Font = null;

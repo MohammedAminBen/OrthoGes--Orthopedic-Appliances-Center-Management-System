@@ -308,6 +308,38 @@ ORDER BY f.Date_Facture;";
 
             return dt;
         }
+
+        public static bool UpdateRecouvrement(string numero, DateTime dateDevis, decimal montant, string centrePayeur, int etat, int check)
+        {
+            string query = @"
+        UPDATE D_Recouvrement
+        SET 
+            Date_Facture = @Date_Facture,
+            Montant_TTC = @Montant_TTC,
+            Centre_Payeur = @Centre_Payeur,
+            etat_Payement = @etat,
+            Payement_cheque = @check
+            WHERE Numero_Facture = @Numero_Facture;";
+
+            try
+            {
+                using var connection = new SqlConnection(DataAccessSettings.ConnectionString);
+                using var command = new SqlCommand(query, connection);
+
+                command.Parameters.Add("@Numero_Facture", SqlDbType.NVarChar, 50).Value = numero;
+                command.Parameters.Add("@Date_Facture", SqlDbType.DateTime).Value = dateDevis;
+                command.Parameters.Add("@Montant_TTC", SqlDbType.Decimal).Value = montant;
+                command.Parameters.Add("@Centre_Payeur", SqlDbType.NVarChar, 50).Value = centrePayeur;
+                command.Parameters.Add("@etat", SqlDbType.Int).Value = etat;
+                command.Parameters.Add("@check", SqlDbType.Int).Value = check;
+                connection.Open();
+                return command.ExecuteNonQuery() > 0;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+        }
     }
 
 }

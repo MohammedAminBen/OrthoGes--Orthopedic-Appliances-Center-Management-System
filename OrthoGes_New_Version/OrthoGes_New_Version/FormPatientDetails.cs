@@ -766,7 +766,7 @@ namespace OrthoGes_New_Version
 
             if (dgvDocuments.CurrentRow.Cells[1].Value.ToString() == "Devis")
             {
-                 Devis devis = Devis.FindByNumeroDevis(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
+                Devis devis = Devis.FindByNumeroDevis(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
                 if (devis.Produits.Count >= 1)
                 {
                     Reference = devis.Produits[0].Reference;
@@ -793,7 +793,7 @@ namespace OrthoGes_New_Version
                     designation = Produit.FindByReference(Reference).Nom_Produit;
                     if (facture.Produits.Count > 1)
                     {
-                        Reference = Reference + " / " +facture.Produits[1].Reference;
+                        Reference = Reference + " / " + facture.Produits[1].Reference;
                         designation = designation + " / " + Produit.FindByReference(facture.Produits[1].Reference).Nom_Produit;
 
                         if (facture.Produits.Count > 2)
@@ -827,13 +827,13 @@ namespace OrthoGes_New_Version
             Document pdf;
             if (patient.est_Assure != 1)
             {
-                 pdf = PDFDemande.GenerateDocument(personAss.Nom, personAss.Prenom, personAss.DateNaissance.ToString("d"), Reference + "   " + designation, DateTime.Now.ToString("d"), assure.NumeroAssurance, person.Nom + " " + person.Prenom, person.DateNaissance.ToString("d"));
+                pdf = PDFDemande.GenerateDocument(personAss.Nom, personAss.Prenom, personAss.DateNaissance.ToString("d"), Reference + "   " + designation, DateTime.Now.ToString("d"), assure.NumeroAssurance, person.Nom + " " + person.Prenom, person.DateNaissance.ToString("d"));
             }
-            else 
+            else
             {
-                 pdf = PDFDemande.GenerateDocument(personAss.Nom, personAss.Prenom, personAss.DateNaissance.ToString("d"),Reference + "   " + designation, DateTime.Now.ToString("d"), assure.NumeroAssurance);
+                pdf = PDFDemande.GenerateDocument(personAss.Nom, personAss.Prenom, personAss.DateNaissance.ToString("d"), Reference + "   " + designation, DateTime.Now.ToString("d"), assure.NumeroAssurance);
             }
-            string doc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);  
+            string doc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string folderPath = Path.Combine(doc, "OrthoGes Document\\Demande d'entante prealable");
 
             // Ensure the folder exists
@@ -855,6 +855,13 @@ namespace OrthoGes_New_Version
                 FileName = filePath,
                 UseShellExecute = true
             });
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            FormCreationFacture facture = new FormCreationFacture(Numero_Patient, dgvDocuments.CurrentRow.Cells[2].Value.ToString());
+            facture.ShowDialog();
+            FillDgvDocumentsWithData();
         }
     }
 }

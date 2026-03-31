@@ -100,6 +100,7 @@
             factureToolStripMenuItem = new ToolStripMenuItem();
             bonDeLivraisonToolStripMenuItem = new ToolStripMenuItem();
             cmsImprimer = new ToolStripMenuItem();
+            toolStripMenuItem6 = new ToolStripMenuItem();
             dgvAccord = new Guna.UI2.WinForms.Guna2DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             rightclickAccord = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
@@ -117,7 +118,7 @@
             btnSupprimer = new Button();
             pictureBox2 = new PictureBox();
             lblTitle = new Label();
-            toolStripMenuItem6 = new ToolStripMenuItem();
+            toolStripMenuItem7 = new ToolStripMenuItem();
             gbxPatient.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             gbxAssure.SuspendLayout();
@@ -863,7 +864,7 @@
             // rightclickDocuments
             // 
             rightclickDocuments.ImageScalingSize = new Size(20, 20);
-            rightclickDocuments.Items.AddRange(new ToolStripItem[] { cmsSupprimer, cmsDetails, toolStripMenuItem5, cmsImprimer, toolStripMenuItem6 });
+            rightclickDocuments.Items.AddRange(new ToolStripItem[] { cmsSupprimer, cmsDetails, toolStripMenuItem5, cmsImprimer, toolStripMenuItem6, toolStripMenuItem7 });
             rightclickDocuments.Name = "rightclickHistoriquePayement";
             rightclickDocuments.RenderStyle.ArrowColor = Color.FromArgb(151, 143, 255);
             rightclickDocuments.RenderStyle.BorderColor = Color.Gainsboro;
@@ -874,7 +875,7 @@
             rightclickDocuments.RenderStyle.SelectionForeColor = Color.White;
             rightclickDocuments.RenderStyle.SeparatorColor = Color.Gainsboro;
             rightclickDocuments.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            rightclickDocuments.Size = new Size(265, 172);
+            rightclickDocuments.Size = new Size(265, 200);
             // 
             // cmsSupprimer
             // 
@@ -940,6 +941,16 @@
             cmsImprimer.Size = new Size(264, 28);
             cmsImprimer.Text = "  Imprimer document";
             cmsImprimer.Click += cmsImprimer_Click;
+            // 
+            // toolStripMenuItem6
+            // 
+            toolStripMenuItem6.BackColor = Color.GhostWhite;
+            toolStripMenuItem6.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            toolStripMenuItem6.Image = Properties.Resources.icons8_print_48;
+            toolStripMenuItem6.Name = "toolStripMenuItem6";
+            toolStripMenuItem6.Size = new Size(264, 28);
+            toolStripMenuItem6.Text = "  Imprimer demande EP";
+            toolStripMenuItem6.Click += toolStripMenuItem6_Click;
             // 
             // dgvAccord
             // 
@@ -1217,15 +1228,15 @@
             lblTitle.Text = "Documents      ";
             lblTitle.UseCompatibleTextRendering = true;
             // 
-            // toolStripMenuItem6
+            // toolStripMenuItem7
             // 
-            toolStripMenuItem6.BackColor = Color.GhostWhite;
-            toolStripMenuItem6.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            toolStripMenuItem6.Image = Properties.Resources.icons8_print_48;
-            toolStripMenuItem6.Name = "toolStripMenuItem6";
-            toolStripMenuItem6.Size = new Size(264, 28);
-            toolStripMenuItem6.Text = "  Imprimer demande EP";
-            toolStripMenuItem6.Click += toolStripMenuItem6_Click;
+            toolStripMenuItem7.BackColor = Color.GhostWhite;
+            toolStripMenuItem7.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            toolStripMenuItem7.Image = Properties.Resources.icons8_create_order_481;
+            toolStripMenuItem7.Name = "toolStripMenuItem7";
+            toolStripMenuItem7.Size = new Size(264, 28);
+            toolStripMenuItem7.Text = "  Créer Facture de Devis";
+            toolStripMenuItem7.Click += toolStripMenuItem7_Click;
             // 
             // FormPatientDetails
             // 
@@ -1356,5 +1367,6 @@
         private ToolStripMenuItem factureToolStripMenuItem;
         private ToolStripMenuItem bonDeLivraisonToolStripMenuItem;
         private ToolStripMenuItem toolStripMenuItem6;
+        private ToolStripMenuItem toolStripMenuItem7;
     }
 }

@@ -26,15 +26,17 @@ namespace OrthoGes_New_Version
         private bool _suppressSearch = false;
         private bool _suppressSearch2 = false;
         private bool _suppressSearch3 = false;
+        private string num_Devis = "";
 
         public static List<(string Reference, int Quantity, decimal MontantTVA, decimal MontantTTC, int TVA, DateTime date_delai)> Produits { get; set; } = new();
         public static List<(string Reference, string designation, string PUHT, string Quantity, string Montant_HT, string MontantTVA, string TVA)> produitsForPDF { get; set; } = new();
 
 
-        public FormCreationFacture(string numero_patient)
+        public FormCreationFacture(string numero_patient,string Num_Devis ="")
         {
             InitializeComponent();
             Numero_Patient = numero_patient;
+            num_Devis = Num_Devis;
         }
 
         private void AssuredCheckedConfig()
@@ -104,16 +106,70 @@ namespace OrthoGes_New_Version
                 //tbxWilaya.Text = person.Wilaya;
                 //tbxCommune.Text = person.Commune;
             }
+
+            if (num_Devis != "")
+            {
+                Devis devis = Devis.FindByNumeroDevis(num_Devis);
+                tbxReference.Text = devis.Produits[0].Reference;
+                tbxQuantity.Text = devis.Produits[0].Quantity.ToString();
+                tbxTVA.Text = devis.Produits[0].TVA.ToString();
+                tbxPUHT.Text = (devis.Produits[0].MontantTTC - devis.Produits[0].MontantTVA).ToString("0.00");
+                tbxDesignation.Text = Produit.FindByReference(devis.Produits[0].Reference).Nom_Produit;
+                tbxMontant.Text = (decimal.Parse(tbxPUHT.Text) * devis.Produits[0].Quantity).ToString();
+                
+                tbxTVAMontant.Text = devis.Produits[0].MontantTVA.ToString();
+                dgvProduits.Visible = false;
+                dgvDesignation.Visible = false;
+                if (patient.est_Assure == 1)
+                {
+                    tbxCentrePayeurPatient.Text = devis.Centre_Payeur;
+                }
+                else
+                {
+                    tbxCentrePayeurAssure.Text = devis.Centre_Payeur;
+                }
+
+                if (devis.Produits.Count > 1) 
+                {
+                    pnlProduit2.Visible = true;
+                    tbxReference2.Text = devis.Produits[1].Reference;
+                    tbxQuantity2.Text = devis.Produits[1].Quantity.ToString();
+                    tbxTVA2.Text = devis.Produits[1].TVA.ToString();
+                    tbxPUHT2.Text = (devis.Produits[1].MontantTTC - devis.Produits[1].MontantTVA).ToString("0.00");
+                    tbxDesignation2.Text = Produit.FindByReference(devis.Produits[1].Reference).Nom_Produit;
+                    tbxMontant2.Text = (decimal.Parse(tbxPUHT2.Text) * devis.Produits[1].Quantity).ToString();
+                    tbxMontantTVA2.Text = devis.Produits[1].MontantTVA.ToString();
+                    dgvProduit2.Visible = false;
+                    dgvDesignation2.Visible = false;
+                }
+
+                if (devis.Produits.Count > 2)
+                {
+                    pnlProduit3.Visible = true;
+                    tbxReference3.Text = devis.Produits[2].Reference;
+                    tbxQuantity3.Text = devis.Produits[2].Quantity.ToString();
+                    tbxTVA3.Text = devis.Produits[2].TVA.ToString();
+                    tbxPUHT3.Text = (devis.Produits[2].MontantTTC - devis.Produits[2].MontantTVA).ToString("0.00");
+                    tbxDesignation3.Text = Produit.FindByReference(devis.Produits[2].Reference).Nom_Produit;
+                    tbxMontant3.Text = (decimal.Parse(tbxPUHT3.Text) * devis.Produits[2].Quantity).ToString();
+                    tbxMontantTVA3.Text = devis.Produits[2].MontantTVA.ToString();
+                    dgvDesignation3.Visible = false;
+                    dgvProduit3.Visible = false;
+                }
+
+
+            }
         }
         private void FormCreationDevis_Load(object sender, EventArgs e)
-        {
-            LoadData();
+        {   
             pnlProduit3.Visible = false;
             pnlProduit2.Visible = false;
             tbxMontant2.Text = "0.00";
             tbxMontantTVA2.Text = "0.00";
             tbxMontant3.Text = "0.00";
             tbxMontantTVA3.Text = "0.00";
+            LoadData();
+
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)

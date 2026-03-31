@@ -55,7 +55,13 @@ namespace PDFTemplates
                 });
             });
         }
+        private static string FormatMoney(string value)
+        {
+            if (decimal.TryParse(value, out var number))
+                return number.ToString("N2").Replace(",", " ");
 
+            return value; // fallback if parsing fails
+        }
         // ===== HEADER =====
         private static void ComposeHeader(IContainer container)
         {
@@ -222,14 +228,14 @@ namespace PDFTemplates
                             row.RelativeItem()
                                 .AlignCenter()
                                 .PaddingTop(4)
-                                .Text(produit.PUHT)
+                                .Text(FormatMoney(produit.PUHT))
                                 .FontSize(13);
 
                             // Amount
                             row.RelativeItem()
                                 .AlignCenter()
                                 .PaddingTop(4)
-                                .Text(produit.Montant_HT)
+                                .Text(FormatMoney(produit.Montant_HT))
                                 .FontSize(13)
                                 .Bold();
                         });
@@ -252,7 +258,7 @@ namespace PDFTemplates
                             // TVA amount
                             row.RelativeItem()
                                 .AlignCenter()
-                                .Text(produit.MontantTVA)
+                                .Text(FormatMoney(produit.MontantTVA))
                                 .FontSize(13)
                                 .Bold();
                         });
@@ -298,7 +304,7 @@ namespace PDFTemplates
 
                   r.RelativeItem()
                       .AlignRight()
-                      .Text($"{Montant_TTC} DZD")
+                      .Text($"{FormatMoney(Montant_TTC)} DZD")
                       .SemiBold()
                       .FontSize(14)
                       .FontColor(BrandBlue)
