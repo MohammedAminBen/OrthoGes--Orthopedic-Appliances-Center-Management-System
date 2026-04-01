@@ -32,7 +32,7 @@ namespace OrthoGes_New_Version
         public static List<(string Reference, string designation, string PUHT, string Quantity, string Montant_HT, string MontantTVA, string TVA)> produitsForPDF { get; set; } = new();
 
 
-        public FormCreationFacture(string numero_patient,string Num_Devis ="")
+        public FormCreationFacture(string numero_patient, string Num_Devis = "")
         {
             InitializeComponent();
             Numero_Patient = numero_patient;
@@ -54,57 +54,104 @@ namespace OrthoGes_New_Version
             tbxDate.Location = new Point(285, 856);
             this.Size = new System.Drawing.Size(805, 960);
         }
+        private void ClearAddressFields()
+        {
+            tbxadresse.Text = "";
+            tbxWilaya.Text = "";
+            tbxCommune.Text = "";
+        }
         private void LoadData()
         {
             tbxNumFacture.Text = Facture.GetlastFactureNum();
             patient = Patient.FindByNumeroPatient(Numero_Patient);
             tbxDate.Text = DateTime.Now.Date.ToString("d");
+
+
             if (patient == null)
             {
                 MessageBox.Show("Error when trying to identify the patient");
                 return;
             }
-            person = Person.Find(patient.PersonID);
-                tbxadresse.Text = person.Adresse;
-                tbxWilaya.Text = person.Wilaya;
-                tbxCommune.Text = person.Commune;
-            if (patient.est_Assure == 1)
+
+            if (patient != null)
             {
-                AssuredCheckedConfig();
-                assure = Assure.FindByID(patient.AssureID);
+                person = Person.Find(patient.PersonID);
 
-                tbxNomPatient.Text = person.Nom;
-                tbxPrenomPatient.Text = person.Prenom;
-                tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
-                tbxNumAssPatient.Text = assure.NumeroAssurance.ToString();
-                tbxCaissePatient.Text = assure.CaisseNom;
+                if (person != null)
+                {
+                    tbxadresse.Text = person.Adresse;
+                    tbxWilaya.Text = person.Wilaya;
+                    tbxCommune.Text = person.Commune;
 
+                }
 
-            }
-            else
-            {
-                //person = Person.Find(patient.PersonID);
-                assure = Assure.FindByID(patient.AssureID);
+                if (patient.est_Assure == 1)
+                {
+                    AssuredCheckedConfig ();
+                    assure = Assure.FindByID(patient.AssureID);
+                    if (assure != null)
+                    {
+                        tbxNomPatient.Text = person.Nom;
+                        tbxPrenomPatient.Text = person.Prenom;
+                        tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
+                        tbxNumAssPatient.Text = assure.NumeroAssurance.ToString();
+                        tbxCaissePatient.Text = assure.CaisseNom;
+                        tbxCentrePayeurPatient.Text = person.Commune;
+                    }
+                }
+                else // patient is NOT insured
+                {
+                    // Get the assure (the insurance holder)
+                    if (patient.AssureID > 0)
+                    {
+                        assure = Assure.FindByID(patient.AssureID);
 
-                Person personassure = Person.Find(assure.PersonID);
+                        if (assure != null && assure.PersonID > 0)
+                        {
+                            Person personassure = Person.Find(assure.PersonID);
 
-                tbxNomPatient.Text = person.Nom;
-                tbxPrenomPatient.Text = person.Prenom;
-                tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
+                            if (personassure != null)
+                            {
+                                tbxNomAssure.Text = personassure.Nom;
+                                tbxPrenomAssure.Text = personassure.Prenom;
+                                tbxDateNaiAssure.Text = personassure.DateNaissance.ToString("d");
+                                tbxNumAssAssure.Text = assure.NumeroAssurance.ToString();
+                                tbxCaisseAssure.Text = assure.CaisseNom;
+                                tbxCentrePayeurAssure.Text = personassure.Commune;
 
-                tbxNomAssure.Text = personassure.Nom;
-                tbxPrenomAssure.Text = personassure.Prenom;
+                                // Set address fields to the assure's address
+                                tbxadresse.Text = personassure.Adresse;
+                                tbxWilaya.Text = personassure.Wilaya;
+                                tbxCommune.Text = personassure.Commune;
 
-                tbxDateNaiAssure.Text = personassure.DateNaissance.ToString("d");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Assure person not found");
+                                // Optionally clear or set default values
+                                ClearAddressFields();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Assure not found for this patient");
+                            ClearAddressFields();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No assure ID associated with this patient");
+                        ClearAddressFields();
+                    }
 
-
-
-                tbxNumAssAssure.Text = assure.NumeroAssurance.ToString();
-                tbxCaisseAssure.Text = assure.CaisseNom;
-
-                //tbxadresse.Text = person.Adresse;
-                //tbxWilaya.Text = person.Wilaya;
-                //tbxCommune.Text = person.Commune;
+                    // Set patient information
+                    if (person != null)
+                    {
+                        tbxNomPatient.Text = person.Nom;
+                        tbxPrenomPatient.Text = person.Prenom;
+                        tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
+                    }
+                }
             }
 
             if (num_Devis != "")
@@ -116,7 +163,7 @@ namespace OrthoGes_New_Version
                 tbxPUHT.Text = (devis.Produits[0].MontantTTC - devis.Produits[0].MontantTVA).ToString("0.00");
                 tbxDesignation.Text = Produit.FindByReference(devis.Produits[0].Reference).Nom_Produit;
                 tbxMontant.Text = (decimal.Parse(tbxPUHT.Text) * devis.Produits[0].Quantity).ToString();
-                
+
                 tbxTVAMontant.Text = devis.Produits[0].MontantTVA.ToString();
                 dgvProduits.Visible = false;
                 dgvDesignation.Visible = false;
@@ -129,7 +176,7 @@ namespace OrthoGes_New_Version
                     tbxCentrePayeurAssure.Text = devis.Centre_Payeur;
                 }
 
-                if (devis.Produits.Count > 1) 
+                if (devis.Produits.Count > 1)
                 {
                     pnlProduit2.Visible = true;
                     tbxReference2.Text = devis.Produits[1].Reference;
@@ -161,7 +208,7 @@ namespace OrthoGes_New_Version
             }
         }
         private void FormCreationDevis_Load(object sender, EventArgs e)
-        {   
+        {
             pnlProduit3.Visible = false;
             pnlProduit2.Visible = false;
             tbxMontant2.Text = "0.00";
@@ -380,7 +427,7 @@ namespace OrthoGes_New_Version
 
             if (patient.est_Assure == 1)
             {
-                result = Facture.CreateFacture(tbxNumFacture.Text,DateTime.Parse(tbxDate.Text), Numero_Patient, payement, cheque, Convert.ToDecimal(tbxTotale.Text), tbxCentrePayeurPatient.Text, Produits);
+                result = Facture.CreateFacture(tbxNumFacture.Text, DateTime.Parse(tbxDate.Text), Numero_Patient, payement, cheque, Convert.ToDecimal(tbxTotale.Text), tbxCentrePayeurPatient.Text, Produits);
             }
             else
             {
@@ -951,6 +998,11 @@ namespace OrthoGes_New_Version
                 // Optional: keep full-row selection clean
                 e.Handled = false; // let DataGridView handle navigation
             }
+        }
+
+        private void pnlTotal_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

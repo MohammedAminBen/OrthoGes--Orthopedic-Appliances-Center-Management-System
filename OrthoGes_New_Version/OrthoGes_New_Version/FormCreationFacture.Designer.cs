@@ -2318,11 +2318,13 @@ namespace OrthoGes_New_Version
             pnlTotal.Name = "pnlTotal";
             pnlTotal.Size = new Size(765, 61);
             pnlTotal.TabIndex = 93;
+            pnlTotal.Paint += pnlTotal_Paint;
             // 
             // cbxCheck
             // 
             cbxCheck.AutoSize = true;
             cbxCheck.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cbxCheck.ForeColor = Color.Red;
             cbxCheck.Location = new Point(10, 33);
             cbxCheck.Name = "cbxCheck";
             cbxCheck.Size = new Size(189, 27);
@@ -2334,6 +2336,7 @@ namespace OrthoGes_New_Version
             // 
             cbxPayement.AutoSize = true;
             cbxPayement.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cbxPayement.ForeColor = Color.Red;
             cbxPayement.Location = new Point(11, 6);
             cbxPayement.Name = "cbxPayement";
             cbxPayement.Size = new Size(105, 27);

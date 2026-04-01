@@ -62,50 +62,95 @@ namespace OrthoGes_New_Version
                 return;
             }
 
-            person = Person.Find(patient.PersonID);
-                tbxadresse.Text = person.Adresse;
-                tbxWilaya.Text = person.Wilaya;
-                tbxCommune.Text = person.Commune;
-
-            if (patient.est_Assure == 1)
+            if (patient != null)
             {
-                AssuredCheckedConfig();
-                assure = Assure.FindByID(patient.AssureID);
+                person = Person.Find(patient.PersonID);
 
-                tbxNomPatient.Text = person.Nom;
-                tbxPrenomPatient.Text = person.Prenom;
-                tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
-                tbxNumAssPatient.Text = assure.NumeroAssurance.ToString();
-                tbxCaissePatient.Text = assure.CaisseNom;
+                if (person != null)
+                {
+                    tbxadresse.Text = person.Adresse;
+                    tbxWilaya.Text = person.Wilaya;
+                    tbxCommune.Text = person.Commune;
 
+                }
 
-            }
-            else
-            {
-                //person = Person.Find(patient.PersonID);
-                assure = Assure.FindByID(patient.AssureID);
+                if (patient.est_Assure == 1)
+                {
+                    AssuredCheckedConfig();
+                    assure = Assure.FindByID(patient.AssureID);
+                    if (assure != null)
+                    {
+                        tbxNomPatient.Text = person.Nom;
+                        tbxPrenomPatient.Text = person.Prenom;
+                        tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
+                        tbxNumAssPatient.Text = assure.NumeroAssurance.ToString();
+                        tbxCaissePatient.Text = assure.CaisseNom;
+                        tbxCentrePayeurPatient.Text = person.Commune;
+                    }
+                }
+                else // patient is NOT insured
+                {
+                    // Get the assure (the insurance holder)
+                    if (patient.AssureID > 0)
+                    {
+                        assure = Assure.FindByID(patient.AssureID);
 
-                Person personassure = Person.Find(assure.PersonID);
+                        if (assure != null && assure.PersonID > 0)
+                        {
+                            Person personassure = Person.Find(assure.PersonID);
 
-                tbxNomPatient.Text = person.Nom;
-                tbxPrenomPatient.Text = person.Prenom;
-                tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
+                            if (personassure != null)
+                            {
+                                tbxNomAssure.Text = personassure.Nom;
+                                tbxPrenomAssure.Text = personassure.Prenom;
+                                tbxDateNaiAssure.Text = personassure.DateNaissance.ToString("d");
+                                tbxNumAssAssure.Text = assure.NumeroAssurance.ToString();
+                                tbxCaisseAssure.Text = assure.CaisseNom;
+                                tbxCentrePayeurAssure.Text = personassure.Commune;
 
-                tbxNomAssure.Text = personassure.Nom;
-                tbxPrenomAssure.Text = personassure.Prenom;
+                                // Set address fields to the assure's address
+                                tbxadresse.Text = personassure.Adresse;
+                                tbxWilaya.Text = personassure.Wilaya;
+                                tbxCommune.Text = personassure.Commune;
 
-                tbxDateNaiAssure.Text = personassure.DateNaissance.ToString("d");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Assure person not found");
+                                // Optionally clear or set default values
+                                ClearAddressFields();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Assure not found for this patient");
+                            ClearAddressFields();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No assure ID associated with this patient");
+                        ClearAddressFields();
+                    }
 
-
-
-                tbxNumAssAssure.Text = assure.NumeroAssurance.ToString();
-                tbxCaisseAssure.Text = assure.CaisseNom;
-
-                //tbxadresse.Text = person.Adresse;
-                //tbxWilaya.Text = person.Wilaya;
-                //tbxCommune.Text = person.Commune;
+                    // Set patient information
+                    if (person != null)
+                    {
+                        tbxNomPatient.Text = person.Nom;
+                        tbxPrenomPatient.Text = person.Prenom;
+                        tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
+                    }
+                }
             }
         }
+
+        private void ClearAddressFields()
+        {
+            tbxadresse.Text = "";
+            tbxWilaya.Text = "";
+            tbxCommune.Text = "";
+        }
+
         private void FormCreationDevis_Load(object sender, EventArgs e)
         {
             LoadData();

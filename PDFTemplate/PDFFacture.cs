@@ -36,9 +36,9 @@ namespace PDFTemplate
             AssureDateNai = assureDateNai;
             NumAss = numAss;
             Caisse = caisse;
-            CentrePay = centrePay;
+            CentrePay = centrePay.ToUpper();
             Adresse = adresse;
-            Wilaya = wilaya.ToUpper() ;
+            Wilaya = wilaya.ToUpper();
             Commune = commune.ToUpper();
             Montant_TTC = Montant_ttc;
             Date_Facture = datefacture;

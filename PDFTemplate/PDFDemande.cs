@@ -1,5 +1,4 @@
-﻿using Azure.Core;
-using QuestPDF.Fluent;
+﻿using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 using System.Text;
@@ -15,9 +14,15 @@ public class PDFDemande
     public static string DateActe { get; set; }
     public static string Immatriculation { get; set; }
 
-    public DocumentMetadata GetMetadata() => DocumentMetadata.Default;
-
-    public static Document GenerateDocument(string nom, string prenoms, string dateNaissance, string description, string dateActe, string immatriculation, string nomPrenomBenef = "", string dateNaissanceBenef = "")
+    public static Document GenerateDocument(
+        string nom,
+        string prenoms,
+        string dateNaissance,
+        string description,
+        string dateActe,
+        string immatriculation,
+        string nomPrenomBenef = "",
+        string dateNaissanceBenef = "")
     {
         Nom = nom;
         Prenoms = prenoms;
@@ -27,51 +32,38 @@ public class PDFDemande
         Description = description;
         DateActe = dateActe;
         Immatriculation = immatriculation;
-        //    return Document.Create(container =>
-        //container.Page(page =>
-        //{
-        //    page.Size(PageSizes.A4);
-        //    page.Margin(0);
-        //    page.Content().Svg(GenerateSvg());
-        //    page.Content().Layers(layers =>
-        //    {
-
-        //        layers.PrimaryLayer().Image(GetEmbeddedResource("form.png")).FitArea();
-
-
-        //        layers.Layer().Svg(GenerateSvg());
-        //    });
-        //}));
 
         return Document.Create(container =>
+        {
+            container.Page(page =>
+            {
+                page.Size(PageSizes.A4);
+                page.Margin(0);
+                page.Content().Svg(GenerateSvg());
+
+                //page.Content().Layers(layers =>
+                //{
+                //    // Background PNG image
+                //    layers.PrimaryLayer()
+                //        .Image(GetEmbeddedResource("form.png"))
+                //        .FitArea();
+
+                //    // Text overlay via SVG
+                //    layers.Layer().Svg(GenerateSvg());
+                //});
+            });
+        });
+    }
+
+    public void Compose(IDocumentContainer container)
+    {
         container.Page(page =>
         {
             page.Size(PageSizes.A4);
             page.Margin(0);
-
-            page.Content().Layers(layers =>
-            {
-                // Background PNG image
-                layers.PrimaryLayer()
-                    .Image(GetEmbeddedResource("form.png"))
-                    .FitArea();
-
-                // Text overlay via SVG
-                layers.Layer().Svg(GenerateSvg());
-            });
-        }));
+            page.Content().Svg(GenerateSvg());
+        });
     }
-
-    //public void Compose(IDocumentContainer container)
-    //{
-    //    container.Page(page =>
-    //        {
-    //            page.Size(PageSizes.A4);
-    //            page.Margin(0);
-    //            page.Content().Svg(GenerateSvg());
-    //        });
-    //}
-
 
     private static byte[] GetEmbeddedResource(string fileName)
     {
@@ -81,9 +73,8 @@ public class PDFDemande
             .FirstOrDefault(n => n.EndsWith(fileName, StringComparison.OrdinalIgnoreCase));
 
         if (resourceName == null)
-            throw new Exception("Embedded image not found: " + fileName
-                + "\nAvailable resources:\n"
-                + string.Join("\n", assembly.GetManifestResourceNames()));
+            throw new Exception("Embedded image not found: " + fileName +
+                "\nAvailable resources:\n" + string.Join("\n", assembly.GetManifestResourceNames()));
 
         using var stream = assembly.GetManifestResourceStream(resourceName);
         using var ms = new MemoryStream();
@@ -91,56 +82,67 @@ public class PDFDemande
         return ms.ToArray();
     }
 
-
-    public void Compose(IDocumentContainer container)
-    {
-        container.Page(page =>
-            {
-                page.Size(PageSizes.A4);
-                page.Margin(0);
-
-                page.Content().Layers(layers =>
-                {
-
-                    layers.PrimaryLayer().Image(GetEmbeddedResource("form.png")).FitArea();
-
-
-                    layers.Layer().Svg(GenerateSvg());
-                });
-            });
-    }
-
     private static string GenerateSvg()
     {
         var sb = new StringBuilder();
 
+        // A4 in pixels (96 DPI)
+        int width = 794;
+        int height = 1123;
+
         sb.AppendLine(@"<?xml version='1.0' encoding='UTF-8'?>");
-        // A4 = 21cm x 29.7cm — viewBox locks the coordinate space
-        sb.AppendLine(@"<svg width='21cm' height='29.7cm' viewBox='0 0 21 29.7' xmlns='http://www.w3.org/2000/svg'>");
+        sb.AppendLine($@"<svg width='{width}' height='{height}' viewBox='0 0 {width} {height}' xmlns='http://www.w3.org/2000/svg'>");
         sb.AppendLine(@"<style>");
-        sb.AppendLine(@"    text { font-family: Arial, sans-serif; fill: black; font-weight: bold; }");
+        sb.AppendLine(@"    text { font-family: Arial; fill: black; font-weight: bold; }");
         sb.AppendLine(@"</style>");
 
-        AddText(sb, Immatriculation ?? "", 15, 11.7, "0.45");
-        AddText(sb, Nom ?? "", 2.8, 11.6, "0.45");
-        AddText(sb, Prenoms ?? "", 3.4, 12.1, "0.45");
-        AddText(sb, DateNaissance ?? "", 4.9, 12.7, "0.45");
-        AddText(sb, NomPrenomBenef ?? "", 4.5, 14.6, "0.45");
-        AddText(sb, DateNaissanceBenef ?? "", 16.4, 14.5, "0.45");
-        AddText(sb, Description ?? "", 2, 19.5, "0.45");
-        AddText(sb, DateActe ?? "", 4.3, 20.7, "0.45");
+        // Positions converted roughly from cm → px (1 cm ≈ 37.8 px)
+        AddText(sb, Immatriculation ?? "", 150, 117);   // 15, 11.7
+        AddText(sb, Nom ?? "", 28, 116);                // 2.8, 11.6
+        AddText(sb, Prenoms ?? "", 34, 121);            // 3.4, 12.1
+        AddText(sb, DateNaissance ?? "", 49, 127);      // 4.9, 12.7
+        AddText(sb, NomPrenomBenef ?? "", 45, 146);     // 4.5, 14.6
+        AddText(sb, DateNaissanceBenef ?? "", 164, 145);// 16.4, 14.5
+        AddText(sb, Description ?? "", 20, 195, 180); // maxWidth 160mm
+        AddText(sb, DateActe ?? "", 43, 207);           // 4.3, 20.7
 
         sb.AppendLine("</svg>");
+
         return sb.ToString();
     }
 
-    private static void AddText(StringBuilder sb, string text, double leftCm, double topCm, string fontSize)
+    private static void AddText(StringBuilder sb, string text, double xMm, double yMm, double maxWidthMm = 150)
     {
-        if (string.IsNullOrEmpty(text)) return;
+        if (string.IsNullOrWhiteSpace(text))
+            return;
 
-        string escapedText = System.Security.SecurityElement.Escape(text);
-        // No units on x/y — they use viewBox cm units directly
-        sb.AppendLine($"    <text x='{leftCm}' y='{topCm}' font-size='{fontSize}' font-weight='bold'>{escapedText}</text>");
+        string escaped = System.Security.SecurityElement.Escape(text);
+
+        // Approximate character width in mm for your font (Arial, bold)
+        double approxCharWidthMm = 2; // adjust as needed
+        int maxCharsPerLine = (int)(maxWidthMm / approxCharWidthMm);
+
+        // Split text into lines
+        var lines = new List<string>();
+        while (escaped.Length > maxCharsPerLine)
+        {
+            int breakIndex = escaped.LastIndexOf(' ', maxCharsPerLine);
+            if (breakIndex <= 0) breakIndex = maxCharsPerLine;
+            lines.Add(escaped.Substring(0, breakIndex));
+            escaped = escaped.Substring(breakIndex).TrimStart();
+        }
+        if (!string.IsNullOrEmpty(escaped))
+            lines.Add(escaped);
+
+        sb.AppendLine($@"<text x='{xMm}mm' y='{yMm}mm' font-size='4mm'>");
+
+        double lineHeightMm = 5; // vertical spacing between lines
+        for (int i = 0; i < lines.Count; i++)
+        {
+            double yLine = yMm + i * lineHeightMm;
+            sb.AppendLine($@"    <tspan x='{xMm}mm' y='{yLine}mm'>{lines[i]}</tspan>");
+        }
+
+        sb.AppendLine("</text>");
     }
 }
-

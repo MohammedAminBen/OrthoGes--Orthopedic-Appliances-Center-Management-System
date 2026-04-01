@@ -764,22 +764,23 @@ namespace OrthoGes_New_Version
             string Reference = null;
             string designation = null;
 
+            string description = "";
+
             if (dgvDocuments.CurrentRow.Cells[1].Value.ToString() == "Devis")
             {
                 Devis devis = Devis.FindByNumeroDevis(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
                 if (devis.Produits.Count >= 1)
                 {
-                    Reference = devis.Produits[0].Reference;
-                    designation = Produit.FindByReference(Reference).Nom_Produit;
+
+                    description = devis.Produits[0].Reference + " - " + Produit.FindByReference(devis.Produits[0].Reference).Nom_Produit;
+
                     if (devis.Produits.Count > 1)
                     {
-                        Reference = Reference + " / " + devis.Produits[1].Reference;
-                        designation = designation + " / " + Produit.FindByReference(devis.Produits[1].Reference).Nom_Produit;
+                        description = description + " / " + devis.Produits[1].Reference + " - " + Produit.FindByReference(devis.Produits[1].Reference).Nom_Produit;
 
                         if (devis.Produits.Count > 2)
                         {
-                            Reference = Reference + " / " + devis.Produits[2].Reference;
-                            designation = designation + " / " + Produit.FindByReference(devis.Produits[2].Reference).Nom_Produit;
+                            description = description + " / " + devis.Produits[2].Reference + " - " + Produit.FindByReference(devis.Produits[2].Reference).Nom_Produit;
                         }
                     }
                 }
@@ -791,15 +792,18 @@ namespace OrthoGes_New_Version
                 {
                     Reference = facture.Produits[0].Reference;
                     designation = Produit.FindByReference(Reference).Nom_Produit;
+
+                    description = facture.Produits[0].Reference + "-" + designation;
                     if (facture.Produits.Count > 1)
                     {
                         Reference = Reference + " / " + facture.Produits[1].Reference;
                         designation = designation + " / " + Produit.FindByReference(facture.Produits[1].Reference).Nom_Produit;
-
+                        description = description + " / " + facture.Produits[1].Reference + " - " + Produit.FindByReference(facture.Produits[1].Reference).Nom_Produit;
                         if (facture.Produits.Count > 2)
                         {
                             Reference = Reference + " / " + facture.Produits[2].Reference;
                             designation = designation + " / " + Produit.FindByReference(facture.Produits[2].Reference).Nom_Produit;
+                            description = description + " / " + facture.Produits[2].Reference + " - " + Produit.FindByReference(facture.Produits[2].Reference).Nom_Produit;
                         }
                     }
                 }
@@ -811,15 +815,17 @@ namespace OrthoGes_New_Version
                 {
                     Reference = bon.Produits[0].Reference;
                     designation = Produit.FindByReference(Reference).Nom_Produit;
+                        description = bon.Produits[0].Reference + "-" + designation;
                     if (bon.Produits.Count > 1)
                     {
                         Reference = Reference + " / " + bon.Produits[1].Reference;
                         designation = designation + " / " + Produit.FindByReference(bon.Produits[1].Reference).Nom_Produit;
-
+                        description = description + " / " + bon.Produits[1].Reference + " - " + Produit.FindByReference(bon.Produits[1].Reference).Nom_Produit;
                         if (bon.Produits.Count > 2)
                         {
                             Reference = Reference + " / " + bon.Produits[2].Reference;
                             designation = designation + " / " + Produit.FindByReference(bon.Produits[2].Reference).Nom_Produit;
+                            description = description + " / " + bon.Produits[2].Reference + " - " + Produit.FindByReference(bon.Produits[2].Reference).Nom_Produit;
                         }
                     }
                 }
@@ -827,11 +833,11 @@ namespace OrthoGes_New_Version
             Document pdf;
             if (patient.est_Assure != 1)
             {
-                pdf = PDFDemande.GenerateDocument(personAss.Nom, personAss.Prenom, personAss.DateNaissance.ToString("d"), Reference + "   " + designation, DateTime.Now.ToString("d"), assure.NumeroAssurance, person.Nom + " " + person.Prenom, person.DateNaissance.ToString("d"));
+                pdf = PDFDemande.GenerateDocument(personAss.Nom, personAss.Prenom, personAss.DateNaissance.ToString("d"),description, DateTime.Now.ToString("d"), assure.NumeroAssurance, person.Nom + " " + person.Prenom, person.DateNaissance.ToString("d"));
             }
             else
             {
-                pdf = PDFDemande.GenerateDocument(personAss.Nom, personAss.Prenom, personAss.DateNaissance.ToString("d"), Reference + "   " + designation, DateTime.Now.ToString("d"), assure.NumeroAssurance);
+                pdf = PDFDemande.GenerateDocument(personAss.Nom, personAss.Prenom, personAss.DateNaissance.ToString("d"), description, DateTime.Now.ToString("d"), assure.NumeroAssurance);
             }
             string doc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string folderPath = Path.Combine(doc, "OrthoGes Document\\Demande d'entante prealable");
@@ -861,6 +867,13 @@ namespace OrthoGes_New_Version
         {
             FormCreationFacture facture = new FormCreationFacture(Numero_Patient, dgvDocuments.CurrentRow.Cells[2].Value.ToString());
             facture.ShowDialog();
+            FillDgvDocumentsWithData();
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            FormCreationBonLiv bonLiv = new FormCreationBonLiv(Numero_Patient, dgvDocuments.CurrentRow.Cells[2].Value.ToString());
+            bonLiv.ShowDialog();
             FillDgvDocumentsWithData();
         }
     }

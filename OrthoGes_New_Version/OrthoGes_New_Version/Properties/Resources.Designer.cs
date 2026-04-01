@@ -733,6 +733,16 @@ namespace OrthoGes_New_Version.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap icons8_receipt_481 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-receipt-481", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap icons8_registration_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-registration-32", resourceCulture);

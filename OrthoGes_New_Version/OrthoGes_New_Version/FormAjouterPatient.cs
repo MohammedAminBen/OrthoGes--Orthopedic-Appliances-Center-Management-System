@@ -22,6 +22,7 @@ namespace OrthoGes_New_Version
         DataTable communes;
 
         private bool _suppressSearch = false;
+        private bool iswillayaSelected = false;
         DataTable dtCaisse;
         public FormAjouterPatient()
         {
@@ -315,13 +316,14 @@ namespace OrthoGes_New_Version
             communes = Centre_Appareillage.GetAllCommuneDeWillaya((int)dgvWilayas.CurrentRow.Cells["wilaya_id"].Value);
 
             dgvWilayas.Visible = false;
-
+            iswillayaSelected = true;
             _suppressSearch = false;
         }
 
         private void tbxCommune_TextChanged(object sender, EventArgs e)
         {
             if (_suppressSearch) return;
+            if (!iswillayaSelected) return;
 
             if (tbxCommune.Text.Length == 0)
             {

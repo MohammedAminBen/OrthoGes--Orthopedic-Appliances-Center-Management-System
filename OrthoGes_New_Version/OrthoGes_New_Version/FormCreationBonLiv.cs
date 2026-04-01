@@ -24,14 +24,15 @@ namespace OrthoGes_New_Version
         private bool _suppressSearch = false;
         private bool _suppressSearch2 = false;
         private bool _suppressSearch3 = false;
-
+        private string Num_Facture = null;
         public static List<(string Reference, int Quantity, decimal MontantTVA, decimal MontantTTC, int TVA)> Produits { get; set; } = new();
         public static List<(string Reference, string designation, string PUHT, string Quantity, string Montant_HT, string MontantTVA, string TVA)> produitsForPDF { get; set; } = new();
 
-        public FormCreationBonLiv(string numero_patient)
+        public FormCreationBonLiv(string numero_patient,string num_Facture = "")
         {
             InitializeComponent();
             Numero_Patient = numero_patient;
+            Num_Facture = num_Facture;
         }
 
         private void AssuredCheckedConfig()
@@ -54,64 +55,162 @@ namespace OrthoGes_New_Version
             tbxNumBon.Text = Bon_Livraison.GetLastBonNum();
             patient = Patient.FindByNumeroPatient(Numero_Patient);
             tbxDate.Text = DateTime.Now.Date.ToString("d");
+
             if (patient == null)
             {
                 MessageBox.Show("Error when trying to identify the patient");
                 return;
             }
-            
-            person = Person.Find(patient.PersonID);
-                tbxadresse.Text = person.Adresse;
-                tbxWilaya.Text = person.Wilaya;
-                tbxCommune.Text = person.Commune;
-            if (patient.est_Assure == 1)
+
+            if (patient != null)
             {
-                AssuredCheckedConfig();
-                assure = Assure.FindByID(patient.AssureID);
+                person = Person.Find(patient.PersonID);
 
-                tbxNomPatient.Text = person.Nom;
-                tbxPrenomPatient.Text = person.Prenom;
-                tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
-                tbxNumAssPatient.Text = assure.NumeroAssurance.ToString();
-                tbxCaissePatient.Text = assure.CaisseNom;
+                if (person != null)
+                {
+                    tbxadresse.Text = person.Adresse;
+                    tbxWilaya.Text = person.Wilaya;
+                    tbxCommune.Text = person.Commune;
 
+                }
 
+                if (patient.est_Assure == 1)
+                {
+                    AssuredCheckedConfig();
+                    assure = Assure.FindByID(patient.AssureID);
+                    if (assure != null)
+                    {
+                        tbxNomPatient.Text = person.Nom;
+                        tbxPrenomPatient.Text = person.Prenom;
+                        tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
+                        tbxNumAssPatient.Text = assure.NumeroAssurance.ToString();
+                        tbxCaissePatient.Text = assure.CaisseNom;
+                        tbxCentrePayeurPatient.Text = person.Commune;
+                    }
+                }
+                else // patient is NOT insured
+                {
+                    // Get the assure (the insurance holder)
+                    if (patient.AssureID > 0)
+                    {
+                        assure = Assure.FindByID(patient.AssureID);
+
+                        if (assure != null && assure.PersonID > 0)
+                        {
+                            Person personassure = Person.Find(assure.PersonID);
+
+                            if (personassure != null)
+                            {
+                                tbxNomAssure.Text = personassure.Nom;
+                                tbxPrenomAssure.Text = personassure.Prenom;
+                                tbxDateNaiAssure.Text = personassure.DateNaissance.ToString("d");
+                                tbxNumAssAssure.Text = assure.NumeroAssurance.ToString();
+                                tbxCaisseAssure.Text = assure.CaisseNom;
+                                tbxCentrePayeurAssure.Text = personassure.Commune;
+
+                                // Set address fields to the assure's address
+                                tbxadresse.Text = personassure.Adresse;
+                                tbxWilaya.Text = personassure.Wilaya;
+                                tbxCommune.Text = personassure.Commune;
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Assure person not found");
+                                // Optionally clear or set default values
+                                ClearAddressFields();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Assure not found for this patient");
+                            ClearAddressFields();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No assure ID associated with this patient");
+                        ClearAddressFields();
+                    }
+
+                    // Set patient information
+                    if (person != null)
+                    {
+                        tbxNomPatient.Text = person.Nom;
+                        tbxPrenomPatient.Text = person.Prenom;
+                        tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
+                    }
+                }
             }
-            else
+            if (Num_Facture != "")
             {
-                //person = Person.Find(patient.PersonID);
-                assure = Assure.FindByID(patient.AssureID);
+                Facture facture = Facture.FindByNumeroFacture(Num_Facture);
+                tbxReference.Text = facture.Produits[0].Reference;
+                tbxQuantity.Text = facture.Produits[0].Quantity.ToString();
+                tbxTVA.Text = facture.Produits[0].TVA.ToString();
+                tbxPUHT.Text = (facture.Produits[0].MontantTTC - facture.Produits[0].MontantTVA).ToString("0.00");
+                tbxDesignation.Text = Produit.FindByReference(facture.Produits[0].Reference).Nom_Produit;
+                tbxMontant.Text = (decimal.Parse(tbxPUHT.Text) * facture.Produits[0].Quantity).ToString();
 
-                Person personassure = Person.Find(assure.PersonID);
+                tbxTVAMontant.Text = facture.Produits[0].MontantTVA.ToString();
+                dgvProduits.Visible = false;
+                dgvDesignation.Visible = false;
+                if (patient.est_Assure == 1)
+                {
+                    tbxCentrePayeurPatient.Text = facture.Centre_Payeur;
+                }
+                else
+                {
+                    tbxCentrePayeurAssure.Text = facture.Centre_Payeur;
+                }
 
-                tbxNomPatient.Text = person.Nom;
-                tbxPrenomPatient.Text = person.Prenom;
-                tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
+                if (facture.Produits.Count > 1)
+                {
+                    pnlProduit2.Visible = true;
+                    tbxReference2.Text = facture.Produits[1].Reference;
+                    tbxQuantity2.Text = facture.Produits[1].Quantity.ToString();
+                    tbxTVA2.Text = facture.Produits[1].TVA.ToString();
+                    tbxPUHT2.Text = (facture.Produits[1].MontantTTC - facture.Produits[1].MontantTVA).ToString("0.00");
+                    tbxDesignation2.Text = Produit.FindByReference(facture.Produits[1].Reference).Nom_Produit;
+                    tbxMontant2.Text = (decimal.Parse(tbxPUHT2.Text) * facture.Produits[1].Quantity).ToString();
+                    tbxMontantTVA2.Text = facture.Produits[1].MontantTVA.ToString();
+                    dgvProduit2.Visible = false;
+                    dgvDesignation2.Visible = false;
+                }
 
-                tbxNomAssure.Text = personassure.Nom;
-                tbxPrenomAssure.Text = personassure.Prenom;
-
-                tbxDateNaiAssure.Text = personassure.DateNaissance.ToString("d");
-
-
-
-                tbxNumAssAssure.Text = assure.NumeroAssurance.ToString();
-                tbxCaisseAssure.Text = assure.CaisseNom;
-
-                //tbxadresse.Text = person.Adresse;
-                //tbxWilaya.Text = person.Wilaya;
-                //tbxCommune.Text = person.Commune;
+                if (facture.Produits.Count > 2)
+                {
+                    pnlProduit3.Visible = true;
+                    tbxReference3.Text = facture.Produits[2].Reference;
+                    tbxQuantity3.Text = facture.Produits[2].Quantity.ToString();
+                    tbxTVA3.Text = facture.Produits[2].TVA.ToString();
+                    tbxPUHT3.Text = (facture.Produits[2].MontantTTC - facture.Produits[2].MontantTVA).ToString("0.00");
+                    tbxDesignation3.Text = Produit.FindByReference(facture.Produits[2].Reference).Nom_Produit;
+                    tbxMontant3.Text = (decimal.Parse(tbxPUHT3.Text) * facture.Produits[2].Quantity).ToString();
+                    tbxMontantTVA3.Text = facture.Produits[2].MontantTVA.ToString();
+                    dgvDesignation3.Visible = false;
+                    dgvProduit3.Visible = false;
+                }
             }
         }
+
+        private void ClearAddressFields()
+        {
+            tbxadresse.Text = "";
+            tbxWilaya.Text = "";
+            tbxCommune.Text = "";
+        }
+
         private void FormCreationDevis_Load(object sender, EventArgs e)
         {
-            LoadData();
             pnlProduit3.Visible = false;
             pnlProduit2.Visible = false;
             tbxMontant2.Text = "0.00";
             tbxMontantTVA2.Text = "0.00";
             tbxMontant3.Text = "0.00";
             tbxMontantTVA3.Text = "0.00";
+            LoadData();
+
         }
         private void tbxReference_TextChanged(object sender, EventArgs e)
         {

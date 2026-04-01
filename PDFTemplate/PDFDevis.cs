@@ -31,7 +31,7 @@ namespace PDFTemplates
             AssureDateNai = assureDateNai;
             NumAss = numAss;
             Caisse = caisse;
-            CentrePay = centrePay;
+            CentrePay = centrePay.ToUpper();
             Adresse = adresse;
             Wilaya = wilaya.ToUpper();
             Commune = commune.ToUpper();

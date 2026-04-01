@@ -10,8 +10,8 @@ namespace DataLayer_
     public class DataAccessSettings
     {
         public static string ConnectionString =
-            "Server=.;Database=OrthoGesDB;User Id=sa;Password=SA123456;TrustServerCertificate=True;";
-        //public static string ConnectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;
+            "Server=192.168.1.66,1433;Database=OrthoGesDB;User Id=sa;Password=SA123456;TrustServerCertificate=True;";
+        //public static string ConnectionString = $@"Data Source=(LocalDB)\MSSQLLocalDB;//192.168.1.66,1433
         //AttachDbFilename={AppDomain.CurrentDomain.BaseDirectory}OrthoGesDB.mdf;
         //Integrated Security = True;
         //Connect Timeout=30";
