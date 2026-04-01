@@ -55,7 +55,7 @@ namespace OrthoGes_New_Version
             tbxNumBon.Text = Bon_Livraison.GetLastBonNum();
             patient = Patient.FindByNumeroPatient(Numero_Patient);
             tbxDate.Text = DateTime.Now.Date.ToString("d");
-
+            tbxPieceProduit.Text = "Carte Nationale";
             if (patient == null)
             {
                 MessageBox.Show("Error when trying to identify the patient");
@@ -145,12 +145,14 @@ namespace OrthoGes_New_Version
             if (Num_Facture != "")
             {
                 Facture facture = Facture.FindByNumeroFacture(Num_Facture);
+                tbxNumBon.Text = Num_Facture;
                 tbxReference.Text = facture.Produits[0].Reference;
                 tbxQuantity.Text = facture.Produits[0].Quantity.ToString();
                 tbxTVA.Text = facture.Produits[0].TVA.ToString();
                 tbxPUHT.Text = (facture.Produits[0].MontantTTC - facture.Produits[0].MontantTVA).ToString("0.00");
                 tbxDesignation.Text = Produit.FindByReference(facture.Produits[0].Reference).Nom_Produit;
                 tbxMontant.Text = (decimal.Parse(tbxPUHT.Text) * facture.Produits[0].Quantity).ToString();
+                tbxDate.Text = facture.Date_Facture.ToString("d");
 
                 tbxTVAMontant.Text = facture.Produits[0].MontantTVA.ToString();
                 dgvProduits.Visible = false;

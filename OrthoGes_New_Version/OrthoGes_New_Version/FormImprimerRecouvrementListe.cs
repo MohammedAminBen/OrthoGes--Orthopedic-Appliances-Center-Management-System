@@ -107,7 +107,7 @@ namespace OrthoGes_New_Version
                 startDate = DateDe.Value.Date;
                 endDate = DateA.Value.Date;
             }
-            if (cmbxEtat.Text == "Non Payé") etat = "NON";
+            if (cmbxEtat.Text == "Non payé") etat = "NON";
             else if (cmbxEtat.Text == "Payé") etat = "OUI";
             else if (cmbxEtat.Text == "Tous") etat = "TOUS";
 

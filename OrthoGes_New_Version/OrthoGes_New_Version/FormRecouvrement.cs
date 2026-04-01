@@ -312,34 +312,25 @@ namespace OrthoGes_New_Version
             string header = dgvFactureListe.Columns[e.ColumnIndex].HeaderText;
             string value = e.Value.ToString().Trim().ToUpper();
 
-            // ===== PAYÉ COLUMN =====
-            if (header == "Payé")
-            {
-                if (value == "OUI" || value == "1" || value == "TRUE")
-                {
-                    e.CellStyle.ForeColor = System.Drawing.Color.LimeGreen;
-                    e.CellStyle.Font = BoldFont;
-                }
-                else if (value == "NON" || value == "0" || value == "FALSE")
-                {
-                    e.CellStyle.ForeColor = System.Drawing.Color.Red;
-                    e.CellStyle.Font = BoldFont;
-                }
-            }
+            bool isTrue = value == "OUI" || value == "1" || value == "TRUE";
+            bool isFalse = value == "NON" || value == "0" || value == "FALSE";
 
-            // ===== CHÈQUE COLUMN =====
-            else if (header == "chèque")
+            if (header == "Payé" || header == "chèque")
             {
-                if (value == "OUI" || value == "1" || value == "TRUE")
+                if (isTrue)
                 {
+                    e.Value = "OUI"; // 🔥 THIS FIXES YOUR ISSUE
                     e.CellStyle.ForeColor = System.Drawing.Color.LimeGreen;
                     e.CellStyle.Font = BoldFont;
                 }
-                else if (value == "NON" || value == "0" || value == "FALSE")
+                else if (isFalse)
                 {
+                    e.Value = "NON"; // 🔥 THIS FIXES YOUR ISSUE
                     e.CellStyle.ForeColor = System.Drawing.Color.Red;
                     e.CellStyle.Font = BoldFont;
                 }
+
+                e.FormattingApplied = true; // important
             }
         }
 

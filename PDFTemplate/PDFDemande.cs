@@ -93,7 +93,7 @@ public class PDFDemande
         sb.AppendLine(@"<?xml version='1.0' encoding='UTF-8'?>");
         sb.AppendLine($@"<svg width='{width}' height='{height}' viewBox='0 0 {width} {height}' xmlns='http://www.w3.org/2000/svg'>");
         sb.AppendLine(@"<style>");
-        sb.AppendLine(@"    text { font-family: Arial; fill: black; font-weight: bold; }");
+        sb.AppendLine(@"    text { font-family: Arial Black, Arial, sans-serif; fill: black; font-weight: bold; }");
         sb.AppendLine(@"</style>");
 
         // Positions converted roughly from cm → px (1 cm ≈ 37.8 px)
@@ -103,7 +103,7 @@ public class PDFDemande
         AddText(sb, DateNaissance ?? "", 49, 127);      // 4.9, 12.7
         AddText(sb, NomPrenomBenef ?? "", 45, 146);     // 4.5, 14.6
         AddText(sb, DateNaissanceBenef ?? "", 164, 145);// 16.4, 14.5
-        AddText(sb, Description ?? "", 20, 195, 180); // maxWidth 160mm
+        AddText(sb, Description ?? "", 20, 195, 180);   // maxWidth 160mm
         AddText(sb, DateActe ?? "", 43, 207);           // 4.3, 20.7
 
         sb.AppendLine("</svg>");
@@ -124,23 +124,26 @@ public class PDFDemande
 
         // Split text into lines
         var lines = new List<string>();
-        while (escaped.Length > maxCharsPerLine)
+        string remaining = escaped;
+        while (remaining.Length > maxCharsPerLine)
         {
-            int breakIndex = escaped.LastIndexOf(' ', maxCharsPerLine);
+            int breakIndex = remaining.LastIndexOf(' ', maxCharsPerLine);
             if (breakIndex <= 0) breakIndex = maxCharsPerLine;
-            lines.Add(escaped.Substring(0, breakIndex));
-            escaped = escaped.Substring(breakIndex).TrimStart();
+            lines.Add(remaining.Substring(0, breakIndex));
+            remaining = remaining.Substring(breakIndex).TrimStart();
         }
-        if (!string.IsNullOrEmpty(escaped))
-            lines.Add(escaped);
+        if (!string.IsNullOrEmpty(remaining))
+            lines.Add(remaining);
 
-        sb.AppendLine($@"<text x='{xMm}mm' y='{yMm}mm' font-size='4mm'>");
+        // Add font-weight='bold' to the text element
+        sb.AppendLine($@"<text x='{xMm}mm' y='{yMm}mm' font-size='4mm' font-weight='bold'>");
 
         double lineHeightMm = 5; // vertical spacing between lines
         for (int i = 0; i < lines.Count; i++)
         {
             double yLine = yMm + i * lineHeightMm;
-            sb.AppendLine($@"    <tspan x='{xMm}mm' y='{yLine}mm'>{lines[i]}</tspan>");
+            // Add font-weight='bold' to tspans as well
+            sb.AppendLine($@"    <tspan x='{xMm}mm' y='{yLine}mm' font-weight='bold'>{lines[i]}</tspan>");
         }
 
         sb.AppendLine("</text>");
