@@ -58,9 +58,12 @@ namespace PDFTemplates
         private static string FormatMoney(string value)
         {
             if (decimal.TryParse(value, out var number))
-                return number.ToString("N2").Replace(",", " ");
+            {
+                var culture = new System.Globalization.CultureInfo("fr-FR");
+                return number.ToString("N2", culture);
+            }
 
-            return value; // fallback if parsing fails
+            return value;
         }
         // ===== HEADER =====
         private static void ComposeHeader(IContainer container)
@@ -211,7 +214,7 @@ namespace PDFTemplates
                             row.RelativeItem(4).PaddingTop(2).Column(c =>
                             {
                                 c.Item()
-                                    .Text(produit.Reference + "  " + produit.designation)
+                                    .Text(produit.Reference + "    " + produit.designation)
                                     .SemiBold()
                                     .FontFamily(Fonts.SegoeUI)
                                     .FontSize(14);

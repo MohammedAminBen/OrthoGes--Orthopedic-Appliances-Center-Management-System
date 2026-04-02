@@ -12,7 +12,7 @@ namespace CodeSourceLayer_
     {
         public string Reference { get; set; }
         public string Nom_Produit { get; set; }
-        public double Prix { get; set; }
+        public decimal Prix { get; set; }
         public int TVA { get; set; }
         public double Prix_TVA { get; set; }
         public int Quantite { get; set; }
@@ -22,7 +22,7 @@ namespace CodeSourceLayer_
         public int Category_Delai_Année { get; set; }
         public int Category_Delai_Mois { get; set; }
 
-        public Produit(string reference, string nomProduit, double prix, int tva, double prixTva, int quantite, int categoryId, string categoryNom, int categoryDelaiAnnée, int categoryDelaiMois)
+        public Produit(string reference, string nomProduit, decimal prix, int tva, double prixTva, int quantite, int categoryId, string categoryNom, int categoryDelaiAnnée, int categoryDelaiMois)
         {
             Reference = reference;
             Nom_Produit = nomProduit;
@@ -40,7 +40,7 @@ namespace CodeSourceLayer_
         public static Produit FindByReference(string reference)
         {
             string designation = string.Empty;
-            double tarif = 0;
+            decimal tarif = 0;
             int tva = 0;
             double tarifTTC = 0;
             int quantite = 0;

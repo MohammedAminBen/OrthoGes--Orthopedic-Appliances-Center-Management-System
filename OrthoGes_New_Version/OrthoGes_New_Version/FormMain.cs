@@ -271,6 +271,7 @@ namespace OrthoGes_New_Version
             {
                 //picboxUtilisateur.Image = Image.FromFile(Global.centre.PathImage);
             }
+            lblNomUtilisateur.Text = Global.utilisateurActuel.Nom_Utilisateur;
         }
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)

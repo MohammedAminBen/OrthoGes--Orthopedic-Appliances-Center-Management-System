@@ -26,10 +26,12 @@ namespace OrthoGes_New_Version
         private bool _suppressSearch = false;
         private bool _suppressSearch2 = false;
         private bool _suppressSearch3 = false;
+        private bool _suppressSearch4 = false;
 
         private string oldreference1 = "-";
         private string oldreference2 = "-";
         private string oldreference3 = "-";
+        private string oldreference4 = "-";
 
         public static List<(string Reference, string designation, string PUHT, string Quantity, string Montant_HT, string MontantTVA, string TVA)> produitsForPDF { get; set; } = new();
 
@@ -145,27 +147,45 @@ namespace OrthoGes_New_Version
                         tbxMontantTVA3.Text = bon.Produits[2].MontantTVA.ToString();
                         tbxTVA3.Text = bon.Produits[2].TVA.ToString();
                     }
+                    if (bon.Produits.Count >= 4)
+                    {
+                        Produit p4 = Produit.FindByReference(bon.Produits[3].Reference);
+                        PnlProduit4.Visible = true;
+                        oldreference4 = p4.Reference;
+                        tbxReference4.Text = p4.Reference;
+                        tbxDesignation4.Text = p4.Nom_Produit;
+                        tbxPUHT4.Text = p4.Prix.ToString("F2");
+                        tbxQuantity4.Text = bon.Produits[3].Quantity.ToString();
+                        tbxMontant4.Text = (p4.Prix * bon.Produits[3].Quantity).ToString("F2");
+                        tbxMontantTVA4.Text = bon.Produits[3].MontantTVA.ToString();
+                        tbxTVA4.Text = bon.Produits[3].TVA.ToString();
+                    }
                 }
+                tbxTotale.Text = bon.Montant_TTC.ToString("F2");
             }
-            tbxTotale.Text = bon.Montant_TTC.ToString("F2");
-
         }
         private void FormCreationDevis_Load(object sender, EventArgs e)
         {
 
             pnlProduit3.Visible = false;
             pnlProduit2.Visible = false;
+            PnlProduit4.Visible = false;
             tbxMontant2.Text = "0.00";
             tbxMontantTVA2.Text = "0.00";
             tbxMontant3.Text = "0.00";
             tbxMontantTVA3.Text = "0.00";
+            tbxMontant4.Text = "0.00";
+            tbxMontantTVA4.Text = "0.00";
+
             LoadData();
             dgvDesignation.Visible = false;
             dgvDesignation2.Visible = false;
             dgvDesignation3.Visible = false;
+            dgvDesignation4.Visible = false;
             dgvProduits.Visible = false;
             dgvProduit2.Visible = false;
             dgvProduit3.Visible = false;
+            dgvProduit4.Visible = false;
         }
         private void tbxReference_TextChanged(object sender, EventArgs e)
         {
@@ -298,7 +318,7 @@ namespace OrthoGes_New_Version
                 dgvDesignation.Columns[i].Visible = false;
 
             DataView dv = produits.DefaultView;
-            dv.RowFilter = $"Nom_Produit LIKE '%{tbxDesignation.Text}%'";
+            dv.RowFilter = $"Nom_Produit LIKE '%{EscapeLikeValue(tbxDesignation.Text)}%'";
 
             if (dv.Count == 0)
                 dgvDesignation.Visible = false;
@@ -355,6 +375,7 @@ namespace OrthoGes_New_Version
                     produitsForPDF.Add((tbxReference3.Text, tbxDesignation3.Text, tbxPUHT3.Text, tbxQuantity3.Text, tbxMontant3.Text, tbxMontantTVA3.Text, tbxTVA3.Text));
                 }
             }
+
             Document document;
             if (patient.est_Assure != 1)
             {
@@ -428,15 +449,23 @@ namespace OrthoGes_New_Version
             {
                 pnlProduit2.Visible = true;
             }
-            else
+            else if(pnlProduit3.Visible == false)
             {
                 pnlProduit3.Visible = true;
+            }
+                else
+                {
+                    PnlProduit4.Visible = true;
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (pnlProduit3.Visible == true)
+            if (PnlProduit4.Visible == true)
+            {
+                PnlProduit4.Visible = false;
+            }
+            else if (pnlProduit3.Visible == true)
             {
                 pnlProduit3.Visible = false;
             }
@@ -738,7 +767,7 @@ namespace OrthoGes_New_Version
                 dgvDesignation2.Columns[i].Visible = false;
 
             DataView dv = produits.DefaultView;
-            dv.RowFilter = $"Nom_Produit LIKE '%{tbxDesignation2.Text}%'";
+            dv.RowFilter = $"Nom_Produit LIKE '%{EscapeLikeValue(tbxDesignation2.Text)}%'";
 
             if (dv.Count == 0)
                 dgvDesignation2.Visible = false;
@@ -764,7 +793,7 @@ namespace OrthoGes_New_Version
                 dgvDesignation3.Columns[i].Visible = false;
 
             DataView dv = produits.DefaultView;
-            dv.RowFilter = $"Nom_Produit LIKE '%{tbxDesignation3.Text}%'";
+            dv.RowFilter = $"Nom_Produit LIKE '%{EscapeLikeValue(tbxDesignation3.Text)}%'";
 
             if (dv.Count == 0)
                 dgvDesignation3.Visible = false;
@@ -781,7 +810,10 @@ namespace OrthoGes_New_Version
             decimal m3 = GetDecimal(tbxMontant3.Text);
             decimal t3 = GetDecimal(tbxMontantTVA3.Text);
 
-            tbxTotale.Text = (m1 + t1 + m2 + t2 + m3 + t3).ToString("0.00");
+            decimal m4 = GetDecimal(tbxMontant4.Text);
+            decimal t4 = GetDecimal(tbxMontantTVA4.Text);
+
+            tbxTotale.Text = (m1 + t1 + m2 + t2 + m3 + t3 + m4 + t4).ToString("0.00");
         }
         private decimal GetDecimal(string value)
         {
@@ -835,6 +867,19 @@ namespace OrthoGes_New_Version
                         decimal.Parse(tbxMontantTVA3.Text),
                         decimal.Parse(tbxMontant3.Text) + decimal.Parse(tbxMontantTVA3.Text),
                         int.Parse(tbxTVA3.Text)
+                    );
+                }
+
+                if(PnlProduit4.Visible && !string.IsNullOrWhiteSpace(tbxMontantTVA4.Text))
+                {
+                    resultProduits &= Bon_Livraison.UpdateBon_Produits(
+                        Numero_Bon,
+                        oldreference4,
+                        tbxReference4.Text,
+                        int.Parse(tbxQuantity4.Text),
+                        decimal.Parse(tbxMontantTVA4.Text),
+                        decimal.Parse(tbxMontant4.Text) + decimal.Parse(tbxMontantTVA4.Text),
+                        int.Parse(tbxTVA4.Text)
                     );
                 }
 
@@ -978,6 +1023,210 @@ namespace OrthoGes_New_Version
                 // Optional: keep full-row selection clean
                 e.Handled = false; // let DataGridView handle navigation
             }
+        }
+
+
+        private void tbxReference4_TextChanged(object sender, EventArgs e)
+        {
+            if (_suppressSearch4) return;
+
+            if (tbxReference4.Text.Length == 0)
+            {
+                dgvProduit4.Visible = false;
+                return;
+            }
+
+            dgvProduit4.Visible = true;
+
+            DataTable produits = Produit.GetAllProduits();
+            dgvProduit4.DataSource = produits;
+
+            for (int i = 1; i < dgvProduit4.Columns.Count; i++)
+                dgvProduit4.Columns[i].Visible = false;
+
+            DataView dv = produits.DefaultView;
+            dv.RowFilter = $"Reference LIKE '%{tbxReference4.Text}%'";
+
+            if (dv.Count == 0)
+                dgvProduit4.Visible = false;
+        }
+
+        private void dgvProduit4_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _suppressSearch4 = true;
+
+            tbxReference4.Text = dgvProduit4.CurrentRow.Cells[0].Value.ToString();
+            tbxDesignation4.Text = dgvProduit4.CurrentRow.Cells[1].Value.ToString();
+            tbxPUHT4.Text = dgvProduit4.CurrentRow.Cells[4].Value.ToString();
+            tbxTVA4.Text = dgvProduit4.CurrentRow.Cells[5].Value.ToString();
+            //tbxTVAMontant.Text = dgvProduits.CurrentRow.Cells[6].Value.ToString();
+
+            dgvProduit4.Visible = false;
+
+            _suppressSearch4 = false;
+        }
+
+        private void dgvDesignation4_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _suppressSearch4 = true;
+
+            tbxReference4.Text = dgvDesignation4.CurrentRow.Cells[0].Value.ToString();
+            tbxDesignation4.Text = dgvDesignation4.CurrentRow.Cells[1].Value.ToString();
+            tbxPUHT4.Text = dgvDesignation4.CurrentRow.Cells[4].Value.ToString();
+            tbxTVA4.Text = dgvDesignation4.CurrentRow.Cells[5].Value.ToString();
+            //tbxTVAMontant.Text = dgvDesignation.CurrentRow.Cells[6].Value.ToString();
+
+            dgvDesignation4.Visible = false;
+
+            _suppressSearch4 = false;
+        }
+
+        private void tbxQuantity4_TextChanged(object sender, EventArgs e)
+        {
+            if (tbxQuantity4.Text == string.Empty || tbxPUHT4.Text == string.Empty)
+            {
+                tbxMontant4.Text = "0.00";
+                return;
+            }
+            if (decimal.TryParse(tbxPUHT4.Text, out decimal puht) &&
+                decimal.TryParse(tbxQuantity4.Text, out decimal quantity))
+            {
+                tbxMontant4.Text = (puht * quantity).ToString("0.00");
+            }
+            else
+            {
+                tbxMontant4.Text = "0.00";
+            }
+        }
+
+        private void tbxMontant4_TextChanged(object sender, EventArgs e)
+        {
+            if (tbxMontant4.Text == string.Empty || tbxTVA4.Text == string.Empty)
+            {
+                tbxMontantTVA4.Text = "0.00";
+                return;
+            }
+
+            if (decimal.TryParse(tbxMontant4.Text, out decimal montant) &&
+                decimal.TryParse(tbxTVA4.Text, out decimal tva))
+            {
+                tbxMontantTVA4.Text = (montant * tva / 100).ToString("0.00");
+            }
+            else
+            {
+                tbxMontantTVA4.Text = "0.00";
+            }
+
+
+            if (tbxMontant4.Text == string.Empty || tbxMontantTVA4.Text == string.Empty)
+            {
+                tbxTotale.Text = "0.00";
+                return;
+            }
+
+            RecalculateTotal();
+        }
+
+        private void tbxMontantTVA4_TextChanged(object sender, EventArgs e)
+        {
+            if (tbxMontant4.Text == string.Empty || tbxMontantTVA4.Text == string.Empty)
+            {
+                tbxTotale.Text = "0.00";
+                return;
+            }
+
+            if (decimal.TryParse(tbxMontant4.Text, out decimal montant) &&
+                decimal.TryParse(tbxMontantTVA4.Text, out decimal tva))
+            {
+                RecalculateTotal();
+            }
+            else
+                tbxTotale.Text = "0.00";
+        }
+
+        private void tbxTVA4_TextChanged(object sender, EventArgs e)
+        {
+            if (tbxMontant4.Text == string.Empty || tbxTVA4.Text == string.Empty)
+            {
+                tbxMontantTVA4.Text = "0.00";
+                return;
+            }
+            if (decimal.TryParse(tbxMontant4.Text, out decimal montant) &&
+                decimal.TryParse(tbxTVA4.Text, out decimal tva))
+            {
+                tbxMontantTVA4.Text = (montant * tva / 100).ToString("0.00");
+            }
+            else
+            {
+                tbxMontantTVA4.Text = "0.00";
+            }
+        }
+
+        private void tbxDesignation4_TextChanged(object sender, EventArgs e)
+        {
+            if (_suppressSearch4) return;
+
+            if (tbxDesignation4.Text.Length == 0)
+            {
+                dgvDesignation4.Visible = false;
+                return;
+            }
+
+            dgvDesignation4.Visible = true;
+
+            DataTable produits = Produit.GetAllProduits();
+            dgvDesignation4.DataSource = produits;
+
+            dgvDesignation4.Columns[0].Visible = false;
+            for (int i = 2; i < dgvDesignation4.Columns.Count; i++)
+                dgvDesignation4.Columns[i].Visible = false;
+
+            DataView dv = produits.DefaultView;
+
+            dv.RowFilter = $"Nom_Produit LIKE '%{EscapeLikeValue(tbxDesignation4.Text)}%'";
+
+            if (dv.Count == 0)
+                dgvDesignation4.Visible = false;
+        }
+        private void dgvProduit4_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+                _suppressSearch4 = true;
+
+                if (dgvDesignation4.Visible)
+                {
+                    tbxReference4.Text = dgvDesignation4.CurrentRow.Cells[0].Value.ToString();
+                    tbxDesignation4.Text = dgvDesignation4.CurrentRow.Cells[1].Value.ToString();
+                    dgvDesignation4.Visible = false;
+
+                }
+                else
+                {
+                    tbxReference4.Text = dgvProduit4.CurrentRow.Cells[0].Value.ToString();
+                    tbxDesignation4.Text = dgvProduit4.CurrentRow.Cells[1].Value.ToString();
+                    dgvProduit4.Visible = false;
+
+                }
+
+                _suppressSearch4 = false;
+
+            }
+            else if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
+            {
+                // Optional: keep full-row selection clean
+                e.Handled = false; // let DataGridView handle navigation
+            }
+        }
+        private string EscapeLikeValue(string value)
+        {
+            return value
+                .Replace("'", "''")   // escape quotes
+                .Replace("[", "[[]")  // escape [
+                .Replace("%", "[%]")  // escape %
+                .Replace("*", "[*]"); // escape *
         }
     }
 }

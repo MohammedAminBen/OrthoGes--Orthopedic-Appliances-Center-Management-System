@@ -218,7 +218,7 @@ namespace PDFTemplate
                             row.RelativeItem(4).PaddingTop(2).Column(c =>
                             {
                                 c.Item()
-                                    .Text(produit.Reference + "  " + produit.designation)
+                                    .Text(produit.Reference + "    " + produit.designation)
                                     .SemiBold()
                                     .FontFamily(Fonts.SegoeUI)
                                     .FontSize(14);

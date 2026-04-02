@@ -370,6 +370,11 @@ namespace OrthoGes_New_Version
                 Produit p3 = Produit.FindByReference(devis.Produits[2].Reference);
                 produitsForPDF.Add((devis.Produits[2].Reference, p3.Nom_Produit, p3.Prix.ToString(), devis.Produits[2].Quantity.ToString(), (devis.Produits[2].Quantity * p3.Prix).ToString(), devis.Produits[2].MontantTVA.ToString(), devis.Produits[2].TVA.ToString()));
             }
+            if(devis.Produits.Count > 3)
+            {
+                Produit p4 = Produit.FindByReference(devis.Produits[3].Reference);
+                produitsForPDF.Add((devis.Produits[3].Reference, p4.Nom_Produit, p4.Prix.ToString(), devis.Produits[3].Quantity.ToString(), (devis.Produits[3].Quantity * p4.Prix).ToString(), devis.Produits[3].MontantTVA.ToString(), devis.Produits[3].TVA.ToString()));
+            }
             Document document;
             document = PDFDevis.GenerateDocument(numeroDevis,
            person.Nom,
@@ -433,6 +438,11 @@ namespace OrthoGes_New_Version
             {
                 Produit p3 = Produit.FindByReference(facture.Produits[2].Reference);
                 produitsForPDF.Add((facture.Produits[2].Reference, p3.Nom_Produit, p3.Prix.ToString(), facture.Produits[2].Quantity.ToString(), (facture.Produits[2].Quantity * p3.Prix).ToString(), facture.Produits[2].MontantTVA.ToString(), facture.Produits[2].TVA.ToString()));
+            }
+            if(facture.Produits.Count > 3)
+            {
+                Produit p4 = Produit.FindByReference(facture.Produits[3].Reference);
+                produitsForPDF.Add((facture.Produits[3].Reference, p4.Nom_Produit, p4.Prix.ToString(), facture.Produits[3].Quantity.ToString(), (facture.Produits[3].Quantity * p4.Prix).ToString(), facture.Produits[3].MontantTVA.ToString(), facture.Produits[3].TVA.ToString()));
             }
             Document document;
             document = PDFFacture.GenerateDocument(numerofacture,
@@ -498,6 +508,11 @@ namespace OrthoGes_New_Version
                 Produit p3 = Produit.FindByReference(bon.Produits[2].Reference);
                 produitsForPDF.Add((bon.Produits[2].Reference, p3.Nom_Produit, p3.Prix.ToString(), bon.Produits[2].Quantity.ToString(), (bon.Produits[2].Quantity * p3.Prix).ToString(), bon.Produits[2].MontantTVA.ToString(), bon.Produits[2].TVA.ToString()));
             }
+            if(bon.Produits.Count > 3)
+            {
+                Produit p4 = Produit.FindByReference(bon.Produits[3].Reference);
+                produitsForPDF.Add((bon.Produits[3].Reference, p4.Nom_Produit, p4.Prix.ToString(), bon.Produits[3].Quantity.ToString(), (bon.Produits[3].Quantity * p4.Prix).ToString(), bon.Produits[3].MontantTVA.ToString(), bon.Produits[3].TVA.ToString()));
+            } 
             Document document;
             document = PDFBon_Livraison.GenerateDocument(numeroBon,
            person.Nom,
@@ -766,21 +781,28 @@ namespace OrthoGes_New_Version
 
             string description = "";
 
+            string DateDemenande = DateTime.Now.ToString("d");
+
             if (dgvDocuments.CurrentRow.Cells[1].Value.ToString() == "Devis")
             {
                 Devis devis = Devis.FindByNumeroDevis(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
+                DateDemenande = devis.Date_Devis.ToString("d");
                 if (devis.Produits.Count >= 1)
                 {
 
-                    description = devis.Produits[0].Reference + " - " + Produit.FindByReference(devis.Produits[0].Reference).Nom_Produit;
+                    description = devis.Produits[0].Reference + "  -  " + Produit.FindByReference(devis.Produits[0].Reference).Nom_Produit;
 
                     if (devis.Produits.Count > 1)
                     {
-                        description = description + " / " + devis.Produits[1].Reference + " - " + Produit.FindByReference(devis.Produits[1].Reference).Nom_Produit;
+                        description = description + "  /  " + devis.Produits[1].Reference + "  -  " + Produit.FindByReference(devis.Produits[1].Reference).Nom_Produit;
 
                         if (devis.Produits.Count > 2)
                         {
-                            description = description + " / " + devis.Produits[2].Reference + " - " + Produit.FindByReference(devis.Produits[2].Reference).Nom_Produit;
+                            description = description + "  /  " + devis.Produits[2].Reference + "  -  " + Produit.FindByReference(devis.Produits[2].Reference).Nom_Produit;
+                            if (devis.Produits.Count > 3)
+                            {
+                                description = description + "  /  " + devis.Produits[3].Reference + "  -  " + Produit.FindByReference(devis.Produits[3].Reference).Nom_Produit;
+                            }
                         }
                     }
                 }
@@ -788,44 +810,60 @@ namespace OrthoGes_New_Version
             else if (dgvDocuments.CurrentRow.Cells[1].Value.ToString() == "Facture")
             {
                 Facture facture = Facture.FindByNumeroFacture(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
+                DateDemenande = facture.Date_Facture.ToString("d");
                 if (facture.Produits.Count >= 1)
                 {
                     Reference = facture.Produits[0].Reference;
                     designation = Produit.FindByReference(Reference).Nom_Produit;
 
-                    description = facture.Produits[0].Reference + "-" + designation;
+                    description = facture.Produits[0].Reference + "  -  " + designation;
                     if (facture.Produits.Count > 1)
                     {
-                        Reference = Reference + " / " + facture.Produits[1].Reference;
-                        designation = designation + " / " + Produit.FindByReference(facture.Produits[1].Reference).Nom_Produit;
-                        description = description + " / " + facture.Produits[1].Reference + " - " + Produit.FindByReference(facture.Produits[1].Reference).Nom_Produit;
+                        Reference = Reference + "  /  " + facture.Produits[1].Reference;
+                        designation = designation + "  /  " + Produit.FindByReference(facture.Produits[1].Reference).Nom_Produit;
+                        description = description + "  /  " + facture.Produits[1].Reference + "  -  " + Produit.FindByReference(facture.Produits[1].Reference).Nom_Produit;
                         if (facture.Produits.Count > 2)
                         {
-                            Reference = Reference + " / " + facture.Produits[2].Reference;
-                            designation = designation + " / " + Produit.FindByReference(facture.Produits[2].Reference).Nom_Produit;
-                            description = description + " / " + facture.Produits[2].Reference + " - " + Produit.FindByReference(facture.Produits[2].Reference).Nom_Produit;
+                            Reference = Reference + "  /  " + facture.Produits[2].Reference;
+                            designation = designation + "  /  " + Produit.FindByReference(facture.Produits[2].Reference).Nom_Produit;
+                            description = description + "  /  " + facture.Produits[2].Reference + "  -  " + Produit.FindByReference(facture.Produits[2].Reference).Nom_Produit;
+
+                            if(facture.Produits.Count > 3)
+                            {
+                                Reference = Reference + "  /  " + facture.Produits[3].Reference;
+                                designation = designation + "  /  " + Produit.FindByReference(facture.Produits[3].Reference).Nom_Produit;
+                                description = description + "  /  " + facture.Produits[3].Reference + "  -  " + Produit.FindByReference(facture.Produits[3].Reference).Nom_Produit;
+                            }
                         }
+                        
                     }
                 }
             }
             else if (dgvDocuments.CurrentRow.Cells[1].Value.ToString() == "Bon de livraison")
             {
                 Bon_Livraison bon = Bon_Livraison.FindByNumeroBon(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
+                DateDemenande = bon.Date_Bon.ToString("d");
                 if (bon.Produits.Count >= 1)
                 {
                     Reference = bon.Produits[0].Reference;
                     designation = Produit.FindByReference(Reference).Nom_Produit;
-                        description = bon.Produits[0].Reference + "-" + designation;
+                    description = bon.Produits[0].Reference + "  -  " + designation;
                     if (bon.Produits.Count > 1)
                     {
-                        Reference = Reference + " / " + bon.Produits[1].Reference;
-                        designation = designation + " / " + Produit.FindByReference(bon.Produits[1].Reference).Nom_Produit;
-                        description = description + " / " + bon.Produits[1].Reference + " - " + Produit.FindByReference(bon.Produits[1].Reference).Nom_Produit;
+                        Reference = Reference + "  /  " + bon.Produits[1].Reference;
+                        designation = designation + "  /  " + Produit.FindByReference(bon.Produits[1].Reference).Nom_Produit;
+                        description = description + "  /  " + bon.Produits[1].Reference + "  -  " + Produit.FindByReference(bon.Produits[1].Reference).Nom_Produit;
                         if (bon.Produits.Count > 2)
                         {
-                            Reference = Reference + " / " + bon.Produits[2].Reference;
-                            designation = designation + " / " + Produit.FindByReference(bon.Produits[2].Reference).Nom_Produit;
-                            description = description + " / " + bon.Produits[2].Reference + " - " + Produit.FindByReference(bon.Produits[2].Reference).Nom_Produit;
+                            Reference = Reference + "  /  " + bon.Produits[2].Reference;
+                            designation = designation + "  /  " + Produit.FindByReference(bon.Produits[2].Reference).Nom_Produit;
+                            description = description + "  /  " + bon.Produits[2].Reference + "  -  " + Produit.FindByReference(bon.Produits[2].Reference).Nom_Produit;
+                            if (bon.Produits.Count > 3)
+                            {
+                                Reference = Reference + "  /  " + bon.Produits[3].Reference;
+                                designation = designation + "  /  " + Produit.FindByReference(bon.Produits[3].Reference).Nom_Produit;
+                                description = description + "  /  " + bon.Produits[3].Reference + "  -  " + Produit.FindByReference(bon.Produits[3].Reference).Nom_Produit;
+                            }
                         }
                     }
                 }
@@ -833,11 +871,11 @@ namespace OrthoGes_New_Version
             Document pdf;
             if (patient.est_Assure != 1)
             {
-                pdf = PDFDemande.GenerateDocument(personAss.Nom, personAss.Prenom, personAss.DateNaissance.ToString("d"),description, DateTime.Now.ToString("d"), assure.NumeroAssurance, person.Nom + " " + person.Prenom, person.DateNaissance.ToString("d"));
+                pdf = PDFDemande.GenerateDocument(personAss.Nom, personAss.Prenom, personAss.DateNaissance.ToString("d"),description, DateDemenande, assure.NumeroAssurance, person.Nom + " " + person.Prenom, person.DateNaissance.ToString("d"));
             }
             else
             {
-                pdf = PDFDemande.GenerateDocument(personAss.Nom, personAss.Prenom, personAss.DateNaissance.ToString("d"), description, DateTime.Now.ToString("d"), assure.NumeroAssurance);
+                pdf = PDFDemande.GenerateDocument(personAss.Nom, personAss.Prenom, personAss.DateNaissance.ToString("d"), description, DateDemenande, assure.NumeroAssurance);
             }
             string doc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string folderPath = Path.Combine(doc, "OrthoGes Document\\Demande d'entante prealable");

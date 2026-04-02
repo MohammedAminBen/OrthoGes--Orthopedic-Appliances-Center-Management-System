@@ -70,22 +70,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges85 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges86 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges47 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges48 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges49 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges50 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges51 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges52 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges53 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges54 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges55 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges56 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges99 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges100 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges57 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges58 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges59 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -114,6 +100,40 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges82 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges83 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges84 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges85 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges86 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges87 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges88 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges89 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges90 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges91 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges92 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges93 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges94 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges95 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges96 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges97 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges98 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges47 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges48 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges49 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges50 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges51 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges52 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges53 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges54 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges55 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges56 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBonLivDetails));
             lblInscription = new Label();
             gbxAssure = new Guna.UI2.WinForms.Guna2GroupBox();
@@ -212,6 +232,23 @@
             label19 = new Label();
             pictureBox4 = new PictureBox();
             lblNumero = new Label();
+            PnlProduit4 = new Panel();
+            dgvDesignation4 = new Guna.UI2.WinForms.Guna2DataGridView();
+            label34 = new Label();
+            tbxQuantity4 = new Guna.UI2.WinForms.Guna2TextBox();
+            dgvProduit4 = new Guna.UI2.WinForms.Guna2DataGridView();
+            label35 = new Label();
+            tbxDesignation4 = new Guna.UI2.WinForms.Guna2TextBox();
+            tbxReference4 = new Guna.UI2.WinForms.Guna2TextBox();
+            tbxPUHT4 = new Guna.UI2.WinForms.Guna2TextBox();
+            label36 = new Label();
+            label37 = new Label();
+            label38 = new Label();
+            tbxMontantTVA4 = new Guna.UI2.WinForms.Guna2TextBox();
+            tbxTVA4 = new Guna.UI2.WinForms.Guna2TextBox();
+            label39 = new Label();
+            label40 = new Label();
+            tbxMontant4 = new Guna.UI2.WinForms.Guna2TextBox();
             gbxAssure.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             gbxpatient.SuspendLayout();
@@ -224,6 +261,9 @@
             pnlProduit2.SuspendLayout();
             PnlProduit1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            PnlProduit4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDesignation4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProduit4).BeginInit();
             SuspendLayout();
             // 
             // lblInscription
@@ -1093,6 +1133,7 @@
             gbxProduit.BackColor = Color.White;
             gbxProduit.BorderColor = Color.GhostWhite;
             gbxProduit.BorderRadius = 7;
+            gbxProduit.Controls.Add(PnlProduit4);
             gbxProduit.Controls.Add(button4);
             gbxProduit.Controls.Add(button5);
             gbxProduit.Controls.Add(pnlProduit3);
@@ -1100,12 +1141,12 @@
             gbxProduit.Controls.Add(PnlProduit1);
             gbxProduit.Controls.Add(pictureBox4);
             gbxProduit.CustomBorderColor = Color.FromArgb(230, 230, 245);
-            gbxProduit.CustomizableEdges = customizableEdges85;
+            gbxProduit.CustomizableEdges = customizableEdges99;
             gbxProduit.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbxProduit.ForeColor = Color.FromArgb(60, 75, 94);
             gbxProduit.Location = new Point(11, 692);
             gbxProduit.Name = "gbxProduit";
-            gbxProduit.ShadowDecoration.CustomizableEdges = customizableEdges86;
+            gbxProduit.ShadowDecoration.CustomizableEdges = customizableEdges100;
             gbxProduit.Size = new Size(766, 288);
             gbxProduit.TabIndex = 94;
             gbxProduit.Text = "Produit";
@@ -1171,7 +1212,7 @@
             tbxQuantity3.BorderColor = Color.Black;
             tbxQuantity3.BorderRadius = 6;
             tbxQuantity3.Cursor = Cursors.IBeam;
-            tbxQuantity3.CustomizableEdges = customizableEdges43;
+            tbxQuantity3.CustomizableEdges = customizableEdges57;
             tbxQuantity3.DefaultText = "";
             tbxQuantity3.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxQuantity3.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1187,7 +1228,7 @@
             tbxQuantity3.PlaceholderText = "";
             tbxQuantity3.ReadOnly = true;
             tbxQuantity3.SelectedText = "";
-            tbxQuantity3.ShadowDecoration.CustomizableEdges = customizableEdges44;
+            tbxQuantity3.ShadowDecoration.CustomizableEdges = customizableEdges58;
             tbxQuantity3.Size = new Size(80, 37);
             tbxQuantity3.TabIndex = 73;
             // 
@@ -1209,7 +1250,7 @@
             tbxDesignation3.BorderColor = Color.Black;
             tbxDesignation3.BorderRadius = 6;
             tbxDesignation3.Cursor = Cursors.IBeam;
-            tbxDesignation3.CustomizableEdges = customizableEdges45;
+            tbxDesignation3.CustomizableEdges = customizableEdges59;
             tbxDesignation3.DefaultText = "";
             tbxDesignation3.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxDesignation3.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1225,7 +1266,7 @@
             tbxDesignation3.PlaceholderText = "";
             tbxDesignation3.ReadOnly = true;
             tbxDesignation3.SelectedText = "";
-            tbxDesignation3.ShadowDecoration.CustomizableEdges = customizableEdges46;
+            tbxDesignation3.ShadowDecoration.CustomizableEdges = customizableEdges60;
             tbxDesignation3.Size = new Size(461, 37);
             tbxDesignation3.TabIndex = 76;
             // 
@@ -1235,7 +1276,7 @@
             tbxReference3.BorderColor = Color.Black;
             tbxReference3.BorderRadius = 6;
             tbxReference3.Cursor = Cursors.IBeam;
-            tbxReference3.CustomizableEdges = customizableEdges47;
+            tbxReference3.CustomizableEdges = customizableEdges61;
             tbxReference3.DefaultText = "";
             tbxReference3.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxReference3.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1251,7 +1292,7 @@
             tbxReference3.PlaceholderText = "";
             tbxReference3.ReadOnly = true;
             tbxReference3.SelectedText = "";
-            tbxReference3.ShadowDecoration.CustomizableEdges = customizableEdges48;
+            tbxReference3.ShadowDecoration.CustomizableEdges = customizableEdges62;
             tbxReference3.Size = new Size(256, 37);
             tbxReference3.TabIndex = 3;
             // 
@@ -1261,7 +1302,7 @@
             tbxPUHT3.BorderColor = Color.Black;
             tbxPUHT3.BorderRadius = 6;
             tbxPUHT3.Cursor = Cursors.IBeam;
-            tbxPUHT3.CustomizableEdges = customizableEdges49;
+            tbxPUHT3.CustomizableEdges = customizableEdges63;
             tbxPUHT3.DefaultText = "";
             tbxPUHT3.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxPUHT3.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1277,7 +1318,7 @@
             tbxPUHT3.PlaceholderText = "";
             tbxPUHT3.ReadOnly = true;
             tbxPUHT3.SelectedText = "";
-            tbxPUHT3.ShadowDecoration.CustomizableEdges = customizableEdges50;
+            tbxPUHT3.ShadowDecoration.CustomizableEdges = customizableEdges64;
             tbxPUHT3.Size = new Size(256, 37);
             tbxPUHT3.TabIndex = 78;
             // 
@@ -1323,7 +1364,7 @@
             tbxMontantTVA3.BorderColor = Color.Black;
             tbxMontantTVA3.BorderRadius = 6;
             tbxMontantTVA3.Cursor = Cursors.IBeam;
-            tbxMontantTVA3.CustomizableEdges = customizableEdges51;
+            tbxMontantTVA3.CustomizableEdges = customizableEdges65;
             tbxMontantTVA3.DefaultText = "";
             tbxMontantTVA3.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxMontantTVA3.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1339,7 +1380,7 @@
             tbxMontantTVA3.PlaceholderText = "";
             tbxMontantTVA3.ReadOnly = true;
             tbxMontantTVA3.SelectedText = "";
-            tbxMontantTVA3.ShadowDecoration.CustomizableEdges = customizableEdges52;
+            tbxMontantTVA3.ShadowDecoration.CustomizableEdges = customizableEdges66;
             tbxMontantTVA3.Size = new Size(256, 37);
             tbxMontantTVA3.TabIndex = 84;
             // 
@@ -1349,7 +1390,7 @@
             tbxTVA3.BorderColor = Color.Black;
             tbxTVA3.BorderRadius = 6;
             tbxTVA3.Cursor = Cursors.IBeam;
-            tbxTVA3.CustomizableEdges = customizableEdges53;
+            tbxTVA3.CustomizableEdges = customizableEdges67;
             tbxTVA3.DefaultText = "";
             tbxTVA3.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxTVA3.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1365,7 +1406,7 @@
             tbxTVA3.PlaceholderText = "";
             tbxTVA3.ReadOnly = true;
             tbxTVA3.SelectedText = "";
-            tbxTVA3.ShadowDecoration.CustomizableEdges = customizableEdges54;
+            tbxTVA3.ShadowDecoration.CustomizableEdges = customizableEdges68;
             tbxTVA3.Size = new Size(80, 37);
             tbxTVA3.TabIndex = 80;
             // 
@@ -1399,7 +1440,7 @@
             tbxMontant3.BorderColor = Color.Black;
             tbxMontant3.BorderRadius = 6;
             tbxMontant3.Cursor = Cursors.IBeam;
-            tbxMontant3.CustomizableEdges = customizableEdges55;
+            tbxMontant3.CustomizableEdges = customizableEdges69;
             tbxMontant3.DefaultText = "";
             tbxMontant3.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxMontant3.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1415,7 +1456,7 @@
             tbxMontant3.PlaceholderText = "";
             tbxMontant3.ReadOnly = true;
             tbxMontant3.SelectedText = "";
-            tbxMontant3.ShadowDecoration.CustomizableEdges = customizableEdges56;
+            tbxMontant3.ShadowDecoration.CustomizableEdges = customizableEdges70;
             tbxMontant3.Size = new Size(256, 37);
             tbxMontant3.TabIndex = 82;
             // 
@@ -1458,7 +1499,7 @@
             tbxQuantity2.BorderColor = Color.Black;
             tbxQuantity2.BorderRadius = 6;
             tbxQuantity2.Cursor = Cursors.IBeam;
-            tbxQuantity2.CustomizableEdges = customizableEdges57;
+            tbxQuantity2.CustomizableEdges = customizableEdges71;
             tbxQuantity2.DefaultText = "";
             tbxQuantity2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxQuantity2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1474,7 +1515,7 @@
             tbxQuantity2.PlaceholderText = "";
             tbxQuantity2.ReadOnly = true;
             tbxQuantity2.SelectedText = "";
-            tbxQuantity2.ShadowDecoration.CustomizableEdges = customizableEdges58;
+            tbxQuantity2.ShadowDecoration.CustomizableEdges = customizableEdges72;
             tbxQuantity2.Size = new Size(80, 37);
             tbxQuantity2.TabIndex = 73;
             // 
@@ -1496,7 +1537,7 @@
             tbxDesignation2.BorderColor = Color.Black;
             tbxDesignation2.BorderRadius = 6;
             tbxDesignation2.Cursor = Cursors.IBeam;
-            tbxDesignation2.CustomizableEdges = customizableEdges59;
+            tbxDesignation2.CustomizableEdges = customizableEdges73;
             tbxDesignation2.DefaultText = "";
             tbxDesignation2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxDesignation2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1512,7 +1553,7 @@
             tbxDesignation2.PlaceholderText = "";
             tbxDesignation2.ReadOnly = true;
             tbxDesignation2.SelectedText = "";
-            tbxDesignation2.ShadowDecoration.CustomizableEdges = customizableEdges60;
+            tbxDesignation2.ShadowDecoration.CustomizableEdges = customizableEdges74;
             tbxDesignation2.Size = new Size(461, 37);
             tbxDesignation2.TabIndex = 76;
             // 
@@ -1522,7 +1563,7 @@
             tbxReference2.BorderColor = Color.Black;
             tbxReference2.BorderRadius = 6;
             tbxReference2.Cursor = Cursors.IBeam;
-            tbxReference2.CustomizableEdges = customizableEdges61;
+            tbxReference2.CustomizableEdges = customizableEdges75;
             tbxReference2.DefaultText = "";
             tbxReference2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxReference2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1538,7 +1579,7 @@
             tbxReference2.PlaceholderText = "";
             tbxReference2.ReadOnly = true;
             tbxReference2.SelectedText = "";
-            tbxReference2.ShadowDecoration.CustomizableEdges = customizableEdges62;
+            tbxReference2.ShadowDecoration.CustomizableEdges = customizableEdges76;
             tbxReference2.Size = new Size(256, 37);
             tbxReference2.TabIndex = 3;
             // 
@@ -1548,7 +1589,7 @@
             tbxPUHT2.BorderColor = Color.Black;
             tbxPUHT2.BorderRadius = 6;
             tbxPUHT2.Cursor = Cursors.IBeam;
-            tbxPUHT2.CustomizableEdges = customizableEdges63;
+            tbxPUHT2.CustomizableEdges = customizableEdges77;
             tbxPUHT2.DefaultText = "";
             tbxPUHT2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxPUHT2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1564,7 +1605,7 @@
             tbxPUHT2.PlaceholderText = "";
             tbxPUHT2.ReadOnly = true;
             tbxPUHT2.SelectedText = "";
-            tbxPUHT2.ShadowDecoration.CustomizableEdges = customizableEdges64;
+            tbxPUHT2.ShadowDecoration.CustomizableEdges = customizableEdges78;
             tbxPUHT2.Size = new Size(256, 37);
             tbxPUHT2.TabIndex = 78;
             // 
@@ -1610,7 +1651,7 @@
             tbxMontantTVA2.BorderColor = Color.Black;
             tbxMontantTVA2.BorderRadius = 6;
             tbxMontantTVA2.Cursor = Cursors.IBeam;
-            tbxMontantTVA2.CustomizableEdges = customizableEdges65;
+            tbxMontantTVA2.CustomizableEdges = customizableEdges79;
             tbxMontantTVA2.DefaultText = "";
             tbxMontantTVA2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxMontantTVA2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1626,7 +1667,7 @@
             tbxMontantTVA2.PlaceholderText = "";
             tbxMontantTVA2.ReadOnly = true;
             tbxMontantTVA2.SelectedText = "";
-            tbxMontantTVA2.ShadowDecoration.CustomizableEdges = customizableEdges66;
+            tbxMontantTVA2.ShadowDecoration.CustomizableEdges = customizableEdges80;
             tbxMontantTVA2.Size = new Size(256, 37);
             tbxMontantTVA2.TabIndex = 84;
             // 
@@ -1636,7 +1677,7 @@
             tbxTVA2.BorderColor = Color.Black;
             tbxTVA2.BorderRadius = 6;
             tbxTVA2.Cursor = Cursors.IBeam;
-            tbxTVA2.CustomizableEdges = customizableEdges67;
+            tbxTVA2.CustomizableEdges = customizableEdges81;
             tbxTVA2.DefaultText = "";
             tbxTVA2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxTVA2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1652,7 +1693,7 @@
             tbxTVA2.PlaceholderText = "";
             tbxTVA2.ReadOnly = true;
             tbxTVA2.SelectedText = "";
-            tbxTVA2.ShadowDecoration.CustomizableEdges = customizableEdges68;
+            tbxTVA2.ShadowDecoration.CustomizableEdges = customizableEdges82;
             tbxTVA2.Size = new Size(80, 37);
             tbxTVA2.TabIndex = 80;
             // 
@@ -1686,7 +1727,7 @@
             tbxMontant2.BorderColor = Color.Black;
             tbxMontant2.BorderRadius = 6;
             tbxMontant2.Cursor = Cursors.IBeam;
-            tbxMontant2.CustomizableEdges = customizableEdges69;
+            tbxMontant2.CustomizableEdges = customizableEdges83;
             tbxMontant2.DefaultText = "";
             tbxMontant2.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxMontant2.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1702,7 +1743,7 @@
             tbxMontant2.PlaceholderText = "";
             tbxMontant2.ReadOnly = true;
             tbxMontant2.SelectedText = "";
-            tbxMontant2.ShadowDecoration.CustomizableEdges = customizableEdges70;
+            tbxMontant2.ShadowDecoration.CustomizableEdges = customizableEdges84;
             tbxMontant2.Size = new Size(256, 37);
             tbxMontant2.TabIndex = 82;
             // 
@@ -1733,7 +1774,7 @@
             tbxMontant.BorderColor = Color.Black;
             tbxMontant.BorderRadius = 6;
             tbxMontant.Cursor = Cursors.IBeam;
-            tbxMontant.CustomizableEdges = customizableEdges71;
+            tbxMontant.CustomizableEdges = customizableEdges85;
             tbxMontant.DefaultText = "";
             tbxMontant.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxMontant.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1749,7 +1790,7 @@
             tbxMontant.PlaceholderText = "";
             tbxMontant.ReadOnly = true;
             tbxMontant.SelectedText = "";
-            tbxMontant.ShadowDecoration.CustomizableEdges = customizableEdges72;
+            tbxMontant.ShadowDecoration.CustomizableEdges = customizableEdges86;
             tbxMontant.Size = new Size(256, 37);
             tbxMontant.TabIndex = 82;
             // 
@@ -1771,7 +1812,7 @@
             tbxQuantity.BorderColor = Color.Black;
             tbxQuantity.BorderRadius = 6;
             tbxQuantity.Cursor = Cursors.IBeam;
-            tbxQuantity.CustomizableEdges = customizableEdges73;
+            tbxQuantity.CustomizableEdges = customizableEdges87;
             tbxQuantity.DefaultText = "";
             tbxQuantity.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxQuantity.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1787,7 +1828,7 @@
             tbxQuantity.PlaceholderText = "";
             tbxQuantity.ReadOnly = true;
             tbxQuantity.SelectedText = "";
-            tbxQuantity.ShadowDecoration.CustomizableEdges = customizableEdges74;
+            tbxQuantity.ShadowDecoration.CustomizableEdges = customizableEdges88;
             tbxQuantity.Size = new Size(80, 37);
             tbxQuantity.TabIndex = 73;
             // 
@@ -1809,7 +1850,7 @@
             tbxDesignation.BorderColor = Color.Black;
             tbxDesignation.BorderRadius = 6;
             tbxDesignation.Cursor = Cursors.IBeam;
-            tbxDesignation.CustomizableEdges = customizableEdges75;
+            tbxDesignation.CustomizableEdges = customizableEdges89;
             tbxDesignation.DefaultText = "";
             tbxDesignation.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxDesignation.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1825,7 +1866,7 @@
             tbxDesignation.PlaceholderText = "";
             tbxDesignation.ReadOnly = true;
             tbxDesignation.SelectedText = "";
-            tbxDesignation.ShadowDecoration.CustomizableEdges = customizableEdges76;
+            tbxDesignation.ShadowDecoration.CustomizableEdges = customizableEdges90;
             tbxDesignation.Size = new Size(460, 37);
             tbxDesignation.TabIndex = 76;
             // 
@@ -1835,7 +1876,7 @@
             tbxReference.BorderColor = Color.Black;
             tbxReference.BorderRadius = 6;
             tbxReference.Cursor = Cursors.IBeam;
-            tbxReference.CustomizableEdges = customizableEdges77;
+            tbxReference.CustomizableEdges = customizableEdges91;
             tbxReference.DefaultText = "";
             tbxReference.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxReference.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1851,7 +1892,7 @@
             tbxReference.PlaceholderText = "";
             tbxReference.ReadOnly = true;
             tbxReference.SelectedText = "";
-            tbxReference.ShadowDecoration.CustomizableEdges = customizableEdges78;
+            tbxReference.ShadowDecoration.CustomizableEdges = customizableEdges92;
             tbxReference.Size = new Size(256, 37);
             tbxReference.TabIndex = 3;
             // 
@@ -1861,7 +1902,7 @@
             tbxPUHT.BorderColor = Color.Black;
             tbxPUHT.BorderRadius = 6;
             tbxPUHT.Cursor = Cursors.IBeam;
-            tbxPUHT.CustomizableEdges = customizableEdges79;
+            tbxPUHT.CustomizableEdges = customizableEdges93;
             tbxPUHT.DefaultText = "";
             tbxPUHT.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxPUHT.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1877,7 +1918,7 @@
             tbxPUHT.PlaceholderText = "";
             tbxPUHT.ReadOnly = true;
             tbxPUHT.SelectedText = "";
-            tbxPUHT.ShadowDecoration.CustomizableEdges = customizableEdges80;
+            tbxPUHT.ShadowDecoration.CustomizableEdges = customizableEdges94;
             tbxPUHT.Size = new Size(256, 37);
             tbxPUHT.TabIndex = 78;
             // 
@@ -1923,7 +1964,7 @@
             tbxTVAMontant.BorderColor = Color.Black;
             tbxTVAMontant.BorderRadius = 6;
             tbxTVAMontant.Cursor = Cursors.IBeam;
-            tbxTVAMontant.CustomizableEdges = customizableEdges81;
+            tbxTVAMontant.CustomizableEdges = customizableEdges95;
             tbxTVAMontant.DefaultText = "";
             tbxTVAMontant.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxTVAMontant.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1939,7 +1980,7 @@
             tbxTVAMontant.PlaceholderText = "";
             tbxTVAMontant.ReadOnly = true;
             tbxTVAMontant.SelectedText = "";
-            tbxTVAMontant.ShadowDecoration.CustomizableEdges = customizableEdges82;
+            tbxTVAMontant.ShadowDecoration.CustomizableEdges = customizableEdges96;
             tbxTVAMontant.Size = new Size(256, 37);
             tbxTVAMontant.TabIndex = 84;
             // 
@@ -1949,7 +1990,7 @@
             tbxTVA.BorderColor = Color.Black;
             tbxTVA.BorderRadius = 6;
             tbxTVA.Cursor = Cursors.IBeam;
-            tbxTVA.CustomizableEdges = customizableEdges83;
+            tbxTVA.CustomizableEdges = customizableEdges97;
             tbxTVA.DefaultText = "";
             tbxTVA.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             tbxTVA.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -1965,7 +2006,7 @@
             tbxTVA.PlaceholderText = "";
             tbxTVA.ReadOnly = true;
             tbxTVA.SelectedText = "";
-            tbxTVA.ShadowDecoration.CustomizableEdges = customizableEdges84;
+            tbxTVA.ShadowDecoration.CustomizableEdges = customizableEdges98;
             tbxTVA.Size = new Size(80, 37);
             tbxTVA.TabIndex = 80;
             // 
@@ -2018,6 +2059,406 @@
             lblNumero.TabIndex = 96;
             lblNumero.Text = "----";
             // 
+            // PnlProduit4
+            // 
+            PnlProduit4.Controls.Add(dgvDesignation4);
+            PnlProduit4.Controls.Add(label34);
+            PnlProduit4.Controls.Add(tbxQuantity4);
+            PnlProduit4.Controls.Add(dgvProduit4);
+            PnlProduit4.Controls.Add(label35);
+            PnlProduit4.Controls.Add(tbxDesignation4);
+            PnlProduit4.Controls.Add(tbxReference4);
+            PnlProduit4.Controls.Add(tbxPUHT4);
+            PnlProduit4.Controls.Add(label36);
+            PnlProduit4.Controls.Add(label37);
+            PnlProduit4.Controls.Add(label38);
+            PnlProduit4.Controls.Add(tbxMontantTVA4);
+            PnlProduit4.Controls.Add(tbxTVA4);
+            PnlProduit4.Controls.Add(label39);
+            PnlProduit4.Controls.Add(label40);
+            PnlProduit4.Controls.Add(tbxMontant4);
+            PnlProduit4.Location = new Point(0, 778);
+            PnlProduit4.Name = "PnlProduit4";
+            PnlProduit4.Size = new Size(742, 242);
+            PnlProduit4.TabIndex = 98;
+            // 
+            // dgvDesignation4
+            // 
+            dgvDesignation4.AllowUserToAddRows = false;
+            dgvDesignation4.AllowUserToDeleteRows = false;
+            dgvDesignation4.AllowUserToOrderColumns = true;
+            dgvDesignation4.AllowUserToResizeColumns = false;
+            dgvDesignation4.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dgvDesignation4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvDesignation4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvDesignation4.ColumnHeadersHeight = 4;
+            dgvDesignation4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(60, 75, 94);
+            dataGridViewCellStyle3.SelectionBackColor = Color.CornflowerBlue;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvDesignation4.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvDesignation4.GridColor = Color.White;
+            dgvDesignation4.Location = new Point(279, 68);
+            dgvDesignation4.Name = "dgvDesignation4";
+            dgvDesignation4.ReadOnly = true;
+            dgvDesignation4.RowHeadersVisible = false;
+            dgvDesignation4.RowHeadersWidth = 51;
+            dgvDesignation4.RowTemplate.Height = 24;
+            dgvDesignation4.Size = new Size(460, 166);
+            dgvDesignation4.TabIndex = 88;
+            dgvDesignation4.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            dgvDesignation4.ThemeStyle.AlternatingRowsStyle.Font = null;
+            dgvDesignation4.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            dgvDesignation4.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            dgvDesignation4.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            dgvDesignation4.ThemeStyle.BackColor = Color.White;
+            dgvDesignation4.ThemeStyle.GridColor = Color.White;
+            dgvDesignation4.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            dgvDesignation4.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvDesignation4.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dgvDesignation4.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dgvDesignation4.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dgvDesignation4.ThemeStyle.HeaderStyle.Height = 4;
+            dgvDesignation4.ThemeStyle.ReadOnly = true;
+            dgvDesignation4.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dgvDesignation4.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvDesignation4.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dgvDesignation4.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(60, 75, 94);
+            dgvDesignation4.ThemeStyle.RowsStyle.Height = 24;
+            dgvDesignation4.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dgvDesignation4.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dgvDesignation4.Visible = false;
+            // 
+            // label34
+            // 
+            label34.AutoSize = true;
+            label34.BackColor = Color.White;
+            label34.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label34.ForeColor = Color.Black;
+            label34.Location = new Point(3, 1);
+            label34.Name = "label34";
+            label34.Size = new Size(103, 25);
+            label34.TabIndex = 1;
+            label34.Text = "Référence :";
+            // 
+            // tbxQuantity4
+            // 
+            tbxQuantity4.BackColor = Color.White;
+            tbxQuantity4.BorderColor = Color.Black;
+            tbxQuantity4.BorderRadius = 6;
+            tbxQuantity4.Cursor = Cursors.IBeam;
+            tbxQuantity4.CustomizableEdges = customizableEdges43;
+            tbxQuantity4.DefaultText = "";
+            tbxQuantity4.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbxQuantity4.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbxQuantity4.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbxQuantity4.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbxQuantity4.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbxQuantity4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxQuantity4.ForeColor = Color.FromArgb(64, 64, 64);
+            tbxQuantity4.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbxQuantity4.Location = new Point(296, 110);
+            tbxQuantity4.Margin = new Padding(3, 4, 3, 4);
+            tbxQuantity4.Name = "tbxQuantity4";
+            tbxQuantity4.PlaceholderText = "";
+            tbxQuantity4.SelectedText = "";
+            tbxQuantity4.ShadowDecoration.CustomizableEdges = customizableEdges44;
+            tbxQuantity4.Size = new Size(80, 37);
+            tbxQuantity4.TabIndex = 73;
+            // 
+            // dgvProduit4
+            // 
+            dgvProduit4.AllowUserToAddRows = false;
+            dgvProduit4.AllowUserToDeleteRows = false;
+            dgvProduit4.AllowUserToOrderColumns = true;
+            dgvProduit4.AllowUserToResizeColumns = false;
+            dgvProduit4.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dgvProduit4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvProduit4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dgvProduit4.ColumnHeadersHeight = 4;
+            dgvProduit4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(60, 75, 94);
+            dataGridViewCellStyle6.SelectionBackColor = Color.CornflowerBlue;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgvProduit4.DefaultCellStyle = dataGridViewCellStyle6;
+            dgvProduit4.GridColor = Color.White;
+            dgvProduit4.Location = new Point(8, 68);
+            dgvProduit4.Name = "dgvProduit4";
+            dgvProduit4.ReadOnly = true;
+            dgvProduit4.RowHeadersVisible = false;
+            dgvProduit4.RowHeadersWidth = 51;
+            dgvProduit4.RowTemplate.Height = 24;
+            dgvProduit4.Size = new Size(256, 155);
+            dgvProduit4.TabIndex = 87;
+            dgvProduit4.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            dgvProduit4.ThemeStyle.AlternatingRowsStyle.Font = null;
+            dgvProduit4.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            dgvProduit4.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            dgvProduit4.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            dgvProduit4.ThemeStyle.BackColor = Color.White;
+            dgvProduit4.ThemeStyle.GridColor = Color.White;
+            dgvProduit4.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            dgvProduit4.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvProduit4.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dgvProduit4.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dgvProduit4.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dgvProduit4.ThemeStyle.HeaderStyle.Height = 4;
+            dgvProduit4.ThemeStyle.ReadOnly = true;
+            dgvProduit4.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dgvProduit4.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvProduit4.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dgvProduit4.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(60, 75, 94);
+            dgvProduit4.ThemeStyle.RowsStyle.Height = 24;
+            dgvProduit4.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dgvProduit4.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dgvProduit4.Visible = false;
+            // 
+            // label35
+            // 
+            label35.AutoSize = true;
+            label35.BackColor = Color.White;
+            label35.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label35.ForeColor = Color.Black;
+            label35.Location = new Point(291, 78);
+            label35.Name = "label35";
+            label35.Size = new Size(85, 25);
+            label35.TabIndex = 72;
+            label35.Text = "Quantity";
+            // 
+            // tbxDesignation4
+            // 
+            tbxDesignation4.BackColor = Color.White;
+            tbxDesignation4.BorderColor = Color.Black;
+            tbxDesignation4.BorderRadius = 6;
+            tbxDesignation4.Cursor = Cursors.IBeam;
+            tbxDesignation4.CustomizableEdges = customizableEdges45;
+            tbxDesignation4.DefaultText = "";
+            tbxDesignation4.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbxDesignation4.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbxDesignation4.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbxDesignation4.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbxDesignation4.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbxDesignation4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxDesignation4.ForeColor = Color.FromArgb(64, 64, 64);
+            tbxDesignation4.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbxDesignation4.Location = new Point(279, 30);
+            tbxDesignation4.Margin = new Padding(3, 4, 3, 4);
+            tbxDesignation4.Name = "tbxDesignation4";
+            tbxDesignation4.PlaceholderText = "";
+            tbxDesignation4.SelectedText = "";
+            tbxDesignation4.ShadowDecoration.CustomizableEdges = customizableEdges46;
+            tbxDesignation4.Size = new Size(460, 37);
+            tbxDesignation4.TabIndex = 76;
+            // 
+            // tbxReference4
+            // 
+            tbxReference4.BackColor = Color.White;
+            tbxReference4.BorderColor = Color.Black;
+            tbxReference4.BorderRadius = 6;
+            tbxReference4.Cursor = Cursors.IBeam;
+            tbxReference4.CustomizableEdges = customizableEdges47;
+            tbxReference4.DefaultText = "";
+            tbxReference4.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbxReference4.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbxReference4.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbxReference4.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbxReference4.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbxReference4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxReference4.ForeColor = Color.FromArgb(64, 64, 64);
+            tbxReference4.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbxReference4.Location = new Point(8, 30);
+            tbxReference4.Margin = new Padding(3, 4, 3, 4);
+            tbxReference4.Name = "tbxReference4";
+            tbxReference4.PlaceholderText = "";
+            tbxReference4.SelectedText = "";
+            tbxReference4.ShadowDecoration.CustomizableEdges = customizableEdges48;
+            tbxReference4.Size = new Size(256, 37);
+            tbxReference4.TabIndex = 3;
+            // 
+            // tbxPUHT4
+            // 
+            tbxPUHT4.BackColor = Color.White;
+            tbxPUHT4.BorderColor = Color.Black;
+            tbxPUHT4.BorderRadius = 6;
+            tbxPUHT4.Cursor = Cursors.IBeam;
+            tbxPUHT4.CustomizableEdges = customizableEdges49;
+            tbxPUHT4.DefaultText = "";
+            tbxPUHT4.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbxPUHT4.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbxPUHT4.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbxPUHT4.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbxPUHT4.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbxPUHT4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxPUHT4.ForeColor = Color.FromArgb(64, 64, 64);
+            tbxPUHT4.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbxPUHT4.Location = new Point(12, 110);
+            tbxPUHT4.Margin = new Padding(3, 4, 3, 4);
+            tbxPUHT4.Name = "tbxPUHT4";
+            tbxPUHT4.PlaceholderText = "";
+            tbxPUHT4.SelectedText = "";
+            tbxPUHT4.ShadowDecoration.CustomizableEdges = customizableEdges50;
+            tbxPUHT4.Size = new Size(256, 37);
+            tbxPUHT4.TabIndex = 78;
+            // 
+            // label36
+            // 
+            label36.AutoSize = true;
+            label36.BackColor = Color.White;
+            label36.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label36.ForeColor = Color.Black;
+            label36.Location = new Point(405, 157);
+            label36.Name = "label36";
+            label36.Size = new Size(144, 25);
+            label36.TabIndex = 83;
+            label36.Text = "TVA (Montant) :";
+            // 
+            // label37
+            // 
+            label37.AutoSize = true;
+            label37.BackColor = Color.White;
+            label37.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label37.ForeColor = Color.Black;
+            label37.Location = new Point(274, 1);
+            label37.Name = "label37";
+            label37.Size = new Size(127, 25);
+            label37.TabIndex = 12;
+            label37.Text = "Designation : ";
+            // 
+            // label38
+            // 
+            label38.AutoSize = true;
+            label38.BackColor = Color.White;
+            label38.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label38.ForeColor = Color.Black;
+            label38.Location = new Point(7, 78);
+            label38.Name = "label38";
+            label38.Size = new Size(83, 25);
+            label38.TabIndex = 77;
+            label38.Text = "P U H T :";
+            // 
+            // tbxMontantTVA4
+            // 
+            tbxMontantTVA4.BackColor = Color.White;
+            tbxMontantTVA4.BorderColor = Color.Black;
+            tbxMontantTVA4.BorderRadius = 6;
+            tbxMontantTVA4.Cursor = Cursors.IBeam;
+            tbxMontantTVA4.CustomizableEdges = customizableEdges51;
+            tbxMontantTVA4.DefaultText = "";
+            tbxMontantTVA4.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbxMontantTVA4.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbxMontantTVA4.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbxMontantTVA4.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbxMontantTVA4.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbxMontantTVA4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxMontantTVA4.ForeColor = Color.FromArgb(64, 64, 64);
+            tbxMontantTVA4.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbxMontantTVA4.Location = new Point(410, 186);
+            tbxMontantTVA4.Margin = new Padding(3, 4, 3, 4);
+            tbxMontantTVA4.Name = "tbxMontantTVA4";
+            tbxMontantTVA4.PlaceholderText = "";
+            tbxMontantTVA4.SelectedText = "";
+            tbxMontantTVA4.ShadowDecoration.CustomizableEdges = customizableEdges52;
+            tbxMontantTVA4.Size = new Size(256, 37);
+            tbxMontantTVA4.TabIndex = 84;
+            // 
+            // tbxTVA4
+            // 
+            tbxTVA4.BackColor = Color.White;
+            tbxTVA4.BorderColor = Color.Black;
+            tbxTVA4.BorderRadius = 6;
+            tbxTVA4.Cursor = Cursors.IBeam;
+            tbxTVA4.CustomizableEdges = customizableEdges53;
+            tbxTVA4.DefaultText = "";
+            tbxTVA4.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbxTVA4.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbxTVA4.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbxTVA4.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbxTVA4.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbxTVA4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxTVA4.ForeColor = Color.FromArgb(64, 64, 64);
+            tbxTVA4.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbxTVA4.Location = new Point(296, 186);
+            tbxTVA4.Margin = new Padding(3, 4, 3, 4);
+            tbxTVA4.Name = "tbxTVA4";
+            tbxTVA4.PlaceholderText = "";
+            tbxTVA4.SelectedText = "";
+            tbxTVA4.ShadowDecoration.CustomizableEdges = customizableEdges54;
+            tbxTVA4.Size = new Size(80, 37);
+            tbxTVA4.TabIndex = 80;
+            // 
+            // label39
+            // 
+            label39.AutoSize = true;
+            label39.BackColor = Color.White;
+            label39.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label39.ForeColor = Color.Black;
+            label39.Location = new Point(295, 157);
+            label39.Name = "label39";
+            label39.Size = new Size(81, 25);
+            label39.TabIndex = 79;
+            label39.Text = "TVA(%) :";
+            // 
+            // label40
+            // 
+            label40.AutoSize = true;
+            label40.BackColor = Color.White;
+            label40.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label40.ForeColor = Color.Black;
+            label40.Location = new Point(405, 78);
+            label40.Name = "label40";
+            label40.Size = new Size(94, 25);
+            label40.TabIndex = 81;
+            label40.Text = "Montant :";
+            // 
+            // tbxMontant4
+            // 
+            tbxMontant4.BackColor = Color.White;
+            tbxMontant4.BorderColor = Color.Black;
+            tbxMontant4.BorderRadius = 6;
+            tbxMontant4.Cursor = Cursors.IBeam;
+            tbxMontant4.CustomizableEdges = customizableEdges55;
+            tbxMontant4.DefaultText = "";
+            tbxMontant4.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbxMontant4.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbxMontant4.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbxMontant4.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbxMontant4.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbxMontant4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxMontant4.ForeColor = Color.FromArgb(64, 64, 64);
+            tbxMontant4.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbxMontant4.Location = new Point(410, 107);
+            tbxMontant4.Margin = new Padding(3, 4, 3, 4);
+            tbxMontant4.Name = "tbxMontant4";
+            tbxMontant4.PlaceholderText = "";
+            tbxMontant4.SelectedText = "";
+            tbxMontant4.ShadowDecoration.CustomizableEdges = customizableEdges56;
+            tbxMontant4.Size = new Size(256, 37);
+            tbxMontant4.TabIndex = 82;
+            // 
             // FormBonLivDetails
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
@@ -2063,6 +2504,10 @@
             PnlProduit1.ResumeLayout(false);
             PnlProduit1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            PnlProduit4.ResumeLayout(false);
+            PnlProduit4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDesignation4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvProduit4).EndInit();
             ResumeLayout(false);
             PerformLayout();
 
@@ -2166,5 +2611,22 @@
         private Guna.UI2.WinForms.Guna2TextBox tbxMontant;
         private PictureBox pictureBox4;
         private Label lblNumero;
+        private Panel PnlProduit4;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvDesignation4;
+        private Label label34;
+        private Guna.UI2.WinForms.Guna2TextBox tbxQuantity4;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvProduit4;
+        private Label label35;
+        private Guna.UI2.WinForms.Guna2TextBox tbxDesignation4;
+        private Guna.UI2.WinForms.Guna2TextBox tbxReference4;
+        private Guna.UI2.WinForms.Guna2TextBox tbxPUHT4;
+        private Label label36;
+        private Label label37;
+        private Label label38;
+        private Guna.UI2.WinForms.Guna2TextBox tbxMontantTVA4;
+        private Guna.UI2.WinForms.Guna2TextBox tbxTVA4;
+        private Label label39;
+        private Label label40;
+        private Guna.UI2.WinForms.Guna2TextBox tbxMontant4;
     }
 }

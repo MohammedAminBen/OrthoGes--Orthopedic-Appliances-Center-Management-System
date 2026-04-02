@@ -78,6 +78,7 @@ namespace OrthoGes_New_Version
             guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             PnlUtilisateur = new Guna.UI2.WinForms.Guna2Panel();
+            lblNomUtilisateur = new Label();
             button3 = new Button();
             picboxUtilisateur = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             pnlSideBar.SuspendLayout();
@@ -407,6 +408,7 @@ namespace OrthoGes_New_Version
             PnlUtilisateur.BorderColor = Color.CornflowerBlue;
             PnlUtilisateur.BorderRadius = 12;
             PnlUtilisateur.BorderThickness = 3;
+            PnlUtilisateur.Controls.Add(lblNomUtilisateur);
             PnlUtilisateur.Controls.Add(button3);
             PnlUtilisateur.Controls.Add(picboxUtilisateur);
             PnlUtilisateur.CustomizableEdges = customizableEdges29;
@@ -414,10 +416,22 @@ namespace OrthoGes_New_Version
             PnlUtilisateur.Location = new Point(1479, 54);
             PnlUtilisateur.Name = "PnlUtilisateur";
             PnlUtilisateur.ShadowDecoration.CustomizableEdges = customizableEdges30;
-            PnlUtilisateur.Size = new Size(190, 206);
+            PnlUtilisateur.Size = new Size(190, 249);
             PnlUtilisateur.TabIndex = 6;
             PnlUtilisateur.Visible = false;
             PnlUtilisateur.MouseDown += PnlUtilisateur_MouseDown;
+            // 
+            // lblNomUtilisateur
+            // 
+            lblNomUtilisateur.AutoSize = true;
+            lblNomUtilisateur.BackColor = Color.Transparent;
+            lblNomUtilisateur.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNomUtilisateur.ForeColor = Color.CornflowerBlue;
+            lblNomUtilisateur.Location = new Point(7, 144);
+            lblNomUtilisateur.Name = "lblNomUtilisateur";
+            lblNomUtilisateur.Size = new Size(177, 41);
+            lblNomUtilisateur.TabIndex = 32;
+            lblNomUtilisateur.Text = "Handicapia";
             // 
             // button3
             // 
@@ -428,7 +442,7 @@ namespace OrthoGes_New_Version
             button3.ForeColor = Color.Red;
             button3.Image = Properties.Resources.icons8_logout_48;
             button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(10, 149);
+            button3.Location = new Point(12, 189);
             button3.Name = "button3";
             button3.Size = new Size(164, 42);
             button3.TabIndex = 31;
@@ -444,7 +458,7 @@ namespace OrthoGes_New_Version
             picboxUtilisateur.Name = "picboxUtilisateur";
             picboxUtilisateur.ShadowDecoration.CustomizableEdges = customizableEdges28;
             picboxUtilisateur.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            picboxUtilisateur.Size = new Size(137, 136);
+            picboxUtilisateur.Size = new Size(137, 134);
             picboxUtilisateur.SizeMode = PictureBoxSizeMode.Zoom;
             picboxUtilisateur.TabIndex = 30;
             picboxUtilisateur.TabStop = false;
@@ -469,6 +483,7 @@ namespace OrthoGes_New_Version
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).EndInit();
             guna2Panel1.ResumeLayout(false);
             PnlUtilisateur.ResumeLayout(false);
+            PnlUtilisateur.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picboxUtilisateur).EndInit();
             ResumeLayout(false);
 
@@ -504,6 +519,7 @@ namespace OrthoGes_New_Version
         private Guna.UI2.WinForms.Guna2Button btnGestionCabinet;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button btnproduits;
+        private Label lblNomUtilisateur;
     }
 }
 

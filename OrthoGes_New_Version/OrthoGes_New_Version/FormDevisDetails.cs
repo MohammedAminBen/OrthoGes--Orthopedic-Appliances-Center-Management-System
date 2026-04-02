@@ -141,6 +141,18 @@ namespace OrthoGes_New_Version
                         tbxMontantTVA3.Text = devis.Produits[2].MontantTVA.ToString();
                         tbxTVA3.Text = devis.Produits[2].TVA.ToString();
                     }
+                    if(devis.Produits.Count > 3)
+                    {
+                        Produit p4 = Produit.FindByReference(devis.Produits[3].Reference);
+                        PnlProduit4.Visible = true;
+                        tbxReference4.Text = p4.Reference;
+                        tbxDesignation4.Text = p4.Nom_Produit;
+                        tbxPUHT4.Text = p4.Prix.ToString("F2");
+                        tbxQuantity4.Text = devis.Produits[3].Quantity.ToString();
+                        tbxMontant4.Text = (p4.Prix * devis.Produits[3].Quantity).ToString("F2");
+                        tbxMontantTVA4.Text = devis.Produits[3].MontantTVA.ToString();
+                        tbxTVA4.Text = devis.Produits[3].TVA.ToString();
+                    }
                 }
             }
 
@@ -153,10 +165,11 @@ namespace OrthoGes_New_Version
 
             pnlProduit3.Visible = false;
             pnlProduit2.Visible = false;
+            PnlProduit4.Visible = false;
 
-            LoadData();        
+            LoadData();
         }
-      
+
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -171,7 +184,7 @@ namespace OrthoGes_New_Version
         {
             QuestPDF.Settings.License = LicenseType.Community;
             produitsForPDF.Clear();
-            produitsForPDF.Add((tbxReference.Text,tbxDesignation.Text,tbxPUHT.Text,tbxQuantity.Text,tbxMontant.Text,tbxTVAMontant.Text,tbxTVA.Text));
+            produitsForPDF.Add((tbxReference.Text, tbxDesignation.Text, tbxPUHT.Text, tbxQuantity.Text, tbxMontant.Text, tbxTVAMontant.Text, tbxTVA.Text));
             if (pnlProduit2.Visible == true)
             {
                 if (tbxMontantTVA2 != null)
@@ -184,6 +197,13 @@ namespace OrthoGes_New_Version
                 if (tbxMontantTVA3 != null)
                 {
                     produitsForPDF.Add((tbxReference3.Text, tbxDesignation3.Text, tbxPUHT3.Text, tbxQuantity3.Text, tbxMontant3.Text, tbxMontantTVA3.Text, tbxTVA3.Text));
+                }
+            }
+            if(PnlProduit4.Visible == true)
+            {
+                if (tbxMontantTVA4 != null)
+                {
+                    produitsForPDF.Add((tbxReference4.Text, tbxDesignation4.Text, tbxPUHT4.Text, tbxQuantity4.Text, tbxMontant4.Text, tbxMontantTVA4.Text, tbxTVA4.Text));
                 }
             }
             Document document;
@@ -201,7 +221,7 @@ namespace OrthoGes_New_Version
                tbxCentrePayeurAssure.Text,
                tbxadresse.Text,
                tbxWilaya.Text,
-               tbxCommune.Text,produitsForPDF,
+               tbxCommune.Text, produitsForPDF,
                tbxTotale.Text,
                tbxDate.Text);
             }
@@ -219,7 +239,7 @@ namespace OrthoGes_New_Version
                 tbxCentrePayeurPatient.Text,
                 tbxadresse.Text,
                 tbxWilaya.Text,
-                tbxCommune.Text,produitsForPDF,
+                tbxCommune.Text, produitsForPDF,
                 tbxTotale.Text,
                 tbxDate.Text);
             }
@@ -246,6 +266,11 @@ namespace OrthoGes_New_Version
                 FileName = filePath,
                 UseShellExecute = true
             });
+        }
+
+        private void gbxProduit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

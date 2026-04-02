@@ -85,7 +85,7 @@ namespace DataLayer_
         public static bool GetProduitInfoByReference(
             string Reference_Produit,
             ref string Designation,
-            ref double Tarif,
+            ref decimal Tarif,
             ref int tva,
             ref double TarifTTC,
             ref int Quantity,
@@ -129,7 +129,7 @@ namespace DataLayer_
                             Designation = reader["Nom_Produit"]?.ToString();
                             Category_Nom = reader["Category_Nom"]?.ToString();
 
-                            Tarif = reader["Prix"] != DBNull.Value ? Convert.ToDouble(reader["Prix"]) : 0;
+                            Tarif = reader["Prix"] != DBNull.Value ? Convert.ToDecimal(reader["Prix"]) : 0;
                             TarifTTC = reader["Prix_TVA"] != DBNull.Value ? Convert.ToDouble(reader["Prix_TVA"]) : 0;
                             tva = reader["TVA"] != DBNull.Value ? Convert.ToInt32(reader["TVA"]) : 0;
                             Quantity = reader["Quantite"] != DBNull.Value ? Convert.ToInt32(reader["Quantite"]) : 0;
