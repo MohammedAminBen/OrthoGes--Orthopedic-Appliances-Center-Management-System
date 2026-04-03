@@ -43,7 +43,9 @@ namespace PDFTemplate
             Wilaya = wilaya.ToUpper();
             Commune = commune.ToUpper();
             Montant_TTC = Montant_ttc;
+            
             Date_Facture = datefacture;
+
             Produits = produits;
             Piece_Produit = piece;
             return Document.Create(container =>
@@ -67,11 +69,13 @@ namespace PDFTemplate
         private static string FormatMoney(string value)
         {
             if (decimal.TryParse(value, out var number))
-                return number.ToString("N2").Replace(",", " ");
+            {
+                var culture = new System.Globalization.CultureInfo("fr-FR");
+                return number.ToString("N2", culture);
+            }
 
-            return value; // fallback if parsing fails
+            return value;
         }
-
         // ===== HEADER =====
         private static void ComposeHeader(IContainer container)
         {
@@ -101,10 +105,25 @@ namespace PDFTemplate
 
                     });
                     // row.RelativeItem().AlignRight().Width(130).Height(130).Image(image);
-                    row.ConstantItem(150)
-                        .AlignRight()
-                        .Text($"DATE : {Date_Facture}")
-                        .Bold().FontFamily(Fonts.SegoeUI);
+                    if (Date_Facture != null && !string.IsNullOrWhiteSpace(Date_Facture.ToString()))
+                    {
+                        row.RelativeItem()
+                            .AlignRight()
+                            .Text($"DATE : {Date_Facture}")
+                            .Bold()
+                            .FontFamily(Fonts.SegoeUI);
+                    }
+                    else
+                    {
+                        // Reserve space with an empty text element of same height
+                        row.RelativeItem()
+                            .AlignRight()
+                            .Text("DATE :             .")
+                            .Bold()
+                            .FontFamily(Fonts.SegoeUI);
+                    }
+
+
                 });
 
                 col.Item()

@@ -54,7 +54,21 @@ namespace OrthoGes_New_Version
         {
             bon = Bon_Livraison.FindByNumeroBon(Numero_Bon);
             patient = Patient.FindByNumeroPatient(bon.Numero_Patient);
-            tbxDate.Text = bon.Date_Bon.ToString("d");
+            string bon_date;
+            if (bon.Date_Bon == new DateTime(1753, 1, 1))
+            {
+                bon_date = "";
+            }
+            else
+            {
+                bon_date = bon.Date_Bon.ToString("d");
+            }
+            if (patient == null)
+            {
+                MessageBox.Show("Error when trying to identify the patient");
+                return;
+            }
+            tbxDate.Text = bon_date;
             if (patient == null)
             {
                 MessageBox.Show("Error when trying to identify the patient");

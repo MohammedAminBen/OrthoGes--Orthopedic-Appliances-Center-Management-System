@@ -53,7 +53,14 @@ namespace OrthoGes_New_Version
             facture = Facture.FindByNumeroFacture(Numero_Facture);
             if (facture == null) { return; }
             patient = Patient.FindByNumeroPatient(facture.Numero_Patient);
-            tbxDate.Text = facture.Date_Facture.ToString("d");
+            if(facture.Date_Facture == new DateTime(1753, 1, 1))
+            {
+                tbxDate.Text = "";
+            }
+            else
+            {
+                tbxDate.Text = facture.Date_Facture.ToString("d");
+            }
             lblNumero.Text = Numero_Facture;
             if (patient == null)
             {

@@ -64,9 +64,12 @@ namespace PDFTemplate
         private static string FormatMoney(string value)
         {
             if (decimal.TryParse(value, out var number))
-                return number.ToString("N2").Replace(",", " ");
+            {
+                var culture = new System.Globalization.CultureInfo("fr-FR");
+                return number.ToString("N2", culture);
+            }
 
-            return value; // fallback if parsing fails
+            return value;
         }
 
         // ===== HEADER =====
@@ -95,10 +98,23 @@ namespace PDFTemplate
                         c.Item().PaddingTop(4).Text($"ADRESSE :{Global.centre.Adresse}").FontSize(12).FontFamily(Fonts.SegoeUI);
                     });
                     // row.RelativeItem().AlignRight().Width(130).Height(130).Image(image);
-                    row.ConstantItem(150)
-                        .AlignRight()
-                        .Text($"DATE : {Date_Facture}")
-                        .Bold().FontFamily(Fonts.SegoeUI);
+                    if (Date_Facture != null && !string.IsNullOrWhiteSpace(Date_Facture.ToString()))
+                    {
+                        row.RelativeItem()
+                            .AlignRight()
+                            .Text($"DATE : {Date_Facture}")
+                            .Bold()
+                            .FontFamily(Fonts.SegoeUI);
+                    }
+                    else
+                    {
+                        // Reserve space with an empty text element of same height
+                        row.RelativeItem ()
+                            .AlignRight()
+                            .Text("DATE :             .")
+                            .Bold()
+                            .FontFamily(Fonts.SegoeUI);
+                    }
                 });
 
                 col.Item()

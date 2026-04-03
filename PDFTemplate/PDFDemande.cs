@@ -136,9 +136,9 @@ public class PDFDemande
             lines.Add(remaining);
 
         // Add font-weight='bold' to the text element
-        sb.AppendLine($@"<text x='{xMm}mm' y='{yMm}mm' font-size='4mm' font-weight='bold'>");
+        sb.AppendLine($@"<text x='{xMm}mm' y='{yMm}mm' font-size='5.5mm' font-weight='bold'>");
 
-        double lineHeightMm = 5; // vertical spacing between lines
+        double lineHeightMm = 6; // vertical spacing between lines
         for (int i = 0; i < lines.Count; i++)
         {
             double yLine = yMm + i * lineHeightMm;

@@ -445,6 +445,16 @@ namespace OrthoGes_New_Version
                 produitsForPDF.Add((facture.Produits[3].Reference, p4.Nom_Produit, p4.Prix.ToString(), facture.Produits[3].Quantity.ToString(), (facture.Produits[3].Quantity * p4.Prix).ToString(), facture.Produits[3].MontantTVA.ToString(), facture.Produits[3].TVA.ToString()));
             }
             Document document;
+
+            string facture_date;
+            if (facture.Date_Facture == new DateTime(1753, 1, 1))
+            {
+                facture_date = "";
+            }
+            else
+            {
+                facture_date = facture.Date_Facture.ToString("d");
+            }
             document = PDFFacture.GenerateDocument(numerofacture,
            person.Nom,
            person.Prenom,
@@ -460,7 +470,7 @@ namespace OrthoGes_New_Version
            person.Commune,
            produitsForPDF,
            facture.Montant_TTC.ToString(),
-           facture.Date_Facture.ToString("d"));
+           facture_date);
 
             // ✅ Set save path
             string doc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -514,6 +524,21 @@ namespace OrthoGes_New_Version
                 produitsForPDF.Add((bon.Produits[3].Reference, p4.Nom_Produit, p4.Prix.ToString(), bon.Produits[3].Quantity.ToString(), (bon.Produits[3].Quantity * p4.Prix).ToString(), bon.Produits[3].MontantTVA.ToString(), bon.Produits[3].TVA.ToString()));
             } 
             Document document;
+
+            string bon_date;
+            if (bon.Date_Bon == new DateTime(1753, 1, 1))
+            {
+                bon_date = "";
+            }
+            else
+            {
+                bon_date = bon.Date_Bon.ToString("d");
+            }
+            if (patient == null)
+            {
+                MessageBox.Show("Error when trying to identify the patient");
+                return;
+            }
             document = PDFBon_Livraison.GenerateDocument(numeroBon,
            person.Nom,
            person.Prenom,
@@ -529,7 +554,7 @@ namespace OrthoGes_New_Version
            person.Commune,
            produitsForPDF,
            bon.Montant_TTC.ToString(),
-           bon.Date_Bon.ToString("d"),
+           bon_date,
            bon.PieceProduit);
 
             // ✅ Set save path
@@ -810,7 +835,14 @@ namespace OrthoGes_New_Version
             else if (dgvDocuments.CurrentRow.Cells[1].Value.ToString() == "Facture")
             {
                 Facture facture = Facture.FindByNumeroFacture(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
-                DateDemenande = facture.Date_Facture.ToString("d");
+                if (facture.Date_Facture == new DateTime(1753, 1, 1))
+                {
+                    DateDemenande = "";
+                }
+                else
+                {
+                    DateDemenande = facture.Date_Facture.ToString("d");
+                }
                 if (facture.Produits.Count >= 1)
                 {
                     Reference = facture.Produits[0].Reference;
@@ -842,7 +874,21 @@ namespace OrthoGes_New_Version
             else if (dgvDocuments.CurrentRow.Cells[1].Value.ToString() == "Bon de livraison")
             {
                 Bon_Livraison bon = Bon_Livraison.FindByNumeroBon(dgvDocuments.CurrentRow.Cells[2].Value.ToString());
-                DateDemenande = bon.Date_Bon.ToString("d");
+                string bon_date;
+                if (bon.Date_Bon == new DateTime(1753, 1, 1))
+                {
+                    bon_date = "";
+                }
+                else
+                {
+                    bon_date = bon.Date_Bon.ToString("d");
+                }
+                if (patient == null)
+                {
+                    MessageBox.Show("Error when trying to identify the patient");
+                    return;
+                }
+                DateDemenande = bon_date;
                 if (bon.Produits.Count >= 1)
                 {
                     Reference = bon.Produits[0].Reference;

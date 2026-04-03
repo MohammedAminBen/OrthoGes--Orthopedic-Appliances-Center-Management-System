@@ -419,8 +419,12 @@ namespace OrthoGes_New_Version
         {
             int Année = Produit.FindByReference(reference).Category_Delai_Année;
             int Mois = Produit.FindByReference(reference).Category_Delai_Mois;
-
+            if(tbxDate.Text == string.Empty)
+            {
+                return new DateTime(1753, 1, 1);
+            }
             DateTime dateDelai = (DateTime.Parse(tbxDate.Text)).AddYears(Année).AddMonths(Mois);
+            
             return dateDelai;
         }
         private void btnEnregistrer_Click(object sender, EventArgs e)
@@ -441,6 +445,21 @@ namespace OrthoGes_New_Version
             Produits.Clear();
             produitsForPDF.Clear();
             Produits.Add((tbxReference.Text, Convert.ToInt32(tbxQuantity.Text), Convert.ToDecimal(tbxTVAMontant.Text), Convert.ToDecimal(tbxMontant.Text) + Convert.ToDecimal(tbxTVAMontant.Text), int.Parse(tbxTVA.Text), GenerateDateDelai(tbxReference.Text)));
+
+            
+            DateTime dateFacture;
+
+            if (string.IsNullOrWhiteSpace(tbxDate.Text))
+            {
+                dateFacture = new DateTime(1753, 1, 1);
+            }
+            else if (!DateTime.TryParseExact(tbxDate.Text.Trim(), "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out dateFacture))
+            {
+                MessageBox.Show("Format de date invalide. Utilisez jj/MM/aaaa", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
             if (pnlProduit2.Visible == true)
             {
                 if (tbxMontantTVA2 != null)
@@ -465,17 +484,17 @@ namespace OrthoGes_New_Version
 
             if (patient.est_Assure == 1)
             {
-                result = Facture.CreateFacture(tbxNumFacture.Text, DateTime.Parse(tbxDate.Text), Numero_Patient, payement, cheque, Convert.ToDecimal(tbxTotale.Text), tbxCentrePayeurPatient.Text, Produits);
+                result = Facture.CreateFacture(tbxNumFacture.Text, dateFacture, Numero_Patient, payement, cheque, Convert.ToDecimal(tbxTotale.Text), tbxCentrePayeurPatient.Text, Produits);
             }
             else
             {
-                result = Facture.CreateFacture(tbxNumFacture.Text, DateTime.Parse(tbxDate.Text), Numero_Patient, payement, cheque, Convert.ToDecimal(tbxTotale.Text), tbxCentrePayeurAssure.Text, Produits);
+                result = Facture.CreateFacture(tbxNumFacture.Text,dateFacture, Numero_Patient, payement, cheque, Convert.ToDecimal(tbxTotale.Text), tbxCentrePayeurAssure.Text, Produits);
             }
             if (result != null)
             {
                 if (Utilisateur.AddActivité(Global.utilisateurActuel.Utilisateur_ID, $"Ajouter la facture {result} au système", "Ajout"))
                 {
-                    Recouvrement.CreateRecouvrement(result, DateTime.Parse(tbxDate.Text), Numero_Patient, Rpayement, Rcheque, patient.est_Assure == 1 ? tbxCentrePayeurPatient.Text : tbxCentrePayeurAssure.Text, Convert.ToDecimal(tbxTotale.Text));
+                    Recouvrement.CreateRecouvrement(result, dateFacture, Numero_Patient, Rpayement, Rcheque, patient.est_Assure == 1 ? tbxCentrePayeurPatient.Text : tbxCentrePayeurAssure.Text, Convert.ToDecimal(tbxTotale.Text));
                     MessageBox.Show("Facture a été créé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }

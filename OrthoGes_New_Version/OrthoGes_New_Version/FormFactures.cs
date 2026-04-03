@@ -443,6 +443,15 @@ namespace OrthoGes_New_Version
                 produitsForPDF.Add((facture.Produits[2].Reference, p3.Nom_Produit, p3.Prix.ToString(), facture.Produits[2].Quantity.ToString(), (facture.Produits[2].Quantity * p3.Prix).ToString(), facture.Produits[2].MontantTVA.ToString(), facture.Produits[2].TVA.ToString()));
             }
             Document document;
+            string facture_date;
+            if (facture.Date_Facture == new DateTime(1753, 1, 1))
+            {
+                facture_date = "";
+            }
+            else
+            {
+                facture_date = facture.Date_Facture.ToString("d");
+            }
             document = PDFFacture.GenerateDocument(numerofacture,
            person.Nom,
            person.Prenom,
@@ -458,7 +467,7 @@ namespace OrthoGes_New_Version
            person.Commune,
            produitsForPDF,
            facture.Montant_TTC.ToString(),
-           facture.Date_Facture.ToString("d"));
+           facture_date);
 
             // ✅ Set save path
             string doc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);

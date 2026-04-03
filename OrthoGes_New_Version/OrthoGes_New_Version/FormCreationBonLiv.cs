@@ -154,8 +154,15 @@ namespace OrthoGes_New_Version
                 tbxMontant.Text = (Produit.FindByReference(facture.Produits[0].Reference).Prix * facture.Produits[0].Quantity).ToString();
 
                 tbxPUHT.Text = Produit.FindByReference(facture.Produits[0].Reference).Prix.ToString("0.00");
-                tbxDate.Text = facture.Date_Facture.ToString("d");
 
+                if (facture.Date_Facture == new DateTime(1753, 1, 1))
+                {
+                    tbxDate.Text = "";
+                }
+                else
+                {
+                    tbxDate.Text = facture.Date_Facture.ToString("d");
+                }
                 tbxTVAMontant.Text = facture.Produits[0].MontantTVA.ToString();
                 dgvProduits.Visible = false;
                 dgvDesignation.Visible = false;
@@ -432,14 +439,25 @@ namespace OrthoGes_New_Version
                     Produits.Add((tbxReference4.Text, Convert.ToInt32(tbxQuantity4.Text), Convert.ToDecimal(tbxMontantTVA4.Text), Convert.ToDecimal(tbxMontant4.Text) + Convert.ToDecimal(tbxMontantTVA4.Text), int.Parse(tbxTVA4.Text)));
                 }
             }
+            DateTime dateBon;
+
+            if (string.IsNullOrWhiteSpace(tbxDate.Text))
+            {
+                dateBon = new DateTime(1753, 1, 1);
+            }
+            else if (!DateTime.TryParseExact(tbxDate.Text.Trim(), "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out dateBon))
+            {
+                MessageBox.Show("Format de date invalide. Utilisez jj/MM/aaaa", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             if (patient.est_Assure == 1)
             {
-                result = Bon_Livraison.CreateBonLiv(tbxNumBon.Text, DateTime.Parse(tbxDate.Text), Numero_Patient, tbxCentrePayeurPatient.Text, tbxPieceProduit.Text, Convert.ToDecimal(tbxTotale.Text), Produits);
+                result = Bon_Livraison.CreateBonLiv(tbxNumBon.Text,dateBon, Numero_Patient, tbxCentrePayeurPatient.Text, tbxPieceProduit.Text, Convert.ToDecimal(tbxTotale.Text), Produits);
             }
             else
             {
-                result = Bon_Livraison.CreateBonLiv(tbxNumBon.Text, DateTime.Parse(tbxDate.Text), Numero_Patient, tbxCentrePayeurPatient.Text, tbxPieceProduit.Text, Convert.ToDecimal(tbxTotale.Text), Produits);
+                result = Bon_Livraison.CreateBonLiv(tbxNumBon.Text,dateBon, Numero_Patient, tbxCentrePayeurPatient.Text, tbxPieceProduit.Text, Convert.ToDecimal(tbxTotale.Text), Produits);
             }
             if (result != null)
             {
