@@ -103,8 +103,10 @@ public class PDFDemande
         AddText(sb, DateNaissance ?? "", 49, 127);      // 4.9, 12.7
         AddText(sb, NomPrenomBenef ?? "", 45, 146);     // 4.5, 14.6
         AddText(sb, DateNaissanceBenef ?? "", 164, 145);// 16.4, 14.5
-        AddText(sb, Description ?? "", 20, 195, 180);   // maxWidth 160mm
         AddText(sb, DateActe ?? "", 43, 207);           // 4.3, 20.7
+
+        AddDescriptionText(sb, Description ?? "", 44, 189, 18, 195);
+
 
         sb.AppendLine("</svg>");
 
@@ -115,6 +117,7 @@ public class PDFDemande
     {
         if (string.IsNullOrWhiteSpace(text))
             return;
+
 
         string escaped = System.Security.SecurityElement.Escape(text);
 
@@ -147,5 +150,76 @@ public class PDFDemande
         }
 
         sb.AppendLine("</text>");
+    }
+
+    private static void AddDescriptionText(StringBuilder sb, string text, double firstLineX, double firstLineY, double restLinesX, double restLinesY, double maxWidthMm = 150)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+            return;
+
+        string escaped = System.Security.SecurityElement.Escape(text);
+
+        // Adjust these values based on your actual font size and page width
+        // For A4 page: usable width is about 190mm (210mm - margins)
+        double approxCharWidthMm = 1.8; // Reduced from 2.2 for better fit
+        int maxCharsPerLine = (int)(maxWidthMm / approxCharWidthMm);
+
+        // Split text into lines with better word wrapping
+        var lines = new List<string>();
+        string remaining = escaped;
+
+        while (remaining.Length > 0)
+        {
+            if (remaining.Length <= maxCharsPerLine)
+            {
+                lines.Add(remaining);
+                break;
+            }
+
+            // Find a good break point (space or punctuation)
+            int breakIndex = maxCharsPerLine;
+
+            // Look for space within the last 15 characters
+            int searchStart = Math.Max(0, maxCharsPerLine - 15);
+            int lastSpace = remaining.LastIndexOf(' ', maxCharsPerLine);
+            int lastPunctuation = Math.Max(
+                remaining.LastIndexOf(',', maxCharsPerLine),
+                remaining.LastIndexOf(';', maxCharsPerLine)
+            );
+
+            int breakPoint = Math.Max(lastSpace, lastPunctuation);
+
+            if (breakPoint > searchStart)
+            {
+                breakIndex = breakPoint;
+            }
+            else
+            {
+                // Force break at maxCharsPerLine if no good break point found
+                breakIndex = maxCharsPerLine;
+            }
+
+            lines.Add(remaining.Substring(0, breakIndex).Trim());
+            remaining = remaining.Substring(breakIndex).TrimStart();
+        }
+
+        if (lines.Count == 0)
+            return;
+
+        double lineHeightMm = 5.5; // Slightly reduced for better spacing
+
+        // First line at special position
+        sb.AppendLine($@"<text x='{firstLineX}mm' y='{firstLineY}mm' font-size='4.5mm' font-weight='bold'>");
+        sb.AppendLine($@"    <tspan x='{firstLineX}mm' y='{firstLineY}mm' font-weight='bold'>{lines[0]}</tspan>");
+        sb.AppendLine("</text>");
+
+        // Subsequent lines with indent
+        for (int i = 1; i < lines.Count; i++)
+        {
+            double yLine = restLinesY + (i - 1) * lineHeightMm;
+            sb.AppendLine($@"<text x='{restLinesX}mm' y='{yLine}mm' font-size='4.5mm' font-weight='bold'>");
+            sb.AppendLine($@"    <tspan x='{restLinesX}mm' y='{yLine}mm' font-weight='bold'>{lines[i]}</tspan>");
+            sb.AppendLine("</text>");
+        }
     }
 }

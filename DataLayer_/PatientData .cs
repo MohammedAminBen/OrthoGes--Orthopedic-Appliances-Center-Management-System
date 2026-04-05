@@ -183,8 +183,7 @@ namespace DataLayer_
                 "per.Date_Naissance, " +
                 "a.Numero_Assurance, " +
                 "c.Nom_Caisse " +
-                "ORDER BY CAST(SUBSTRING(p.Numero_Patient, CHARINDEX('/', p.Numero_Patient) + 1, LEN(p.Numero_Patient)) AS INT) Desc,\r\n\t\t\t\tCAST(LEFT(p.Numero_Patient, CHARINDEX('/', p.Numero_Patient) - 1) AS INT) Desc ;";
-
+                "ORDER BY \r\n    TRY_CAST(SUBSTRING(p.Numero_Patient, CHARINDEX('/', p.Numero_Patient) + 1, LEN(p.Numero_Patient)) AS INT) DESC,\r\n    TRY_CAST(LEFT(p.Numero_Patient, CHARINDEX('/', p.Numero_Patient) - 1) AS INT) DESC;";
 
             SqlCommand command = new SqlCommand(query, connection);
 

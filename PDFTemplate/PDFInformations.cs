@@ -18,7 +18,7 @@ namespace PDFTemplate
                 {
                     page.Size(PageSizes.A6);
                     page.Margin(15);
-                    page.PageColor(Colors.Grey.Lighten2);
+                    page.PageColor(Colors.White);
 
                     page.Content().Column(col =>
                     {
@@ -26,7 +26,7 @@ namespace PDFTemplate
 
                         // Main card
                         col.Item().Background(Colors.White)
-                            .CornerRadius(12)
+                            .CornerRadius(12).BorderColor(Colors.Black)
                             .Padding(20)
                             .Column(card =>
                             {
@@ -36,12 +36,12 @@ namespace PDFTemplate
                                 card.Item().AlignCenter().Text(Global.centre.CentreNom)
                                     .FontSize(28)
                                     .Bold()
-                                    .FontColor("#0B2B4F");
+                                    .FontColor(Colors.Black);
 
                                 card.Item().AlignCenter().Text(Global.centre.Description_Centre)
                                     .FontSize(10)
                                     .Bold()
-                                    .FontColor("#0B2B4F");
+                                    .FontColor(Colors.Black);
 
                                 // Separator line
                                 card.Item().PaddingTop(5).LineHorizontal(0.5f);
@@ -52,19 +52,19 @@ namespace PDFTemplate
                                     c.Item().Text("CONTACTS")
                                         .FontSize(11)
                                         .Bold()
-                                        .FontColor("#0B2B4F");
+                                        .FontColor(Colors.Black);
 
                                     c.Item().PaddingTop(3).Row(r =>
                                     {
                                         r.RelativeItem().Text($"Tél: {Global.centre.Mobile}")
                                             .FontSize(10)
-                                            .FontColor(Colors.Grey.Darken2);
+                                            .FontColor(Colors.Black);
                                     });
                                     c.Item().PaddingTop(2).Row(r =>
                                     {
                                         r.RelativeItem().Text($"Fax: {Global.centre.FAX}")
                                             .FontSize(10)
-                                            .FontColor(Colors.Grey.Darken2);
+                                            .FontColor(Colors.Black);
                                     });
                                 });
 
@@ -82,7 +82,7 @@ namespace PDFTemplate
                                         .Text(nom?.ToUpper() ?? "NOM")
                                         .FontSize(22)
                                         .Bold()
-                                        .FontColor("#1A3A5C");
+                                        .FontColor(Colors.Black);
 
                                     // First name box
                                     nameCol.Item().Border(1).BorderColor(Colors.Grey.Lighten1)
@@ -93,7 +93,7 @@ namespace PDFTemplate
                                         .Text(prenom?.ToUpper() ?? "PRÉNOM")
                                         .FontSize(22)
                                         .Bold()
-                                        .FontColor("#1A3A5C");
+                                        .FontColor(Colors.Black);
                                 });
                             });
                     });
