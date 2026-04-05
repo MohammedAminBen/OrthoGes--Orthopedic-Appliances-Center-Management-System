@@ -210,23 +210,62 @@ GetDevisProduits(string numeroDevis)
             DataTable dt = new DataTable();
 
             string query = @"
-    SELECT 
-        d.Numero_Devis,
-        dp.Reference_Produit,
-        p.Nom_Produit,
-        p.Prix,
-        dp.QuantityProduit,
-        dp.TVA,
-        dp.Montant_TVA,
-        dp.Montant_TTC,
-        SUM(dp.Montant_TVA) OVER(PARTITION BY d.Numero_Devis) AS Total_TVA,
-        SUM(dp.Montant_TTC) OVER(PARTITION BY d.Numero_Devis) AS Total_TTC,
-        d.Date_Devis,
-        d.Centre_Payeur
-    FROM D_Devis d
-    INNER JOIN D_Devis_Produits dp ON d.Numero_Devis = dp.Numero_Devis
-    INNER JOIN R_Produit p ON dp.Reference_Produit = p.Reference
-    ORDER BY d.Numero_Devis;
+    SELECT
+    d.Numero_Devis,
+    pr.Nom + ' ' + pr.Prenom AS Patient,
+    pt.Numero_Patient,
+    tel.Telephone,
+    a.Numero_Assurance,
+    c.Nom_Caisse,
+    d.Centre_Payeur,
+    prod.References_Produits,
+    
+    SUM(dp.Montant_TTC) AS Total_TTC,
+    d.Date_Devis
+
+FROM D_Devis d
+
+LEFT JOIN D_Patient pt ON d.Numero_Patient = pt.Numero_Patient
+LEFT JOIN D_Person pr ON pt.Person_ID = pr.Person_ID
+LEFT JOIN D_Assure a ON pt.Assure_ID = a.Assure_ID
+LEFT JOIN R_Caisse c ON a.Caisse_ID = c.Caisse_ID
+
+-- Aggregate telephones
+LEFT JOIN (
+    SELECT
+        Person_ID,
+        STRING_AGG(Telephone, ' / ') AS Telephone
+    FROM D_Telephone
+    GROUP BY Person_ID
+) tel ON tel.Person_ID = pr.Person_ID
+
+-- Aggregate products
+LEFT JOIN (
+    SELECT
+        Numero_Devis,
+        STRING_AGG(Reference_Produit, ' / ') AS References_Produits
+    FROM D_Devis_Produits
+    GROUP BY Numero_Devis
+) prod ON prod.Numero_Devis = d.Numero_Devis
+
+-- Join again for totals
+LEFT JOIN D_Devis_Produits dp ON d.Numero_Devis = dp.Numero_Devis
+
+GROUP BY
+    d.Numero_Devis,
+    pr.Nom,
+    pr.Prenom,
+    pt.Numero_Patient,
+    tel.Telephone,
+    a.Numero_Assurance,
+    c.Nom_Caisse,
+    d.Centre_Payeur,
+    prod.References_Produits,
+    d.Date_Devis
+
+ORDER BY 
+    TRY_CAST(SUBSTRING(d.Numero_Devis, CHARINDEX('/', d.Numero_Devis) + 1, LEN(d.Numero_Devis)) AS INT) DESC,
+    TRY_CAST(LEFT(d.Numero_Devis, CHARINDEX('/', d.Numero_Devis) - 1) AS INT) DESC;
 ";
 
             using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))

@@ -153,6 +153,26 @@ namespace OrthoGes_New_Version.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap calculating1 {
+            get {
+                object obj = ResourceManager.GetObject("calculating1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap calculating2 {
+            get {
+                object obj = ResourceManager.GetObject("calculating2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap calendar__1_ {
             get {
                 object obj = ResourceManager.GetObject("calendar (1)", resourceCulture);
@@ -543,6 +563,16 @@ namespace OrthoGes_New_Version.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap icons8_cv_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cv-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap icons8_dashboard_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-dashboard-48", resourceCulture);
@@ -576,6 +606,16 @@ namespace OrthoGes_New_Version.Properties {
         public static System.Drawing.Bitmap icons8_documents_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8-documents-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_documents_481 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-documents-481", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -756,6 +796,16 @@ namespace OrthoGes_New_Version.Properties {
         public static System.Drawing.Bitmap icons8_registration_321 {
             get {
                 object obj = ResourceManager.GetObject("icons8-registration-321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap icons8_resume_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-resume-48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

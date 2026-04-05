@@ -22,7 +22,8 @@ namespace DataLayer_
             ref string commune,
             ref string adresse,
             ref DateTime dateNaissance,
-            ref int genre)
+            ref int genre,
+            ref string Annee)
         {
             bool isFound = false;
             List<string> phoneList = new List<string>();
@@ -39,6 +40,7 @@ namespace DataLayer_
                 p.Email,
                 p.Date_Naissance,
                 p.Genre,
+                p.Année_Naissance,
                 a.Wilaya,
                 a.Commune,
                 a.Adresse,
@@ -77,6 +79,8 @@ namespace DataLayer_
                                     dateNaissance = reader["Date_Naissance"] != DBNull.Value
                                         ? (DateTime)reader["Date_Naissance"]
                                         : DateTime.MinValue;
+                                    Annee = reader["Année_Naissance"]?.ToString() ?? string.Empty;
+
                                 }
 
                                 if (reader["Telephone"] != DBNull.Value)
@@ -113,7 +117,8 @@ namespace DataLayer_
             string commune,
             string adresse,
             DateTime dateNaissance,
-            int genre)
+            int genre,
+            string Annee)
         {
             int personID = -1;
 
@@ -122,9 +127,9 @@ namespace DataLayer_
             {
                 string insertPersonQuery = @"
             INSERT INTO D_Person
-                (Nom, Prenom, Nom_Arabe, Prenom_Arabe, Email, Date_Naissance,Genre)
+                (Nom, Prenom, Nom_Arabe, Prenom_Arabe, Email, Date_Naissance,Genre,Année_Naissance)
             VALUES
-                (@Nom, @Prenom, @Nom_Arabe, @Prenom_Arabe, @Email, @DateNaissance,@genre);
+                (@Nom, @Prenom, @Nom_Arabe, @Prenom_Arabe, @Email, @DateNaissance,@genre,@Annee_Naissance);
             SELECT SCOPE_IDENTITY();";
 
                 using (SqlCommand command = new SqlCommand(insertPersonQuery, connection))
@@ -132,6 +137,11 @@ namespace DataLayer_
                     command.Parameters.AddWithValue("@Nom", nom);
                     command.Parameters.AddWithValue("@Prenom", prenom);
                     command.Parameters.AddWithValue("@genre", genre);
+
+                    if (string.IsNullOrWhiteSpace(Annee))
+                        command.Parameters.Add("@Annee_Naissance", SqlDbType.NVarChar, 100).Value = DBNull.Value;
+                    else
+                        command.Parameters.Add("@Annee_Naissance", SqlDbType.NVarChar, 100).Value = Annee;
                     // Nom_Arabe
                     if (string.IsNullOrWhiteSpace(nomArabe))
                         command.Parameters.Add("@Nom_Arabe", SqlDbType.NVarChar, 100).Value = DBNull.Value;
@@ -221,7 +231,8 @@ namespace DataLayer_
             string commune,
             string adresse,
             DateTime dateNaissance,
-            int genre)
+            int genre,
+            string Annee)
         {
             using (SqlConnection connection =
                 new SqlConnection(DataAccessSettings.ConnectionString))
@@ -234,7 +245,8 @@ namespace DataLayer_
                 Prenom_Arabe = @Prenom_Arabe,
                 Email = @Email,
                 Date_Naissance = @DateNaissance,
-                Genre = @genre
+                Genre = @genre,
+                Année_Naissance = @Annee_Naissance
             WHERE Person_ID = @PersonID";
 
                 using (SqlCommand command = new SqlCommand(updatePersonQuery, connection))
@@ -243,6 +255,10 @@ namespace DataLayer_
                     command.Parameters.AddWithValue("@Nom", nom);
                     command.Parameters.AddWithValue("@Prenom", prenom);
                     command.Parameters.AddWithValue("@genre", genre);
+                    if (string.IsNullOrWhiteSpace(Annee))
+                        command.Parameters.Add("@Annee_Naissance", SqlDbType.NVarChar, 100).Value = DBNull.Value;
+                    else
+                        command.Parameters.Add("@Annee_Naissance", SqlDbType.NVarChar, 100).Value = Annee;
                     // Nom_Arabe
                     if (string.IsNullOrWhiteSpace(nomArabe))
                         command.Parameters.Add("@Nom_Arabe", SqlDbType.NVarChar, 100).Value = DBNull.Value;

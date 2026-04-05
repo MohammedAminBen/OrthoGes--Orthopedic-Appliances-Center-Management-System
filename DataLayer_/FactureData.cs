@@ -257,7 +257,10 @@ LEFT JOIN (
         STRING_AGG(Reference_Produit, ' / ') AS References_Produits
     FROM D_Facture_Produits
     GROUP BY Numero_Facture
-) prod ON prod.Numero_Facture = f.Numero_Facture; ";
+) prod ON prod.Numero_Facture = f.Numero_Facture
+ORDER BY 
+CAST(SUBSTRING(f.Numero_Facture, CHARINDEX('/', f.Numero_Facture) + 1, LEN(f.Numero_Facture)) AS INT) Desc,
+				CAST(LEFT(f.Numero_Facture, CHARINDEX('/', f.Numero_Facture) - 1) AS INT) Desc ;";
 
             SqlCommand command = new SqlCommand(query, connection);
 

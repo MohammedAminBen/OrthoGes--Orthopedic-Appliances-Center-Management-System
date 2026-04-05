@@ -452,22 +452,42 @@ namespace OrthoGes_New_Version
             {
                 facture_date = facture.Date_Facture.ToString("d");
             }
+
+            string date_Nai_p,date_Nai_a;
+            if(person.DateNaissance != DateTime.MinValue)
+            {
+                date_Nai_p = person.DateNaissance.ToString("d");
+            }
+            else
+            {
+                date_Nai_p = person.Année_Naissance;
+            }
+
+            if (personAssure.DateNaissance != DateTime.MinValue)
+            {
+                date_Nai_a = personAssure.DateNaissance.ToString("d");
+            }
+            else
+            {
+                date_Nai_a = personAssure.Année_Naissance;
+            }
+
             document = PDFFacture.GenerateDocument(numerofacture,
-           person.Nom,
-           person.Prenom,
-           person.DateNaissance.ToString("d"),
-           personAssure.Nom,
-           personAssure.Prenom,
-           personAssure.DateNaissance.ToString("d"),
-           assure.NumeroAssurance,
-           assure.CaisseNom,
-           facture.Centre_Payeur,
-           person.Adresse,
-           person.Wilaya,
-           person.Commune,
-           produitsForPDF,
-           facture.Montant_TTC.ToString(),
-           facture_date);
+               person.Nom,
+               person.Prenom,
+               date_Nai_p,
+               personAssure.Nom,
+               personAssure.Prenom,
+               date_Nai_a,
+               assure.NumeroAssurance,
+               assure.CaisseNom,
+               facture.Centre_Payeur,
+               person.Adresse,
+               person.Wilaya,
+               person.Commune,
+               produitsForPDF,
+               facture.Montant_TTC.ToString(),
+               facture_date);
 
             // ✅ Set save path
             string doc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);

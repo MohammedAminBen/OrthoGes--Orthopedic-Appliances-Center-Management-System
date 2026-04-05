@@ -65,8 +65,15 @@ namespace OrthoGes_New_Version
 
                 tbxNomPatient.Text = person.Nom;
                 tbxPrenomPatient.Text = person.Prenom;
-                tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
-                tbxNumAssPatient.Text = assure.NumeroAssurance.ToString();
+                if (person.DateNaissance != DateTime.MinValue)
+                {
+                    tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
+                }
+                else
+                {
+                    tbxDateNaiPatient.Text = person.Année_Naissance;
+                }
+                    tbxNumAssPatient.Text = assure.NumeroAssurance.ToString();
                 tbxCaissePatient.Text = assure.CaisseNom;
                 tbxadresse.Text = person.Adresse;
                 tbxWilaya.Text = person.Wilaya;
@@ -82,16 +89,28 @@ namespace OrthoGes_New_Version
 
                 tbxNomPatient.Text = person.Nom;
                 tbxPrenomPatient.Text = person.Prenom;
-                tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
-
+                if (person.DateNaissance != DateTime.MinValue)
+                {
+                    tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
+                }
+                else
+                {
+                    tbxDateNaiPatient.Text = person.Année_Naissance;
+                }
                 tbxNomAssure.Text = personassure.Nom;
                 tbxPrenomAssure.Text = personassure.Prenom;
+                if (personassure.DateNaissance != DateTime.MinValue)
+                {
+                    tbxDateNaiAssure.Text = personassure.DateNaissance.ToString("d");
+                }
+                else
+                {
+                    tbxDateNaiAssure.Text = personassure.Année_Naissance;
+                }
 
-                tbxDateNaiAssure.Text = personassure.DateNaissance.ToString("d");
 
 
-
-                tbxNumAssAssure.Text = assure.NumeroAssurance.ToString();
+                    tbxNumAssAssure.Text = assure.NumeroAssurance.ToString();
                 tbxCaisseAssure.Text = assure.CaisseNom;
 
                 tbxadresse.Text = person.Adresse;

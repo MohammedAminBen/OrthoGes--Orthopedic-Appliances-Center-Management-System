@@ -57,7 +57,14 @@ namespace OrthoGes_New_Version
                 assure = Assure.FindByID(patient.AssureID);
                 tbxNomPatient.Text = person.Nom;
                 tbxPrenomPatient.Text = person.Prenom;
-                tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
+                if (person.DateNaissance != DateTime.MinValue)
+                {
+                    tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
+                }
+                else
+                {
+                    tbxDateNaiPatient.Text ="00/00/"+ person.Année_Naissance;
+                }
                 tbxNumAssPatient.Text = assure.NumeroAssurance.ToString();
                 cmbxCaissePatient.SelectedIndex = assure.CaisseID-1;
                 //cmbxCaissePatient.Text = assure.CaisseNom;
@@ -98,8 +105,16 @@ namespace OrthoGes_New_Version
                 tbxPrenomPatient.Text = person.Prenom;
                 tbxARNomPatient.Text = person.NomArabe;
                 tbxARPrenomPatient.Text = person.PrenomArabe;
-                tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
+                cmbxCaisseAssure.SelectedIndex = assure.CaisseID - 1;
 
+                if (person.DateNaissance != DateTime.MinValue)
+                {
+                    tbxDateNaiPatient.Text = person.DateNaissance.ToString("d");
+                }
+                else
+                {
+                    tbxDateNaiPatient.Text = "00/00/"+person.Année_Naissance;
+                }
                 // FIX: Use the same string comparison as in save code
                 if (person.Genre == 0)
                 {
@@ -114,8 +129,14 @@ namespace OrthoGes_New_Version
                 tbxPrenomAssure.Text = personassure.Prenom;
                 tbxARNomAssure.Text = personassure.NomArabe;
                 tbxARPrenomAssure.Text = personassure.PrenomArabe;
-                tbxDateNaiAssure.Text = personassure.DateNaissance.ToString("d");
-
+                if (personassure.DateNaissance != DateTime.MinValue)
+                {
+                    tbxDateNaiAssure.Text = personassure.DateNaissance.ToString("d");
+                }
+                else
+                {
+                    tbxDateNaiAssure.Text = "00/00/" + personassure.Année_Naissance;
+                }
                 // FIX: Use the same string comparison as in save code
                 if (personassure.Genre == 0)
                 {
@@ -213,8 +234,16 @@ namespace OrthoGes_New_Version
                     telephones.Add(tbxTele3.Text);
 
                 person.Telephones = telephones.ToArray();
+                if (tbxDateNaiPatient.Text.StartsWith("00/00"))
+                {
+                    person.DateNaissance = DateTime.MinValue;
+                    person.Année_Naissance = tbxDateNaiPatient.Text.Substring(6);
+                }
+                else
+                {
+                    person.DateNaissance = DateTime.Parse(tbxDateNaiPatient.Text);
 
-                person.DateNaissance = DateTime.Parse(tbxDateNaiPatient.Text);
+                }
                 person.NomArabe = tbxARNomPatient.Text;
                 person.PrenomArabe = tbxARPrenomPatient.Text;
                 if (rdbMalePatient.Checked)
@@ -289,8 +318,16 @@ namespace OrthoGes_New_Version
                     assurePhones.Add(tbxTele3.Text);
 
                 personAssure.Telephones = assurePhones.ToArray();
+                if (tbxDateNaiAssure.Text.StartsWith("00/00"))
+                {
+                    personAssure.DateNaissance = DateTime.MinValue;
+                    personAssure.Année_Naissance = tbxDateNaiAssure.Text.Substring(6);
+                }
+                else
+                {
+                    personAssure.DateNaissance = DateTime.Parse(tbxDateNaiAssure.Text);
 
-                personAssure.DateNaissance = DateTime.Parse(tbxDateNaiAssure.Text);
+                }
                 personAssure.NomArabe = tbxARNomAssure.Text;
                 personAssure.PrenomArabe = tbxARPrenomAssure.Text;
 
@@ -318,7 +355,16 @@ namespace OrthoGes_New_Version
                 if (!string.IsNullOrWhiteSpace(tbxTele3.Text))
                     telephones.Add(tbxTele3.Text);
                 person.Telephones = telephones.ToArray();
-                person.DateNaissance = DateTime.Parse(tbxDateNaiPatient.Text);
+                if (tbxDateNaiPatient.Text.StartsWith("00/00"))
+                {
+                    person.DateNaissance = DateTime.MinValue;
+                    person.Année_Naissance = tbxDateNaiPatient.Text.Substring(6);
+                }
+                else
+                {
+                    person.DateNaissance = DateTime.Parse(tbxDateNaiPatient.Text);
+
+                }
                 person.NomArabe = tbxARNomPatient.Text;
                 person.PrenomArabe = tbxARPrenomPatient.Text;
                 if (rdbMalePatient.Checked)
@@ -334,7 +380,7 @@ namespace OrthoGes_New_Version
 
                 assure.PersonID = personAssure.PersonID;
                 assure.NumeroAssurance = tbxNumAssAssure.Text;
-                assure.CaisseID = (int)dtCaisse.Rows[cmbxCaissePatient.SelectedIndex]["Caisse_ID"];
+                assure.CaisseID = (int)dtCaisse.Rows[cmbxCaisseAssure.SelectedIndex]["Caisse_ID"];
                 assure.CaisseNom = cmbxCaisseAssure.Text;
                 assure.RelationPatient = tbxRelationAssure.Text;
 

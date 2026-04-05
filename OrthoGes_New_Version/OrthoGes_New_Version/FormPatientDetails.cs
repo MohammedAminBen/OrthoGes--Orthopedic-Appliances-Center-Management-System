@@ -99,7 +99,14 @@ namespace OrthoGes_New_Version
                 lblNumPatient.Text = patient.NumeroPatient;
                 lblNometPrenomPatient.Text = person.NomEtPrenom;
                 lblDateDinscriptionPatient.Text = patient.Date_Dinscription.ToString("d");
-                lblDateNaiPatient.Text = person.DateNaissance.ToString("d");
+                if (person.DateNaissance != DateTime.MinValue)
+                {
+                    lblDateNaiPatient.Text = person.DateNaissance.ToString("d");
+                }
+                else
+                {
+                    lblDateNaiPatient.Text = person.Année_Naissance;
+                }
                 lblNumAssPatient.Text = assure.NumeroAssurance.ToString();
                 lblCaissePatient.Text = assure.CaisseNom;
 
@@ -138,8 +145,14 @@ namespace OrthoGes_New_Version
                 lblNumPatient.Text = patient.NumeroPatient;
                 lblNometPrenomPatient.Text = person.NomEtPrenom;
 
-                lblDateNaiPatient.Text = person.DateNaissance.ToString("d");
-
+                if (person.DateNaissance != DateTime.MinValue)
+                {
+                    lblDateNaiPatient.Text = person.DateNaissance.ToString("d");
+                }
+                else
+                {
+                    lblDateNaiPatient.Text = person.Année_Naissance;
+                }
                 if (person.Genre == 0)
                 {
                     lblGenrePatient.Text = "Femelle";
@@ -169,7 +182,14 @@ namespace OrthoGes_New_Version
                 lblRelationAssure.Text = assure.RelationPatient;
                 lblNometPrenomAssure.Text = personassure.NomEtPrenom;
                 lblDateDinscriptionAssure.Text = patient.Date_Dinscription.ToString("d");
-                lblDateNaiAssure.Text = personassure.DateNaissance.ToString("d");
+                if (personassure.DateNaissance != DateTime.MinValue)
+                {
+                    lblDateNaiAssure.Text = personassure.DateNaissance.ToString("d");
+                }
+                else
+                {
+                    lblDateNaiAssure.Text = personassure.Année_Naissance;
+                }
                 lblNumAssAssure.Text = assure.NumeroAssurance.ToString();
                 lblCaisseAssure.Text = assure.CaisseNom;
 
@@ -370,28 +390,48 @@ namespace OrthoGes_New_Version
                 Produit p3 = Produit.FindByReference(devis.Produits[2].Reference);
                 produitsForPDF.Add((devis.Produits[2].Reference, p3.Nom_Produit, p3.Prix.ToString(), devis.Produits[2].Quantity.ToString(), (devis.Produits[2].Quantity * p3.Prix).ToString(), devis.Produits[2].MontantTVA.ToString(), devis.Produits[2].TVA.ToString()));
             }
-            if(devis.Produits.Count > 3)
+            if (devis.Produits.Count > 3)
             {
                 Produit p4 = Produit.FindByReference(devis.Produits[3].Reference);
                 produitsForPDF.Add((devis.Produits[3].Reference, p4.Nom_Produit, p4.Prix.ToString(), devis.Produits[3].Quantity.ToString(), (devis.Produits[3].Quantity * p4.Prix).ToString(), devis.Produits[3].MontantTVA.ToString(), devis.Produits[3].TVA.ToString()));
             }
             Document document;
+
+            string date_Nai_p, date_Nai_a;
+            if (person.DateNaissance != DateTime.MinValue)
+            {
+                date_Nai_p = person.DateNaissance.ToString("d");
+            }
+            else
+            {
+                date_Nai_p = person.Année_Naissance;
+            }
+
+            if (personAssure.DateNaissance != DateTime.MinValue)
+            {
+                date_Nai_a = personAssure.DateNaissance.ToString("d");
+            }
+            else
+            {
+                date_Nai_a = personAssure.Année_Naissance;
+            }
+
             document = PDFDevis.GenerateDocument(numeroDevis,
-           person.Nom,
-           person.Prenom,
-           person.DateNaissance.ToString("d"),
-           personAssure.Nom,
-           personAssure.Prenom,
-           personAssure.DateNaissance.ToString("d"),
-           assure.NumeroAssurance,
-           assure.CaisseNom,
-           devis.Centre_Payeur,
-           person.Adresse,
-           person.Wilaya,
-           person.Commune,
-           produitsForPDF,
-           devis.Montant_TTC.ToString(),
-           devis.Date_Devis.ToString("d"));
+            person.Nom,
+            person.Prenom,
+            date_Nai_p,
+            personAssure.Nom,
+            personAssure.Prenom,
+            date_Nai_a,
+            assure.NumeroAssurance,
+            assure.CaisseNom,
+            devis.Centre_Payeur,
+            person.Adresse,
+            person.Wilaya,
+            person.Commune,
+            produitsForPDF,
+            devis.Montant_TTC.ToString(),
+            devis.Date_Devis.ToString("d"));
 
             // ✅ Set save path
             string doc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -439,7 +479,7 @@ namespace OrthoGes_New_Version
                 Produit p3 = Produit.FindByReference(facture.Produits[2].Reference);
                 produitsForPDF.Add((facture.Produits[2].Reference, p3.Nom_Produit, p3.Prix.ToString(), facture.Produits[2].Quantity.ToString(), (facture.Produits[2].Quantity * p3.Prix).ToString(), facture.Produits[2].MontantTVA.ToString(), facture.Produits[2].TVA.ToString()));
             }
-            if(facture.Produits.Count > 3)
+            if (facture.Produits.Count > 3)
             {
                 Produit p4 = Produit.FindByReference(facture.Produits[3].Reference);
                 produitsForPDF.Add((facture.Produits[3].Reference, p4.Nom_Produit, p4.Prix.ToString(), facture.Produits[3].Quantity.ToString(), (facture.Produits[3].Quantity * p4.Prix).ToString(), facture.Produits[3].MontantTVA.ToString(), facture.Produits[3].TVA.ToString()));
@@ -455,13 +495,33 @@ namespace OrthoGes_New_Version
             {
                 facture_date = facture.Date_Facture.ToString("d");
             }
+
+            string date_Nai_p, date_Nai_a;
+            if (person.DateNaissance != DateTime.MinValue)
+            {
+                date_Nai_p = person.DateNaissance.ToString("d");
+            }
+            else
+            {
+                date_Nai_p = person.Année_Naissance;
+            }
+
+            if (personAssure.DateNaissance != DateTime.MinValue)
+            {
+                date_Nai_a = personAssure.DateNaissance.ToString("d");
+            }
+            else
+            {
+                date_Nai_a = personAssure.Année_Naissance;
+            }
+
             document = PDFFacture.GenerateDocument(numerofacture,
            person.Nom,
            person.Prenom,
-           person.DateNaissance.ToString("d"),
+           date_Nai_p,
            personAssure.Nom,
            personAssure.Prenom,
-           personAssure.DateNaissance.ToString("d"),
+           date_Nai_a,
            assure.NumeroAssurance,
            assure.CaisseNom,
            facture.Centre_Payeur,
@@ -518,11 +578,11 @@ namespace OrthoGes_New_Version
                 Produit p3 = Produit.FindByReference(bon.Produits[2].Reference);
                 produitsForPDF.Add((bon.Produits[2].Reference, p3.Nom_Produit, p3.Prix.ToString(), bon.Produits[2].Quantity.ToString(), (bon.Produits[2].Quantity * p3.Prix).ToString(), bon.Produits[2].MontantTVA.ToString(), bon.Produits[2].TVA.ToString()));
             }
-            if(bon.Produits.Count > 3)
+            if (bon.Produits.Count > 3)
             {
                 Produit p4 = Produit.FindByReference(bon.Produits[3].Reference);
                 produitsForPDF.Add((bon.Produits[3].Reference, p4.Nom_Produit, p4.Prix.ToString(), bon.Produits[3].Quantity.ToString(), (bon.Produits[3].Quantity * p4.Prix).ToString(), bon.Produits[3].MontantTVA.ToString(), bon.Produits[3].TVA.ToString()));
-            } 
+            }
             Document document;
 
             string bon_date;
@@ -539,13 +599,32 @@ namespace OrthoGes_New_Version
                 MessageBox.Show("Error when trying to identify the patient");
                 return;
             }
+
+            string date_Nai_p, date_Nai_a;
+            if (person.DateNaissance != DateTime.MinValue)
+            {
+                date_Nai_p = person.DateNaissance.ToString("d");
+            }
+            else
+            {
+                date_Nai_p = person.Année_Naissance;
+            }
+
+            if (personAssure.DateNaissance != DateTime.MinValue)
+            {
+                date_Nai_a = personAssure.DateNaissance.ToString("d");
+            }
+            else
+            {
+                date_Nai_a = personAssure.Année_Naissance;
+            }
             document = PDFBon_Livraison.GenerateDocument(numeroBon,
            person.Nom,
            person.Prenom,
-           person.DateNaissance.ToString("d"),
+           date_Nai_p,
            personAssure.Nom,
            personAssure.Prenom,
-           personAssure.DateNaissance.ToString("d"),
+           date_Nai_a,
            assure.NumeroAssurance,
            assure.CaisseNom,
            bon.Centre_Payeur,
@@ -860,14 +939,14 @@ namespace OrthoGes_New_Version
                             designation = designation + "  /  " + Produit.FindByReference(facture.Produits[2].Reference).Nom_Produit;
                             description = description + "  /  " + facture.Produits[2].Reference + "  -  " + Produit.FindByReference(facture.Produits[2].Reference).Nom_Produit;
 
-                            if(facture.Produits.Count > 3)
+                            if (facture.Produits.Count > 3)
                             {
                                 Reference = Reference + "  /  " + facture.Produits[3].Reference;
                                 designation = designation + "  /  " + Produit.FindByReference(facture.Produits[3].Reference).Nom_Produit;
                                 description = description + "  /  " + facture.Produits[3].Reference + "  -  " + Produit.FindByReference(facture.Produits[3].Reference).Nom_Produit;
                             }
                         }
-                        
+
                     }
                 }
             }
@@ -915,13 +994,31 @@ namespace OrthoGes_New_Version
                 }
             }
             Document pdf;
-            if (patient.est_Assure != 1)
+            string date_Nai_p, date_Nai_a;
+            if (person.DateNaissance != DateTime.MinValue)
             {
-                pdf = PDFDemande.GenerateDocument(personAss.Nom, personAss.Prenom, personAss.DateNaissance.ToString("d"),description, DateDemenande, assure.NumeroAssurance, person.Nom + " " + person.Prenom, person.DateNaissance.ToString("d"));
+                date_Nai_p = person.DateNaissance.ToString("d");
             }
             else
             {
-                pdf = PDFDemande.GenerateDocument(personAss.Nom, personAss.Prenom, personAss.DateNaissance.ToString("d"), description, DateDemenande, assure.NumeroAssurance);
+                date_Nai_p = person.Année_Naissance;
+            }
+
+            if (personAss.DateNaissance != DateTime.MinValue)
+            {
+                date_Nai_a = personAss.DateNaissance.ToString("d");
+            }
+            else
+            {
+                date_Nai_a = personAss.Année_Naissance;
+            }
+            if (patient.est_Assure != 1)
+            {
+                pdf = PDFDemande.GenerateDocument(personAss.Nom, personAss.Prenom, date_Nai_a, description, DateDemenande, assure.NumeroAssurance, person.Nom + " " + person.Prenom, date_Nai_p);
+            }
+            else
+            {
+                pdf = PDFDemande.GenerateDocument(personAss.Nom, personAss.Prenom, date_Nai_a, description, DateDemenande, assure.NumeroAssurance);
             }
             string doc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string folderPath = Path.Combine(doc, "OrthoGes Document\\Demande d'entante prealable");
@@ -959,6 +1056,70 @@ namespace OrthoGes_New_Version
             FormCreationBonLiv bonLiv = new FormCreationBonLiv(Numero_Patient, dgvDocuments.CurrentRow.Cells[2].Value.ToString());
             bonLiv.ShowDialog();
             FillDgvDocumentsWithData();
+        }
+
+        private void btnCreeFicheEnseignement_Click(object sender, EventArgs e)
+        {
+            QuestPDF.Settings.License = LicenseType.Community;
+
+            Document document;
+
+            document = PDFFicheEnseignement.Generate(lblNumPatient.Text, person.Nom, person.Prenom, lblDateNaiPatient.Text, lblTelephonePatient.Text, person.Wilaya, person.Commune, lblDateDinscriptionPatient.Text);
+
+            // ✅ Set save path
+            string doc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string folderPath = Path.Combine(doc, "OrthoGes Document\\FicheDenseignement");
+
+            // Ensure the folder exists
+            Directory.CreateDirectory(folderPath);
+
+            string fileName = $"{person.Nom}_{person.Prenom}_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.pdf";
+            string filePath = Path.Combine(folderPath, fileName);
+
+            // ✅ Save the PDF correctly
+            document.GeneratePdf(filePath);
+
+            // ✅ Wait briefly to ensure file write completes (optional but helpful)
+            System.Threading.Thread.Sleep(200);
+
+            // ✅ Open the generated PDF
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+            {
+                FileName = filePath,
+                UseShellExecute = true
+            });
+        }
+
+        private void btnCreeAutreDoc_Click(object sender, EventArgs e)
+        {
+            QuestPDF.Settings.License = LicenseType.Community;
+
+            Document document;
+
+            document = PDFInformations.Generate(person.Nom, person.Prenom);
+
+            // ✅ Set save path
+            string doc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string folderPath = Path.Combine(doc, "OrthoGes Document\\FicheDenseignement");
+
+            // Ensure the folder exists
+            Directory.CreateDirectory(folderPath);
+
+            string fileName = $"{person.Nom}_{person.Prenom}_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.pdf";
+            string filePath = Path.Combine(folderPath, fileName);
+
+            // ✅ Save the PDF correctly
+            document.GeneratePdf(filePath);
+
+            // ✅ Wait briefly to ensure file write completes (optional but helpful)
+            System.Threading.Thread.Sleep(200);
+
+            // ✅ Open the generated PDF
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+            {
+                FileName = filePath,
+                UseShellExecute = true
+            });
         }
     }
 }

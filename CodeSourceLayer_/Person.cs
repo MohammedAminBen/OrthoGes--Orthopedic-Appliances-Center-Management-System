@@ -25,6 +25,8 @@ namespace CodeSourceLayer_
         public int Genre { get; set; }
         public string NomEtPrenom => $"{Nom} {Prenom}";
 
+        public string Année_Naissance { get; set; }
+
         // Default constructor
         public Person()
         {
@@ -40,11 +42,12 @@ namespace CodeSourceLayer_
             Adresse = string.Empty;
             DateNaissance = DateTime.MinValue;
             Genre = -1;
+            Année_Naissance = string.Empty; 
         }
 
         // Private constructor for loading existing data
         private Person(int personID, string nom, string prenom, string nomArabe, string prenomArabe,
-                       string[] telephones, string email, string wilaya, string commune, string adresse, DateTime dateNaissance,int genre)
+                       string[] telephones, string email, string wilaya, string commune, string adresse, DateTime dateNaissance,int genre,string annee)
         {
             PersonID = personID;
             Nom = nom;
@@ -58,19 +61,20 @@ namespace CodeSourceLayer_
             Adresse = adresse;
             DateNaissance = dateNaissance;
             Genre = genre;
+            Année_Naissance= annee;
         }
 
         // Add a new person
         public bool AddNewPerson()
         {
-            PersonID = PersonData.AddNewPerson(Nom, Prenom, NomArabe, PrenomArabe, Telephones, Email, Wilaya, Commune, Adresse, DateNaissance,Genre);
+            PersonID = PersonData.AddNewPerson(Nom, Prenom, NomArabe, PrenomArabe, Telephones, Email, Wilaya, Commune, Adresse, DateNaissance,Genre,Année_Naissance);
             return PersonID != -1;
         }
 
         // Update existing person
         public bool UpdatePerson()
         {
-            return PersonData.UpdatePerson(PersonID, Nom, Prenom, NomArabe, PrenomArabe, Telephones, Email, Wilaya, Commune, Adresse, DateNaissance,Genre);
+            return PersonData.UpdatePerson(PersonID, Nom, Prenom, NomArabe, PrenomArabe, Telephones, Email, Wilaya, Commune, Adresse, DateNaissance,Genre,Année_Naissance);
         }
 
         // Find person by ID
@@ -85,15 +89,16 @@ namespace CodeSourceLayer_
             string wilaya = string.Empty;
             string commune = string.Empty;
             string adresse = string.Empty;
+            string annee = string.Empty;
             DateTime dateNaissance = DateTime.MinValue;
             int genre = -1;
 
             bool isFound = PersonData.GetPersonInfoByID(personID, ref nom, ref prenom, ref nomArabe, ref prenomArabe,
-                                                         ref telephones, ref email, ref wilaya, ref commune, ref adresse, ref dateNaissance,ref genre);
+                                                         ref telephones, ref email, ref wilaya, ref commune, ref adresse, ref dateNaissance,ref genre,ref annee);
 
             if (isFound)
             {
-                return new Person(personID, nom, prenom, nomArabe, prenomArabe, telephones, email, wilaya, commune, adresse, dateNaissance,genre);
+                return new Person(personID, nom, prenom, nomArabe, prenomArabe, telephones, email, wilaya, commune, adresse, dateNaissance,genre,annee);
             }
 
             return null;

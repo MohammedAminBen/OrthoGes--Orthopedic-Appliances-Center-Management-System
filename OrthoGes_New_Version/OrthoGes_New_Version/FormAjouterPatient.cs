@@ -123,7 +123,16 @@ namespace OrthoGes_New_Version
 
                 person.Telephones = telephones.ToArray();
 
-                person.DateNaissance = DateTime.Parse(tbxDateNaiPatient.Text);
+                if (tbxDateNaiPatient.Text.StartsWith("00/00/"))
+                {
+                    person.Année_Naissance = tbxDateNaiPatient.Text.Substring(6);
+                    person.DateNaissance = DateTime.MinValue;
+                }
+                else
+                {
+                    person.DateNaissance = DateTime.Parse(tbxDateNaiPatient.Text);
+                }
+
                 person.NomArabe = tbxARNomPatient.Text;
                 person.PrenomArabe = tbxARPrenomPatient.Text;
 
@@ -203,7 +212,17 @@ namespace OrthoGes_New_Version
                     telephones.Add(tbxTele3.Text);
 
                 personAssure.Telephones = telephones.ToArray();
-                personAssure.DateNaissance = DateTime.Parse(tbxDateNaiAssure.Text);
+
+                if (tbxDateNaiAssure.Text.StartsWith("00/00/"))
+                {
+                    personAssure.Année_Naissance = tbxDateNaiAssure.Text.Substring(6);
+                    personAssure.DateNaissance = DateTime.MinValue;
+                }
+                else
+                {
+                    personAssure.DateNaissance = DateTime.Parse(tbxDateNaiAssure.Text);
+                }
+
                 personAssure.NomArabe = tbxARNomAssure.Text;
                 personAssure.PrenomArabe = tbxARPrenomAssure.Text;
 
@@ -224,7 +243,17 @@ namespace OrthoGes_New_Version
                     person.Email = tbxEmail.Text;
 
                 person.Telephones = telephones.ToArray();
-                person.DateNaissance = DateTime.Parse(tbxDateNaiPatient.Text);
+
+                if (tbxDateNaiPatient.Text.StartsWith("00/00/"))
+                {
+                    person.Année_Naissance = tbxDateNaiPatient.Text.Substring(6);
+                    person.DateNaissance = DateTime.MinValue;
+                }
+                else
+                {
+                    person.DateNaissance = DateTime.Parse(tbxDateNaiPatient.Text);
+                }
+
                 person.NomArabe = tbxARNomPatient.Text;
                 person.PrenomArabe = tbxARPrenomPatient.Text;
                 if (rdbMalePatient.Checked)

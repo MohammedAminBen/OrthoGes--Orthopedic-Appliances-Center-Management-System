@@ -70,7 +70,7 @@ namespace OrthoGes_New_Version
             }
             else
             {
-                guna2CirclePictureBox1.Image = Image.FromFile(Global.centre.PathImage);
+                //guna2CirclePictureBox1.Image = Image.FromFile(Global.centre.PathImage);
             }
         }
 

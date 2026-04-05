@@ -1,5 +1,9 @@
 ﻿using CodeSourceLayer_;
 using Guna.UI2.WinForms;
+using PDFTemplate;
+using PDFTemplates;
+using QuestPDF.Fluent;
+using QuestPDF.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +19,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Color = System.Drawing.Color;
+using Image = System.Drawing.Image;
+using Size = System.Drawing.Size;
 
 namespace OrthoGes_New_Version
 {
@@ -29,7 +36,7 @@ namespace OrthoGes_New_Version
         FormTabDeBord frmTabDeBord;
         FormFinancement frmFinancement;
         FormUtilisateurs frmUtilisateurs;
-
+        FormDevis frmDevis;
 
         public FormMain(FormSeConnecter frm)
         {
@@ -49,7 +56,7 @@ namespace OrthoGes_New_Version
             {
                 if (ctrl is Guna2Button btn)
                 {
-                    btn.FillColor = Color.White;
+                    btn.FillColor = System.Drawing.Color.White;
                     btn.ForeColor = Color.FromArgb(60, 75, 94);
                     btn.Font = new Font(btn.Font, FontStyle.Regular);
                 }
@@ -85,6 +92,9 @@ namespace OrthoGes_New_Version
                     break;
                 case "utilisateurs":
                     btnUtilisateursHandling();
+                    break;
+                case "Devis":
+                    btnDevisHandling();
                     break;
             }
 
@@ -261,39 +271,45 @@ namespace OrthoGes_New_Version
         {
             frmTabDeBord = null;
         }
+
+        private void btnDevisHandling()
+        {
+            if (frmDevis == null)
+            {
+                frmDevis = new FormDevis();
+                frmDevis.FormClosed += Devis_FormClosed;
+                frmDevis.MdiParent = this;
+                frmDevis.Dock = DockStyle.Fill;
+                frmDevis.Show();
+            }
+            else
+            {
+                frmDevis.Activate();
+                frmDevis.ApplyFilters();
+
+            }
+        }
+
+
+        private void Devis_FormClosed(object sender, EventArgs e)
+        {
+            frmDevis = null;
+        }
         private void fillpnlUserData()
         {
             if (!string.IsNullOrEmpty(Global.utilisateurActuel.Path_Image) && File.Exists(Global.utilisateurActuel.Path_Image))
             {
                 picboxUtilisateur.Image = Image.FromFile(Global.utilisateurActuel.Path_Image);
+                pbxUtilisateur2.Image = Image.FromFile(Global.utilisateurActuel.Path_Image);
             }
             else
             {
                 //picboxUtilisateur.Image = Image.FromFile(Global.centre.PathImage);
             }
             lblNomUtilisateur.Text = Global.utilisateurActuel.Nom_Utilisateur;
+            lblNomUti2.Text = Global.utilisateurActuel.Nom_Utilisateur;
         }
 
-        private void guna2ControlBox1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            frmConnection.Close();
-        }
-
-        private void PnlUtilisateur_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void PnlUtilisateur_Leave(object sender, EventArgs e)
-        {
-            PnlUtilisateur.Visible = false;
-        }
-
-        private void btntab_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void FormMain_Load(object sender, EventArgs e)
         {
@@ -315,6 +331,7 @@ namespace OrthoGes_New_Version
             btnUti.ImageSize = new Size(45, 45);
             btnGestionCabinet.ImageSize = new Size(45, 45);
             btnproduits.ImageSize = new Size(45, 45);
+            btnDevis.ImageSize = new Size(45, 45);
             PnlButton_Click(btntab, EventArgs.Empty);
             if (Centre_Appareillage.Find(1) == null)
             {
@@ -326,6 +343,20 @@ namespace OrthoGes_New_Version
             {
                 Global.centre = Centre_Appareillage.Find(1);
             }
+            AdjustLabelPosition();
+        }
+        private void AdjustLabelPosition()
+        {
+            // Auto-size the label based on text content
+            lblNomUti2.AutoSize = true;
+
+            // Calculate the center X position relative to the picture box
+            int labelX = pbxUtilisateur2.Left + (pbxUtilisateur2.Width - lblNomUti2.Width) / 2;
+
+            // Position the label below the picture box
+            int labelY = pbxUtilisateur2.Bottom + 5; // 5 pixels gap
+
+            lblNomUti2.Location = new Point(labelX, labelY);
         }
         private void btnGestionCabinet_Click(object sender, EventArgs e)
         {
@@ -341,12 +372,12 @@ namespace OrthoGes_New_Version
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(PnlUtilisateur.Visible)
+            if (PnlUtilisateur.Visible)
             {
                 PnlUtilisateur.Visible = false;
             }
             else
-            {     
+            {
                 PnlUtilisateur.Visible = true;
             }
         }
@@ -358,6 +389,11 @@ namespace OrthoGes_New_Version
         }
 
         private void PnlUtilisateur_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void pnlSideBar_Paint(object sender, PaintEventArgs e)
         {
 
         }

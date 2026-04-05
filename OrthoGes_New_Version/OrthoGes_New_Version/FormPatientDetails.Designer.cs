@@ -52,6 +52,8 @@
             label8 = new Label();
             label2 = new Label();
             gbxPatient = new Guna.UI2.WinForms.Guna2GroupBox();
+            btnCreeAutreDoc = new Button();
+            btnCreeFicheEnseignement = new Button();
             lblEmailPatient = new Label();
             label6 = new Label();
             lblGenrePatient = new Label();
@@ -281,6 +283,8 @@
             gbxPatient.BackColor = Color.White;
             gbxPatient.BorderColor = Color.FromArgb(230, 230, 245);
             gbxPatient.BorderRadius = 7;
+            gbxPatient.Controls.Add(btnCreeAutreDoc);
+            gbxPatient.Controls.Add(btnCreeFicheEnseignement);
             gbxPatient.Controls.Add(lblEmailPatient);
             gbxPatient.Controls.Add(label6);
             gbxPatient.Controls.Add(lblGenrePatient);
@@ -315,6 +319,38 @@
             gbxPatient.TabIndex = 24;
             gbxPatient.Text = "Informations Générales";
             gbxPatient.Click += guna2GroupBox3_Click;
+            // 
+            // btnCreeAutreDoc
+            // 
+            btnCreeAutreDoc.BackColor = Color.White;
+            btnCreeAutreDoc.FlatAppearance.BorderColor = Color.FromArgb(230, 230, 245);
+            btnCreeAutreDoc.Font = new Font("Segoe UI", 11F);
+            btnCreeAutreDoc.ForeColor = Color.Black;
+            btnCreeAutreDoc.Image = Properties.Resources.icons8_cv_48;
+            btnCreeAutreDoc.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCreeAutreDoc.Location = new Point(991, 183);
+            btnCreeAutreDoc.Name = "btnCreeAutreDoc";
+            btnCreeAutreDoc.Size = new Size(58, 50);
+            btnCreeAutreDoc.TabIndex = 52;
+            btnCreeAutreDoc.UseCompatibleTextRendering = true;
+            btnCreeAutreDoc.UseVisualStyleBackColor = false;
+            btnCreeAutreDoc.Click += btnCreeAutreDoc_Click;
+            // 
+            // btnCreeFicheEnseignement
+            // 
+            btnCreeFicheEnseignement.BackColor = Color.White;
+            btnCreeFicheEnseignement.FlatAppearance.BorderColor = Color.FromArgb(230, 230, 245);
+            btnCreeFicheEnseignement.Font = new Font("Segoe UI", 11F);
+            btnCreeFicheEnseignement.ForeColor = Color.Black;
+            btnCreeFicheEnseignement.Image = Properties.Resources.icons8_resume_48;
+            btnCreeFicheEnseignement.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCreeFicheEnseignement.Location = new Point(1063, 183);
+            btnCreeFicheEnseignement.Name = "btnCreeFicheEnseignement";
+            btnCreeFicheEnseignement.Size = new Size(58, 50);
+            btnCreeFicheEnseignement.TabIndex = 51;
+            btnCreeFicheEnseignement.UseCompatibleTextRendering = true;
+            btnCreeFicheEnseignement.UseVisualStyleBackColor = false;
+            btnCreeFicheEnseignement.Click += btnCreeFicheEnseignement_Click;
             // 
             // lblEmailPatient
             // 
@@ -876,7 +912,7 @@
             rightclickDocuments.RenderStyle.SelectionForeColor = Color.White;
             rightclickDocuments.RenderStyle.SeparatorColor = Color.Gainsboro;
             rightclickDocuments.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            rightclickDocuments.Size = new Size(265, 228);
+            rightclickDocuments.Size = new Size(265, 200);
             // 
             // cmsSupprimer
             // 
@@ -1380,5 +1416,7 @@
         private ToolStripMenuItem toolStripMenuItem6;
         private ToolStripMenuItem toolStripMenuItem7;
         private ToolStripMenuItem toolStripMenuItem8;
+        private Button btnCreeFicheEnseignement;
+        private Button btnCreeAutreDoc;
     }
 }

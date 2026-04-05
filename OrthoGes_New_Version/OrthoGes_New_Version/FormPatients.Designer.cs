@@ -155,7 +155,7 @@
             guna2TileButton2.Font = new Font("Segoe UI", 10F);
             guna2TileButton2.ForeColor = Color.White;
             guna2TileButton2.Image = Properties.Resources.icons8_search_32;
-            guna2TileButton2.Location = new Point(762, 12);
+            guna2TileButton2.Location = new Point(797, 12);
             guna2TileButton2.Name = "guna2TileButton2";
             guna2TileButton2.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2TileButton2.Size = new Size(39, 36);
@@ -218,7 +218,7 @@
             label4.Font = new Font("Segoe UI", 12F);
             label4.ForeColor = Color.Black;
             label4.ImageAlign = ContentAlignment.MiddleLeft;
-            label4.Location = new Point(286, 13);
+            label4.Location = new Point(321, 13);
             label4.Name = "label4";
             label4.Size = new Size(105, 28);
             label4.TabIndex = 23;
@@ -239,7 +239,7 @@
             tbxRecherche.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             tbxRecherche.Font = new Font("Segoe UI", 10F);
             tbxRecherche.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            tbxRecherche.Location = new Point(397, 11);
+            tbxRecherche.Location = new Point(432, 11);
             tbxRecherche.Margin = new Padding(3, 4, 3, 4);
             tbxRecherche.Name = "tbxRecherche";
             tbxRecherche.PlaceholderText = "";

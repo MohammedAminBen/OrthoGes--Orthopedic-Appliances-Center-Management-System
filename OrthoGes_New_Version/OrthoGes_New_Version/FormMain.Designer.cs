@@ -30,8 +30,8 @@ namespace OrthoGes_New_Version
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -49,19 +49,26 @@ namespace OrthoGes_New_Version
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             pnlSideBar = new Guna.UI2.WinForms.Guna2Panel();
+            lblNomUti2 = new Label();
+            btnDeconnecter = new Button();
+            btnDevis = new Guna.UI2.WinForms.Guna2Button();
+            pbxUtilisateur2 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             btnproduits = new Guna.UI2.WinForms.Guna2Button();
             btnGestionCabinet = new Guna.UI2.WinForms.Guna2Button();
             btnUti = new Guna.UI2.WinForms.Guna2Button();
@@ -82,6 +89,7 @@ namespace OrthoGes_New_Version
             button3 = new Button();
             picboxUtilisateur = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             pnlSideBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbxUtilisateur2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).BeginInit();
             guna2Panel1.SuspendLayout();
             PnlUtilisateur.SuspendLayout();
@@ -92,6 +100,10 @@ namespace OrthoGes_New_Version
             // 
             pnlSideBar.BackColor = Color.White;
             pnlSideBar.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
+            pnlSideBar.Controls.Add(lblNomUti2);
+            pnlSideBar.Controls.Add(btnDeconnecter);
+            pnlSideBar.Controls.Add(btnDevis);
+            pnlSideBar.Controls.Add(pbxUtilisateur2);
             pnlSideBar.Controls.Add(btnproduits);
             pnlSideBar.Controls.Add(btnGestionCabinet);
             pnlSideBar.Controls.Add(btnUti);
@@ -102,21 +114,89 @@ namespace OrthoGes_New_Version
             pnlSideBar.Controls.Add(btntab);
             pnlSideBar.Controls.Add(guna2CirclePictureBox1);
             pnlSideBar.Controls.Add(label1);
-            pnlSideBar.CustomizableEdges = customizableEdges18;
+            pnlSideBar.CustomizableEdges = customizableEdges21;
             pnlSideBar.Dock = DockStyle.Left;
             pnlSideBar.FillColor = Color.White;
             pnlSideBar.Location = new Point(0, 0);
             pnlSideBar.Margin = new Padding(0);
             pnlSideBar.Name = "pnlSideBar";
-            pnlSideBar.ShadowDecoration.CustomizableEdges = customizableEdges19;
-            pnlSideBar.Size = new Size(244, 967);
+            pnlSideBar.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            pnlSideBar.Size = new Size(244, 1102);
             pnlSideBar.TabIndex = 3;
+            pnlSideBar.Paint += pnlSideBar_Paint;
+            // 
+            // lblNomUti2
+            // 
+            lblNomUti2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblNomUti2.AutoSize = true;
+            lblNomUti2.BackColor = Color.Transparent;
+            lblNomUti2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNomUti2.ForeColor = Color.CornflowerBlue;
+            lblNomUti2.Location = new Point(32, 1006);
+            lblNomUti2.Name = "lblNomUti2";
+            lblNomUti2.Size = new Size(185, 41);
+            lblNomUti2.TabIndex = 32;
+            lblNomUti2.Text = "Handicapia ";
+            // 
+            // btnDeconnecter
+            // 
+            btnDeconnecter.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnDeconnecter.BackColor = Color.Transparent;
+            btnDeconnecter.FlatAppearance.BorderSize = 0;
+            btnDeconnecter.FlatStyle = FlatStyle.Flat;
+            btnDeconnecter.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDeconnecter.ForeColor = Color.Red;
+            btnDeconnecter.Image = Properties.Resources.icons8_logout_48;
+            btnDeconnecter.Location = new Point(211, 1058);
+            btnDeconnecter.Name = "btnDeconnecter";
+            btnDeconnecter.Size = new Size(27, 37);
+            btnDeconnecter.TabIndex = 31;
+            btnDeconnecter.UseVisualStyleBackColor = false;
+            btnDeconnecter.Click += button3_Click;
+            // 
+            // btnDevis
+            // 
+            btnDevis.BackColor = Color.Transparent;
+            btnDevis.BorderRadius = 11;
+            btnDevis.CustomizableEdges = customizableEdges1;
+            btnDevis.DisabledState.BorderColor = Color.DarkGray;
+            btnDevis.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnDevis.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnDevis.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnDevis.FillColor = Color.Transparent;
+            btnDevis.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDevis.ForeColor = Color.FromArgb(60, 75, 94);
+            btnDevis.Image = Properties.Resources.calculating2;
+            btnDevis.ImageAlign = HorizontalAlignment.Left;
+            btnDevis.Location = new Point(7, 294);
+            btnDevis.Name = "btnDevis";
+            btnDevis.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnDevis.Size = new Size(233, 55);
+            btnDevis.TabIndex = 32;
+            btnDevis.Tag = "Devis";
+            btnDevis.Text = " Les Devis";
+            btnDevis.TextAlign = HorizontalAlignment.Left;
+            btnDevis.Click += PnlButton_Click;
+            // 
+            // pbxUtilisateur2
+            // 
+            pbxUtilisateur2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            pbxUtilisateur2.BackColor = Color.Transparent;
+            pbxUtilisateur2.ImageRotate = 0F;
+            pbxUtilisateur2.Location = new Point(49, 869);
+            pbxUtilisateur2.Name = "pbxUtilisateur2";
+            pbxUtilisateur2.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            pbxUtilisateur2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            pbxUtilisateur2.Size = new Size(142, 134);
+            pbxUtilisateur2.SizeMode = PictureBoxSizeMode.Zoom;
+            pbxUtilisateur2.TabIndex = 30;
+            pbxUtilisateur2.TabStop = false;
             // 
             // btnproduits
             // 
             btnproduits.BackColor = Color.Transparent;
             btnproduits.BorderRadius = 11;
-            btnproduits.CustomizableEdges = customizableEdges1;
+            btnproduits.CustomizableEdges = customizableEdges4;
             btnproduits.DisabledState.BorderColor = Color.DarkGray;
             btnproduits.DisabledState.CustomBorderColor = Color.DarkGray;
             btnproduits.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -126,9 +206,9 @@ namespace OrthoGes_New_Version
             btnproduits.ForeColor = Color.FromArgb(60, 75, 94);
             btnproduits.Image = Properties.Resources.wheelchair;
             btnproduits.ImageAlign = HorizontalAlignment.Left;
-            btnproduits.Location = new Point(7, 434);
+            btnproduits.Location = new Point(7, 492);
             btnproduits.Name = "btnproduits";
-            btnproduits.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnproduits.ShadowDecoration.CustomizableEdges = customizableEdges5;
             btnproduits.Size = new Size(233, 55);
             btnproduits.TabIndex = 31;
             btnproduits.Tag = "produits";
@@ -140,7 +220,7 @@ namespace OrthoGes_New_Version
             // 
             btnGestionCabinet.BackColor = Color.Transparent;
             btnGestionCabinet.BorderRadius = 11;
-            btnGestionCabinet.CustomizableEdges = customizableEdges3;
+            btnGestionCabinet.CustomizableEdges = customizableEdges6;
             btnGestionCabinet.DisabledState.BorderColor = Color.DarkGray;
             btnGestionCabinet.DisabledState.CustomBorderColor = Color.DarkGray;
             btnGestionCabinet.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -150,9 +230,9 @@ namespace OrthoGes_New_Version
             btnGestionCabinet.ForeColor = Color.FromArgb(60, 75, 94);
             btnGestionCabinet.Image = Properties.Resources.company;
             btnGestionCabinet.ImageAlign = HorizontalAlignment.Left;
-            btnGestionCabinet.Location = new Point(3, 570);
+            btnGestionCabinet.Location = new Point(7, 624);
             btnGestionCabinet.Name = "btnGestionCabinet";
-            btnGestionCabinet.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnGestionCabinet.ShadowDecoration.CustomizableEdges = customizableEdges7;
             btnGestionCabinet.Size = new Size(233, 55);
             btnGestionCabinet.TabIndex = 30;
             btnGestionCabinet.Tag = "Cabinet";
@@ -164,7 +244,7 @@ namespace OrthoGes_New_Version
             // 
             btnUti.BackColor = Color.Transparent;
             btnUti.BorderRadius = 11;
-            btnUti.CustomizableEdges = customizableEdges5;
+            btnUti.CustomizableEdges = customizableEdges8;
             btnUti.DisabledState.BorderColor = Color.DarkGray;
             btnUti.DisabledState.CustomBorderColor = Color.DarkGray;
             btnUti.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -174,9 +254,9 @@ namespace OrthoGes_New_Version
             btnUti.ForeColor = Color.FromArgb(60, 75, 94);
             btnUti.Image = Properties.Resources.icons8_coworking_48;
             btnUti.ImageAlign = HorizontalAlignment.Left;
-            btnUti.Location = new Point(7, 638);
+            btnUti.Location = new Point(7, 690);
             btnUti.Name = "btnUti";
-            btnUti.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btnUti.ShadowDecoration.CustomizableEdges = customizableEdges9;
             btnUti.Size = new Size(233, 55);
             btnUti.TabIndex = 29;
             btnUti.Tag = "utilisateurs";
@@ -188,7 +268,7 @@ namespace OrthoGes_New_Version
             // 
             btnfin.BackColor = Color.Transparent;
             btnfin.BorderRadius = 11;
-            btnfin.CustomizableEdges = customizableEdges7;
+            btnfin.CustomizableEdges = customizableEdges10;
             btnfin.DisabledState.BorderColor = Color.DarkGray;
             btnfin.DisabledState.CustomBorderColor = Color.DarkGray;
             btnfin.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -198,9 +278,9 @@ namespace OrthoGes_New_Version
             btnfin.ForeColor = Color.FromArgb(60, 75, 94);
             btnfin.Image = Properties.Resources.finance;
             btnfin.ImageAlign = HorizontalAlignment.Left;
-            btnfin.Location = new Point(7, 502);
+            btnfin.Location = new Point(7, 558);
             btnfin.Name = "btnfin";
-            btnfin.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btnfin.ShadowDecoration.CustomizableEdges = customizableEdges11;
             btnfin.Size = new Size(233, 55);
             btnfin.TabIndex = 28;
             btnfin.Tag = "financement";
@@ -212,7 +292,7 @@ namespace OrthoGes_New_Version
             // 
             btnaccord.BackColor = Color.Transparent;
             btnaccord.BorderRadius = 11;
-            btnaccord.CustomizableEdges = customizableEdges9;
+            btnaccord.CustomizableEdges = customizableEdges12;
             btnaccord.DisabledState.BorderColor = Color.DarkGray;
             btnaccord.DisabledState.CustomBorderColor = Color.DarkGray;
             btnaccord.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -222,9 +302,9 @@ namespace OrthoGes_New_Version
             btnaccord.ForeColor = Color.FromArgb(60, 75, 94);
             btnaccord.Image = Properties.Resources.stamped;
             btnaccord.ImageAlign = HorizontalAlignment.Left;
-            btnaccord.Location = new Point(7, 366);
+            btnaccord.Location = new Point(7, 426);
             btnaccord.Name = "btnaccord";
-            btnaccord.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            btnaccord.ShadowDecoration.CustomizableEdges = customizableEdges13;
             btnaccord.Size = new Size(233, 55);
             btnaccord.TabIndex = 26;
             btnaccord.Tag = "accords";
@@ -236,7 +316,7 @@ namespace OrthoGes_New_Version
             // 
             btnfacture.BackColor = Color.Transparent;
             btnfacture.BorderRadius = 11;
-            btnfacture.CustomizableEdges = customizableEdges11;
+            btnfacture.CustomizableEdges = customizableEdges14;
             btnfacture.DisabledState.BorderColor = Color.DarkGray;
             btnfacture.DisabledState.CustomBorderColor = Color.DarkGray;
             btnfacture.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -246,9 +326,9 @@ namespace OrthoGes_New_Version
             btnfacture.ForeColor = Color.FromArgb(60, 75, 94);
             btnfacture.Image = Properties.Resources.medical_bill__1_;
             btnfacture.ImageAlign = HorizontalAlignment.Left;
-            btnfacture.Location = new Point(7, 298);
+            btnfacture.Location = new Point(7, 360);
             btnfacture.Name = "btnfacture";
-            btnfacture.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            btnfacture.ShadowDecoration.CustomizableEdges = customizableEdges15;
             btnfacture.Size = new Size(233, 55);
             btnfacture.TabIndex = 25;
             btnfacture.Tag = "factures";
@@ -260,7 +340,7 @@ namespace OrthoGes_New_Version
             // 
             btnpatient.BackColor = Color.Transparent;
             btnpatient.BorderRadius = 11;
-            btnpatient.CustomizableEdges = customizableEdges13;
+            btnpatient.CustomizableEdges = customizableEdges16;
             btnpatient.DisabledState.BorderColor = Color.DarkGray;
             btnpatient.DisabledState.CustomBorderColor = Color.DarkGray;
             btnpatient.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -270,9 +350,9 @@ namespace OrthoGes_New_Version
             btnpatient.ForeColor = Color.FromArgb(60, 75, 94);
             btnpatient.Image = Properties.Resources.crowd;
             btnpatient.ImageAlign = HorizontalAlignment.Left;
-            btnpatient.Location = new Point(7, 230);
+            btnpatient.Location = new Point(7, 228);
             btnpatient.Name = "btnpatient";
-            btnpatient.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            btnpatient.ShadowDecoration.CustomizableEdges = customizableEdges17;
             btnpatient.Size = new Size(233, 55);
             btnpatient.TabIndex = 24;
             btnpatient.Tag = "patients";
@@ -284,7 +364,7 @@ namespace OrthoGes_New_Version
             // 
             btntab.BackColor = Color.Transparent;
             btntab.BorderRadius = 11;
-            btntab.CustomizableEdges = customizableEdges15;
+            btntab.CustomizableEdges = customizableEdges18;
             btntab.DisabledState.BorderColor = Color.DarkGray;
             btntab.DisabledState.CustomBorderColor = Color.DarkGray;
             btntab.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -296,7 +376,7 @@ namespace OrthoGes_New_Version
             btntab.ImageAlign = HorizontalAlignment.Left;
             btntab.Location = new Point(7, 162);
             btntab.Name = "btntab";
-            btntab.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            btntab.ShadowDecoration.CustomizableEdges = customizableEdges19;
             btntab.Size = new Size(233, 55);
             btntab.TabIndex = 23;
             btntab.Tag = "tabdebord";
@@ -311,7 +391,7 @@ namespace OrthoGes_New_Version
             guna2CirclePictureBox1.ImageRotate = 0F;
             guna2CirclePictureBox1.Location = new Point(48, -34);
             guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
-            guna2CirclePictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges17;
+            guna2CirclePictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges20;
             guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             guna2CirclePictureBox1.Size = new Size(140, 165);
             guna2CirclePictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -338,10 +418,10 @@ namespace OrthoGes_New_Version
             guna2Panel1.Controls.Add(button2);
             guna2Panel1.Controls.Add(guna2ControlBox3);
             guna2Panel1.Controls.Add(guna2ControlBox1);
-            guna2Panel1.CustomizableEdges = customizableEdges26;
+            guna2Panel1.CustomizableEdges = customizableEdges29;
             guna2Panel1.Location = new Point(1547, 0);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges27;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges30;
             guna2Panel1.Size = new Size(207, 52);
             guna2Panel1.TabIndex = 5;
             // 
@@ -350,12 +430,12 @@ namespace OrthoGes_New_Version
             guna2ControlBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2ControlBox2.BackColor = Color.Transparent;
             guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            guna2ControlBox2.CustomizableEdges = customizableEdges20;
+            guna2ControlBox2.CustomizableEdges = customizableEdges23;
             guna2ControlBox2.FillColor = Color.Transparent;
             guna2ControlBox2.IconColor = Color.Gray;
             guna2ControlBox2.Location = new Point(106, 4);
             guna2ControlBox2.Name = "guna2ControlBox2";
-            guna2ControlBox2.ShadowDecoration.CustomizableEdges = customizableEdges21;
+            guna2ControlBox2.ShadowDecoration.CustomizableEdges = customizableEdges24;
             guna2ControlBox2.Size = new Size(44, 40);
             guna2ControlBox2.TabIndex = 47;
             // 
@@ -378,12 +458,12 @@ namespace OrthoGes_New_Version
             guna2ControlBox3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2ControlBox3.BackColor = Color.Transparent;
             guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            guna2ControlBox3.CustomizableEdges = customizableEdges22;
+            guna2ControlBox3.CustomizableEdges = customizableEdges25;
             guna2ControlBox3.FillColor = Color.Transparent;
             guna2ControlBox3.IconColor = Color.Gray;
             guna2ControlBox3.Location = new Point(55, 4);
             guna2ControlBox3.Name = "guna2ControlBox3";
-            guna2ControlBox3.ShadowDecoration.CustomizableEdges = customizableEdges23;
+            guna2ControlBox3.ShadowDecoration.CustomizableEdges = customizableEdges26;
             guna2ControlBox3.Size = new Size(44, 40);
             guna2ControlBox3.TabIndex = 2;
             // 
@@ -391,12 +471,12 @@ namespace OrthoGes_New_Version
             // 
             guna2ControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2ControlBox1.BackColor = Color.Transparent;
-            guna2ControlBox1.CustomizableEdges = customizableEdges24;
+            guna2ControlBox1.CustomizableEdges = customizableEdges27;
             guna2ControlBox1.FillColor = Color.Transparent;
             guna2ControlBox1.IconColor = Color.Gray;
             guna2ControlBox1.Location = new Point(156, 4);
             guna2ControlBox1.Name = "guna2ControlBox1";
-            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges25;
+            guna2ControlBox1.ShadowDecoration.CustomizableEdges = customizableEdges28;
             guna2ControlBox1.Size = new Size(44, 40);
             guna2ControlBox1.TabIndex = 0;
             guna2ControlBox1.Click += guna2ControlBox1_Click_1;
@@ -411,11 +491,11 @@ namespace OrthoGes_New_Version
             PnlUtilisateur.Controls.Add(lblNomUtilisateur);
             PnlUtilisateur.Controls.Add(button3);
             PnlUtilisateur.Controls.Add(picboxUtilisateur);
-            PnlUtilisateur.CustomizableEdges = customizableEdges29;
+            PnlUtilisateur.CustomizableEdges = customizableEdges32;
             PnlUtilisateur.FillColor = Color.White;
             PnlUtilisateur.Location = new Point(1479, 54);
             PnlUtilisateur.Name = "PnlUtilisateur";
-            PnlUtilisateur.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            PnlUtilisateur.ShadowDecoration.CustomizableEdges = customizableEdges33;
             PnlUtilisateur.Size = new Size(190, 249);
             PnlUtilisateur.TabIndex = 6;
             PnlUtilisateur.Visible = false;
@@ -453,10 +533,11 @@ namespace OrthoGes_New_Version
             // picboxUtilisateur
             // 
             picboxUtilisateur.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            picboxUtilisateur.BackColor = Color.Transparent;
             picboxUtilisateur.ImageRotate = 0F;
             picboxUtilisateur.Location = new Point(27, 7);
             picboxUtilisateur.Name = "picboxUtilisateur";
-            picboxUtilisateur.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            picboxUtilisateur.ShadowDecoration.CustomizableEdges = customizableEdges31;
             picboxUtilisateur.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             picboxUtilisateur.Size = new Size(137, 134);
             picboxUtilisateur.SizeMode = PictureBoxSizeMode.Zoom;
@@ -467,7 +548,7 @@ namespace OrthoGes_New_Version
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.White;
-            ClientSize = new Size(1754, 967);
+            ClientSize = new Size(1754, 1102);
             Controls.Add(PnlUtilisateur);
             Controls.Add(guna2Panel1);
             Controls.Add(pnlSideBar);
@@ -480,6 +561,7 @@ namespace OrthoGes_New_Version
             Load += FormMain_Load;
             pnlSideBar.ResumeLayout(false);
             pnlSideBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbxUtilisateur2).EndInit();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox1).EndInit();
             guna2Panel1.ResumeLayout(false);
             PnlUtilisateur.ResumeLayout(false);
@@ -520,6 +602,10 @@ namespace OrthoGes_New_Version
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button btnproduits;
         private Label lblNomUtilisateur;
+        private Guna.UI2.WinForms.Guna2Button btnDevis;
+        private Label lblNomUti2;
+        private Button btnDeconnecter;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox pbxUtilisateur2;
     }
 }
 
