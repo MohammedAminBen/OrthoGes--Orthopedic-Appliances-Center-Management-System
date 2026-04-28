@@ -24,12 +24,16 @@ namespace OrthoGes_New_Version
         private bool _suppressSearch2 = false;
         private bool _suppressSearch3 = false;
         private DataTable communes = new DataTable();
+
+        private string num_Devis = "";
+
         public static List<(string Reference, string Description, int Quantity)> Produits { get; set; } = new();
 
-        public FormCreationAccord(string numero_patient)
+        public FormCreationAccord(string numero_patient, string num_Devis = "")
         {
             InitializeComponent();
             Numero_Patient = numero_patient;
+            this.num_Devis = num_Devis;
         }
 
         private void AssuredCheckedConfig()
@@ -60,6 +64,8 @@ namespace OrthoGes_New_Version
         {
             patient = Patient.FindByNumeroPatient(Numero_Patient);
             tbxDate.Text = DateTime.Now.Date.ToString("d");
+
+
             if (patient == null)
             {
                 MessageBox.Show("Error when trying to identify the patient");
@@ -84,7 +90,6 @@ namespace OrthoGes_New_Version
                     assure = Assure.FindByID(patient.AssureID);
                     if (assure != null)
                     {
-
                         tbxNomPatient.Text = person.Nom;
                         tbxPrenomPatient.Text = person.Prenom;
                         if (person.DateNaissance != DateTime.MinValue)
@@ -103,7 +108,7 @@ namespace OrthoGes_New_Version
                 else // patient is NOT insured
                 {
                     // Get the assure (the insurance holder)
-                    if (patient.est_Assure > 0)
+                    if (patient.AssureID > 0)
                     {
                         assure = Assure.FindByID(patient.AssureID);
 
@@ -151,7 +156,6 @@ namespace OrthoGes_New_Version
                         MessageBox.Show("No assure ID associated with this patient");
                         ClearAddressFields();
                     }
-
                     // Set patient information
                     if (person != null)
                     {
@@ -167,13 +171,61 @@ namespace OrthoGes_New_Version
                         }
                     }
                 }
+
+                if (num_Devis != "")
+                {
+                    Devis devis = Devis.FindByNumeroDevis(num_Devis);
+                    tbxReference.Text = devis.Produits[0].Reference;
+                    tbxQuantity.Text = devis.Produits[0].Quantity.ToString();
+                    tbxDesignation.Text = Produit.FindByReference(devis.Produits[0].Reference).Nom_Produit;
+                    dgvProduits.Visible = false;
+                    dgvDesignation.Visible = false;
+
+
+                    if (patient.est_Assure == 1)
+                    {
+                        tbxCentrePayeurPatient.Text = devis.Centre_Payeur;
+                    }
+                    else
+                    {
+                        tbxCentrePayeurAssure.Text = devis.Centre_Payeur;
+                    }
+
+                    if (devis.Produits.Count > 1)
+                    {
+                        pnlProduit2.Visible = true;
+                        tbxReference2.Text = devis.Produits[1].Reference;
+                        tbxQuantity2.Text = devis.Produits[1].Quantity.ToString();
+
+                        tbxDesignation2.Text = Produit.FindByReference(devis.Produits[1].Reference).Nom_Produit;
+
+
+
+
+                        dgvProduit2.Visible = false;
+                        dgvDesignation2.Visible = false;
+                    }
+
+                    if (devis.Produits.Count > 2)
+                    {
+                        pnlProduit3.Visible = true;
+                        tbxReference3.Text = devis.Produits[2].Reference;
+                        tbxQuantity3.Text = devis.Produits[2].Quantity.ToString();
+                        tbxDesignation3.Text = Produit.FindByReference(devis.Produits[2].Reference).Nom_Produit;
+
+                        dgvDesignation3.Visible = false;
+                        dgvProduits3.Visible = false;
+                    }
+                }
             }
+
         }
         private void FormCreationDevis_Load(object sender, EventArgs e)
         {
-            LoadData();
             pnlProduit3.Visible = false;
             pnlProduit2.Visible = false;
+            LoadData();
+
         }
 
         private void btnAnnuler_Click(object sender, EventArgs e)

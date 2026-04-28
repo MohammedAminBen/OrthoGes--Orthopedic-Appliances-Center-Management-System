@@ -20,6 +20,7 @@ namespace OrthoGes_New_Version
     public partial class FormImprimerRecouvrementListe : Form
     {
         private DataTable dtRecouvrementList;
+
         public FormImprimerRecouvrementListe()
         {
             InitializeComponent();

@@ -17,7 +17,8 @@ namespace PDFTemplate
             string telephone,
             string wilaya,
             string commune,
-            string dateDevis)
+            string dateDevis,
+            List<(string Reference, string designation)> Produits)
         {
             return Document.Create(container =>
             {
@@ -87,6 +88,44 @@ namespace PDFTemplate
                         RowItem("DATE D'INSCRIPTION:",dateDevis);
 
                         // ===== DIAGNOSTIC =====
+                        // ===== PRODUITS =====
+                        if (Produits != null && Produits.Count > 0)
+                        {
+                            col.Item().PaddingTop(20).PaddingBottom(10)
+                                .Text("--- PRODUITS ---")
+                                .FontColor(BrandColor)
+                                .Bold();
+
+                            col.Item().Table(table =>
+                            {
+                                // Define columns
+                                table.ColumnsDefinition(columns =>
+                                {
+                                    columns.ConstantColumn(120); // Reference
+                                    columns.RelativeColumn();    // Designation
+                                });
+
+                                // ===== HEADER =====
+                                table.Header(header =>
+                                {
+                                    header.Cell().Background(BrandColor).Padding(5)
+                                        .Text("RÉFÉRENCE").FontColor(Colors.White).Bold();
+
+                                    header.Cell().Background(BrandColor).Padding(5)
+                                        .Text("DÉSIGNATION").FontColor(Colors.White).Bold();
+                                });
+
+                                // ===== DATA =====
+                                foreach (var produit in Produits)
+                                {
+                                    table.Cell().BorderBottom(1).Padding(5)
+                                        .Text(produit.Reference);
+
+                                    table.Cell().BorderBottom(1).Padding(5)
+                                        .Text(produit.designation);
+                                }
+                            });
+                        }
 
                         // ===== FOOTER =====
                         col.Item().PaddingTop(40).AlignCenter().Text($"© {DateTime.Now.Year} EURL HANDICAPIA")

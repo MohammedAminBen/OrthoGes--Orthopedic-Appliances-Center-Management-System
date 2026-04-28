@@ -34,8 +34,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -150,6 +148,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges94 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges95 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges96 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormModifierDevis));
             lblInscription = new Label();
             gbxAssure = new Guna.UI2.WinForms.Guna2GroupBox();
@@ -157,7 +157,6 @@
             tbxCentrePayeurAssure = new Guna.UI2.WinForms.Guna2TextBox();
             tbxDateNaiAssure = new Guna.UI2.WinForms.Guna2TextBox();
             label5 = new Label();
-            tbxCaisseAssure = new Guna.UI2.WinForms.Guna2TextBox();
             label10 = new Label();
             tbxNumAssAssure = new Guna.UI2.WinForms.Guna2TextBox();
             label11 = new Label();
@@ -268,6 +267,7 @@
             label40 = new Label();
             tbxMontant = new Guna.UI2.WinForms.Guna2TextBox();
             pictureBox4 = new PictureBox();
+            tbxCaisseAssure = new Guna.UI2.WinForms.Guna2TextBox();
             gbxAssure.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             gbxpatient.SuspendLayout();
@@ -408,31 +408,6 @@
             label5.Size = new Size(72, 25);
             label5.TabIndex = 72;
             label5.Text = "Caisse :";
-            // 
-            // tbxCaisseAssure
-            // 
-            tbxCaisseAssure.BackColor = Color.White;
-            tbxCaisseAssure.BorderColor = Color.Black;
-            tbxCaisseAssure.BorderRadius = 6;
-            tbxCaisseAssure.Cursor = Cursors.IBeam;
-            tbxCaisseAssure.CustomizableEdges = customizableEdges5;
-            tbxCaisseAssure.DefaultText = "";
-            tbxCaisseAssure.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            tbxCaisseAssure.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            tbxCaisseAssure.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            tbxCaisseAssure.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            tbxCaisseAssure.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            tbxCaisseAssure.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbxCaisseAssure.ForeColor = Color.FromArgb(64, 64, 64);
-            tbxCaisseAssure.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            tbxCaisseAssure.Location = new Point(18, 224);
-            tbxCaisseAssure.Margin = new Padding(3, 4, 3, 4);
-            tbxCaisseAssure.Name = "tbxCaisseAssure";
-            tbxCaisseAssure.PlaceholderText = "";
-            tbxCaisseAssure.SelectedText = "";
-            tbxCaisseAssure.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            tbxCaisseAssure.Size = new Size(256, 37);
-            tbxCaisseAssure.TabIndex = 73;
             // 
             // label10
             // 
@@ -2795,6 +2770,31 @@
             pictureBox4.TabIndex = 11;
             pictureBox4.TabStop = false;
             // 
+            // tbxCaisseAssure
+            // 
+            tbxCaisseAssure.BackColor = Color.White;
+            tbxCaisseAssure.BorderColor = Color.Black;
+            tbxCaisseAssure.BorderRadius = 6;
+            tbxCaisseAssure.Cursor = Cursors.IBeam;
+            tbxCaisseAssure.CustomizableEdges = customizableEdges5;
+            tbxCaisseAssure.DefaultText = "";
+            tbxCaisseAssure.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            tbxCaisseAssure.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            tbxCaisseAssure.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            tbxCaisseAssure.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            tbxCaisseAssure.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbxCaisseAssure.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbxCaisseAssure.ForeColor = Color.FromArgb(64, 64, 64);
+            tbxCaisseAssure.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            tbxCaisseAssure.Location = new Point(18, 224);
+            tbxCaisseAssure.Margin = new Padding(3, 4, 3, 4);
+            tbxCaisseAssure.Name = "tbxCaisseAssure";
+            tbxCaisseAssure.PlaceholderText = "";
+            tbxCaisseAssure.SelectedText = "";
+            tbxCaisseAssure.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            tbxCaisseAssure.Size = new Size(256, 37);
+            tbxCaisseAssure.TabIndex = 73;
+            // 
             // FormModifierDevis
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
@@ -2859,7 +2859,6 @@
         private Guna.UI2.WinForms.Guna2GroupBox gbxAssure;
         private Guna.UI2.WinForms.Guna2TextBox tbxDateNaiAssure;
         private System.Windows.Forms.Label label5;
-        private Guna.UI2.WinForms.Guna2TextBox tbxCaisseAssure;
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2TextBox tbxNumAssAssure;
         private System.Windows.Forms.Label label11;
@@ -2972,5 +2971,6 @@
         private Label label40;
         private Guna.UI2.WinForms.Guna2TextBox tbxMontant;
         private PictureBox pictureBox4;
+        private Guna.UI2.WinForms.Guna2TextBox tbxCaisseAssure;
     }
 }

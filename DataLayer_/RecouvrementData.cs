@@ -287,7 +287,9 @@ GROUP BY
     f.Date_Facture,
     r.Montant_TTC,
     r.etat_Payement
-ORDER BY f.Date_Facture;";
+ORDER BY 
+    TRY_CAST(SUBSTRING(r.Numero_Facture, CHARINDEX('/', r.Numero_Facture) + 1, LEN(r.Numero_Facture)) AS INT) ASC,
+    TRY_CAST(LEFT(r.Numero_Facture, CHARINDEX('/', r.Numero_Facture) - 1) AS INT) ASC";
 
             try
             {

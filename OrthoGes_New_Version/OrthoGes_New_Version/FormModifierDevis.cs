@@ -912,6 +912,7 @@ namespace OrthoGes_New_Version
                     DateTime.Parse(tbxDate.Text),
                     decimal.Parse(tbxTotale.Text),
                     tbxCentrePayeurPatient.Text);
+
                 }
                 else
                 {

@@ -74,5 +74,9 @@ namespace CodeSourceLayer_
         {
             return ProduitData.GetAllCategories();
         }
+        public static DataTable GetAllProduitsDePatient(string nUmero_patient)
+        {
+            return DataLayer_.ProduitData.GetAllProduitsDePatient(nUmero_patient);
+        }
     }
 }

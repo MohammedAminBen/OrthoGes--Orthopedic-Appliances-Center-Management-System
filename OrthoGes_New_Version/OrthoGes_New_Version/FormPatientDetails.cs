@@ -1063,8 +1063,19 @@ namespace OrthoGes_New_Version
             QuestPDF.Settings.License = LicenseType.Community;
 
             Document document;
+            DataTable dataTable = Produit.GetAllProduitsDePatient(lblNumPatient.Text);
 
-            document = PDFFicheEnseignement.Generate(lblNumPatient.Text, person.Nom, person.Prenom, lblDateNaiPatient.Text, lblTelephonePatient.Text, person.Wilaya, person.Commune, lblDateDinscriptionPatient.Text);
+            List<(string Reference, string designation)> produits = new List<(string Reference, string designation)>();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                produits.Add((
+                    row["References_Produits"]?.ToString() ?? "",
+                    row["Nom_Produit"]?.ToString() ?? ""
+                ));
+            }
+
+            document = PDFFicheEnseignement.Generate(lblNumPatient.Text, person.Nom, person.Prenom, lblDateNaiPatient.Text, lblTelephonePatient.Text, person.Wilaya, person.Commune, lblDateDinscriptionPatient.Text, produits);
 
             // ✅ Set save path
             string doc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -1120,6 +1131,13 @@ namespace OrthoGes_New_Version
                 FileName = filePath,
                 UseShellExecute = true
             });
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            FormCreationAccord accord = new FormCreationAccord(Numero_Patient, dgvDocuments.CurrentRow.Cells[2].Value.ToString());
+            accord.ShowDialog();
+            FillDgvAccordWithData();
         }
     }
 }

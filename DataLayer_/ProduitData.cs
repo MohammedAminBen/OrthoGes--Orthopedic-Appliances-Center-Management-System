@@ -227,5 +227,50 @@ namespace DataLayer_
             return dt;
         }
 
+        public static DataTable GetAllProduitsDePatient(string numero_patient)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"   SELECT 
+CAST('Devis' AS VARCHAR(20)) AS Document_Type,
+      d.Numero_Devis AS Numéro,
+	  dp.Reference_Produit AS References_Produits,
+	  p.Nom_Produit
+FROM D_Devis d
+LEFT JOIN D_Devis_Produits dp
+ON d.Numero_Devis = dp.Numero_Devis
+LEFT JOIN R_Produit p ON dp.Reference_Produit = p.Reference
+WHERE d.Numero_Patient = @Numero_Patient
+GROUP BY 
+    d.Numero_Devis,
+	dp.Reference_Produit,
+	p.Nom_Produit";
+
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                command.Parameters.AddWithValue("@Numero_Patient", numero_patient);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error Devis :" + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+
+        }
     }
 }

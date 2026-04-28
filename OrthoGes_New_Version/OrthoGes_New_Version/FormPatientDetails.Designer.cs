@@ -122,6 +122,7 @@
             btnSupprimer = new Button();
             pictureBox2 = new PictureBox();
             lblTitle = new Label();
+            toolStripMenuItem9 = new ToolStripMenuItem();
             gbxPatient.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             gbxAssure.SuspendLayout();
@@ -901,7 +902,7 @@
             // rightclickDocuments
             // 
             rightclickDocuments.ImageScalingSize = new Size(20, 20);
-            rightclickDocuments.Items.AddRange(new ToolStripItem[] { cmsSupprimer, cmsDetails, toolStripMenuItem5, cmsImprimer, toolStripMenuItem6, toolStripMenuItem7, toolStripMenuItem8 });
+            rightclickDocuments.Items.AddRange(new ToolStripItem[] { cmsSupprimer, cmsDetails, toolStripMenuItem5, cmsImprimer, toolStripMenuItem6, toolStripMenuItem7, toolStripMenuItem8, toolStripMenuItem9 });
             rightclickDocuments.Name = "rightclickHistoriquePayement";
             rightclickDocuments.RenderStyle.ArrowColor = Color.FromArgb(151, 143, 255);
             rightclickDocuments.RenderStyle.BorderColor = Color.Gainsboro;
@@ -912,7 +913,7 @@
             rightclickDocuments.RenderStyle.SelectionForeColor = Color.White;
             rightclickDocuments.RenderStyle.SeparatorColor = Color.Gainsboro;
             rightclickDocuments.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            rightclickDocuments.Size = new Size(265, 200);
+            rightclickDocuments.Size = new Size(265, 256);
             // 
             // cmsSupprimer
             // 
@@ -1285,6 +1286,16 @@
             lblTitle.Text = "Documents      ";
             lblTitle.UseCompatibleTextRendering = true;
             // 
+            // toolStripMenuItem9
+            // 
+            toolStripMenuItem9.BackColor = Color.GhostWhite;
+            toolStripMenuItem9.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            toolStripMenuItem9.Image = Properties.Resources.icons8_signing_a_document_482;
+            toolStripMenuItem9.Name = "toolStripMenuItem9";
+            toolStripMenuItem9.Size = new Size(264, 28);
+            toolStripMenuItem9.Text = "  Créer Accord de Devis";
+            toolStripMenuItem9.Click += toolStripMenuItem9_Click;
+            // 
             // FormPatientDetails
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
@@ -1418,5 +1429,6 @@
         private ToolStripMenuItem toolStripMenuItem8;
         private Button btnCreeFicheEnseignement;
         private Button btnCreeAutreDoc;
+        private ToolStripMenuItem toolStripMenuItem9;
     }
 }
